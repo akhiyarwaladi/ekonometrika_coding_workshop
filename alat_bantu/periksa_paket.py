@@ -48,7 +48,10 @@ def main():
         assert tujuan.exists(), tujuan
         if (
             lokasi.startswith(
-                ("data/", "slide/png_regresi/", "gambar/ekonometrika/", "administrasi/")
+                (
+                    "data/", "arsip/slide/png_regresi_300_dpi/",
+                    "gambar/ekonometrika/", "administrasi/",
+                )
             )
             or lokasi == "slide/02_regresi_machine_learning.pdf"
         ):
@@ -100,8 +103,10 @@ def main():
             )
             jumlah_tautan += 1
 
-    png_files = sorted((ROOT / "slide/png_regresi").glob("*.png"))
-    assert len(png_files) == 31
+    folder_lama = ROOT / "arsip/slide/png_regresi_300_dpi"
+    png_files = sorted(folder_lama.glob("*.png"))
+    if folder_lama.exists():
+        assert len(png_files) == 31
     for i, path in enumerate(png_files, 1):
         assert path.name == f"halaman_{i:02d}.png"
         with Image.open(path) as gambar:
@@ -138,7 +143,11 @@ def main():
         "- 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.",
         "- Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.",
         f"- {jumlah_tautan} tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.",
-        "- 31 PNG slide berurutan; ukuran 3000 × 1688 piksel dan metadata 300 dpi.",
+        (
+            "- 31 PNG lama berukuran 3000 × 1688 piksel, 300 dpi, tersimpan di arsip lokal."
+            if png_files
+            else "- PNG lama 300 dpi tidak disertakan dalam repositori; ekspor aktif memakai versi tajam."
+        ),
         "- 31 PNG tajam berurutan; ukuran 6000 × 3375 piksel dan metadata 600 dpi; isi ZIP sama persis dengan PNG terpisah.",
         "",
         "## Eksekusi notebook",
@@ -179,7 +188,7 @@ def main():
     ]
     (ROOT / "laporan/penataan_folder.md").write_text("\n".join(lines), encoding="utf-8")
     print(
-        f"PASS: {len(pemetaan) - lokal_saja} lokasi, {terlindungi} hash, {len(notebooks)} notebook, {jumlah_tautan} tautan, 31 PNG awal dan 31 PNG tajam."
+        f"PASS: {len(pemetaan) - lokal_saja} lokasi, {terlindungi} hash, {len(notebooks)} notebook, {jumlah_tautan} tautan, 31 PNG tajam dan ZIP."
     )
 
 

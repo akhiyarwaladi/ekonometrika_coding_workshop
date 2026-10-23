@@ -44,6 +44,8 @@ Seluruh 31 PNG diperiksa ukuran, format RGB, keterbacaan berkas, serta metadata 
 Halaman yang diubah dirender dan diperiksa secara visual untuk mendeteksi
 teks terpotong, tumpukan rumus, dan tabel yang bertabrakan dengan kode.
 PDF sumber dan seluruh 31 PNG lama diperiksa dengan SHA-256 dan tetap sama.
+PNG lama dipindahkan ke arsip lokal `arsip/slide/png_regresi_300_dpi/`, sehingga
+folder slide aktif hanya memuat PNG versi tajam.
 Enam blok kode yang ditampilkan diuji eksekusinya. Contoh Temperature diuji
 dengan lima baris contoh yang terlihat pada slide; tabel koefisien historisnya
 tetap mengikuti sumber. Kode VIF diuji pada 13 fitur Housing. Angka R² dan RMSE
@@ -55,3 +57,5 @@ resolusi gambar asal. Perbaikan utama pada versi ini adalah kode, tabel kecil,
 rumus yang diganti, dan seluruh teks asli PDF yang dirender ulang pada 600 dpi.
 
 Untuk membuat ulang, jalankan `python alat_bantu/ekspor_slide_tajam.py` dari folder utama.
+ZIP PNG diperbarui otomatis setelah ekspor selesai. Untuk mengemas kembali gambar
+yang sudah ada, jalankan `python alat_bantu/kemas_png.py`.

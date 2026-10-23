@@ -6,12 +6,16 @@ Anda cukup mengubah contoh yang sudah tersedia.
 
 ## Berkas yang dibuka peserta
 
-1. Buka Google Colab dan pilih **File > Upload notebook**.
-2. Unggah `materi/01_ekonometrika/00_persiapan_colab.ipynb`. Nama folder menunjukkan
-   pengelompokan materi; peserta pemula juga mulai dari notebook ini.
+1. Unduh [data_tutorial.zip](../paket/data_tutorial.zip) ke komputer.
+2. [Buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb)
+   dan simpan salinan ke Google Drive. Tautan untuk sesi berikutnya ada pada
+   [daftar materi](00_daftar_materi.md).
 3. Di panel **Files** sebelah kiri, unggah [data_tutorial.zip](../paket/data_tutorial.zip) dari folder `paket/`.
 4. Jalankan kotak kode pertama dengan `Shift + Enter`. Tunggu sampai selesai.
 5. Setelah tulisan **Data siap** muncul, lanjutkan kotak berikutnya.
+
+Jika sudah mempunyai berkas `.ipynb` di komputer, notebook juga bisa dibuka
+melalui **File > Upload notebook**. Urutan pengerjaannya tetap sama.
 
 Notebook adalah lembar kerja yang berisi penjelasan, kotak kode (sel), dan
 hasil. Penjelasan dibaca; sel kode dijalankan. Angka dalam kurung siku di

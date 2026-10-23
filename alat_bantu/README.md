@@ -9,6 +9,7 @@ Untuk perkakas pengelola, pasang tambahan dengan
 |---|---|
 | `python alat_bantu/konversi_notebook.py` | Membuat 22 notebook dari sumber `.py`, termasuk kunci jawaban. Output lama dikosongkan. |
 | `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` dari 59 CSV dan `metode_lanjutan.py`. |
+| `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `paket/png_regresi_tajam.zip`. |
 | `python alat_bantu/uji_notebook.py` | Memeriksa sinkronisasi, keterbacaan kode, dan eksekusi seluruh notebook dari folder utama. |
 | `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji data ditemukan dari folder masing-masing notebook. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Menguji setiap notebook pada folder kosong yang hanya berisi paket ZIP. |
@@ -17,7 +18,7 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | `python alat_bantu/periksa_paket.py` | Memeriksa nama, tautan, hash data, kesesuaian ZIP, dan pasangan notebook; menyimpan laporan penataan. |
 | `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `gambar/ekonometrika/`. |
 | `python alat_bantu/buat_slide.py` | Membuat ulang `slide/01_pengantar_workshop.pptx`. |
-| `python alat_bantu/ekspor_slide_tajam.py` | Membuat PDF vektor yang diperjelas dan 31 PNG 6K di `slide/png_regresi_tajam/`, tanpa menimpa ekspor sebelumnya. |
+| `python alat_bantu/ekspor_slide_tajam.py` | Membuat 31 PNG 6K di `slide/png_regresi_tajam/`, memperbarui ZIP PNG, dan menyimpan PDF vektor pendamping. |
 | `python alat_bantu/buat_data_simulasi.py` | Menulis ulang 17 CSV simulasi dari tabel yang tercantum dalam skrip. |
 | `python alat_bantu/unduh_data_indonesia.py` | Memperbarui data dari sumber daring; memerlukan internet dan dapat mengubah isi CSV. |
 

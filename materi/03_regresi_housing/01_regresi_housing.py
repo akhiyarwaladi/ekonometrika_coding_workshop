@@ -760,7 +760,7 @@ plt.show()
 #
 # ### Rujukan
 #
-# - Slide pendamping: **slide/02_regresi_machine_learning.pdf**, terutama slide 17-30.
+# - Gambar slide: **slide/png_regresi_tajam/**, terutama halaman 17-30 (6000 × 3375 piksel).
 # - [Definisi variabel Boston Housing, Carnegie Mellon](https://lib.stat.cmu.edu/datasets/boston).
 # - [Catatan dataset Boston Housing, scikit-learn](https://scikit-learn.org/1.1/modules/generated/sklearn.datasets.load_boston.html).
 # - [Pencegahan data leakage, scikit-learn](https://scikit-learn.org/stable/common_pitfalls.html).

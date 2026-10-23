@@ -222,7 +222,7 @@ Buat ulang dengan `python alat_bantu/buat_slide.py`.
 
 [Notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb)
 melengkapi contoh ekonometrika dengan supervised learning sesuai
-[slide regresi](../slide/02_regresi_machine_learning.pdf). Data tambahan
+[slide regresi versi tajam](../slide/png_regresi_tajam/). Data tambahan
 `data/housing.csv` memuat 506 baris dan 14 kolom; total paket menjadi 59 CSV.
 Notebook mencakup pembagian train/test, imputasi berdasarkan train, regresi
 sederhana dan berganda, VIF, RMSE, R², prediksi baru, serta validasi

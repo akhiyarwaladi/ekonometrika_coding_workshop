@@ -26,10 +26,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
+from kemas_png import kemas_png
+
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "slide/02_regresi_machine_learning.pdf"
 PDF_OUT = ROOT / "slide/03_regresi_machine_learning_tajam.pdf"
 PNG_OUT = ROOT / "slide/png_regresi_tajam"
+PNG_LAMA = ROOT / "arsip/slide/png_regresi_300_dpi"
 DPI = 600
 BG = (247 / 255, 247 / 255, 247 / 255)
 
@@ -345,7 +348,7 @@ def main():
     source_hash = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
     originals = {
         p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in (ROOT / "slide/png_regresi").glob("*.png")
+        for p in PNG_LAMA.glob("*.png")
     }
     doc = fitz.open(SOURCE)
     assert len(doc) == 31
@@ -497,16 +500,18 @@ def main():
             picture.verify()
         print(f"{output.name}: 6000 x 3375", flush=True)
     assert len(list(PNG_OUT.glob("*.png"))) == 31
+    zip_out = kemas_png()
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == source_hash
     assert originals == {
         p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in (ROOT / "slide/png_regresi").glob("*.png")
+        for p in PNG_LAMA.glob("*.png")
     }
     manifest = {
-        "pdf_sumber": str(SOURCE),
+        "pdf_sumber": SOURCE.relative_to(ROOT).as_posix(),
         "sha256_sumber": source_hash,
-        "pdf_tajam": str(PDF_OUT),
-        "folder_png": str(PNG_OUT),
+        "pdf_tajam": PDF_OUT.relative_to(ROOT).as_posix(),
+        "folder_png": PNG_OUT.relative_to(ROOT).as_posix(),
+        "zip_png": zip_out.relative_to(ROOT).as_posix(),
         "halaman": 31,
         "piksel": [6000, 3375],
         "dpi": DPI,
@@ -520,7 +525,7 @@ def main():
         json.dumps(manifest, indent=2), encoding="utf-8"
     )
     print(
-        "PASS: PDF dan 31 PNG 6K; kode vektor; sumber dan PNG lama tidak berubah.",
+        "PASS: 31 PNG 6K dan ZIP; kode vektor; sumber dan PNG lama tidak berubah.",
         flush=True,
     )
 

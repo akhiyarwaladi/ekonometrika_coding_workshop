@@ -4,22 +4,29 @@ Materi untuk pelatihan Program Studi Ekonomi Pembangunan, FEB Universitas Jambi,
 26 Oktober 2026. Tutorial dimulai dari contoh yang sudah tersedia, untuk peserta
 yang belum mempunyai pengalaman coding.
 
-## Mulai belajar
+## Pilih bahan yang dibutuhkan
 
-1. Baca [panduan pemula](panduan/01_panduan_pemula.md).
-2. Untuk ekonometrika, buka [00_persiapan_colab.ipynb](materi/01_ekonometrika/00_persiapan_colab.ipynb),
-   lalu lanjutkan sesuai nomor. Untuk praktik regresi pada slide, buka
-   [01_regresi_housing.ipynb](materi/03_regresi_housing/01_regresi_housing.ipynb).
-3. Di Google Colab, unggah notebook dan [data_tutorial.zip](paket/data_tutorial.zip)
-   lewat panel **Files**, lalu jalankan sel berurutan dengan **Shift + Enter**.
-   Di komputer sendiri, pertahankan susunan folder ini; sel persiapan menemukan
-   data secara otomatis dari folder notebook atau folder utama proyek.
+| Keperluan | Buka |
+|---|---|
+| Menampilkan slide sebagai gambar | [31 PNG tajam, 6000 × 3375 piksel](slide/png_regresi_tajam/) atau [ZIP seluruh PNG](paket/png_regresi_tajam.zip). |
+| Mulai belajar dari awal | [Panduan pemula](panduan/01_panduan_pemula.md), lalu [buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb). |
+| Praktik regresi mengikuti slide | [Buka notebook Housing di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb). |
+| Memilih contoh atau latihan berikutnya | [Daftar materi dan tautan Colab](panduan/00_daftar_materi.md). |
+| Menyiapkan pengajaran | [Bahan pengajar](pengajar/README.md). |
 
-Gunakan **`.ipynb` untuk mengajar dan belajar**. Berkas `.py` dengan nama yang sama
-adalah sumber penyuntingan dengan penanda sel `# %%`. Sebagian berisi `%pip` milik
-notebook; jalankan per sel di Jupyter/Colab, bukan dengan `python nama_file.py`.
-Untuk menjalankan secara lokal, pasang paket dari [requirements.txt](requirements.txt)
-ke lingkungan Python yang dipakai kernel Jupyter.
+## Langkah untuk peserta
+
+1. Unduh [data_tutorial.zip](paket/data_tutorial.zip) dari folder `paket/`.
+2. Buka notebook melalui tautan **Buka di Colab** pada [daftar materi](panduan/00_daftar_materi.md),
+   lalu simpan salinan ke Google Drive.
+3. Di panel **Files** sebelah kiri Colab, unggah `data_tutorial.zip`.
+4. Jalankan sel dari atas dengan **Shift + Enter**. Baca penjelasan dan hasil
+   sebelum beralih ke sel berikutnya.
+
+Gunakan **`.ipynb` untuk belajar dan mengajar**. Ikuti contoh di
+`materi/01_ekonometrika/`, kemudian kerjakan `materi/02_latihan/` dengan nomor
+yang sama. Praktik Housing di `materi/03_regresi_housing/` dapat dipelajari tersendiri.
+ZIP PNG dipakai untuk gambar slide; ZIP data dipakai untuk menjalankan notebook.
 
 ## Pola pemodelan
 
@@ -38,13 +45,14 @@ dan GARCH tetap memakai pustaka yang sesuai. Rinciannya ada di
 | Folder | Isi dan kegunaan |
 |---|---|
 | [panduan/](panduan/00_daftar_materi.md) | Daftar materi, cara mulai, glosarium, dan referensi. |
-| [materi/01_ekonometrika/](materi/01_ekonometrika/) | Tujuh notebook contoh ekonometrika, urutan 00–06. |
-| [materi/02_latihan/](materi/02_latihan/) | Tujuh notebook latihan dan tugas proyek mini. |
-| [materi/03_regresi_housing/](materi/03_regresi_housing/) | Praktik regresi sesuai slide dengan data Housing. |
+| [materi/](materi/README.md) | Petunjuk memilih contoh, latihan, dan praktik Housing. |
+| [materi/01_ekonometrika/](materi/01_ekonometrika/README.md) | Tujuh notebook contoh ekonometrika, urutan 00 sampai 06. |
+| [materi/02_latihan/](materi/02_latihan/README.md) | Tujuh notebook latihan dan tugas proyek mini. |
+| [materi/03_regresi_housing/](materi/03_regresi_housing/README.md) | Praktik regresi sesuai slide dengan data Housing. |
 | [data/](data/README.md) | Seluruh 59 CSV untuk tutorial. |
 | [paket/](paket/README.md) | Paket data untuk Colab dan ZIP berisi 31 PNG tajam. |
 | [slide/](slide/README.md) | Slide pembuka, PDF regresi, dan 31 PNG tajam berukuran 6000 × 3375 piksel. |
-| [gambar/](gambar/) | Grafik ekonometrika dan regresi Housing. |
+| [gambar/](gambar/README.md) | Grafik ekonometrika dan regresi Housing. |
 | [pengajar/](pengajar/README.md) | Panduan fasilitator dan tujuh notebook kunci jawaban. |
 | [alat_bantu/](alat_bantu/README.md) | Perkakas konversi, pengemasan, dan pemeriksaan. |
 | [laporan/](laporan/README.md) | Hasil uji dan peta nama lama ke nama baru. |
@@ -57,3 +65,15 @@ yang sama dengan latihan pasangannya. Nama kolom dalam CSV tetap mengikuti data 
 Lihat [daftar seluruh notebook](panduan/00_daftar_materi.md) untuk memilih sesi,
 [rincian kurikulum dan asal data](panduan/05_isi_materi_lengkap.md) untuk persiapan mengajar,
 serta [peta perubahan nama](laporan/peta_perubahan_nama.csv) untuk mencari berkas lama.
+
+## Menjalankan lokal atau menyunting materi
+
+Di Jupyter atau VS Code, buka `.ipynb` dan pertahankan susunan folder proyek.
+Pasang paket dari [requirements.txt](requirements.txt) pada lingkungan Python
+yang dipakai kernel. Sel persiapan menemukan data dari folder notebook atau
+folder utama proyek.
+
+Berkas `.py` dengan nama yang sama adalah sumber penyuntingan, dengan penanda
+sel `# %%`. Sebagian berisi perintah `%pip` milik notebook. Jalankan per sel
+di Jupyter/Colab. Cara memperbarui notebook dan memeriksa hasil ada di
+[panduan alat bantu](alat_bantu/README.md).

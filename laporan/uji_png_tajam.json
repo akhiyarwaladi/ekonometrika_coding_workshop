@@ -252,5 +252,7 @@
       "status": "PASS"
     }
   ],
-  "zip": "C:\\Users\\MyPC PRO\\Documents\\ekonometrika\\paket\\png_regresi_tajam.zip"
+  "zip": "paket/png_regresi_tajam.zip",
+  "folder_png": "slide/png_regresi_tajam",
+  "zip_sesuai_png_terpisah": true
 }

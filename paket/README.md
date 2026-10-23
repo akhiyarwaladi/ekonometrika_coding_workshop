@@ -6,6 +6,7 @@
 dari `halaman_01.png` sampai `halaman_31.png`. Setiap gambar berukuran
 6000 × 3375 piksel dengan metadata 600 dpi. ZIP ini hanya berisi gambar PNG.
 Gambar juga tersedia langsung di [folder PNG tajam](../slide/png_regresi_tajam/).
+Pengelola membuat ulang ZIP dengan `python alat_bantu/kemas_png.py`.
 
 ## Data untuk Google Colab
 

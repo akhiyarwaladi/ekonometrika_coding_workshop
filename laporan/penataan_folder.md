@@ -1,6 +1,6 @@
 # Hasil penataan folder tutorial
 
-Diperiksa pada 23-10-2026 16:31 waktu komputer.
+Diperiksa pada 23-10-2026 16:58 waktu komputer.
 
 ## Struktur dan integritas
 
@@ -11,8 +11,8 @@ Diperiksa pada 23-10-2026 16:31 waktu komputer.
 - Seluruh 59 CSV sama persis dengan salinan sebelum penataan; nama kolom dan angka tidak berubah.
 - 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.
 - Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.
-- 188 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
-- 31 PNG slide berurutan; ukuran 3000 × 1688 piksel dan metadata 300 dpi.
+- 233 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
+- 31 PNG lama berukuran 3000 × 1688 piksel, 300 dpi, tersimpan di arsip lokal.
 - 31 PNG tajam berurutan; ukuran 6000 × 3375 piksel dan metadata 600 dpi; isi ZIP sama persis dengan PNG terpisah.
 
 ## Eksekusi notebook
