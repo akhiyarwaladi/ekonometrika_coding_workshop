@@ -1,0 +1,41 @@
+{
+  "pdf_sumber": "C:\\Users\\MyPC PRO\\Documents\\ekonometrika\\slide\\02_regresi_machine_learning.pdf",
+  "sha256_sumber": "3cf9c1d0bbd884b7b9e14b1e650f042a3a3211b4b83bdd952b40a69cdd8878bb",
+  "pdf_tajam": "C:\\Users\\MyPC PRO\\Documents\\ekonometrika\\slide\\03_regresi_machine_learning_tajam.pdf",
+  "folder_png": "C:\\Users\\MyPC PRO\\Documents\\ekonometrika\\slide\\png_regresi_tajam",
+  "halaman": 31,
+  "piksel": [
+    6000,
+    3375
+  ],
+  "dpi": 600,
+  "halaman_kode_vektor": [
+    20,
+    21,
+    24,
+    25,
+    27,
+    28
+  ],
+  "halaman_tabel_vektor": [
+    19,
+    21,
+    24
+  ],
+  "halaman_rumus_vektor": [
+    13,
+    14,
+    23,
+    28
+  ],
+  "metrik_housing_tanpa_RAD": {
+    "r2": 0.6390347738951445,
+    "rmse": 5.144992285668699
+  },
+  "sumber_dan_png_lama_tetap": true,
+  "uji_blok_kode": {
+    "jumlah": 6,
+    "status": "PASS",
+    "vif_fitur": 13
+  }
+}

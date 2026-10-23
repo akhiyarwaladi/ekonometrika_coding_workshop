@@ -1,0 +1,14 @@
+# Laporan pemeriksaan
+
+| Berkas | Isi |
+|---|---|
+| [penataan_folder.md](penataan_folder.md) | Ringkasan penataan, kesesuaian nama, dan hasil pengujian. |
+| [ketajaman_slide.md](ketajaman_slide.md) | Penyebab buram, perbaikan teks vektor, dan perubahan pada contoh kode slide. |
+| [uji_kernel_semua_notebook.md](uji_kernel_semua_notebook.md) | Pengujian terbaru seluruh notebook pada kernel Jupyter baru, beserta kesetaraan model dan inferensi. |
+| [peta_perubahan_nama.csv](peta_perubahan_nama.csv) | Pencarian lokasi lama ke lokasi baru, beserta hash berkas sebelum penataan. |
+| [uji_regresi_housing.md](uji_regresi_housing.md) | Hasil eksekusi Housing pada kernel baru dan pemeriksaan prediksi. |
+| [hasil_uji_regresi_housing.json](hasil_uji_regresi_housing.json) | Angka hasil uji Housing untuk diperiksa ulang. |
+
+Uji umum membuat `uji_notebook_lokal`, `uji_notebook_folder_notebook`, dan
+`uji_notebook_zip` dalam format `.json` (ringkasan) dan `.log` (rincian keluaran).
+Peringatan statistik dicatat di log dan harus dibaca bersama catatan notebook.

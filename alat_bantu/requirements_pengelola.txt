@@ -1,0 +1,13 @@
+# Tambahan untuk konversi, uji kernel, pengolahan gambar, slide, dan pembaruan data.
+-r ../requirements.txt
+nbclient
+nbformat
+ipykernel
+python-pptx
+pillow
+requests
+yfinance
+xlrd
+PyMuPDF
+reportlab
+Pygments

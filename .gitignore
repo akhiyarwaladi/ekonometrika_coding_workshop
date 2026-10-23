@@ -1,4 +1,11 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-scripts/run_output.log
+.venv/
+administrasi/
+arsip/*
+!arsip/README.md
+laporan/*.log
+.env
+.env.*
+!.env.example
