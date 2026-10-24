@@ -118,6 +118,24 @@ print("Data siap. Lanjutkan ke sel berikutnya.")
 #
 # $$P(Y=1|X) = \frac{e^{\beta_0 + \beta_1 X_1 + \dots}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots}}$$
 
+# %% [markdown]
+# <!-- kamus_variabel:spector -->
+#
+# ### Kenali data: Efektivitas metode pengajaran Spector
+#
+# **Data:** dataset bawaan statsmodels (`spector`). **Satu baris:** satu mahasiswa; total 32 mahasiswa pada data sumber.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `GPA` | Grade Point Average: rata-rata prestasi akademik mahasiswa, sejenis IPK. | Poin rata-rata nilai | X: penjelas |
+# | `TUCE` | Skor tes pemahaman ekonomi mahasiswa. | Poin tes | X: penjelas |
+# | `PSI` | Keikutsertaan dalam Personalized System of Instruction, program/metode pengajaran yang diteliti. | 1 = mengikuti; 0 = tidak | X: penjelas |
+# | `GRADE` | Apakah nilai mahasiswa meningkat pada pengamatan program. | 1 = meningkat; 0 = tidak meningkat | Y: target |
+#
+# GRADE bukan nilai huruf A/B/C dan 0 tidak berarti mahasiswa pasti gagal kuliah. Data ini dibaca dari statsmodels, sehingga tidak memiliki CSV terpisah di paket.
+#
+# Sumber definisi: [rujukan data](https://www.statsmodels.org/stable/datasets/generated/spector.html).
+
 # %%
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -284,6 +302,25 @@ print(f"Akurasi = {akurasi:.3f}")
 #
 # Contoh dengan `logit_probit_2.csv`:
 
+# %% [markdown]
+# <!-- kamus_variabel:logit_probit_2.csv -->
+#
+# ### Kenali data: Kelulusan tepat waktu
+#
+# **Data:** `data/logit_probit_2.csv`. **Satu baris:** satu mahasiswa.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `LULUS_TEPAT` | `lulus_tepat` | Apakah mahasiswa menyelesaikan studi tepat waktu. | 1 = tepat waktu; 0 = tidak tepat waktu | Y: target |
+# | `IPK_SEM2` | `ipk_sem2` | Indeks Prestasi Kumulatif sampai semester 2. | Poin IPK | X: penjelas |
+# | `SKS_LULUS_SEM2` | `sks_lulus_sem2` | Beban studi yang telah diselesaikan sampai semester 2; SKS = Satuan Kredit Semester. | SKS | X: penjelas |
+# | `KEAKTIFAN_ORG` | `keaktifan_org` | Keaktifan mahasiswa dalam organisasi. | 1 = aktif; 0 = tidak aktif | X: penjelas |
+# | `BEASISWA` | `beasiswa` | Status penerimaan beasiswa. | 1 = penerima; 0 = bukan penerima | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 lulus = pd.read_csv("data/logit_probit_2.csv")
 lulus = lulus.rename(
@@ -415,6 +452,24 @@ print(
 # scikit-learn dapat menerima label teks seperti Mobil, Motor, dan Umum.
 # Data ini nyaris terpisah, sehingga kita memakai regularisasi L2 bawaan.
 
+# %% [markdown]
+# <!-- kamus_variabel:multi_ordinal_2.csv -->
+#
+# ### Kenali data: Pilihan transportasi kerja
+#
+# **Data:** `data/multi_ordinal_2.csv`. **Satu baris:** satu pekerja/responden perjalanan ke kantor.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Transport` | `transport` | Moda transportasi yang dipilih. | Kategori: Mobil, Motor, Umum; tidak berurutan | Y: target |
+# | `Waktu_Tempuh` | `waktu` | Lama perjalanan menuju tempat kerja. | Menit | X: penjelas |
+# | `Biaya` | `biaya` | Biaya transportasi yang dikeluarkan. | Ribu rupiah per hari | X: penjelas |
+# | `Jarak_KM` | `jarak` | Jarak rumah ke kantor. | Kilometer (km) | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 transport = pd.read_csv("data/multi_ordinal_2.csv")
 transport = transport.rename(
@@ -492,6 +547,26 @@ peluang.round(3)
 # absolutnya ekstrem (puluhan). Yang dibaca adalah TANDA dan arah
 # pengaruhnya, bukan besarannya.
 
+# %% [markdown]
+# <!-- kamus_variabel:multi_ordinal_1.csv -->
+#
+# ### Kenali data: Kepuasan layanan bank
+#
+# **Data:** `data/multi_ordinal_1.csv`. **Satu baris:** satu responden pengguna layanan bank.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Kepuasan` | `kepuasan` | Kategori kepuasan terhadap layanan, berurutan dari rendah ke tinggi. | 1 = sangat tidak puas; 2 = netral; 3 = puas | Y: target |
+# | `Kecepatan` | `waktu_tunggu` | Lama menunggu pelayanan. Angka lebih besar berarti menunggu lebih lama. | Menit | X: penjelas |
+# | `Staf_Ramah` | `staf_ramah` | Penilaian keramahan staf. | Skor 1 sampai 10 | X: penjelas |
+# | `Digital_App` | `digital_app` | Frekuensi penggunaan aplikasi digital bank yang dibuat sebagai indikator. | 1 = sering memakai; 0 = jarang/tidak | X: penjelas |
+#
+# Nama Kecepatan pada CSV berarti waktu tunggu, bukan skor kecepatan. Di contoh utama namanya diperjelas menjadi waktu_tunggu.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from statsmodels.miscmodels.ordinal_model import OrderedModel
 
@@ -544,6 +619,26 @@ print(
 # menentukan Y, daftar X, dan batas sensor. Fungsi tetap memakai likelihood
 # Tobit normal; kode perhitungannya dapat dibaca pengajar sebagai pendalaman.
 
+# %% [markdown]
+# <!-- kamus_variabel:tobit_data_1_rnd.csv -->
+#
+# ### Kenali data: Pengeluaran penelitian dan pengembangan
+#
+# **Data:** `data/tobit_data_1_rnd.csv`. **Satu baris:** satu perusahaan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `RND` | `rnd` | Pengeluaran Research and Development (R&D), yaitu penelitian dan pengembangan. | Juta dolar AS; tersensor pada 0 | Y: target |
+# | `PROFIT` | `profit` | Keuntungan perusahaan. | Juta dolar AS | X: penjelas |
+# | `ASET` | `aset` | Total aset yang dimiliki perusahaan. | Miliar dolar AS | X: penjelas |
+# | `PATEN` | `paten` | Jumlah paten pada tahun sebelumnya. | Paten | X: penjelas |
+#
+# RND = 0 adalah nilai pengeluaran yang tercatat pada batas bawah, bukan nilai kosong. Satuan PROFIT dan ASET berbeda skala.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from alat_bantu.metode_lanjutan import estimasi_tobit
 
@@ -572,6 +667,24 @@ print(hasil_tobit.round(4))
 # log-link:
 #
 # $$\ln(\lambda_i) = \beta_0 + \beta_1 X_{1i} + \dots$$
+
+# %% [markdown]
+# <!-- kamus_variabel:poisson_data_2_restoran.csv -->
+#
+# ### Kenali data: Kunjungan pelanggan restoran
+#
+# **Data:** `data/poisson_data_2_restoran.csv`. **Satu baris:** satu interval pengamatan selama satu jam.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `PELANGGAN` | `pelanggan` | Jumlah pelanggan yang datang pada jam pengamatan. | Orang per jam; bilangan bulat | Y: target |
+# | `JAM_SIBUK` | `jam_sibuk` | Apakah jam pengamatan termasuk jam makan siang/malam. | 1 = jam sibuk; 0 = jam lainnya | X: penjelas |
+# | `WEEKEND` | `weekend` | Apakah pengamatan berlangsung pada akhir pekan. | 1 = akhir pekan; 0 = hari kerja | X: penjelas |
+# | `JML_PROMO` | `jml_promo` | Jumlah program promosi yang sedang aktif. | Program promosi | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 pelanggan = pd.read_csv("data/poisson_data_2_restoran.csv")

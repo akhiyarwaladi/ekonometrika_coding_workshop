@@ -116,6 +116,23 @@ pd.set_option("display.precision", 3)
 sns.set_theme(style="whitegrid")
 plt.rcParams["figure.dpi"] = 110
 
+# %% [markdown]
+# <!-- kamus_variabel:contoh_taksi -->
+#
+# ### Kenali data: Contoh hitungan tarif taksi
+#
+# **Data:** tabel contoh yang dibuat langsung di kode. **Satu baris:** satu jarak perjalanan yang ingin dihitung tarifnya.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `km` | Jarak perjalanan. | Kilometer | X: penjelas |
+# | `taksi_standar` | Tarif awal Rp5.000 ditambah Rp4.000 untuk setiap kilometer. | Rupiah | Hasil hitungan |
+# | `taksi_premium` | Tarif awal Rp5.000 ditambah Rp7.500 untuk setiap kilometer. | Rupiah | Hasil hitungan |
+#
+# Angka tarif hanya ilustrasi persamaan garis pada tutorial, bukan daftar tarif operator taksi saat ini.
+#
+# Sumber: Contoh buatan dalam notebook Housing.
+
 # %%
 jarak = pd.DataFrame({"km": [0, 1, 2, 3]})
 jarak["taksi_standar"] = 5000 + 4000 * jarak["km"]
@@ -142,22 +159,6 @@ plt.show()
 # pemiliknya, dalam **ribuan dolar AS pada data historis**. MEDV = 24 berarti sekitar
 # US$24.000 pada konteks data tersebut, bukan Rp24 juta atau harga saat ini.
 #
-# | Kolom | Arti ringkas |
-# |---|---|
-# | CRIM | Tingkat kejahatan per kapita wilayah. |
-# | ZN | Proporsi lahan hunian dengan ukuran kavling lebih dari 25.000 kaki persegi. |
-# | INDUS | Proporsi lahan bisnis nonritel. |
-# | CHAS | Dummy berbatasan dengan Sungai Charles: 1 ya, 0 tidak. |
-# | NOX | Konsentrasi nitrogen oksida, bagian per 10 juta. |
-# | RM | Rata-rata jumlah kamar per hunian. |
-# | AGE | Proporsi hunian milik penghuni yang dibangun sebelum 1940. |
-# | DIS | Jarak tertimbang ke lima pusat pekerjaan. |
-# | RAD | Indeks akses ke jalan raya radial. |
-# | TAX | Tarif pajak properti per US$10.000. |
-# | PTRATIO | Rasio murid terhadap guru. |
-# | BLACK | Variabel historis B: transformasi komposisi ras penduduk. |
-# | LSTAT | Persentase penduduk berstatus sosial ekonomi rendah menurut definisi historis dataset. |
-# | MEDV | Target: median nilai rumah dalam ribuan dolar AS. |
 #
 # **Catatan dataset untuk dibahas di kelas.** Boston Housing mempunyai persoalan etis,
 # terutama rekayasa variabel B/BLACK berdasarkan asumsi tentang ras. Kita mempertahankan
@@ -166,6 +167,34 @@ plt.show()
 # kolom saja juga belum menjamin hilangnya bias. Sebagian nilai MEDV berhenti pada 50,
 # sehingga pembacaan prediksi di sekitar batas tersebut perlu hati-hati.
 # Rujukan definisi dan catatan ini ada di akhir notebook.
+
+# %% [markdown]
+# <!-- kamus_variabel:housing.csv -->
+#
+# ### Kenali data: Harga rumah historis Boston
+#
+# **Data:** `data/housing.csv`. **Satu baris:** satu wilayah sensus dalam data historis Boston, bukan satu rumah di Indonesia.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `CRIM` | Tingkat kejahatan per kapita wilayah. | Tingkat per kapita | X: penjelas |
+# | `ZN` | Lahan hunian dengan kavling lebih dari 25.000 kaki persegi. | Persen lahan hunian | X: penjelas |
+# | `INDUS` | Proporsi lahan untuk bisnis nonritel di wilayah. | Persen | X: penjelas |
+# | `CHAS` | Apakah wilayah berbatasan dengan Sungai Charles. | 1 = ya; 0 = tidak | X: penjelas |
+# | `NOX` | Konsentrasi nitrogen oksida. | Bagian per 10 juta | X: penjelas |
+# | `RM` | Rata-rata jumlah kamar per hunian. | Kamar per hunian | X: penjelas |
+# | `AGE` | Hunian milik penghuni yang dibangun sebelum 1940. | Persen hunian, bukan umur rumah dalam tahun | X: penjelas |
+# | `DIS` | Jarak tertimbang ke lima pusat pekerjaan Boston. | Ukuran jarak tertimbang pada sumber | X: penjelas |
+# | `RAD` | Indeks akses ke jalan raya radial. | Indeks, bukan jarak kilometer | X: penjelas |
+# | `TAX` | Tarif pajak properti terhadap nilai penuh properti. | Pajak per US$10.000 nilai properti | X: penjelas |
+# | `PTRATIO` | Jumlah murid relatif terhadap jumlah guru di wilayah. | Murid per guru | X: penjelas |
+# | `BLACK` | B pada sumber historis: 1000 × (p - 0,63)²; p adalah proporsi penduduk kulit hitam. | Transformasi matematis, bukan persentase langsung | X: penjelas |
+# | `LSTAT` | Penduduk berstatus sosial ekonomi rendah menurut label historis sumber. | Persen penduduk | X: penjelas |
+# | `MEDV` | Median nilai rumah yang ditempati pemiliknya. | Ribuan dolar AS historis; 24 berarti US$24.000 | Y: target |
+#
+# BLACK bukan hasil pengkodean biner dan AGE bukan usia satu rumah. Catatan keterbatasan dan bias dataset dibahas pada notebook Housing.
+#
+# Sumber definisi: [rujukan data](https://lib.stat.cmu.edu/datasets/boston).
 
 # %%
 # CSV tunggal yang diunggah ke Colab dapat dibaca dari folder unggahan.

@@ -109,6 +109,25 @@ print("scikit-learn", sklearn.__version__)
 # Semua data ada di folder `data/`. Cara membacanya selalu satu baris:
 # `pd.read_csv("data/regresi_polinom.csv")`.
 
+# %% [markdown]
+# <!-- kamus_variabel:regresi_polinom.csv -->
+#
+# ### Kenali data: Iklan dan penjualan
+#
+# **Data:** `data/regresi_polinom.csv`. **Satu baris:** satu tahun pengamatan pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun ke-` | `Tahun ke-` | Urutan tahun pengamatan, bukan tahun kalender. | 1, 2, 3, dan seterusnya | Penanda waktu |
+# | `Biaya Iklan (X)` | `iklan` | Biaya yang dikeluarkan untuk memasang iklan. | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Penjualan (Y)` | `penjualan` | Besarnya penjualan yang ingin dijelaskan oleh biaya iklan. | Satuan/skala tidak dirinci sumber | Y: target |
+#
+# Jangan menetapkan rupiah, juta rupiah, atau unit barang hanya dari besar angkanya; skala tersebut tidak dicantumkan pada sumber tabel.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 data = pd.read_csv("data/regresi_polinom.csv")
 print("Ukuran data:", data.shape)
@@ -238,6 +257,22 @@ print("AIC:", uji_model.aic)
 # 2. Berapa jumlah observasi dan berapa rata-rata `Y_Angka_Harapan_Hidup`?
 #
 # (Kunci ada di `pengajar/kunci_jawaban/catatan_latihan.md`.)
+
+# %% [markdown]
+# <!-- kamus_variabel:uts_4.csv -->
+#
+# ### Kenali data: Angka harapan hidup
+#
+# **Data:** `data/uts_4.csv`. **Satu baris:** satu negara pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Angka_Harapan_Hidup` | Rata-rata lama hidup yang diharapkan menurut indikator pada contoh. | Tahun | Y: target |
+# | `X1_Pengeluaran_Kesehatan` | Pengeluaran kesehatan per penduduk (per kapita). | Uang per kapita; mata uang/periode tidak dirinci | X: penjelas |
+# | `X2_Tingkat_Imunisasi` | Persentase anak yang memperoleh imunisasi. | Persen; jenis imunisasi tidak dirinci | X: penjelas |
+# | `X3_Konsumsi_Kalori` | Rata-rata konsumsi energi makanan per hari. | Kalori harian; rincian satuan energi mengikuti sumber | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # Tulis jawaban Anda di sini

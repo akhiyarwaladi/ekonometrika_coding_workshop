@@ -98,6 +98,26 @@ print("Data siap. Lanjutkan ke sel berikutnya.")
 # "perusahaan dengan EPS lebih tinggi, apakah harga sahamnya juga lebih
 # tinggi?"
 
+# %% [markdown]
+# <!-- kamus_variabel:uts_2.csv -->
+#
+# ### Kenali data: Harga saham perusahaan
+#
+# **Data:** `data/uts_2.csv`. **Satu baris:** satu perusahaan pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Y_Harga_Saham` | `harga` | Harga satu lembar saham perusahaan. | Uang per lembar; skala mata uang tidak dirinci | Y: target |
+# | `X1_Pendapatan_per_Saham` | `eps` | EPS (Earnings Per Share): laba per lembar saham; bukan total omzet perusahaan. | Uang per lembar; skala mata uang tidak dirinci | X: penjelas |
+# | `X2_Rasio_Utang_Ekuitas` | `der` | DER (Debt to Equity Ratio): total utang dibagi ekuitas perusahaan. | Rasio; 1,5 berarti utang 1,5 kali ekuitas (150%) | X: penjelas |
+# | `X3_Belanja_Iklan` | `iklan` | Jumlah pengeluaran perusahaan untuk iklan. | Uang; skala dan periode belanja tidak dirinci | X: penjelas |
+#
+# Nama harga, eps, der, dan iklan adalah nama singkat dari kolom di atas. Contoh DER tidak dibaca sebagai 1,5 persen.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -341,6 +361,25 @@ tabel
 # Hubungannya melengkung, dan model linear gagal total: R kuadrat hanya
 # sekitar 0,007 dan slope tidak signifikan. Ini bukan alasan untuk menyerah,
 # tapi tanda bahwa bentuk fungsionalnya perlu diganti. Itu topik Sesi 2.
+
+# %% [markdown]
+# <!-- kamus_variabel:regresi_polinom.csv -->
+#
+# ### Kenali data: Iklan dan penjualan
+#
+# **Data:** `data/regresi_polinom.csv`. **Satu baris:** satu tahun pengamatan pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun ke-` | `Tahun ke-` | Urutan tahun pengamatan, bukan tahun kalender. | 1, 2, 3, dan seterusnya | Penanda waktu |
+# | `Biaya Iklan (X)` | `iklan` | Biaya yang dikeluarkan untuk memasang iklan. | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Penjualan (Y)` | `penjualan` | Besarnya penjualan yang ingin dijelaskan oleh biaya iklan. | Satuan/skala tidak dirinci sumber | Y: target |
+#
+# Jangan menetapkan rupiah, juta rupiah, atau unit barang hanya dari besar angkanya; skala tersebut tidak dicantumkan pada sumber tabel.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 iklan = pd.read_csv("data/regresi_polinom.csv")

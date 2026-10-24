@@ -4,6 +4,11 @@ Pilih `.ipynb` untuk membuka lembar kerja. Setiap notebook berisi penjelasan,
 kode, dan hasil yang dapat dibaca. Berkas `.py` dengan nama yang sama dipakai
 pengajar untuk menyunting sumber.
 
+Setiap dataset diawali tabel **Kenali data** yang menjelaskan kolom, satuan,
+kode kategori, dan perannya dalam model. Baca tabel ini sebelum melihat data
+atau menafsirkan koefisien. [Kamus seluruh variabel](../panduan/07_kamus_variabel.md)
+dapat dipakai untuk mencari singkatan yang belum dikenal.
+
 | Folder | Cara mengikuti |
 |---|---|
 | [01_ekonometrika/](01_ekonometrika/README.md) | Mulai dari `00_persiapan_colab.ipynb`, kemudian ikuti contoh 01 sampai 06. |

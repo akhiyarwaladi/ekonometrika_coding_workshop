@@ -23,6 +23,11 @@ yang belum mempunyai pengalaman coding.
 4. Jalankan sel dari atas dengan **Shift + Enter**. Baca penjelasan dan hasil
    sebelum beralih ke sel berikutnya.
 
+Sebelum membaca tabel data, pelajari bagian **Kenali data** di notebook.
+Bagian itu menjelaskan arti setiap kolom, satuan atau kode kategorinya,
+serta nama singkat yang dipakai di kode. Definisi seluruh dataset juga ada di
+[kamus variabel](panduan/07_kamus_variabel.md).
+
 Gunakan **`.ipynb` untuk belajar dan mengajar**. Ikuti contoh di
 `materi/01_ekonometrika/`, kemudian kerjakan `materi/02_latihan/` dengan nomor
 yang sama. Praktik Housing di `materi/03_regresi_housing/` dapat dipelajari tersendiri.

@@ -3,6 +3,10 @@
 Seluruh 59 CSV berada di folder ini. Kode memakai jalur `data/nama_file.csv`
 dari folder utama proyek. Isi CSV dan nama kolom dipertahankan saat penataan.
 
+Arti setiap kolom, satuan, dan kode kategori tersedia pada
+[kamus variabel seluruh dataset](../panduan/07_kamus_variabel.md).
+Tabel definisi yang sesuai juga muncul sebelum pembacaan data di setiap tutorial.
+
 [housing.csv](housing.csv) digunakan oleh [praktik regresi Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb).
 Asal data ekonometrika dijelaskan pada [kurikulum lengkap](../panduan/05_isi_materi_lengkap.md)
 dan [referensi](../panduan/04_referensi.md). Nama file memakai huruf kecil dan garis bawah.

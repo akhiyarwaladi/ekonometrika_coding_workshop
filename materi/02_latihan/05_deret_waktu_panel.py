@@ -95,6 +95,22 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # Data `data/ts_inflasi.csv`: indeks harga 50 periode yang naik terus.
 # Langkah pertama selalu melihat plot.
 
+# %% [markdown]
+# <!-- kamus_variabel:ts_inflasi.csv -->
+#
+# ### Kenali data: Deret harga/inflasi simulasi
+#
+# **Data:** `data/ts_inflasi.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `inflasi` | Deret level bertendensi naik, dicontohkan sebagai IHK pada sumber. | Level/indeks simulasi; bukan otomatis persen inflasi | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 inflasi = pd.read_csv("data/ts_inflasi.csv")
 
@@ -144,6 +160,33 @@ plt.show()
 #
 # Data `data/konsumsi_pendapatan.csv`. Dua variabel yang sama-sama
 # tidak stasioner bisa tetap berjalan bersama dalam jangka panjang.
+
+# %% [markdown]
+# <!-- kamus_variabel:konsumsi_pendapatan.csv -->
+#
+# ### Kenali data: Konsumsi dan pendapatan runtun waktu
+#
+# **Data:** `data/konsumsi_pendapatan.csv`. **Satu baris:** satu tahun berurutan pada data simulasi.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun` | `Tahun` | Nomor tahun dalam urutan simulasi, bukan tahun kalender. | 1, 2, 3, ... | Penanda waktu |
+# | `Konsumsi_Y` | `konsumsi` | Nilai konsumsi pada periode tersebut. | Skala uang tidak dirinci | Y: target |
+# | `Pendapatan_X` | `pendapatan` | Nilai pendapatan pada periode yang sama. | Skala uang tidak dirinci | X: penjelas |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_konsumsi` | Logaritma alami nilai konsumsi. | Skala logaritma |
+# | `ln_pendapatan` | Logaritma alami nilai pendapatan. | Skala logaritma |
+# | `d_konsumsi` | Selisih log konsumsi dari periode sebelumnya. | Perubahan log, belum dikalikan 100 |
+# | `d_pendapatan` | Selisih log pendapatan dari periode sebelumnya. | Perubahan log, belum dikalikan 100 |
+# | `ect` | Error Correction Term: penyimpangan dari hubungan jangka panjang pada periode sebelumnya. | Residual log periode sebelumnya |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 from statsmodels.tsa.stattools import coint
@@ -229,6 +272,23 @@ print(uji_model_ecm.pvalues.round(4))
 # dijelaskan pupuk dan curah hujan. Dengan struktur panel, kita bisa
 # memisahkan pengaruh yang melekat pada tiap petak.
 
+# %% [markdown]
+# <!-- kamus_variabel:panel_padi.csv -->
+#
+# ### Kenali data: Panel hasil panen padi
+#
+# **Data:** `data/panel_padi.csv`. **Satu baris:** satu petak sawah pada satu musim tanam.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `FarmID` | Kode petak sawah yang diamati berulang. | Nomor identitas lahan | Penanda, bukan besaran ekonomi |
+# | `Season` | Urutan musim tanam. | Musim tanam ke-1, ke-2, ... | Penanda waktu |
+# | `Yield_Y` | Jumlah gabah yang dihasilkan oleh petak sawah. | Ton gabah; bukan otomatis ton per hektar | Y: target |
+# | `Fertilizer_X1` | Banyaknya pupuk yang digunakan. | Kilogram (kg) | X: penjelas |
+# | `Rainfall_X2` | Banyaknya curah hujan pada musim tanam. | Milimeter (mm) | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from linearmodels.panel import PanelOLS
 
@@ -281,6 +341,22 @@ print(fem.f_pooled)
 #   selisih?
 # - Estimasi ARIMA(1,1,0) dan ramalkan 5 periode.
 
+# %% [markdown]
+# <!-- kamus_variabel:ts_saham.csv -->
+#
+# ### Kenali data: Harga saham simulasi
+#
+# **Data:** `data/ts_saham.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `saham` | Deret harga saham simulasi untuk uji stasioneritas dan peramalan. | Level harga; skala uang tidak dirinci | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # saham_ts = pd.read_csv("data/ts_saham.csv")
 # ...
@@ -290,6 +366,23 @@ print(fem.f_pooled)
 # - Jalankan uji `coint(IHSG_Y, Emas_X)`.
 # - Kalau p < 0,05, estimasi ECM. Kalau tidak, jelaskan kenapa ECM
 #   sebaiknya tidak dipakai.
+
+# %% [markdown]
+# <!-- kamus_variabel:ihsg_emas.csv -->
+#
+# ### Kenali data: IHSG dan harga emas simulasi
+#
+# **Data:** `data/ihsg_emas.csv`. **Satu baris:** satu bulan berurutan pada contoh simulasi.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Bulan` | Urutan bulan pengamatan. | Nomor bulan; tanggal kalender tidak dicantumkan | Penanda waktu |
+# | `IHSG_Y` | Indeks Harga Saham Gabungan dalam contoh simulasi. | Poin indeks | Y: target |
+# | `Emas_X` | Harga emas pada contoh simulasi. | Mata uang dan berat acuan tidak dirinci | X: penjelas |
+#
+# Tabel ini adalah contoh simulasi; berbeda dari data IHSG harian unduhan Yahoo Finance.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # ie = pd.read_csv("data/ihsg_emas.csv")
@@ -302,6 +395,23 @@ print(fem.f_pooled)
 #   `entity_effects=True`).
 # - Bandingkan koefisien diskon di kedua model. Mana yang Anda percaya
 #   untuk kebijakan diskon? Kenapa?
+
+# %% [markdown]
+# <!-- kamus_variabel:panel_retail.csv -->
+#
+# ### Kenali data: Panel toko ritel
+#
+# **Data:** `data/panel_retail.csv`. **Satu baris:** satu cabang toko pada satu bulan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `StoreID` | Kode cabang toko. | Nomor identitas toko | Penanda, bukan besaran ekonomi |
+# | `Month` | Urutan bulan dalam panel. | Bulan ke-1, ke-2, ... | Penanda waktu |
+# | `Sales_Y` | Besarnya penjualan toko pada bulan tersebut. | Satuan/skala tidak dirinci sumber | Y: target |
+# | `Ads_X1` | Biaya iklan cabang toko. | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Discount_X2` | Proporsi potongan harga. | Pecahan; 0,10 berarti diskon 10% | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # retail = pd.read_csv("data/panel_retail.csv").set_index(["StoreID", "Month"])

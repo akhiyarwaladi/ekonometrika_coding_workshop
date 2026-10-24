@@ -93,6 +93,32 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # dari 30 observasi. Model yang diuji: $Q = A L^{\beta_1} K^{\beta_2}$.
 # Setelah di-log, koefisiennya menjadi elastisitas.
 
+# %% [markdown]
+# <!-- kamus_variabel:regresi_log.csv -->
+#
+# ### Kenali data: Produksi, tenaga kerja, dan modal
+#
+# **Data:** `data/regresi_log.csv`. **Satu baris:** satu unit usaha/pengamatan dalam contoh produksi.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Observasi ke-` | `obs` | Nomor urut pengamatan. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `Tenaga Kerja (L)` | `L` | Input tenaga kerja untuk proses produksi (L = labor). | Jumlah tenaga kerja; cakupan waktu tidak dirinci | X: penjelas |
+# | `Modal (K)` | `K` | Input modal yang digunakan untuk menghasilkan barang (K = capital). | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Produksi (Q)` | `Q` | Jumlah hasil produksi (Q = quantity/output). | Jumlah output; unit produk tidak dirinci | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `lnQ` | Logaritma alami dari produksi Q. | Skala logaritma |
+# | `lnL` | Logaritma alami dari tenaga kerja L. | Skala logaritma |
+# | `lnK` | Logaritma alami dari modal K. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 produksi = pd.read_csv("data/regresi_log.csv")
 produksi = produksi.rename(
@@ -172,6 +198,26 @@ print(f"Jumlah (skala)           : {b['lnL'] + b['lnK']:.3f}")
 # Pertanyaan: berapa persen kenaikan pendapatan per satu tahun tambahan
 # pendidikan? (Petunjuk: koefisien dikali 100.)
 
+# %% [markdown]
+# <!-- kamus_variabel:pendidikan_pendapatan.csv -->
+#
+# ### Kenali data: Pendidikan dan pendapatan
+#
+# **Data:** `data/pendidikan_pendapatan.csv`. **Satu baris:** satu responden.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Tahun_Pendidikan` | Total lama pendidikan yang telah ditempuh. | Tahun | X: penjelas |
+# | `Pendapatan_Tahunan` | Pendapatan yang diterima selama satu tahun. | Juta rupiah per tahun | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_pendapatan` | Logaritma alami dari Pendapatan_Tahunan. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # didik = pd.read_csv("data/pendidikan_pendapatan.csv")
 # didik["ln_pendapatan"] = np.log(didik["Pendapatan_Tahunan"])
@@ -198,6 +244,26 @@ print(f"Jumlah (skala)           : {b['lnL'] + b['lnK']:.3f}")
 # $-b_1 / (2 b_2)$.
 #
 # Pertanyaan: pada usia berapa kinerja mencapai puncak?
+
+# %% [markdown]
+# <!-- kamus_variabel:usia_unit.csv -->
+#
+# ### Kenali data: Usia dan kinerja penjual
+#
+# **Data:** `data/usia_unit.csv`. **Satu baris:** satu tenaga penjual.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Usia` | Umur tenaga penjual. | Tahun | X: penjelas |
+# | `Unit_Terjual` | Jumlah penjualan bulanan pada contoh kinerja penjual. | Unit per bulan, berupa angka simulasi | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `usia2` | Kuadrat usia: usia × usia. | Tahun kuadrat |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # usia = pd.read_csv("data/usia_unit.csv")
@@ -227,6 +293,26 @@ print(f"Jumlah (skala)           : {b['lnL'] + b['lnK']:.3f}")
 # Pertanyaan: berapa batas skor maksimal (asimtot) yang dibaca dari
 # intersep? (Petunjuk: intersep adalah batas atas skor.)
 
+# %% [markdown]
+# <!-- kamus_variabel:jam_skor.csv -->
+#
+# ### Kenali data: Jam belajar dan hasil ujian
+#
+# **Data:** `data/jam_skor.csv`. **Satu baris:** satu siswa/responden.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Jam_Belajar` | Total waktu belajar yang dicatat pada contoh. | Jam | X: penjelas |
+# | `Skor_Ujian` | Nilai/skor hasil ujian. | Poin skor; batas maksimum akan ditaksir dalam latihan | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `satu_per_jam` | Kebalikan jam belajar: 1 / Jam_Belajar. | Per jam |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # skor = pd.read_csv("data/jam_skor.csv")
 # skor["satu_per_jam"] = 1 / skor["Jam_Belajar"]
@@ -254,6 +340,24 @@ print(f"Jumlah (skala)           : {b['lnL'] + b['lnK']:.3f}")
 # dengan R kuadrat terkoreksi tertinggi di antara model yang tanda
 # koefisiennya sesuai teori. Kalau dua model berdekatan, dahulukan yang
 # lebih sederhana dan lebih mudah dijelaskan.
+
+# %% [markdown]
+# <!-- kamus_variabel:uts_1.csv -->
+#
+# ### Kenali data: Pertumbuhan ekonomi
+#
+# **Data:** `data/uts_1.csv`. **Satu baris:** satu negara pada contoh 50 negara berkembang.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Pertumbuhan_Ekonomi` | Laju pertumbuhan kegiatan ekonomi/PDB. | Persen | Y: target |
+# | `X1_Investasi` | Besarnya investasi dibandingkan PDB. | Persen dari PDB | X: penjelas |
+# | `X2_Inflasi` | Laju kenaikan tingkat harga. | Persen | X: penjelas |
+# | `X3_Keterbukaan_Perdagangan` | Ukuran keterbukaan perdagangan relatif terhadap PDB. | Persen dari PDB | X: penjelas |
+#
+# Rumus rinci ukuran keterbukaan tidak dicantumkan pada tabel sumber; jangan menganggapnya nilai ekspor saja.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # uts1 = pd.read_csv("data/uts_1.csv")

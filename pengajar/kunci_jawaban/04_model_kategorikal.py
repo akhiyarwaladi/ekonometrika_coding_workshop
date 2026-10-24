@@ -74,6 +74,23 @@ import statsmodels.formula.api as smf
 # %% [markdown]
 # ## Latihan 1: perfect separation pada data kelulusan
 
+# %% [markdown]
+# <!-- kamus_variabel:logit_probit_2.csv -->
+#
+# ### Kenali data: Kelulusan tepat waktu
+#
+# **Data:** `data/logit_probit_2.csv`. **Satu baris:** satu mahasiswa.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `LULUS_TEPAT` | Apakah mahasiswa menyelesaikan studi tepat waktu. | 1 = tepat waktu; 0 = tidak tepat waktu | Y: target |
+# | `IPK_SEM2` | Indeks Prestasi Kumulatif sampai semester 2. | Poin IPK | X: penjelas |
+# | `SKS_LULUS_SEM2` | Beban studi yang telah diselesaikan sampai semester 2; SKS = Satuan Kredit Semester. | SKS | X: penjelas |
+# | `KEAKTIFAN_ORG` | Keaktifan mahasiswa dalam organisasi. | 1 = aktif; 0 = tidak aktif | X: penjelas |
+# | `BEASISWA` | Status penerimaan beasiswa. | 1 = penerima; 0 = bukan penerima | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 lulus = pd.read_csv("data/logit_probit_2.csv")
 
@@ -111,6 +128,24 @@ print(koefisien_m2.round(3))
 # %% [markdown]
 # ## Latihan 2: model ordinal (multi-ordinal-1)
 
+# %% [markdown]
+# <!-- kamus_variabel:multi_ordinal_1.csv -->
+#
+# ### Kenali data: Kepuasan layanan bank
+#
+# **Data:** `data/multi_ordinal_1.csv`. **Satu baris:** satu responden pengguna layanan bank.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Kepuasan` | Kategori kepuasan terhadap layanan, berurutan dari rendah ke tinggi. | 1 = sangat tidak puas; 2 = netral; 3 = puas | Y: target |
+# | `Kecepatan` | Lama menunggu pelayanan. Angka lebih besar berarti menunggu lebih lama. | Menit | X: penjelas |
+# | `Staf_Ramah` | Penilaian keramahan staf. | Skor 1 sampai 10 | X: penjelas |
+# | `Digital_App` | Frekuensi penggunaan aplikasi digital bank yang dibuat sebagai indikator. | 1 = sering memakai; 0 = jarang/tidak | X: penjelas |
+#
+# Nama Kecepatan pada CSV berarti waktu tunggu, bukan skor kecepatan. Di contoh utama namanya diperjelas menjadi waktu_tunggu.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from statsmodels.miscmodels.ordinal_model import OrderedModel
 
@@ -135,6 +170,22 @@ print(model_ord.params.round(3))
 
 # %% [markdown]
 # ## Latihan 3: Poisson (poisson-1)
+
+# %% [markdown]
+# <!-- kamus_variabel:poisson_data_1_klaim.csv -->
+#
+# ### Kenali data: Klaim asuransi mobil
+#
+# **Data:** `data/poisson_data_1_klaim.csv`. **Satu baris:** satu pengemudi/pemegang polis yang diamati selama satu tahun.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `JML_KLAIM` | Jumlah pengajuan klaim asuransi dalam setahun. | Klaim; bilangan bulat 0, 1, 2, ... | Y: target |
+# | `USIA` | Umur pengemudi. | Tahun | X: penjelas |
+# | `PENGALAMAN` | Lama pengalaman mengemudi. | Tahun | X: penjelas |
+# | `TIPE_MOBIL` | Jenis mobil menurut pengelompokan pada sumber. | 1 = sport; 0 = keluarga | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 klaim = pd.read_csv("data/poisson_data_1_klaim.csv")

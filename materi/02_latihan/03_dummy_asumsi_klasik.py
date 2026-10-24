@@ -92,6 +92,34 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # 30 karyawan. Kategori dibuat dummy secara manual supaya kategori
 # basisnya jelas: Wanita dan Lajang.
 
+# %% [markdown]
+# <!-- kamus_variabel:latihan_dummy_1.csv -->
+#
+# ### Kenali data: Gaji dan karakteristik pekerja
+#
+# **Data:** `data/latihan_dummy_1.csv`. **Satu baris:** satu pekerja pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `No` | `No` | Nomor urut pekerja. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `GAJI` | `gaji` | Besarnya gaji pekerja. | Uang; skala/periode gaji tidak dirinci | Y: target |
+# | `PENGALAMAN` | `pengalaman` | Lama pengalaman kerja pekerja. | Satuan waktu tidak dirinci sumber | X: penjelas |
+# | `GENDER` | `gender` | Kategori gender yang dicatat dalam berkas. | Teks: Pria atau Wanita | X: penjelas |
+# | `STATUS` | `status` | Status perkawinan pekerja. | Teks: Menikah atau Lajang | X: penjelas |
+#
+# Kategori teks diubah menjadi dummy 0/1 saat praktik; kelompok acuan dijelaskan pada bagian pembentukan dummy.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `dummy_pria` | Indikator kategori Pria; kelompok selain Pria menjadi acuan. | 1 = Pria; 0 = selain Pria |
+# | `dummy_menikah` | Indikator status Menikah; kelompok selain Menikah menjadi acuan. | 1 = Menikah; 0 = selain Menikah |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 gaji = pd.read_csv("data/latihan_dummy_1.csv")
 gaji = gaji.rename(
@@ -167,6 +195,25 @@ print(uji_model.pvalues.round(4))
 # Data `data/latihan_multikolinieritas_1.csv`: harga rumah dijelaskan luas
 # bangunan, luas tanah, dan jumlah kamar. Hitung VIF (Variance Inflation
 # Factor). Aturan praktis: VIF di atas 10 menandakan masalah.
+
+# %% [markdown]
+# <!-- kamus_variabel:latihan_multikolinieritas_1.csv -->
+#
+# ### Kenali data: Harga dan ukuran rumah
+#
+# **Data:** `data/latihan_multikolinieritas_1.csv`. **Satu baris:** satu rumah pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `No` | `No` | Nomor rumah/pengamatan. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `HARGA` | `harga` | Harga jual rumah. | Uang; skala tidak dirinci | Y: target |
+# | `LUAS_BANGUNAN` | `luas_bangunan` | Luas fisik bangunan rumah. | Satuan luas tidak dirinci sumber | X: penjelas |
+# | `LUAS_TANAH` | `luas_tanah` | Luas tanah tempat rumah berada. | Satuan luas tidak dirinci sumber | X: penjelas |
+# | `JML_KAMAR` | `jml_kamar` | Jumlah kamar pada rumah. | Kamar | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 from statsmodels.stats.outliers_influence import variance_inflation_factor
@@ -250,6 +297,22 @@ print(uji_model_rumah.pvalues.round(4))
 # - Estimasi ulang dengan robust standard error (`cov_type="HC3"`).
 # - Bandingkan p-value biasa dan robust. Apakah kesimpulannya berubah?
 
+# %% [markdown]
+# <!-- kamus_variabel:hetero_2.csv -->
+#
+# ### Kenali data: Pendapatan dan karakteristik pekerja
+#
+# **Data:** `data/hetero_2.csv`. **Satu baris:** satu orang pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Pendapatan` | Pendapatan selama satu tahun. | Puluhan juta rupiah per tahun, sesuai uraian sumber | Y: target |
+# | `Pendidikan` | Lama pendidikan yang telah ditempuh. | Tahun | X: penjelas |
+# | `Pengalaman` | Lama pengalaman kerja. | Tahun | X: penjelas |
+# | `Usia` | Umur orang yang diamati. | Tahun | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # kerja = pd.read_csv("data/hetero_2.csv")
 # X_kerja = kerja[["Pendidikan", "Pengalaman", "Usia"]]
@@ -275,6 +338,24 @@ print(uji_model_rumah.pvalues.round(4))
 #
 # - Tampilkan histogram residual.
 # - Uji Jarque-Bera. p-value di atas 0,05 berarti residual normal.
+
+# %% [markdown]
+# <!-- kamus_variabel:latihan_normalitas_3.csv -->
+#
+# ### Kenali data: Harga dan kondisi rumah
+#
+# **Data:** `data/latihan_normalitas_3.csv`. **Satu baris:** satu rumah pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Harga` | Harga jual rumah pada data simulasi. | Sumber menyebut juta rupiah sekaligus simulasi dolar; skala ambigu | Y: target |
+# | `Luas_Bangunan` | Luas bangunan rumah. | Sumber menyebut m² sekaligus simulasi kaki persegi; skala ambigu | X: penjelas |
+# | `Jumlah_Kamar` | Jumlah kamar tidur. | Kamar | X: penjelas |
+# | `Usia_Rumah` | Lama sejak rumah dibangun. | Tahun | X: penjelas |
+#
+# Sumber mencampurkan keterangan satuan untuk harga dan luas. Gunakan angka ini untuk latihan statistik; konfirmasi satuan sebelum memberi interpretasi nominal atau mengonversi luas.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # nrumah = pd.read_csv("data/latihan_normalitas_3.csv")
@@ -303,6 +384,22 @@ print(uji_model_rumah.pvalues.round(4))
 # Pertanyaan: apakah dugaan itu didukung data? Kalau tidak, laporkan
 # p-value kedua uji dan tulis bahwa hipotesis tidak didukung data. Jangan
 # mengubah kesimpulan agar terlihat sesuai dugaan.
+
+# %% [markdown]
+# <!-- kamus_variabel:hetero_1.csv -->
+#
+# ### Kenali data: Iklan, tenaga penjualan, dan diskon
+#
+# **Data:** `data/hetero_1.csv`. **Satu baris:** satu pengamatan penjualan perusahaan dalam contoh.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Penjualan` | Banyaknya produk terjual. | Ribuan unit | Y: target |
+# | `Iklan` | Pengeluaran untuk iklan. | Juta rupiah | X: penjelas |
+# | `Salesperson` | Jumlah tenaga penjualan yang bekerja. | Orang | X: penjelas |
+# | `Diskon` | Rata-rata potongan harga yang diberikan. | Persen; 5,2 berarti 5,2% | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # jual = pd.read_csv("data/hetero_1.csv")

@@ -29,6 +29,12 @@ dari atas setiap membuka notebook lain.
 
 ## Perintah yang sering muncul
 
+Sebelum menjalankan sel pembacaan data, baca tabel **Kenali data**.
+Contohnya, `eps` berarti laba per lembar saham dan `der` adalah rasio utang
+terhadap ekuitas. Pada data pendidikan, `GPA` adalah rata-rata nilai mahasiswa,
+sedangkan `GRADE` berkode 1 jika nilai meningkat dan 0 jika tidak meningkat.
+Definisi lengkap ada di [kamus variabel](07_kamus_variabel.md).
+
 | Contoh | Cara membacanya |
 |---|---|
 | `import pandas as pd` | Siapkan alat untuk mengolah tabel; nama singkatnya `pd`. |

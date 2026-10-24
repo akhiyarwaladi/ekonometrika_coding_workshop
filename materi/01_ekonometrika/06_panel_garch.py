@@ -104,6 +104,25 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # kerja. Pertama, data diubah ke format panel: indeks dua level, entity dan
 # waktu.
 
+# %% [markdown]
+# <!-- kamus_variabel:panel_gdp.csv -->
+#
+# ### Kenali data: Panel PDB simulasi
+#
+# **Data:** `data/panel_gdp.csv`. **Satu baris:** satu negara pada satu tahun.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `CountryID` | Kode negara dalam panel simulasi. | Kode 1 sampai 10; bukan nama negara terverifikasi | Penanda, bukan besaran ekonomi |
+# | `Year` | Tahun kalender pada contoh. | Tahun | Penanda waktu |
+# | `GDP_Y` | Gross Domestic Product/PDB: besarnya output ekonomi. | Level PDB; skala mata uang tidak dicantumkan | Y: target |
+# | `FDI_X1` | Foreign Direct Investment: investasi asing langsung. | Level investasi; skala tidak dicantumkan | X: penjelas |
+# | `Labor_X2` | Labor force: besarnya angkatan kerja. | Skala jumlah tenaga kerja tidak dicantumkan | X: penjelas |
+#
+# GDP_Y adalah level PDB simulasi; PDB_Growth pada data World Bank adalah pertumbuhan persen. FDI_X1 di sini tidak otomatis mempunyai satuan persen dari PDB.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 gdp = pd.read_csv("data/panel_gdp.csv")
 panel = gdp.set_index(["CountryID", "Year"])
@@ -215,6 +234,26 @@ tabel.round(4)
 #
 # Data `volatilitas.csv` berisi return saham 50 periode. Pola yang dicari:
 # volatilitas mengelompok.
+
+# %% [markdown]
+# <!-- kamus_variabel:volatilitas.csv -->
+#
+# ### Kenali data: Lima deret simulasi volatilitas
+#
+# **Data:** `data/volatilitas.csv`. **Satu baris:** satu periode simulasi dengan lima contoh deret yang berbeda.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Observation` | Nomor periode simulasi. | Urutan waktu, bukan tanggal kalender | Penanda waktu |
+# | `Kasus_1_Saham_Return` | Return/perubahan relatif harga saham pada kasus 1. | Pecahan desimal; 0,012 setara 1,2% | Deret yang dianalisis |
+# | `Kasus_2_Forex_Return` | Return nilai tukar/foreign exchange pada kasus 2. | Pecahan desimal | Deret yang dianalisis |
+# | `Kasus_3_Kripto_Return` | Return aset kripto pada kasus 3. | Pecahan desimal | Deret yang dianalisis |
+# | `Kasus_4_Inflasi_MoM` | Perubahan harga dari bulan sebelumnya (month-on-month) pada kasus 4. | Pecahan desimal; 0,002 setara 0,2% | Deret yang dianalisis |
+# | `Kasus_5_Minyak_Shock` | Guncangan/perubahan harga minyak pada kasus 5. | Skala simulasi; definisi rinci shock tidak dicantumkan | Deret yang dianalisis |
+#
+# Return pecahan harus dikalikan 100 jika ingin dibaca dalam persen. Kelima kolom adalah kasus terpisah, bukan lima penjelas dalam satu regresi.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 volatilitas = pd.read_csv("data/volatilitas.csv")

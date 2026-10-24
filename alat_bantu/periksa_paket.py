@@ -16,6 +16,7 @@ from PIL import Image
 import nbformat
 
 from uji_notebook import periksa_sinkron
+from sinkron_kamus_variabel import baca_kamus, sinkron
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -80,9 +81,12 @@ def main():
         (ROOT / "pengajar/kunci_jawaban").glob("*.ipynb")
     )
     assert len(notebooks) == 22
+    kamus = baca_kamus()
+    jumlah_tabel_variabel = 0
     for path in notebooks:
         periksa_sinkron(path)
         nbformat.validate(nbformat.read(path, as_version=4))
+        jumlah_tabel_variabel += len(sinkron(path.with_suffix(".py"), kamus, True))
     for latihan in (ROOT / "materi/02_latihan").glob("*.ipynb"):
         assert (ROOT / "pengajar/kunci_jawaban" / latihan.name).exists(), latihan
 
@@ -141,6 +145,7 @@ def main():
             else "- ZIP cadangan lokal tidak disertakan; integritas data diperiksa melalui hash pada peta nama dan kesesuaian paket data."
         ),
         "- 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.",
+        f"- {jumlah_tabel_variabel} tabel Kenali data menjelaskan variabel sebelum dataset dibaca; definisi seluruh 59 CSV tercakup dalam kamus variabel.",
         "- Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.",
         f"- {jumlah_tautan} tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.",
         (

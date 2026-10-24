@@ -75,6 +75,24 @@ import numpy as np
 # %% [markdown]
 # ## Latihan 1: produktivitas padi
 
+# %% [markdown]
+# <!-- kamus_variabel:uts_3.csv -->
+#
+# ### Kenali data: Produktivitas padi
+#
+# **Data:** `data/uts_3.csv`. **Satu baris:** satu wilayah pertanian pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Produktivitas_Padi` | Hasil panen padi per luas lahan. | Produktivitas per hektar; skala massa tidak dirinci sumber | Y: target |
+# | `X1_Jumlah_Pupuk` | Banyaknya pupuk yang digunakan pada pertanian. | Jumlah pupuk; satuan/cakupan luas tidak dirinci | X: penjelas |
+# | `X2_Curah_Hujan` | Banyaknya hujan pada wilayah pertanian. | Satuan/periode tidak dirinci sumber | X: penjelas |
+# | `X3_Sinar_Matahari` | Lama penyinaran matahari yang diterima lahan. | Jam; periode akumulasi tidak dirinci | X: penjelas |
+#
+# Sumber menyebut produktivitas per hektar, tetapi tidak merinci semua skala. Interpretasi dalam ton, kg, atau mm memerlukan konfirmasi metadata, bukan hanya dugaan dari angka.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 padi = pd.read_csv("data/uts_3.csv")
 sampel_model_padi = padi[
@@ -110,6 +128,22 @@ print(uji_model_padi.pvalues.round(4))
 
 # %% [markdown]
 # ## Latihan 2: angka harapan hidup
+
+# %% [markdown]
+# <!-- kamus_variabel:uts_4.csv -->
+#
+# ### Kenali data: Angka harapan hidup
+#
+# **Data:** `data/uts_4.csv`. **Satu baris:** satu negara pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Angka_Harapan_Hidup` | Rata-rata lama hidup yang diharapkan menurut indikator pada contoh. | Tahun | Y: target |
+# | `X1_Pengeluaran_Kesehatan` | Pengeluaran kesehatan per penduduk (per kapita). | Uang per kapita; mata uang/periode tidak dirinci | X: penjelas |
+# | `X2_Tingkat_Imunisasi` | Persentase anak yang memperoleh imunisasi. | Persen; jenis imunisasi tidak dirinci | X: penjelas |
+# | `X3_Konsumsi_Kalori` | Rata-rata konsumsi energi makanan per hari. | Kalori harian; rincian satuan energi mengikuti sumber | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 harapan = pd.read_csv("data/uts_4.csv")
@@ -149,6 +183,24 @@ print(uji_model_harapan.pvalues.round(4))
 
 # %% [markdown]
 # ## Latihan 3: prediksi
+
+# %% [markdown]
+# <!-- kamus_variabel:uts_6.csv -->
+#
+# ### Kenali data: Penjualan produk
+#
+# **Data:** `data/uts_6.csv`. **Satu baris:** satu pengamatan penjualan produk dalam contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Penjualan_Unit` | Banyaknya produk yang terjual. | Unit produk dalam data simulasi | Y: target |
+# | `X1_Biaya_Iklan` | Biaya promosi/iklan untuk produk tersebut. | Uang; skala tidak dirinci | X: penjelas |
+# | `X2_Harga_Produk` | Harga jual produk milik perusahaan. | Uang per unit; skala tidak dirinci | X: penjelas |
+# | `X3_Harga_Kompetitor` | Harga produk pesaing yang menjadi pembanding. | Uang per unit; skala tidak dirinci | X: penjelas |
+#
+# Harga produk sendiri dan harga kompetitor adalah dua variabel berbeda. Periode penjualan dan skala mata uang tidak dijelaskan pada sumber.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 situasi = pd.DataFrame(

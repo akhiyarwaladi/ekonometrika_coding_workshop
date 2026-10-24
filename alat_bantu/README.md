@@ -8,6 +8,8 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | Perintah | Hasil |
 |---|---|
 | `python alat_bantu/konversi_notebook.py` | Membuat 22 notebook dari sumber `.py`, termasuk kunci jawaban. Output lama dikosongkan. |
+| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 22 pasangan `.py`/`.ipynb` dan panduan kamus; kode serta output notebook dipertahankan. |
+| `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memastikan seluruh kolom CSV sudah didefinisikan dan tabel definisi pada sumber/notebook tetap sinkron. |
 | `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` dari 59 CSV dan `metode_lanjutan.py`. |
 | `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `paket/png_regresi_tajam.zip`. |
 | `python alat_bantu/uji_notebook.py` | Memeriksa sinkronisasi, keterbacaan kode, dan eksekusi seluruh notebook dari folder utama. |
@@ -38,3 +40,9 @@ Jika memakai lingkungan lokal yang sudah disiapkan, ganti `python` dengan
 `.venv\Scripts\python.exe`. Setelah mengubah sumber `.py`, jalankan konversi;
 jalankan kembali uji Housing untuk mengisi output notebook Housing terbaru.
 Gunakan `uji_semua_notebook.py` untuk mengisi output seluruh materi dan kunci jawaban.
+
+Definisi variabel disunting pada `alat_bantu/kamus_variabel.json`, kemudian
+jalankan `sinkron_kamus_variabel.py`. Tabelnya ditampilkan sebelum dataset
+dibaca, termasuk untuk petunjuk latihan yang belum dijalankan.
+Satuan yang tidak tersedia pada sumber ditandai secara terbuka; jangan menebak
+skala mata uang hanya dari besar angka.

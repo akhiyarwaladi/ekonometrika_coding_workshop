@@ -72,6 +72,22 @@ import statsmodels.api as sm
 # %% [markdown]
 # ## Latihan 1: heteroskedastisitas (hetero-2)
 
+# %% [markdown]
+# <!-- kamus_variabel:hetero_2.csv -->
+#
+# ### Kenali data: Pendapatan dan karakteristik pekerja
+#
+# **Data:** `data/hetero_2.csv`. **Satu baris:** satu orang pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Pendapatan` | Pendapatan selama satu tahun. | Puluhan juta rupiah per tahun, sesuai uraian sumber | Y: target |
+# | `Pendidikan` | Lama pendidikan yang telah ditempuh. | Tahun | X: penjelas |
+# | `Pengalaman` | Lama pengalaman kerja. | Tahun | X: penjelas |
+# | `Usia` | Umur orang yang diamati. | Tahun | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from statsmodels.stats.diagnostic import het_breuschpagan, het_white
 
@@ -124,6 +140,24 @@ print(banding.round(4))
 # %% [markdown]
 # ## Latihan 2: normalitas (latihan-normalitas-3)
 
+# %% [markdown]
+# <!-- kamus_variabel:latihan_normalitas_3.csv -->
+#
+# ### Kenali data: Harga dan kondisi rumah
+#
+# **Data:** `data/latihan_normalitas_3.csv`. **Satu baris:** satu rumah pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Harga` | Harga jual rumah pada data simulasi. | Sumber menyebut juta rupiah sekaligus simulasi dolar; skala ambigu | Y: target |
+# | `Luas_Bangunan` | Luas bangunan rumah. | Sumber menyebut m² sekaligus simulasi kaki persegi; skala ambigu | X: penjelas |
+# | `Jumlah_Kamar` | Jumlah kamar tidur. | Kamar | X: penjelas |
+# | `Usia_Rumah` | Lama sejak rumah dibangun. | Tahun | X: penjelas |
+#
+# Sumber mencampurkan keterangan satuan untuk harga dan luas. Gunakan angka ini untuk latihan statistik; konfirmasi satuan sebelum memberi interpretasi nominal atau mengonversi luas.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 from statsmodels.stats.stattools import jarque_bera
 import matplotlib.pyplot as plt
@@ -155,6 +189,22 @@ plt.show()
 
 # %% [markdown]
 # ## Latihan 3: kasus tanpa pelanggaran (hetero-1)
+
+# %% [markdown]
+# <!-- kamus_variabel:hetero_1.csv -->
+#
+# ### Kenali data: Iklan, tenaga penjualan, dan diskon
+#
+# **Data:** `data/hetero_1.csv`. **Satu baris:** satu pengamatan penjualan perusahaan dalam contoh.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Penjualan` | Banyaknya produk terjual. | Ribuan unit | Y: target |
+# | `Iklan` | Pengeluaran untuk iklan. | Juta rupiah | X: penjelas |
+# | `Salesperson` | Jumlah tenaga penjualan yang bekerja. | Orang | X: penjelas |
+# | `Diskon` | Rata-rata potongan harga yang diberikan. | Persen; 5,2 berarti 5,2% | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 jual = pd.read_csv("data/hetero_1.csv")

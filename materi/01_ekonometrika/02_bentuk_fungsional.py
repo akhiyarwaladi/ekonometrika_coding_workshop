@@ -91,6 +91,32 @@ print("Data siap. Lanjutkan ke sel berikutnya.")
 # `regresi_log.csv`. Model yang diuji: $Q = A L^{\beta_1} K^{\beta_2}$.
 # Setelah di-log, bentuknya linear dan koefisiennya elastisitas.
 
+# %% [markdown]
+# <!-- kamus_variabel:regresi_log.csv -->
+#
+# ### Kenali data: Produksi, tenaga kerja, dan modal
+#
+# **Data:** `data/regresi_log.csv`. **Satu baris:** satu unit usaha/pengamatan dalam contoh produksi.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Observasi ke-` | `obs` | Nomor urut pengamatan. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `Tenaga Kerja (L)` | `L` | Input tenaga kerja untuk proses produksi (L = labor). | Jumlah tenaga kerja; cakupan waktu tidak dirinci | X: penjelas |
+# | `Modal (K)` | `K` | Input modal yang digunakan untuk menghasilkan barang (K = capital). | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Produksi (Q)` | `Q` | Jumlah hasil produksi (Q = quantity/output). | Jumlah output; unit produk tidak dirinci | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `lnQ` | Logaritma alami dari produksi Q. | Skala logaritma |
+# | `lnL` | Logaritma alami dari tenaga kerja L. | Skala logaritma |
+# | `lnK` | Logaritma alami dari modal K. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -202,6 +228,28 @@ print(f"Eksak 100*(exp(beta)-1)  : {100 * (np.exp(beta) - 1):.2f} persen")
 # Kalau X membesar, $1/X$ mendekati nol, jadi Y mendekati $\beta_0$. Nilai
 # $\beta_0$ adalah batas waktu produksi teoretis yang tidak bisa dilewati.
 
+# %% [markdown]
+# <!-- kamus_variabel:regresi_reciprocal.csv -->
+#
+# ### Kenali data: Pengalaman dan waktu produksi
+#
+# **Data:** `data/regresi_reciprocal.csv`. **Satu baris:** satu pengamatan pengalaman pekerja dan waktu produksinya.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Pengalaman (X)` | `pengalaman` | Lama/pengalaman melakukan pekerjaan produksi. | Satuan pengalaman tidak dirinci sumber | X: penjelas |
+# | `Waktu Produksi (Y)` | `waktu` | Waktu yang diperlukan untuk menyelesaikan produksi. | Satuan waktu tidak dirinci sumber | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `satu_per_x` | Kebalikan pengalaman: 1 / pengalaman. | Kebalikan satuan pengalaman |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 recip = pd.read_csv("data/regresi_reciprocal.csv")
 recip = recip.rename(
@@ -250,6 +298,31 @@ plt.show()
 #
 # Model: $\text{penjualan} = \beta_0 + \beta_1 X + \beta_2 X^2$.
 # Titik puncak berada di $X^* = -\beta_1 / (2\beta_2)$.
+
+# %% [markdown]
+# <!-- kamus_variabel:regresi_polinom.csv -->
+#
+# ### Kenali data: Iklan dan penjualan
+#
+# **Data:** `data/regresi_polinom.csv`. **Satu baris:** satu tahun pengamatan pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun ke-` | `Tahun ke-` | Urutan tahun pengamatan, bukan tahun kalender. | 1, 2, 3, dan seterusnya | Penanda waktu |
+# | `Biaya Iklan (X)` | `iklan` | Biaya yang dikeluarkan untuk memasang iklan. | Satuan/skala tidak dirinci sumber | X: penjelas |
+# | `Penjualan (Y)` | `penjualan` | Besarnya penjualan yang ingin dijelaskan oleh biaya iklan. | Satuan/skala tidak dirinci sumber | Y: target |
+#
+# Jangan menetapkan rupiah, juta rupiah, atau unit barang hanya dari besar angkanya; skala tersebut tidak dicantumkan pada sumber tabel.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `iklan2` | Kuadrat biaya iklan: iklan × iklan; bukan biaya iklan baru. | Kuadrat satuan iklan |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 polinom = pd.read_csv("data/regresi_polinom.csv")
@@ -337,6 +410,28 @@ plt.show()
 #
 # Hipotesis di materi Pertemuan 3: kinerja naik seiring usia, memuncak di
 # usia tertentu, lalu menurun. Model kuadratik adalah jawaban standarnya.
+
+# %% [markdown]
+# <!-- kamus_variabel:usia_unit.csv -->
+#
+# ### Kenali data: Usia dan kinerja penjual
+#
+# **Data:** `data/usia_unit.csv`. **Satu baris:** satu tenaga penjual.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Usia` | `usia` | Umur tenaga penjual. | Tahun | X: penjelas |
+# | `Unit_Terjual` | `unit` | Jumlah penjualan bulanan pada contoh kinerja penjual. | Unit per bulan, berupa angka simulasi | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `usia2` | Kuadrat usia: usia × usia. | Tahun kuadrat |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 usia = pd.read_csv("data/usia_unit.csv")

@@ -107,6 +107,32 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # benar-benar mengelompok. Bandingkan hasilnya dengan data simulasi di
 # Sesi 6 yang murni ARCH (beta = 0).
 
+# %% [markdown]
+# <!-- kamus_variabel:ihsg_harian.csv -->
+#
+# ### Kenali data: IHSG harian
+#
+# **Data:** `data/ihsg_harian.csv`. **Satu baris:** satu hari perdagangan di pasar saham.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Date` | Tanggal hari perdagangan. | Tanggal YYYY-MM-DD | Penanda waktu |
+# | `Close` | Nilai penutupan Indeks Harga Saham Gabungan (IHSG). | Poin indeks | Deret yang dianalisis |
+# | `High` | Nilai indeks tertinggi pada hari tersebut. | Poin indeks | Informasi perdagangan |
+# | `Low` | Nilai indeks terendah pada hari tersebut. | Poin indeks | Informasi perdagangan |
+# | `Open` | Nilai indeks saat pembukaan hari perdagangan. | Poin indeks | Informasi perdagangan |
+# | `Volume` | Volume perdagangan yang dilaporkan penyedia data untuk ticker indeks. | Satuan pelaporan Yahoo; bukan rupiah atau poin indeks | Informasi perdagangan |
+#
+# IHSG adalah indeks, sehingga Close = 6.000 berarti 6.000 poin, bukan Rp6.000. Return dihitung dari perubahan Close. Nilai Volume nol tidak otomatis menunjukkan tidak ada perdagangan; cakupan pelaporan mengikuti penyedia.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ret` | Return logaritmik harian: 100 × (ln Close hari ini - ln Close sebelumnya). | Persen log-return |
+#
+# Sumber definisi: [rujukan data](https://finance.yahoo.com/quote/%5EJKSE/history/).
+
 # %%
 ihsg = pd.read_csv("data/ihsg_harian.csv", parse_dates=["Date"])
 # Return logaritmik harian dalam persen: selisih log dikali 100
@@ -204,6 +230,34 @@ print(
 # PDB, FDI (persen dari PDB), angkatan kerja, inflasi, dan pengangguran.
 # Kita uji: apakah FDI berhubungan dengan pertumbuhan ekonomi?
 
+# %% [markdown]
+# <!-- kamus_variabel:asean_panel.csv -->
+#
+# ### Kenali data: Panel negara ASEAN dari World Bank
+#
+# **Data:** `data/asean_panel.csv`. **Satu baris:** satu negara pada satu tahun.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Negara` | Kode negara ISO tiga huruf; misalnya IDN = Indonesia, MYS = Malaysia. | Kode negara | Penanda, bukan besaran ekonomi |
+# | `Tahun` | Tahun kalender pengamatan. | Tahun | Penanda waktu |
+# | `PDB_Growth` | Laju pertumbuhan tahunan PDB riil (Produk Domestik Bruto). | Persen per tahun; NY.GDP.MKTP.KD.ZG | Target pertumbuhan pada model panel |
+# | `Inflasi` | Kenaikan tahunan indeks harga konsumen. | Persen per tahun; FP.CPI.TOTL.ZG | Y atau X sesuai model |
+# | `Pengangguran` | Pengangguran sebagai bagian dari total angkatan kerja, estimasi model ILO. | Persen angkatan kerja; SL.UEM.TOTL.ZS | X: penjelas |
+# | `Kurs_USD` | Kurs resmi rata-rata periode: mata uang lokal untuk memperoleh satu dolar AS. | Mata uang lokal per US$1; PA.NUS.FCRF | X: penjelas |
+# | `FDI` | Arus masuk bersih investasi asing langsung relatif terhadap PDB. | Persen PDB; BX.KLT.DINV.WD.GD.ZS | X: penjelas |
+# | `Angkatan_Kerja` | Penduduk yang bekerja atau aktif mencari pekerjaan. | Orang; SL.TLF.TOTL.IN | X: penjelas |
+#
+# Kurs_USD memakai mata uang negara masing-masing, sehingga IDN berarti rupiah/US$ dan MYS berarti ringgit/US$. FDI = 5 berarti 5% PDB; perubahan dari 5 ke 6 adalah 1 poin persen.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_angkatan_kerja` | Logaritma alami jumlah angkatan kerja. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-development-indicators).
+
 # %%
 panel = pd.read_csv("data/asean_panel.csv")
 panel["ln_angkatan_kerja"] = np.log(panel["Angkatan_Kerja"])
@@ -289,6 +343,27 @@ print(hausman)
 # Data 26 tahun, 2000 sampai 2025. Kita uji hubungan inflasi dan
 # pengangguran, dua indikator yang selalu diberitakan bersama.
 
+# %% [markdown]
+# <!-- kamus_variabel:idn_makro_tahunan.csv -->
+#
+# ### Kenali data: Makroekonomi Indonesia tahunan
+#
+# **Data:** `data/idn_makro_tahunan.csv`. **Satu baris:** satu tahun kalender untuk Indonesia.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `negara` | Kode negara; IDN menunjukkan Indonesia. | Kode ISO negara | Penanda, bukan besaran ekonomi |
+# | `tahun` | Tahun kalender pengamatan. | Tahun | Penanda waktu |
+# | `PDB_Growth` | Laju pertumbuhan tahunan PDB riil (Produk Domestik Bruto). | Persen per tahun; NY.GDP.MKTP.KD.ZG | Target pertumbuhan pada model panel |
+# | `Inflasi` | Kenaikan tahunan indeks harga konsumen. | Persen per tahun; FP.CPI.TOTL.ZG | Y atau X sesuai model |
+# | `Pengangguran` | Pengangguran sebagai bagian dari total angkatan kerja, estimasi model ILO. | Persen angkatan kerja; SL.UEM.TOTL.ZS | X: penjelas |
+# | `Kurs_USD` | Kurs resmi rata-rata periode: mata uang lokal untuk memperoleh satu dolar AS. | Mata uang lokal per US$1; PA.NUS.FCRF | X: penjelas |
+# | `Angkatan_Kerja` | Penduduk yang bekerja atau aktif mencari pekerjaan. | Orang; SL.TLF.TOTL.IN | X: penjelas |
+#
+# Kurs_USD untuk Indonesia bersatuan rupiah per US$1. Inflasi dan pertumbuhan adalah laju persen, bukan nilai level harga atau level PDB.
+#
+# Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-development-indicators).
+
 # %%
 makro = pd.read_csv("data/idn_makro_tahunan.csv")
 makro.tail()
@@ -333,6 +408,28 @@ print(uji_model_makro.summary())
 #
 # Data kurs USD/IDR harian dari ECB. Uji ADF di level dan setelah selisih.
 
+# %% [markdown]
+# <!-- kamus_variabel:kurs_harian.csv -->
+#
+# ### Kenali data: Kurs rupiah harian
+#
+# **Data:** `data/kurs_harian.csv`. **Satu baris:** satu tanggal tersedianya kurs acuan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Tanggal` | Tanggal kurs acuan tersedia; bukan selalu setiap hari kalender. | Tanggal YYYY-MM-DD | Penanda waktu |
+# | `Kurs_USD_IDR` | Jumlah rupiah untuk memperoleh satu dolar AS (USD = dolar AS; IDR = rupiah). | Rupiah per US$1 | Deret yang dianalisis |
+#
+# Seri diambil melalui Frankfurter dari kurs acuan ECB. Perubahan kurs adalah kolom turunan, bukan arti nilai kurs level.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ret_kurs` | Perubahan relatif kurs harian: 100 × (kurs hari ini / kurs sebelumnya - 1). | Persen; positif berarti rupiah melemah |
+#
+# Sumber definisi: [rujukan data](https://www.frankfurter.dev/).
+
 # %%
 from statsmodels.tsa.stattools import adfuller
 
@@ -355,6 +452,30 @@ print(
 # 1967. Keduanya menangkap krisis finansial Asia yang menghantam Indonesia
 # pada 1997-1998: rupiah melemah dari sekitar 2.900 menjadi 10.000 per
 # dolar, dan inflasi melonjak.
+
+# %% [markdown]
+# <!-- kamus_variabel:idn_inflasi_bulanan.csv -->
+#
+# ### Kenali data: IHK dan inflasi Indonesia bulanan
+#
+# **Data:** `data/idn_inflasi_bulanan.csv`. **Satu baris:** satu bulan kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `tanggal` | Bulan pengamatan; tanggal berfungsi sebagai penanda bulan. | Tanggal YYYY-MM-DD | Penanda waktu |
+# | `indeks` | Indeks Harga Konsumen (IHK), yaitu ukuran tingkat harga keranjang konsumsi. | Poin indeks; tahun dasar mengikuti seri sumber | Level harga |
+# | `inflasi_mom` | Persentase perubahan indeks dari bulan sebelumnya (month-on-month). | 100 × (indeks bulan ini / bulan lalu - 1) | Deret yang dianalisis |
+# | `inflasi_yoy` | Persentase perubahan indeks dari bulan yang sama setahun sebelumnya (year-on-year). | 100 × (indeks bulan ini / indeks 12 bulan lalu - 1) | Deret yang dianalisis |
+#
+# indeks adalah level, sedangkan inflasi_mom dan inflasi_yoy adalah perubahan persen yang dihitung oleh skrip unduhan. Angka 2 pada kolom inflasi berarti 2%, bukan 0,02%.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `era` | Label pengelompokan periode untuk ringkasan/grafik inflasi. | Kategori periode, bukan variabel inflasi baru |
+#
+# Sumber definisi: [rujukan data](https://fred.stlouisfed.org/series/IDNCPIALLMINMEI).
 
 # %%
 inflasi = pd.read_csv("data/idn_inflasi_bulanan.csv", parse_dates=["tanggal"])
@@ -402,6 +523,28 @@ print(
 # stasioner karena selalu naik, tetapi inflasi YoY sudah stasioner karena
 # kenaikan harga relatif stabil di sekitar levelnya.
 
+# %% [markdown]
+# <!-- kamus_variabel:idn_kurs_tahunan.csv -->
+#
+# ### Kenali data: Kurs rupiah tahunan
+#
+# **Data:** `data/idn_kurs_tahunan.csv`. **Satu baris:** satu tahun kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `tahun` | Tahun pengamatan. | Tahun | Penanda waktu |
+# | `kurs` | Kurs resmi rata-rata satu tahun, rupiah yang diperlukan untuk US$1. | Rupiah per dolar AS | Deret yang dianalisis |
+#
+# Kurs yang meningkat berarti satu dolar membutuhkan lebih banyak rupiah, sehingga rupiah melemah terhadap dolar.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `pertumbuhan` | Perubahan relatif kurs dari tahun sebelumnya, dikalikan 100. | Persen per tahun |
+#
+# Sumber definisi: [rujukan data](https://data.worldbank.org/indicator/PA.NUS.FCRF).
+
 # %%
 kurs_panjang = pd.read_csv("data/idn_kurs_tahunan.csv")
 print(kurs_panjang[kurs_panjang["tahun"].between(1996, 1999)])
@@ -442,6 +585,32 @@ print(
 # - Coba juga potong periode 1990-1999 saja. Apa yang terjadi pada
 #   alpha + beta?
 
+# %% [markdown]
+# <!-- kamus_variabel:ihsg_panjang.csv -->
+#
+# ### Kenali data: IHSG riwayat panjang
+#
+# **Data:** `data/ihsg_panjang.csv`. **Satu baris:** satu hari perdagangan di pasar saham.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Date` | Tanggal hari perdagangan. | Tanggal YYYY-MM-DD | Penanda waktu |
+# | `Close` | Nilai penutupan Indeks Harga Saham Gabungan (IHSG). | Poin indeks | Deret yang dianalisis |
+# | `High` | Nilai indeks tertinggi pada hari tersebut. | Poin indeks | Informasi perdagangan |
+# | `Low` | Nilai indeks terendah pada hari tersebut. | Poin indeks | Informasi perdagangan |
+# | `Open` | Nilai indeks saat pembukaan hari perdagangan. | Poin indeks | Informasi perdagangan |
+# | `Volume` | Volume perdagangan yang dilaporkan penyedia data untuk ticker indeks. | Satuan pelaporan Yahoo; bukan rupiah atau poin indeks | Informasi perdagangan |
+#
+# IHSG adalah indeks, sehingga Close = 6.000 berarti 6.000 poin, bukan Rp6.000. Return dihitung dari perubahan Close. Nilai Volume nol tidak otomatis menunjukkan tidak ada perdagangan; cakupan pelaporan mengikuti penyedia.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ret` | Return logaritmik harian: 100 × selisih log Close. | Persen log-return |
+#
+# Sumber definisi: [rujukan data](https://finance.yahoo.com/quote/%5EJKSE/history/).
+
 # %%
 # panjang = pd.read_csv("data/ihsg_panjang.csv", parse_dates=["Date"])
 # panjang["ret"] = 100 * np.log(panjang["Close"]).diff()
@@ -457,6 +626,32 @@ print(
 #   `IPM ~ ln(PDRB_Kapita)` (log). Mana yang lebih cocok? Pakai R kuadrat
 #   terkoreksi. Perbandingan ini sah karena variabel Y-nya sama (IPM);
 #   yang berubah hanya bentuk variabel penjelasnya.
+
+# %% [markdown]
+# <!-- kamus_variabel:provinsi_2021.csv -->
+#
+# ### Kenali data: Indikator 34 provinsi tahun 2021
+#
+# **Data:** `data/provinsi_2021.csv`. **Satu baris:** satu provinsi pada tahun 2021 dalam kompilasi sumber.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Provinsi` | Nama provinsi yang diamati. | Nama wilayah | Penanda, bukan besaran ekonomi |
+# | `PDRB_Kapita` | Produk Domestik Regional Bruto per penduduk, ukuran output ekonomi per kapita. | Skala sumber; dipakai sebagai ribu rupiah dalam tutorial | Y atau X sesuai model |
+# | `IPM` | Indeks Pembangunan Manusia yang merangkum dimensi kesehatan, pendidikan, dan taraf hidup. | Poin indeks, bukan persen | Y atau X sesuai model |
+# | `Pengangguran` | Tingkat Pengangguran Terbuka (TPT). | Persen angkatan kerja | X: penjelas |
+# | `Kemiskinan` | Penduduk yang berada di bawah garis kemiskinan. | Persen penduduk | Y: target |
+# | `AHH_Laki` | Angka Harapan Hidup laki-laki pada kompilasi sumber. | Tahun | Indikator pendamping |
+# | `AHH_Perempuan` | Angka Harapan Hidup perempuan pada kompilasi sumber. | Tahun | Indikator pendamping |
+# | `APS_7_12` | Angka Partisipasi Sekolah penduduk umur 7 sampai 12 tahun. | Persen penduduk kelompok umur tersebut | Indikator pendamping |
+# | `APS_13_15` | Angka Partisipasi Sekolah penduduk umur 13 sampai 15 tahun. | Persen penduduk kelompok umur tersebut | Indikator pendamping |
+# | `APS_16_18` | Angka Partisipasi Sekolah penduduk umur 16 sampai 18 tahun. | Persen penduduk kelompok umur tersebut | Indikator pendamping |
+# | `APS_19_23` | Angka Partisipasi Sekolah penduduk umur 19 sampai 23 tahun. | Persen penduduk kelompok umur tersebut | Indikator pendamping |
+# | `Perokok` | Persentase perokok pada kompilasi data provinsi. | Persen; cakupan umur mengikuti sumber | Indikator pendamping |
+#
+# Berkas ini adalah kompilasi indikator, bukan tabel metadata lengkap BPS. Cakupan indikator dan skala PDRB perlu diperiksa pada sumber BPS sebelum dipakai untuk riset; barisnya mengikuti 34 provinsi pada tahun 2021.
+#
+# Sumber definisi: [rujukan data](https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv).
 
 # %%
 # prov = pd.read_csv("data/provinsi_2021.csv")

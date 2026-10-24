@@ -1,6 +1,6 @@
 # Hasil penataan folder tutorial
 
-Diperiksa pada 23-10-2026 16:58 waktu komputer.
+Diperiksa pada 24-10-2026 15:40 waktu komputer.
 
 ## Struktur dan integritas
 
@@ -10,8 +10,9 @@ Diperiksa pada 23-10-2026 16:58 waktu komputer.
 - 59 CSV dan satu modul pendukung dalam ZIP sama dengan berkas di folder proyek.
 - Seluruh 59 CSV sama persis dengan salinan sebelum penataan; nama kolom dan angka tidak berubah.
 - 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.
+- 82 tabel Kenali data menjelaskan variabel sebelum dataset dibaca; definisi seluruh 59 CSV tercakup dalam kamus variabel.
 - Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.
-- 233 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
+- 380 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
 - 31 PNG lama berukuran 3000 × 1688 piksel, 300 dpi, tersimpan di arsip lokal.
 - 31 PNG tajam berurutan; ukuran 6000 × 3375 piksel dan metadata 600 dpi; isi ZIP sama persis dengan PNG terpisah.
 

@@ -47,5 +47,6 @@ Kembali ke [halaman awal](../README.md).
 - [Referensi](04_referensi.md)
 - [Kurikulum lengkap dan asal data](05_isi_materi_lengkap.md)
 - [Pola pemodelan dengan scikit-learn](06_pola_pemodelan.md)
+- [Kamus variabel seluruh dataset](07_kamus_variabel.md)
 - [Daftar data](../data/README.md)
 - [Bahan pengajar](../pengajar/README.md)

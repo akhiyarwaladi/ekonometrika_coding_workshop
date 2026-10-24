@@ -81,6 +81,76 @@ if not Path("data/uts_2.csv").exists():
 
 print("Data siap. Lanjutkan ke sel berikutnya.")
 
+# %% [markdown]
+# <!-- kamus_variabel:ts_inflasi.csv -->
+#
+# ### Kenali data: Deret harga/inflasi simulasi
+#
+# **Data:** `data/ts_inflasi.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `inflasi` | Deret level bertendensi naik, dicontohkan sebagai IHK pada sumber. | Level/indeks simulasi; bukan otomatis persen inflasi | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
+# %% [markdown]
+# <!-- kamus_variabel:ts_saham.csv -->
+#
+# ### Kenali data: Harga saham simulasi
+#
+# **Data:** `data/ts_saham.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `saham` | Deret harga saham simulasi untuk uji stasioneritas dan peramalan. | Level harga; skala uang tidak dirinci | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
+# %% [markdown]
+# <!-- kamus_variabel:ts_gdp_growth.csv -->
+#
+# ### Kenali data: Pertumbuhan ekonomi simulasi
+#
+# **Data:** `data/ts_gdp_growth.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `gdp_growth` | GDP growth: laju pertumbuhan Produk Domestik Bruto. | Persen dalam konteks pertumbuhan | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
+# %% [markdown]
+# <!-- kamus_variabel:ts_kurs.csv -->
+#
+# ### Kenali data: Kurs simulasi
+#
+# **Data:** `data/ts_kurs.csv`. **Satu baris:** satu urutan periode simulasi; bukan tanggal kalender.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `obs` | Urutan waktu pengamatan. | 1, 2, 3, ...; frekuensi kalender tidak dirinci | Penanda waktu |
+# | `kurs` | Nilai tukar simulasi yang mengalami perubahan level di tengah periode. | Level kurs; pasangan mata uang tidak dirinci sumber tabel | Deret yang dianalisis |
+#
+# Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `pasca` | Indikator perubahan level mulai pengamatan ke-25 pada contoh. | 1 jika obs ≥ 25; 0 sebelumnya |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -323,6 +393,33 @@ print(uji_model_kurs.summary())
 # 2. Ambil residualnya.
 # 3. Uji akar unit residual dengan nilai kritis Engle-Granger melalui `coint()`.
 #    Pastikan kedua seri berorde integrasi yang sama, umumnya I(1).
+
+# %% [markdown]
+# <!-- kamus_variabel:konsumsi_pendapatan.csv -->
+#
+# ### Kenali data: Konsumsi dan pendapatan runtun waktu
+#
+# **Data:** `data/konsumsi_pendapatan.csv`. **Satu baris:** satu tahun berurutan pada data simulasi.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun` | `Tahun` | Nomor tahun dalam urutan simulasi, bukan tahun kalender. | 1, 2, 3, ... | Penanda waktu |
+# | `Konsumsi_Y` | `konsumsi` | Nilai konsumsi pada periode tersebut. | Skala uang tidak dirinci | Y: target |
+# | `Pendapatan_X` | `pendapatan` | Nilai pendapatan pada periode yang sama. | Skala uang tidak dirinci | X: penjelas |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_konsumsi` | Logaritma alami nilai konsumsi. | Skala logaritma |
+# | `ln_pendapatan` | Logaritma alami nilai pendapatan. | Skala logaritma |
+# | `d_konsumsi` | Selisih log konsumsi dari periode sebelumnya. | Perubahan log, belum dikalikan 100 |
+# | `d_pendapatan` | Selisih log pendapatan dari periode sebelumnya. | Perubahan log, belum dikalikan 100 |
+# | `ect` | Error Correction Term: penyimpangan dari hubungan jangka panjang pada periode sebelumnya. | Residual log periode sebelumnya |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 makro = pd.read_csv("data/konsumsi_pendapatan.csv")

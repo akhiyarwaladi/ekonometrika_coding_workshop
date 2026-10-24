@@ -95,6 +95,34 @@ print("Data siap. Lanjutkan ke sel berikutnya.")
 # 30 karyawan. Dua variabel terakhir kategorikal, jadi harus diubah ke angka
 # dulu. Ini yang di EViews dilakukan otomatis lewat fitur dummy.
 
+# %% [markdown]
+# <!-- kamus_variabel:latihan_dummy_1.csv -->
+#
+# ### Kenali data: Gaji dan karakteristik pekerja
+#
+# **Data:** `data/latihan_dummy_1.csv`. **Satu baris:** satu pekerja pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `No` | `No` | Nomor urut pekerja. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `GAJI` | `gaji` | Besarnya gaji pekerja. | Uang; skala/periode gaji tidak dirinci | Y: target |
+# | `PENGALAMAN` | `pengalaman` | Lama pengalaman kerja pekerja. | Satuan waktu tidak dirinci sumber | X: penjelas |
+# | `GENDER` | `gender` | Kategori gender yang dicatat dalam berkas. | Teks: Pria atau Wanita | X: penjelas |
+# | `STATUS` | `status` | Status perkawinan pekerja. | Teks: Menikah atau Lajang | X: penjelas |
+#
+# Kategori teks diubah menjadi dummy 0/1 saat praktik; kelompok acuan dijelaskan pada bagian pembentukan dummy.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `dummy_pria` | Indikator kategori Pria; kelompok selain Pria menjadi acuan. | 1 = Pria; 0 = selain Pria |
+# | `dummy_menikah` | Indikator status Menikah; kelompok selain Menikah menjadi acuan. | 1 = Menikah; 0 = selain Menikah |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -198,6 +226,27 @@ print(uji_model_dummy.summary())
 # `latihan_dummy_2.csv`: PDB dan investasi tahunan, dengan dummy `KRISIS`
 # bernilai 1 di tahun krisis. Model: `pdb ~ investasi + suku_bunga + krisis`.
 
+# %% [markdown]
+# <!-- kamus_variabel:latihan_dummy_2.csv -->
+#
+# ### Kenali data: PDB, investasi, dan krisis
+#
+# **Data:** `data/latihan_dummy_2.csv`. **Satu baris:** satu tahun pada contoh ekonomi simulasi.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Tahun` | `tahun` | Tahun kalender pengamatan. | Tahun | Penanda waktu |
+# | `PDB` | `pdb` | Indikator PDB yang menjadi target contoh. | Skala PDB tidak dirinci sumber | Y: target |
+# | `INVESTASI` | `investasi` | Besarnya investasi pada periode tersebut. | Skala investasi tidak dirinci sumber | X: penjelas |
+# | `SUKU_BUNGA` | `suku_bunga` | Tingkat bunga pada periode tersebut. | Persen dalam konteks latihan | X: penjelas |
+# | `KRISIS` | `krisis` | Penanda apakah pengamatan termasuk periode krisis pada data. | 1 = krisis; 0 = bukan krisis | X: penjelas |
+#
+# PDB pada nama kolom tidak otomatis berarti pertumbuhan PDB. Berkas tidak menyertakan metadata skala level/pertumbuhan; jangan menyamakannya dengan PDB_Growth World Bank.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 krisis = pd.read_csv("data/latihan_dummy_2.csv")
 krisis = krisis.rename(
@@ -269,6 +318,25 @@ print(uji_model_krisis.summary())
 #
 # Aturan praktis: VIF di atas 10 menandakan masalah serius. Di antara 5 dan
 # 10, perlu kehati-hatian.
+
+# %% [markdown]
+# <!-- kamus_variabel:latihan_multikolinieritas_1.csv -->
+#
+# ### Kenali data: Harga dan ukuran rumah
+#
+# **Data:** `data/latihan_multikolinieritas_1.csv`. **Satu baris:** satu rumah pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `No` | `No` | Nomor rumah/pengamatan. | Nomor identitas | Penanda, bukan besaran ekonomi |
+# | `HARGA` | `harga` | Harga jual rumah. | Uang; skala tidak dirinci | Y: target |
+# | `LUAS_BANGUNAN` | `luas_bangunan` | Luas fisik bangunan rumah. | Satuan luas tidak dirinci sumber | X: penjelas |
+# | `LUAS_TANAH` | `luas_tanah` | Luas tanah tempat rumah berada. | Satuan luas tidak dirinci sumber | X: penjelas |
+# | `JML_KAMAR` | `jml_kamar` | Jumlah kamar pada rumah. | Kamar | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 from statsmodels.stats.outliers_influence import variance_inflation_factor
@@ -360,6 +428,30 @@ print(uji_model_rumah.summary())
 # Data `hetero_3.csv`: harga rumah dijelaskan luas bangunan, jumlah kamar,
 # dan skor lokasi. Dugaan di soal: variasi harga jauh lebih besar untuk
 # rumah luas di lokasi premium.
+
+# %% [markdown]
+# <!-- kamus_variabel:hetero_3.csv -->
+#
+# ### Kenali data: Harga dan karakteristik rumah
+#
+# **Data:** `data/hetero_3.csv`. **Satu baris:** satu rumah pada contoh latihan.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Harga` | `harga` | Harga jual rumah. | Ratusan juta rupiah | Y: target |
+# | `Luas` | `luas` | Luas bangunan rumah. | Meter persegi (m²) | X: penjelas |
+# | `Kamar` | `kamar` | Jumlah kamar tidur. | Kamar | X: penjelas |
+# | `Lokasi` | `lokasi` | Skor kelayakan/kualitas lokasi rumah; bukan kode alamat. | Skor 1 sampai 10 | X: penjelas |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `abs_resid` | Nilai mutlak selisih harga aktual dan prediksi untuk uji Glejser. | Sama dengan satuan Harga |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 hunian = pd.read_csv("data/hetero_3.csv")
@@ -477,6 +569,26 @@ banding
 # Normalitas residual dibutuhkan untuk inferensi pada sampel kecil. Data
 # `latihan_normalitas_1.csv`: harga saham dijelaskan suku bunga, tingkat
 # pengangguran, dan pertumbuhan PDB.
+
+# %% [markdown]
+# <!-- kamus_variabel:latihan_normalitas_1.csv -->
+#
+# ### Kenali data: Harga saham dan kondisi makro
+#
+# **Data:** `data/latihan_normalitas_1.csv`. **Satu baris:** satu pengamatan gabungan harga saham dan indikator makro.
+#
+# Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.
+#
+# | Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|---|
+# | `Harga_Saham` | `harga_saham` | Harga penutupan saham pada pengamatan. | Uang per lembar; skala tidak dirinci | Y: target |
+# | `Tingkat_Suku_Bunga` | `suku_bunga` | Tingkat bunga bank sentral. | Persen | X: penjelas |
+# | `Tingkat_Pengangguran` | `pengangguran` | Tingkat pengangguran nasional. | Persen | X: penjelas |
+# | `Pertumbuhan_PDB` | `pdb` | Laju pertumbuhan PDB kuartalan pada contoh sumber. | Persen | X: penjelas |
+#
+# Berkas tidak memiliki tanggal; jangan mengarang tahun kalender dari nomor baris.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 saham_makro = pd.read_csv("data/latihan_normalitas_1.csv")

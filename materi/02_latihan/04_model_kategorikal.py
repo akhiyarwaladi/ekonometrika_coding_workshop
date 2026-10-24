@@ -87,6 +87,24 @@ import statsmodels.api as sm
 # statsmodels). Y = GRADE (1 kalau nilai meningkat), X = GPA, TUCE (tes
 # awal), dan PSI (ikut metode pengajaran baru).
 
+# %% [markdown]
+# <!-- kamus_variabel:spector -->
+#
+# ### Kenali data: Efektivitas metode pengajaran Spector
+#
+# **Data:** dataset bawaan statsmodels (`spector`). **Satu baris:** satu mahasiswa; total 32 mahasiswa pada data sumber.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `GPA` | Grade Point Average: rata-rata prestasi akademik mahasiswa, sejenis IPK. | Poin rata-rata nilai | X: penjelas |
+# | `TUCE` | Skor tes pemahaman ekonomi mahasiswa. | Poin tes | X: penjelas |
+# | `PSI` | Keikutsertaan dalam Personalized System of Instruction, program/metode pengajaran yang diteliti. | 1 = mengikuti; 0 = tidak | X: penjelas |
+# | `GRADE` | Apakah nilai mahasiswa meningkat pada pengamatan program. | 1 = meningkat; 0 = tidak meningkat | Y: target |
+#
+# GRADE bukan nilai huruf A/B/C dan 0 tidak berarti mahasiswa pasti gagal kuliah. Data ini dibaca dari statsmodels, sehingga tidak memiliki CSV terpisah di paket.
+#
+# Sumber definisi: [rujukan data](https://www.statsmodels.org/stable/datasets/generated/spector.html).
+
 # %%
 spector = sm.datasets.spector.load_pandas().data
 spector.head()
@@ -236,6 +254,23 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 #
 # Pertanyaan: kenapa logit biasa gagal di data ini?
 
+# %% [markdown]
+# <!-- kamus_variabel:logit_probit_2.csv -->
+#
+# ### Kenali data: Kelulusan tepat waktu
+#
+# **Data:** `data/logit_probit_2.csv`. **Satu baris:** satu mahasiswa.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `LULUS_TEPAT` | Apakah mahasiswa menyelesaikan studi tepat waktu. | 1 = tepat waktu; 0 = tidak tepat waktu | Y: target |
+# | `IPK_SEM2` | Indeks Prestasi Kumulatif sampai semester 2. | Poin IPK | X: penjelas |
+# | `SKS_LULUS_SEM2` | Beban studi yang telah diselesaikan sampai semester 2; SKS = Satuan Kredit Semester. | SKS | X: penjelas |
+# | `KEAKTIFAN_ORG` | Keaktifan mahasiswa dalam organisasi. | 1 = aktif; 0 = tidak aktif | X: penjelas |
+# | `BEASISWA` | Status penerimaan beasiswa. | 1 = penerima; 0 = bukan penerima | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # lulus = pd.read_csv("data/logit_probit_2.csv")
 # X_lulus = lulus[["IPK_SEM2", "SKS_LULUS_SEM2", "KEAKTIFAN_ORG", "BEASISWA"]]
@@ -255,6 +290,24 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 # Catatan: data simulasi ini nyaris terpisah sempurna, jadi koefisien
 # absolutnya ekstrem. Baca TANDA-nya, bukan besarannya.
 
+# %% [markdown]
+# <!-- kamus_variabel:multi_ordinal_1.csv -->
+#
+# ### Kenali data: Kepuasan layanan bank
+#
+# **Data:** `data/multi_ordinal_1.csv`. **Satu baris:** satu responden pengguna layanan bank.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Kepuasan` | Kategori kepuasan terhadap layanan, berurutan dari rendah ke tinggi. | 1 = sangat tidak puas; 2 = netral; 3 = puas | Y: target |
+# | `Kecepatan` | Lama menunggu pelayanan. Angka lebih besar berarti menunggu lebih lama. | Menit | X: penjelas |
+# | `Staf_Ramah` | Penilaian keramahan staf. | Skor 1 sampai 10 | X: penjelas |
+# | `Digital_App` | Frekuensi penggunaan aplikasi digital bank yang dibuat sebagai indikator. | 1 = sering memakai; 0 = jarang/tidak | X: penjelas |
+#
+# Nama Kecepatan pada CSV berarti waktu tunggu, bukan skor kecepatan. Di contoh utama namanya diperjelas menjadi waktu_tunggu.
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 # from statsmodels.miscmodels.ordinal_model import OrderedModel
 # kepuasan = pd.read_csv("data/multi_ordinal_1.csv")
@@ -267,6 +320,22 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 # klaim asuransi per tahun). Hitung IRR (`exp(koefisien)`) dan cek
 # overdispersi dengan Pearson chi-kuadrat dibagi derajat bebas.
 # Di atas 1,5 berarti sebaiknya pindah ke Negative Binomial.
+
+# %% [markdown]
+# <!-- kamus_variabel:poisson_data_1_klaim.csv -->
+#
+# ### Kenali data: Klaim asuransi mobil
+#
+# **Data:** `data/poisson_data_1_klaim.csv`. **Satu baris:** satu pengemudi/pemegang polis yang diamati selama satu tahun.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `JML_KLAIM` | Jumlah pengajuan klaim asuransi dalam setahun. | Klaim; bilangan bulat 0, 1, 2, ... | Y: target |
+# | `USIA` | Umur pengemudi. | Tahun | X: penjelas |
+# | `PENGALAMAN` | Lama pengalaman mengemudi. | Tahun | X: penjelas |
+# | `TIPE_MOBIL` | Jenis mobil menurut pengelompokan pada sumber. | 1 = sport; 0 = keluarga | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 # klaim = pd.read_csv("data/poisson_data_1_klaim.csv")

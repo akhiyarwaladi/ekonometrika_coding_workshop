@@ -71,6 +71,22 @@ import statsmodels.api as sm
 # %% [markdown]
 # ## Latihan 1 dan 2: baca data dan hitung rata-rata
 
+# %% [markdown]
+# <!-- kamus_variabel:uts_4.csv -->
+#
+# ### Kenali data: Angka harapan hidup
+#
+# **Data:** `data/uts_4.csv`. **Satu baris:** satu negara pada contoh latihan.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Angka_Harapan_Hidup` | Rata-rata lama hidup yang diharapkan menurut indikator pada contoh. | Tahun | Y: target |
+# | `X1_Pengeluaran_Kesehatan` | Pengeluaran kesehatan per penduduk (per kapita). | Uang per kapita; mata uang/periode tidak dirinci | X: penjelas |
+# | `X2_Tingkat_Imunisasi` | Persentase anak yang memperoleh imunisasi. | Persen; jenis imunisasi tidak dirinci | X: penjelas |
+# | `X3_Konsumsi_Kalori` | Rata-rata konsumsi energi makanan per hari. | Kalori harian; rincian satuan energi mengikuti sumber | X: penjelas |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 harapan_hidup = pd.read_csv("data/uts_4.csv")
 print("Jumlah observasi:", len(harapan_hidup))

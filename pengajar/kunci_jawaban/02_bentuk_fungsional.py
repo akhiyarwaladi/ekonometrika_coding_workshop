@@ -72,6 +72,26 @@ import numpy as np
 # %% [markdown]
 # ## Latihan 1: pendidikan dan pendapatan (log-lin)
 
+# %% [markdown]
+# <!-- kamus_variabel:pendidikan_pendapatan.csv -->
+#
+# ### Kenali data: Pendidikan dan pendapatan
+#
+# **Data:** `data/pendidikan_pendapatan.csv`. **Satu baris:** satu responden.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Tahun_Pendidikan` | Total lama pendidikan yang telah ditempuh. | Tahun | X: penjelas |
+# | `Pendapatan_Tahunan` | Pendapatan yang diterima selama satu tahun. | Juta rupiah per tahun | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_pendapatan` | Logaritma alami dari Pendapatan_Tahunan. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 didik = pd.read_csv("data/pendidikan_pendapatan.csv")
 didik["ln_pendapatan"] = np.log(didik["Pendapatan_Tahunan"])
@@ -113,6 +133,26 @@ print("R2 linear :", round(model_linear.score(X_model_linear, y_model_linear), 4
 # %% [markdown]
 # ## Latihan 2: usia dan kinerja (kuadratik)
 
+# %% [markdown]
+# <!-- kamus_variabel:usia_unit.csv -->
+#
+# ### Kenali data: Usia dan kinerja penjual
+#
+# **Data:** `data/usia_unit.csv`. **Satu baris:** satu tenaga penjual.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Usia` | Umur tenaga penjual. | Tahun | X: penjelas |
+# | `Unit_Terjual` | Jumlah penjualan bulanan pada contoh kinerja penjual. | Unit per bulan, berupa angka simulasi | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `usia2` | Kuadrat usia: usia × usia. | Tahun kuadrat |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 usia = pd.read_csv("data/usia_unit.csv")
 usia["usia2"] = usia["Usia"] ** 2
@@ -139,6 +179,26 @@ print("Usia puncak:", round(-b1 / (2 * b2), 2), "tahun")
 # %% [markdown]
 # ## Latihan 3: jam belajar dan skor (reciprocal)
 
+# %% [markdown]
+# <!-- kamus_variabel:jam_skor.csv -->
+#
+# ### Kenali data: Jam belajar dan hasil ujian
+#
+# **Data:** `data/jam_skor.csv`. **Satu baris:** satu siswa/responden.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Jam_Belajar` | Total waktu belajar yang dicatat pada contoh. | Jam | X: penjelas |
+# | `Skor_Ujian` | Nilai/skor hasil ujian. | Poin skor; batas maksimum akan ditaksir dalam latihan | Y: target |
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `satu_per_jam` | Kebalikan jam belajar: 1 / Jam_Belajar. | Per jam |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
+
 # %%
 skor = pd.read_csv("data/jam_skor.csv")
 skor["satu_per_jam"] = 1 / skor["Jam_Belajar"]
@@ -162,6 +222,33 @@ print(koefisien_model_skor.round(2))
 
 # %% [markdown]
 # ## Latihan 4: memilih bentuk untuk data UTS-1
+
+# %% [markdown]
+# <!-- kamus_variabel:uts_1.csv -->
+#
+# ### Kenali data: Pertumbuhan ekonomi
+#
+# **Data:** `data/uts_1.csv`. **Satu baris:** satu negara pada contoh 50 negara berkembang.
+#
+# | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+# |---|---|---|---|
+# | `Y_Pertumbuhan_Ekonomi` | Laju pertumbuhan kegiatan ekonomi/PDB. | Persen | Y: target |
+# | `X1_Investasi` | Besarnya investasi dibandingkan PDB. | Persen dari PDB | X: penjelas |
+# | `X2_Inflasi` | Laju kenaikan tingkat harga. | Persen | X: penjelas |
+# | `X3_Keterbukaan_Perdagangan` | Ukuran keterbukaan perdagangan relatif terhadap PDB. | Persen dari PDB | X: penjelas |
+#
+# Rumus rinci ukuran keterbukaan tidak dicantumkan pada tabel sumber; jangan menganggapnya nilai ekspor saja.
+#
+# Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+#
+# | Kolom turunan | Pengertian | Satuan/kode |
+# |---|---|---|
+# | `ln_y` | Logaritma alami pertumbuhan ekonomi yang bernilai positif. | Skala logaritma |
+# | `ln_inv` | Logaritma alami tingkat investasi. | Skala logaritma |
+# | `ln_inflasi` | Logaritma alami tingkat inflasi yang bernilai positif. | Skala logaritma |
+# | `ln_terbuka` | Logaritma alami ukuran keterbukaan perdagangan. | Skala logaritma |
+#
+# Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
 uts1 = pd.read_csv("data/uts_1.csv")

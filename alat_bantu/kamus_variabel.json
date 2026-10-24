@@ -1,0 +1,2265 @@
+{
+  "versi": 1,
+  "dataset": {
+    "uts_2.csv": {
+      "judul": "Harga saham perusahaan",
+      "satu_baris": "satu perusahaan pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nama harga, eps, der, dan iklan adalah nama singkat dari kolom di atas. Contoh DER tidak dibaca sebagai 1,5 persen.",
+      "variabel": [
+        {
+          "kolom": "Y_Harga_Saham",
+          "arti": "Harga satu lembar saham perusahaan.",
+          "satuan": "Uang per lembar; skala mata uang tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Pendapatan_per_Saham",
+          "arti": "EPS (Earnings Per Share): laba per lembar saham; bukan total omzet perusahaan.",
+          "satuan": "Uang per lembar; skala mata uang tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Rasio_Utang_Ekuitas",
+          "arti": "DER (Debt to Equity Ratio): total utang dibagi ekuitas perusahaan.",
+          "satuan": "Rasio; 1,5 berarti utang 1,5 kali ekuitas (150%)",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Belanja_Iklan",
+          "arti": "Jumlah pengeluaran perusahaan untuk iklan.",
+          "satuan": "Uang; skala dan periode belanja tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "regresi_polinom.csv": {
+      "judul": "Iklan dan penjualan",
+      "satu_baris": "satu tahun pengamatan pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Jangan menetapkan rupiah, juta rupiah, atau unit barang hanya dari besar angkanya; skala tersebut tidak dicantumkan pada sumber tabel.",
+      "variabel": [
+        {
+          "kolom": "Tahun ke-",
+          "arti": "Urutan tahun pengamatan, bukan tahun kalender.",
+          "satuan": "1, 2, 3, dan seterusnya",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Biaya Iklan (X)",
+          "arti": "Biaya yang dikeluarkan untuk memasang iklan.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Penjualan (Y)",
+          "arti": "Besarnya penjualan yang ingin dijelaskan oleh biaya iklan.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "iklan2",
+          "arti": "Kuadrat biaya iklan: iklan × iklan; bukan biaya iklan baru.",
+          "satuan": "Kuadrat satuan iklan"
+        }
+      ]
+    },
+    "regresi_log.csv": {
+      "judul": "Produksi, tenaga kerja, dan modal",
+      "satu_baris": "satu unit usaha/pengamatan dalam contoh produksi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Observasi ke-",
+          "arti": "Nomor urut pengamatan.",
+          "satuan": "Nomor identitas",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Tenaga Kerja (L)",
+          "arti": "Input tenaga kerja untuk proses produksi (L = labor).",
+          "satuan": "Jumlah tenaga kerja; cakupan waktu tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Modal (K)",
+          "arti": "Input modal yang digunakan untuk menghasilkan barang (K = capital).",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Produksi (Q)",
+          "arti": "Jumlah hasil produksi (Q = quantity/output).",
+          "satuan": "Jumlah output; unit produk tidak dirinci",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "lnQ",
+          "arti": "Logaritma alami dari produksi Q.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "lnL",
+          "arti": "Logaritma alami dari tenaga kerja L.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "lnK",
+          "arti": "Logaritma alami dari modal K.",
+          "satuan": "Skala logaritma"
+        }
+      ]
+    },
+    "regresi_reciprocal.csv": {
+      "judul": "Pengalaman dan waktu produksi",
+      "satu_baris": "satu pengamatan pengalaman pekerja dan waktu produksinya",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Pengalaman (X)",
+          "arti": "Lama/pengalaman melakukan pekerjaan produksi.",
+          "satuan": "Satuan pengalaman tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Waktu Produksi (Y)",
+          "arti": "Waktu yang diperlukan untuk menyelesaikan produksi.",
+          "satuan": "Satuan waktu tidak dirinci sumber",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "satu_per_x",
+          "arti": "Kebalikan pengalaman: 1 / pengalaman.",
+          "satuan": "Kebalikan satuan pengalaman"
+        }
+      ]
+    },
+    "uts_1.csv": {
+      "judul": "Pertumbuhan ekonomi",
+      "satu_baris": "satu negara pada contoh 50 negara berkembang",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Rumus rinci ukuran keterbukaan tidak dicantumkan pada tabel sumber; jangan menganggapnya nilai ekspor saja.",
+      "variabel": [
+        {
+          "kolom": "Y_Pertumbuhan_Ekonomi",
+          "arti": "Laju pertumbuhan kegiatan ekonomi/PDB.",
+          "satuan": "Persen",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Investasi",
+          "arti": "Besarnya investasi dibandingkan PDB.",
+          "satuan": "Persen dari PDB",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Inflasi",
+          "arti": "Laju kenaikan tingkat harga.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Keterbukaan_Perdagangan",
+          "arti": "Ukuran keterbukaan perdagangan relatif terhadap PDB.",
+          "satuan": "Persen dari PDB",
+          "peran": "X: penjelas"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ln_y",
+          "arti": "Logaritma alami pertumbuhan ekonomi yang bernilai positif.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "ln_inv",
+          "arti": "Logaritma alami tingkat investasi.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "ln_inflasi",
+          "arti": "Logaritma alami tingkat inflasi yang bernilai positif.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "ln_terbuka",
+          "arti": "Logaritma alami ukuran keterbukaan perdagangan.",
+          "satuan": "Skala logaritma"
+        }
+      ]
+    },
+    "uts_3.csv": {
+      "judul": "Produktivitas padi",
+      "satu_baris": "satu wilayah pertanian pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Sumber menyebut produktivitas per hektar, tetapi tidak merinci semua skala. Interpretasi dalam ton, kg, atau mm memerlukan konfirmasi metadata, bukan hanya dugaan dari angka.",
+      "variabel": [
+        {
+          "kolom": "Y_Produktivitas_Padi",
+          "arti": "Hasil panen padi per luas lahan.",
+          "satuan": "Produktivitas per hektar; skala massa tidak dirinci sumber",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Jumlah_Pupuk",
+          "arti": "Banyaknya pupuk yang digunakan pada pertanian.",
+          "satuan": "Jumlah pupuk; satuan/cakupan luas tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Curah_Hujan",
+          "arti": "Banyaknya hujan pada wilayah pertanian.",
+          "satuan": "Satuan/periode tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Sinar_Matahari",
+          "arti": "Lama penyinaran matahari yang diterima lahan.",
+          "satuan": "Jam; periode akumulasi tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "uts_4.csv": {
+      "judul": "Angka harapan hidup",
+      "satu_baris": "satu negara pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Y_Angka_Harapan_Hidup",
+          "arti": "Rata-rata lama hidup yang diharapkan menurut indikator pada contoh.",
+          "satuan": "Tahun",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Pengeluaran_Kesehatan",
+          "arti": "Pengeluaran kesehatan per penduduk (per kapita).",
+          "satuan": "Uang per kapita; mata uang/periode tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Tingkat_Imunisasi",
+          "arti": "Persentase anak yang memperoleh imunisasi.",
+          "satuan": "Persen; jenis imunisasi tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Konsumsi_Kalori",
+          "arti": "Rata-rata konsumsi energi makanan per hari.",
+          "satuan": "Kalori harian; rincian satuan energi mengikuti sumber",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "uts_5.csv": {
+      "judul": "Kriminalitas kota",
+      "satu_baris": "satu kota pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Y_Tingkat_Kriminalitas",
+          "arti": "Tingkat kejadian kejahatan relatif terhadap jumlah penduduk.",
+          "satuan": "Kejadian per 100.000 penduduk",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Tingkat_Pengangguran",
+          "arti": "Proporsi angkatan kerja yang menganggur.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Rata_rata_Pendidikan",
+          "arti": "Rata-rata lama pendidikan penduduk.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Kepadatan_Penduduk",
+          "arti": "Jumlah penduduk relatif terhadap luas wilayah.",
+          "satuan": "Penduduk per satuan luas; unit luas tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "uts_6.csv": {
+      "judul": "Penjualan produk",
+      "satu_baris": "satu pengamatan penjualan produk dalam contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Harga produk sendiri dan harga kompetitor adalah dua variabel berbeda. Periode penjualan dan skala mata uang tidak dijelaskan pada sumber.",
+      "variabel": [
+        {
+          "kolom": "Y_Penjualan_Unit",
+          "arti": "Banyaknya produk yang terjual.",
+          "satuan": "Unit produk dalam data simulasi",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1_Biaya_Iklan",
+          "arti": "Biaya promosi/iklan untuk produk tersebut.",
+          "satuan": "Uang; skala tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2_Harga_Produk",
+          "arti": "Harga jual produk milik perusahaan.",
+          "satuan": "Uang per unit; skala tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3_Harga_Kompetitor",
+          "arti": "Harga produk pesaing yang menjadi pembanding.",
+          "satuan": "Uang per unit; skala tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "latihan_dummy_1.csv": {
+      "judul": "Gaji dan karakteristik pekerja",
+      "satu_baris": "satu pekerja pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Kategori teks diubah menjadi dummy 0/1 saat praktik; kelompok acuan dijelaskan pada bagian pembentukan dummy.",
+      "variabel": [
+        {
+          "kolom": "No",
+          "arti": "Nomor urut pekerja.",
+          "satuan": "Nomor identitas",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "GAJI",
+          "arti": "Besarnya gaji pekerja.",
+          "satuan": "Uang; skala/periode gaji tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PENGALAMAN",
+          "arti": "Lama pengalaman kerja pekerja.",
+          "satuan": "Satuan waktu tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "GENDER",
+          "arti": "Kategori gender yang dicatat dalam berkas.",
+          "satuan": "Teks: Pria atau Wanita",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "STATUS",
+          "arti": "Status perkawinan pekerja.",
+          "satuan": "Teks: Menikah atau Lajang",
+          "peran": "X: penjelas"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "dummy_pria",
+          "arti": "Indikator kategori Pria; kelompok selain Pria menjadi acuan.",
+          "satuan": "1 = Pria; 0 = selain Pria"
+        },
+        {
+          "kolom": "dummy_menikah",
+          "arti": "Indikator status Menikah; kelompok selain Menikah menjadi acuan.",
+          "satuan": "1 = Menikah; 0 = selain Menikah"
+        }
+      ]
+    },
+    "latihan_dummy_2.csv": {
+      "judul": "PDB, investasi, dan krisis",
+      "satu_baris": "satu tahun pada contoh ekonomi simulasi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "PDB pada nama kolom tidak otomatis berarti pertumbuhan PDB. Berkas tidak menyertakan metadata skala level/pertumbuhan; jangan menyamakannya dengan PDB_Growth World Bank.",
+      "variabel": [
+        {
+          "kolom": "Tahun",
+          "arti": "Tahun kalender pengamatan.",
+          "satuan": "Tahun",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "PDB",
+          "arti": "Indikator PDB yang menjadi target contoh.",
+          "satuan": "Skala PDB tidak dirinci sumber",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "INVESTASI",
+          "arti": "Besarnya investasi pada periode tersebut.",
+          "satuan": "Skala investasi tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "SUKU_BUNGA",
+          "arti": "Tingkat bunga pada periode tersebut.",
+          "satuan": "Persen dalam konteks latihan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "KRISIS",
+          "arti": "Penanda apakah pengamatan termasuk periode krisis pada data.",
+          "satuan": "1 = krisis; 0 = bukan krisis",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "latihan_multikolinieritas_1.csv": {
+      "judul": "Harga dan ukuran rumah",
+      "satu_baris": "satu rumah pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "No",
+          "arti": "Nomor rumah/pengamatan.",
+          "satuan": "Nomor identitas",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "HARGA",
+          "arti": "Harga jual rumah.",
+          "satuan": "Uang; skala tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "LUAS_BANGUNAN",
+          "arti": "Luas fisik bangunan rumah.",
+          "satuan": "Satuan luas tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "LUAS_TANAH",
+          "arti": "Luas tanah tempat rumah berada.",
+          "satuan": "Satuan luas tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "JML_KAMAR",
+          "arti": "Jumlah kamar pada rumah.",
+          "satuan": "Kamar",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "latihan_multikolinieritas_2.csv": {
+      "judul": "Konsumsi rumah tangga",
+      "satu_baris": "satu rumah tangga pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "No",
+          "arti": "Nomor rumah tangga.",
+          "satuan": "Nomor identitas",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "KONSUMSI",
+          "arti": "Pengeluaran konsumsi rumah tangga.",
+          "satuan": "Uang; skala/periode tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PENDAPATAN",
+          "arti": "Pendapatan rumah tangga.",
+          "satuan": "Uang; skala/periode tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "KEKAYAAN",
+          "arti": "Nilai kekayaan yang dimiliki rumah tangga.",
+          "satuan": "Uang; skala tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "JML_ANGGOTA",
+          "arti": "Banyaknya anggota rumah tangga.",
+          "satuan": "Orang",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "hetero_1.csv": {
+      "judul": "Iklan, tenaga penjualan, dan diskon",
+      "satu_baris": "satu pengamatan penjualan perusahaan dalam contoh",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Penjualan",
+          "arti": "Banyaknya produk terjual.",
+          "satuan": "Ribuan unit",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Iklan",
+          "arti": "Pengeluaran untuk iklan.",
+          "satuan": "Juta rupiah",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Salesperson",
+          "arti": "Jumlah tenaga penjualan yang bekerja.",
+          "satuan": "Orang",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Diskon",
+          "arti": "Rata-rata potongan harga yang diberikan.",
+          "satuan": "Persen; 5,2 berarti 5,2%",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "hetero_2.csv": {
+      "judul": "Pendapatan dan karakteristik pekerja",
+      "satu_baris": "satu orang pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Pendapatan",
+          "arti": "Pendapatan selama satu tahun.",
+          "satuan": "Puluhan juta rupiah per tahun, sesuai uraian sumber",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Pendidikan",
+          "arti": "Lama pendidikan yang telah ditempuh.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Pengalaman",
+          "arti": "Lama pengalaman kerja.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Usia",
+          "arti": "Umur orang yang diamati.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "hetero_3.csv": {
+      "judul": "Harga dan karakteristik rumah",
+      "satu_baris": "satu rumah pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Harga",
+          "arti": "Harga jual rumah.",
+          "satuan": "Ratusan juta rupiah",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Luas",
+          "arti": "Luas bangunan rumah.",
+          "satuan": "Meter persegi (m²)",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Kamar",
+          "arti": "Jumlah kamar tidur.",
+          "satuan": "Kamar",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Lokasi",
+          "arti": "Skor kelayakan/kualitas lokasi rumah; bukan kode alamat.",
+          "satuan": "Skor 1 sampai 10",
+          "peran": "X: penjelas"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "abs_resid",
+          "arti": "Nilai mutlak selisih harga aktual dan prediksi untuk uji Glejser.",
+          "satuan": "Sama dengan satuan Harga"
+        }
+      ]
+    },
+    "latihan_normalitas_1.csv": {
+      "judul": "Harga saham dan kondisi makro",
+      "satu_baris": "satu pengamatan gabungan harga saham dan indikator makro",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Berkas tidak memiliki tanggal; jangan mengarang tahun kalender dari nomor baris.",
+      "variabel": [
+        {
+          "kolom": "Harga_Saham",
+          "arti": "Harga penutupan saham pada pengamatan.",
+          "satuan": "Uang per lembar; skala tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Tingkat_Suku_Bunga",
+          "arti": "Tingkat bunga bank sentral.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Tingkat_Pengangguran",
+          "arti": "Tingkat pengangguran nasional.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Pertumbuhan_PDB",
+          "arti": "Laju pertumbuhan PDB kuartalan pada contoh sumber.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "latihan_normalitas_2.csv": {
+      "judul": "Hasil panen dan kondisi lahan",
+      "satu_baris": "satu pengamatan lahan pada musim tanam",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Hasil_Panen",
+          "arti": "Hasil panen relatif terhadap luas lahan.",
+          "satuan": "Ton per hektar",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Curah_Hujan",
+          "arti": "Akumulasi hujan selama musim tanam.",
+          "satuan": "Milimeter (mm)",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Pupuk",
+          "arti": "Pupuk yang digunakan per luas lahan.",
+          "satuan": "Kilogram per hektar",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Sinar_Matahari",
+          "arti": "Rata-rata lama penyinaran matahari harian.",
+          "satuan": "Jam per hari",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "latihan_normalitas_3.csv": {
+      "judul": "Harga dan kondisi rumah",
+      "satu_baris": "satu rumah pada contoh latihan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Sumber mencampurkan keterangan satuan untuk harga dan luas. Gunakan angka ini untuk latihan statistik; konfirmasi satuan sebelum memberi interpretasi nominal atau mengonversi luas.",
+      "variabel": [
+        {
+          "kolom": "Harga",
+          "arti": "Harga jual rumah pada data simulasi.",
+          "satuan": "Sumber menyebut juta rupiah sekaligus simulasi dolar; skala ambigu",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Luas_Bangunan",
+          "arti": "Luas bangunan rumah.",
+          "satuan": "Sumber menyebut m² sekaligus simulasi kaki persegi; skala ambigu",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Jumlah_Kamar",
+          "arti": "Jumlah kamar tidur.",
+          "satuan": "Kamar",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Usia_Rumah",
+          "arti": "Lama sejak rumah dibangun.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "logit_probit_1.csv": {
+      "judul": "Persetujuan kredit usaha",
+      "satu_baris": "satu pemohon kredit usaha",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "APPROVE",
+          "arti": "Hasil keputusan permohonan kredit.",
+          "satuan": "1 = disetujui; 0 = tidak disetujui",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PENDAPATAN",
+          "arti": "Pendapatan bulanan pemohon.",
+          "satuan": "Juta rupiah per bulan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "LAMA_USAHA",
+          "arti": "Lama usaha telah berjalan.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "RASIO_UTANG",
+          "arti": "Total utang relatif terhadap pendapatan pemohon.",
+          "satuan": "Persen; 65 berarti 65%",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "JAMINAN",
+          "arti": "Ketersediaan agunan/jaminan kredit.",
+          "satuan": "1 = memiliki jaminan; 0 = tidak",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "logit_probit_2.csv": {
+      "judul": "Kelulusan tepat waktu",
+      "satu_baris": "satu mahasiswa",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "LULUS_TEPAT",
+          "arti": "Apakah mahasiswa menyelesaikan studi tepat waktu.",
+          "satuan": "1 = tepat waktu; 0 = tidak tepat waktu",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "IPK_SEM2",
+          "arti": "Indeks Prestasi Kumulatif sampai semester 2.",
+          "satuan": "Poin IPK",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "SKS_LULUS_SEM2",
+          "arti": "Beban studi yang telah diselesaikan sampai semester 2; SKS = Satuan Kredit Semester.",
+          "satuan": "SKS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "KEAKTIFAN_ORG",
+          "arti": "Keaktifan mahasiswa dalam organisasi.",
+          "satuan": "1 = aktif; 0 = tidak aktif",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "BEASISWA",
+          "arti": "Status penerimaan beasiswa.",
+          "satuan": "1 = penerima; 0 = bukan penerima",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "logit_probit_3.csv": {
+      "judul": "Penggunaan mobile banking",
+      "satu_baris": "satu nasabah",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "PAKAI_MBANKING",
+          "arti": "Apakah nasabah memakai layanan perbankan melalui aplikasi ponsel.",
+          "satuan": "1 = memakai; 0 = tidak",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "USIA",
+          "arti": "Umur nasabah.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "TINGKAT_PENDIDIKAN",
+          "arti": "Jenjang pendidikan nasabah.",
+          "satuan": "1 = SMA/sederajat; 2 = diploma; 3 = sarjana; 4 = pascasarjana",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "LITERASI_DIGITAL",
+          "arti": "Skor kemampuan/pemahaman penggunaan teknologi digital.",
+          "satuan": "Skor 1 sampai 10",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "KEPERCAYAAN_KEAMANAN",
+          "arti": "Skor kepercayaan pada keamanan layanan digital.",
+          "satuan": "Skor 1 sampai 10",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "multi_ordinal_1.csv": {
+      "judul": "Kepuasan layanan bank",
+      "satu_baris": "satu responden pengguna layanan bank",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nama Kecepatan pada CSV berarti waktu tunggu, bukan skor kecepatan. Di contoh utama namanya diperjelas menjadi waktu_tunggu.",
+      "variabel": [
+        {
+          "kolom": "Kepuasan",
+          "arti": "Kategori kepuasan terhadap layanan, berurutan dari rendah ke tinggi.",
+          "satuan": "1 = sangat tidak puas; 2 = netral; 3 = puas",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Kecepatan",
+          "arti": "Lama menunggu pelayanan. Angka lebih besar berarti menunggu lebih lama.",
+          "satuan": "Menit",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Staf_Ramah",
+          "arti": "Penilaian keramahan staf.",
+          "satuan": "Skor 1 sampai 10",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Digital_App",
+          "arti": "Frekuensi penggunaan aplikasi digital bank yang dibuat sebagai indikator.",
+          "satuan": "1 = sering memakai; 0 = jarang/tidak",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "multi_ordinal_2.csv": {
+      "judul": "Pilihan transportasi kerja",
+      "satu_baris": "satu pekerja/responden perjalanan ke kantor",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Transport",
+          "arti": "Moda transportasi yang dipilih.",
+          "satuan": "Kategori: Mobil, Motor, Umum; tidak berurutan",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Waktu_Tempuh",
+          "arti": "Lama perjalanan menuju tempat kerja.",
+          "satuan": "Menit",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Biaya",
+          "arti": "Biaya transportasi yang dikeluarkan.",
+          "satuan": "Ribu rupiah per hari",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Jarak_KM",
+          "arti": "Jarak rumah ke kantor.",
+          "satuan": "Kilometer (km)",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "multi_ordinal_3.csv": {
+      "judul": "Rating risiko kredit UMKM",
+      "satu_baris": "satu usaha mikro, kecil, atau menengah",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Rating",
+          "arti": "Kategori risiko kredit; kode lebih besar berarti risiko lebih rendah.",
+          "satuan": "1 = tinggi; 2 = sedang; 3 = rendah",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "DER",
+          "arti": "Debt to Equity Ratio: total utang dibagi ekuitas.",
+          "satuan": "Rasio, bukan persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Laba_Bersih",
+          "arti": "Keuntungan setelah memperhitungkan beban perusahaan.",
+          "satuan": "Juta rupiah",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Lama_Usaha",
+          "arti": "Lama usaha telah beroperasi.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "tobit_data_1_rnd.csv": {
+      "judul": "Pengeluaran penelitian dan pengembangan",
+      "satu_baris": "satu perusahaan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "RND = 0 adalah nilai pengeluaran yang tercatat pada batas bawah, bukan nilai kosong. Satuan PROFIT dan ASET berbeda skala.",
+      "variabel": [
+        {
+          "kolom": "RND",
+          "arti": "Pengeluaran Research and Development (R&D), yaitu penelitian dan pengembangan.",
+          "satuan": "Juta dolar AS; tersensor pada 0",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PROFIT",
+          "arti": "Keuntungan perusahaan.",
+          "satuan": "Juta dolar AS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "ASET",
+          "arti": "Total aset yang dimiliki perusahaan.",
+          "satuan": "Miliar dolar AS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "PATEN",
+          "arti": "Jumlah paten pada tahun sebelumnya.",
+          "satuan": "Paten",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "tobit_data_2_jamkerja.csv": {
+      "judul": "Jam kerja dan keadaan keluarga",
+      "satu_baris": "satu responden dalam contoh penawaran tenaga kerja",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "JAM_KERJA",
+          "arti": "Waktu kerja yang tercatat; 0 bagi yang tidak bekerja.",
+          "satuan": "Jam per minggu; tersensor pada 0",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PENDIDIKAN",
+          "arti": "Lama pendidikan responden.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "ANAK_BALITA",
+          "arti": "Jumlah anak berusia di bawah 5 tahun.",
+          "satuan": "Anak",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "INCOME_SUAMI",
+          "arti": "Pendapatan pasangan/suami dalam konteks contoh.",
+          "satuan": "Juta rupiah per bulan",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "tobit_data_3_asuransi.csv": {
+      "judul": "Pembelian premi asuransi",
+      "satu_baris": "satu nasabah/responden",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "PREMI",
+          "arti": "Premi asuransi jiwa yang dibeli; 0 jika tidak membeli.",
+          "satuan": "Juta rupiah per tahun; tersensor pada 0",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "PENDAPATAN",
+          "arti": "Pendapatan nasabah selama setahun.",
+          "satuan": "Juta rupiah per tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "USIA",
+          "arti": "Umur nasabah.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "LITERASI_KEU",
+          "arti": "Skor pengetahuan/pemahaman keuangan.",
+          "satuan": "Skor 0 sampai 100",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "poisson_data_1_klaim.csv": {
+      "judul": "Klaim asuransi mobil",
+      "satu_baris": "satu pengemudi/pemegang polis yang diamati selama satu tahun",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "JML_KLAIM",
+          "arti": "Jumlah pengajuan klaim asuransi dalam setahun.",
+          "satuan": "Klaim; bilangan bulat 0, 1, 2, ...",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "USIA",
+          "arti": "Umur pengemudi.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "PENGALAMAN",
+          "arti": "Lama pengalaman mengemudi.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "TIPE_MOBIL",
+          "arti": "Jenis mobil menurut pengelompokan pada sumber.",
+          "satuan": "1 = sport; 0 = keluarga",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "poisson_data_2_restoran.csv": {
+      "judul": "Kunjungan pelanggan restoran",
+      "satu_baris": "satu interval pengamatan selama satu jam",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "PELANGGAN",
+          "arti": "Jumlah pelanggan yang datang pada jam pengamatan.",
+          "satuan": "Orang per jam; bilangan bulat",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "JAM_SIBUK",
+          "arti": "Apakah jam pengamatan termasuk jam makan siang/malam.",
+          "satuan": "1 = jam sibuk; 0 = jam lainnya",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "WEEKEND",
+          "arti": "Apakah pengamatan berlangsung pada akhir pekan.",
+          "satuan": "1 = akhir pekan; 0 = hari kerja",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "JML_PROMO",
+          "arti": "Jumlah program promosi yang sedang aktif.",
+          "satuan": "Program promosi",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "poisson_data_3_cacat.csv": {
+      "judul": "Cacat produksi",
+      "satu_baris": "satu batch/kelompok produksi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "CACAT",
+          "arti": "Jumlah cacat produksi dalam batch.",
+          "satuan": "Cacat per batch; bilangan bulat",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "KEC_MESIN",
+          "arti": "Kecepatan putaran mesin.",
+          "satuan": "RPM: putaran per menit",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "USIA_MESIN",
+          "arti": "Umur mesin sejak mulai digunakan.",
+          "satuan": "Bulan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "SUHU",
+          "arti": "Suhu ruangan ketika produksi dilakukan.",
+          "satuan": "Derajat Celsius (°C)",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "pendidikan_pendapatan.csv": {
+      "judul": "Pendidikan dan pendapatan",
+      "satu_baris": "satu responden",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Tahun_Pendidikan",
+          "arti": "Total lama pendidikan yang telah ditempuh.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Pendapatan_Tahunan",
+          "arti": "Pendapatan yang diterima selama satu tahun.",
+          "satuan": "Juta rupiah per tahun",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ln_pendapatan",
+          "arti": "Logaritma alami dari Pendapatan_Tahunan.",
+          "satuan": "Skala logaritma"
+        }
+      ]
+    },
+    "usia_unit.csv": {
+      "judul": "Usia dan kinerja penjual",
+      "satu_baris": "satu tenaga penjual",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Usia",
+          "arti": "Umur tenaga penjual.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Unit_Terjual",
+          "arti": "Jumlah penjualan bulanan pada contoh kinerja penjual.",
+          "satuan": "Unit per bulan, berupa angka simulasi",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "usia2",
+          "arti": "Kuadrat usia: usia × usia.",
+          "satuan": "Tahun kuadrat"
+        }
+      ]
+    },
+    "jam_skor.csv": {
+      "judul": "Jam belajar dan hasil ujian",
+      "satu_baris": "satu siswa/responden",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Jam_Belajar",
+          "arti": "Total waktu belajar yang dicatat pada contoh.",
+          "satuan": "Jam",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Skor_Ujian",
+          "arti": "Nilai/skor hasil ujian.",
+          "satuan": "Poin skor; batas maksimum akan ditaksir dalam latihan",
+          "peran": "Y: target"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "satu_per_jam",
+          "arti": "Kebalikan jam belajar: 1 / Jam_Belajar.",
+          "satuan": "Per jam"
+        }
+      ]
+    },
+    "ts_inflasi.csv": {
+      "judul": "Deret harga/inflasi simulasi",
+      "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.",
+      "variabel": [
+        {
+          "kolom": "obs",
+          "arti": "Urutan waktu pengamatan.",
+          "satuan": "1, 2, 3, ...; frekuensi kalender tidak dirinci",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "inflasi",
+          "arti": "Deret level bertendensi naik, dicontohkan sebagai IHK pada sumber.",
+          "satuan": "Level/indeks simulasi; bukan otomatis persen inflasi",
+          "peran": "Deret yang dianalisis"
+        }
+      ]
+    },
+    "ts_saham.csv": {
+      "judul": "Harga saham simulasi",
+      "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.",
+      "variabel": [
+        {
+          "kolom": "obs",
+          "arti": "Urutan waktu pengamatan.",
+          "satuan": "1, 2, 3, ...; frekuensi kalender tidak dirinci",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "saham",
+          "arti": "Deret harga saham simulasi untuk uji stasioneritas dan peramalan.",
+          "satuan": "Level harga; skala uang tidak dirinci",
+          "peran": "Deret yang dianalisis"
+        }
+      ]
+    },
+    "ts_gdp_growth.csv": {
+      "judul": "Pertumbuhan ekonomi simulasi",
+      "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.",
+      "variabel": [
+        {
+          "kolom": "obs",
+          "arti": "Urutan waktu pengamatan.",
+          "satuan": "1, 2, 3, ...; frekuensi kalender tidak dirinci",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "gdp_growth",
+          "arti": "GDP growth: laju pertumbuhan Produk Domestik Bruto.",
+          "satuan": "Persen dalam konteks pertumbuhan",
+          "peran": "Deret yang dianalisis"
+        }
+      ]
+    },
+    "ts_kurs.csv": {
+      "judul": "Kurs simulasi",
+      "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Nomor obs tidak menunjukkan tanggal/bulan/tahun tertentu. Angka level dan perubahan persennya harus dibedakan.",
+      "variabel": [
+        {
+          "kolom": "obs",
+          "arti": "Urutan waktu pengamatan.",
+          "satuan": "1, 2, 3, ...; frekuensi kalender tidak dirinci",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "kurs",
+          "arti": "Nilai tukar simulasi yang mengalami perubahan level di tengah periode.",
+          "satuan": "Level kurs; pasangan mata uang tidak dirinci sumber tabel",
+          "peran": "Deret yang dianalisis"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "pasca",
+          "arti": "Indikator perubahan level mulai pengamatan ke-25 pada contoh.",
+          "satuan": "1 jika obs ≥ 25; 0 sebelumnya"
+        }
+      ]
+    },
+    "konsumsi_pendapatan.csv": {
+      "judul": "Konsumsi dan pendapatan runtun waktu",
+      "satu_baris": "satu tahun berurutan pada data simulasi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Tahun",
+          "arti": "Nomor tahun dalam urutan simulasi, bukan tahun kalender.",
+          "satuan": "1, 2, 3, ...",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Konsumsi_Y",
+          "arti": "Nilai konsumsi pada periode tersebut.",
+          "satuan": "Skala uang tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Pendapatan_X",
+          "arti": "Nilai pendapatan pada periode yang sama.",
+          "satuan": "Skala uang tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ln_konsumsi",
+          "arti": "Logaritma alami nilai konsumsi.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "ln_pendapatan",
+          "arti": "Logaritma alami nilai pendapatan.",
+          "satuan": "Skala logaritma"
+        },
+        {
+          "kolom": "d_konsumsi",
+          "arti": "Selisih log konsumsi dari periode sebelumnya.",
+          "satuan": "Perubahan log, belum dikalikan 100"
+        },
+        {
+          "kolom": "d_pendapatan",
+          "arti": "Selisih log pendapatan dari periode sebelumnya.",
+          "satuan": "Perubahan log, belum dikalikan 100"
+        },
+        {
+          "kolom": "ect",
+          "arti": "Error Correction Term: penyimpangan dari hubungan jangka panjang pada periode sebelumnya.",
+          "satuan": "Residual log periode sebelumnya"
+        }
+      ]
+    },
+    "ekspor_kurs.csv": {
+      "judul": "Ekspor dan nilai tukar",
+      "satu_baris": "satu kuartal berurutan pada contoh simulasi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Kuartal",
+          "arti": "Urutan periode tiga bulanan.",
+          "satuan": "Nomor kuartal; tahun kalender tidak dicantumkan",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Ekspor_Y",
+          "arti": "Nilai ekspor pada kuartal pengamatan.",
+          "satuan": "Skala nilai ekspor tidak dirinci",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Kurs_X",
+          "arti": "Nilai tukar pada kuartal yang sama.",
+          "satuan": "Pasangan mata uang/skala tidak dirinci sumber",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "ihsg_emas.csv": {
+      "judul": "IHSG dan harga emas simulasi",
+      "satu_baris": "satu bulan berurutan pada contoh simulasi",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Tabel ini adalah contoh simulasi; berbeda dari data IHSG harian unduhan Yahoo Finance.",
+      "variabel": [
+        {
+          "kolom": "Bulan",
+          "arti": "Urutan bulan pengamatan.",
+          "satuan": "Nomor bulan; tanggal kalender tidak dicantumkan",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "IHSG_Y",
+          "arti": "Indeks Harga Saham Gabungan dalam contoh simulasi.",
+          "satuan": "Poin indeks",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Emas_X",
+          "arti": "Harga emas pada contoh simulasi.",
+          "satuan": "Mata uang dan berat acuan tidak dirinci",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "ritel_iklan.csv": {
+      "judul": "Penjualan ritel dan iklan mingguan",
+      "satu_baris": "satu minggu berurutan pada contoh",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "Minggu",
+          "arti": "Urutan minggu pengamatan.",
+          "satuan": "Nomor minggu",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Penjualan_Y",
+          "arti": "Besarnya penjualan ritel pada minggu tersebut.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Iklan_X",
+          "arti": "Belanja iklan pada minggu tersebut.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "volatilitas.csv": {
+      "judul": "Lima deret simulasi volatilitas",
+      "satu_baris": "satu periode simulasi dengan lima contoh deret yang berbeda",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Return pecahan harus dikalikan 100 jika ingin dibaca dalam persen. Kelima kolom adalah kasus terpisah, bukan lima penjelas dalam satu regresi.",
+      "variabel": [
+        {
+          "kolom": "Observation",
+          "arti": "Nomor periode simulasi.",
+          "satuan": "Urutan waktu, bukan tanggal kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Kasus_1_Saham_Return",
+          "arti": "Return/perubahan relatif harga saham pada kasus 1.",
+          "satuan": "Pecahan desimal; 0,012 setara 1,2%",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "Kasus_2_Forex_Return",
+          "arti": "Return nilai tukar/foreign exchange pada kasus 2.",
+          "satuan": "Pecahan desimal",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "Kasus_3_Kripto_Return",
+          "arti": "Return aset kripto pada kasus 3.",
+          "satuan": "Pecahan desimal",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "Kasus_4_Inflasi_MoM",
+          "arti": "Perubahan harga dari bulan sebelumnya (month-on-month) pada kasus 4.",
+          "satuan": "Pecahan desimal; 0,002 setara 0,2%",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "Kasus_5_Minyak_Shock",
+          "arti": "Guncangan/perubahan harga minyak pada kasus 5.",
+          "satuan": "Skala simulasi; definisi rinci shock tidak dicantumkan",
+          "peran": "Deret yang dianalisis"
+        }
+      ]
+    },
+    "panel_gdp.csv": {
+      "judul": "Panel PDB simulasi",
+      "satu_baris": "satu negara pada satu tahun",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "GDP_Y adalah level PDB simulasi; PDB_Growth pada data World Bank adalah pertumbuhan persen. FDI_X1 di sini tidak otomatis mempunyai satuan persen dari PDB.",
+      "variabel": [
+        {
+          "kolom": "CountryID",
+          "arti": "Kode negara dalam panel simulasi.",
+          "satuan": "Kode 1 sampai 10; bukan nama negara terverifikasi",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Year",
+          "arti": "Tahun kalender pada contoh.",
+          "satuan": "Tahun",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "GDP_Y",
+          "arti": "Gross Domestic Product/PDB: besarnya output ekonomi.",
+          "satuan": "Level PDB; skala mata uang tidak dicantumkan",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "FDI_X1",
+          "arti": "Foreign Direct Investment: investasi asing langsung.",
+          "satuan": "Level investasi; skala tidak dicantumkan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Labor_X2",
+          "arti": "Labor force: besarnya angkatan kerja.",
+          "satuan": "Skala jumlah tenaga kerja tidak dicantumkan",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "panel_retail.csv": {
+      "judul": "Panel toko ritel",
+      "satu_baris": "satu cabang toko pada satu bulan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "StoreID",
+          "arti": "Kode cabang toko.",
+          "satuan": "Nomor identitas toko",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Month",
+          "arti": "Urutan bulan dalam panel.",
+          "satuan": "Bulan ke-1, ke-2, ...",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Sales_Y",
+          "arti": "Besarnya penjualan toko pada bulan tersebut.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Ads_X1",
+          "arti": "Biaya iklan cabang toko.",
+          "satuan": "Satuan/skala tidak dirinci sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Discount_X2",
+          "arti": "Proporsi potongan harga.",
+          "satuan": "Pecahan; 0,10 berarti diskon 10%",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "panel_kesehatan.csv": {
+      "judul": "Panel tekanan darah",
+      "satu_baris": "satu pasien pada satu bulan pemeriksaan",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "PatientID",
+          "arti": "Kode pasien yang diikuti dari waktu ke waktu.",
+          "satuan": "Nomor identitas pasien",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Month",
+          "arti": "Urutan bulan pemeriksaan.",
+          "satuan": "Bulan ke-1, ke-2, ...",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "BP_Y",
+          "arti": "Blood pressure: tekanan darah sistolik.",
+          "satuan": "Satuan tekanan darah; konteks klinis memakai mmHg",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Sport_X1",
+          "arti": "Lama olahraga yang dilakukan per minggu.",
+          "satuan": "Jam per minggu",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Cal_X2",
+          "arti": "Asupan energi makanan harian dibagi 1.000.",
+          "satuan": "Ribuan kalori harian; 2,5 berarti 2.500 pada skala sumber",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "panel_pendidikan.csv": {
+      "judul": "Panel hasil belajar",
+      "satu_baris": "satu mahasiswa/siswa pada satu semester",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "StudentID",
+          "arti": "Kode peserta didik.",
+          "satuan": "Nomor identitas",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Semester",
+          "arti": "Urutan semester pengamatan.",
+          "satuan": "Semester",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Score_Y",
+          "arti": "Skor/nilai belajar pada semester tersebut.",
+          "satuan": "Poin skor",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "StudyTime_X1",
+          "arti": "Lama waktu belajar.",
+          "satuan": "Jam per minggu",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Attend_X2",
+          "arti": "Tingkat kehadiran dalam pembelajaran.",
+          "satuan": "Persen kehadiran",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "panel_padi.csv": {
+      "judul": "Panel hasil panen padi",
+      "satu_baris": "satu petak sawah pada satu musim tanam",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "",
+      "variabel": [
+        {
+          "kolom": "FarmID",
+          "arti": "Kode petak sawah yang diamati berulang.",
+          "satuan": "Nomor identitas lahan",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Season",
+          "arti": "Urutan musim tanam.",
+          "satuan": "Musim tanam ke-1, ke-2, ...",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Yield_Y",
+          "arti": "Jumlah gabah yang dihasilkan oleh petak sawah.",
+          "satuan": "Ton gabah; bukan otomatis ton per hektar",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "Fertilizer_X1",
+          "arti": "Banyaknya pupuk yang digunakan.",
+          "satuan": "Kilogram (kg)",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Rainfall_X2",
+          "arti": "Banyaknya curah hujan pada musim tanam.",
+          "satuan": "Milimeter (mm)",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "data_regresi_uts.csv": {
+      "judul": "Data abstrak untuk latihan spesifikasi",
+      "satu_baris": "satu pengamatan hasil simulasi statistik",
+      "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
+      "catatan": "Sumber tidak memberi konteks ekonomi untuk X1 sampai X4. Nama seperti pendapatan atau investasi tidak boleh ditambahkan tanpa dasar.",
+      "variabel": [
+        {
+          "kolom": "Y",
+          "arti": "Variabel respons simulasi tanpa label ekonomi khusus.",
+          "satuan": "Skala simulasi",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "X1",
+          "arti": "Variabel penjelas pertama pada simulasi.",
+          "satuan": "Skala simulasi",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X2",
+          "arti": "Variabel penjelas kedua pada simulasi.",
+          "satuan": "Skala simulasi",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X3",
+          "arti": "Variabel penjelas ketiga pada simulasi.",
+          "satuan": "Skala simulasi",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "X4",
+          "arti": "Variabel penjelas indikator pada simulasi.",
+          "satuan": "Kode 0/1; makna ekonomi tidak ditetapkan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "trend",
+          "arti": "Tren linear berdasarkan urutan pengamatan.",
+          "satuan": "Urutan mulai dari 0",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "error",
+          "arti": "Komponen gangguan yang disertakan oleh pembuat simulasi.",
+          "satuan": "Skala simulasi; bukan penjelas untuk prediksi data baru",
+          "peran": "Komponen simulasi"
+        }
+      ]
+    },
+    "asean_panel.csv": {
+      "judul": "Panel negara ASEAN dari World Bank",
+      "satu_baris": "satu negara pada satu tahun",
+      "sumber": "https://databank.worldbank.org/source/world-development-indicators",
+      "catatan": "Kurs_USD memakai mata uang negara masing-masing, sehingga IDN berarti rupiah/US$ dan MYS berarti ringgit/US$. FDI = 5 berarti 5% PDB; perubahan dari 5 ke 6 adalah 1 poin persen.",
+      "variabel": [
+        {
+          "kolom": "Negara",
+          "arti": "Kode negara ISO tiga huruf; misalnya IDN = Indonesia, MYS = Malaysia.",
+          "satuan": "Kode negara",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "Tahun",
+          "arti": "Tahun kalender pengamatan.",
+          "satuan": "Tahun",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "PDB_Growth",
+          "arti": "Laju pertumbuhan tahunan PDB riil (Produk Domestik Bruto).",
+          "satuan": "Persen per tahun; NY.GDP.MKTP.KD.ZG",
+          "peran": "Target pertumbuhan pada model panel"
+        },
+        {
+          "kolom": "Inflasi",
+          "arti": "Kenaikan tahunan indeks harga konsumen.",
+          "satuan": "Persen per tahun; FP.CPI.TOTL.ZG",
+          "peran": "Y atau X sesuai model"
+        },
+        {
+          "kolom": "Pengangguran",
+          "arti": "Pengangguran sebagai bagian dari total angkatan kerja, estimasi model ILO.",
+          "satuan": "Persen angkatan kerja; SL.UEM.TOTL.ZS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Kurs_USD",
+          "arti": "Kurs resmi rata-rata periode: mata uang lokal untuk memperoleh satu dolar AS.",
+          "satuan": "Mata uang lokal per US$1; PA.NUS.FCRF",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "FDI",
+          "arti": "Arus masuk bersih investasi asing langsung relatif terhadap PDB.",
+          "satuan": "Persen PDB; BX.KLT.DINV.WD.GD.ZS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Angkatan_Kerja",
+          "arti": "Penduduk yang bekerja atau aktif mencari pekerjaan.",
+          "satuan": "Orang; SL.TLF.TOTL.IN",
+          "peran": "X: penjelas"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ln_angkatan_kerja",
+          "arti": "Logaritma alami jumlah angkatan kerja.",
+          "satuan": "Skala logaritma"
+        }
+      ]
+    },
+    "idn_makro_tahunan.csv": {
+      "judul": "Makroekonomi Indonesia tahunan",
+      "satu_baris": "satu tahun kalender untuk Indonesia",
+      "sumber": "https://databank.worldbank.org/source/world-development-indicators",
+      "catatan": "Kurs_USD untuk Indonesia bersatuan rupiah per US$1. Inflasi dan pertumbuhan adalah laju persen, bukan nilai level harga atau level PDB.",
+      "variabel": [
+        {
+          "kolom": "negara",
+          "arti": "Kode negara; IDN menunjukkan Indonesia.",
+          "satuan": "Kode ISO negara",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "tahun",
+          "arti": "Tahun kalender pengamatan.",
+          "satuan": "Tahun",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "PDB_Growth",
+          "arti": "Laju pertumbuhan tahunan PDB riil (Produk Domestik Bruto).",
+          "satuan": "Persen per tahun; NY.GDP.MKTP.KD.ZG",
+          "peran": "Target pertumbuhan pada model panel"
+        },
+        {
+          "kolom": "Inflasi",
+          "arti": "Kenaikan tahunan indeks harga konsumen.",
+          "satuan": "Persen per tahun; FP.CPI.TOTL.ZG",
+          "peran": "Y atau X sesuai model"
+        },
+        {
+          "kolom": "Pengangguran",
+          "arti": "Pengangguran sebagai bagian dari total angkatan kerja, estimasi model ILO.",
+          "satuan": "Persen angkatan kerja; SL.UEM.TOTL.ZS",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Kurs_USD",
+          "arti": "Kurs resmi rata-rata periode: mata uang lokal untuk memperoleh satu dolar AS.",
+          "satuan": "Mata uang lokal per US$1; PA.NUS.FCRF",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Angkatan_Kerja",
+          "arti": "Penduduk yang bekerja atau aktif mencari pekerjaan.",
+          "satuan": "Orang; SL.TLF.TOTL.IN",
+          "peran": "X: penjelas"
+        }
+      ]
+    },
+    "idn_kurs_tahunan.csv": {
+      "judul": "Kurs rupiah tahunan",
+      "satu_baris": "satu tahun kalender",
+      "sumber": "https://data.worldbank.org/indicator/PA.NUS.FCRF",
+      "catatan": "Kurs yang meningkat berarti satu dolar membutuhkan lebih banyak rupiah, sehingga rupiah melemah terhadap dolar.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun pengamatan.",
+          "satuan": "Tahun",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "kurs",
+          "arti": "Kurs resmi rata-rata satu tahun, rupiah yang diperlukan untuk US$1.",
+          "satuan": "Rupiah per dolar AS",
+          "peran": "Deret yang dianalisis"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "pertumbuhan",
+          "arti": "Perubahan relatif kurs dari tahun sebelumnya, dikalikan 100.",
+          "satuan": "Persen per tahun"
+        }
+      ]
+    },
+    "kurs_harian.csv": {
+      "judul": "Kurs rupiah harian",
+      "satu_baris": "satu tanggal tersedianya kurs acuan",
+      "sumber": "https://www.frankfurter.dev/",
+      "catatan": "Seri diambil melalui Frankfurter dari kurs acuan ECB. Perubahan kurs adalah kolom turunan, bukan arti nilai kurs level.",
+      "variabel": [
+        {
+          "kolom": "Tanggal",
+          "arti": "Tanggal kurs acuan tersedia; bukan selalu setiap hari kalender.",
+          "satuan": "Tanggal YYYY-MM-DD",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Kurs_USD_IDR",
+          "arti": "Jumlah rupiah untuk memperoleh satu dolar AS (USD = dolar AS; IDR = rupiah).",
+          "satuan": "Rupiah per US$1",
+          "peran": "Deret yang dianalisis"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ret_kurs",
+          "arti": "Perubahan relatif kurs harian: 100 × (kurs hari ini / kurs sebelumnya - 1).",
+          "satuan": "Persen; positif berarti rupiah melemah"
+        }
+      ]
+    },
+    "ihsg_harian.csv": {
+      "judul": "IHSG harian",
+      "satu_baris": "satu hari perdagangan di pasar saham",
+      "sumber": "https://finance.yahoo.com/quote/%5EJKSE/history/",
+      "catatan": "IHSG adalah indeks, sehingga Close = 6.000 berarti 6.000 poin, bukan Rp6.000. Return dihitung dari perubahan Close. Nilai Volume nol tidak otomatis menunjukkan tidak ada perdagangan; cakupan pelaporan mengikuti penyedia.",
+      "variabel": [
+        {
+          "kolom": "Date",
+          "arti": "Tanggal hari perdagangan.",
+          "satuan": "Tanggal YYYY-MM-DD",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Close",
+          "arti": "Nilai penutupan Indeks Harga Saham Gabungan (IHSG).",
+          "satuan": "Poin indeks",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "High",
+          "arti": "Nilai indeks tertinggi pada hari tersebut.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Low",
+          "arti": "Nilai indeks terendah pada hari tersebut.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Open",
+          "arti": "Nilai indeks saat pembukaan hari perdagangan.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Volume",
+          "arti": "Volume perdagangan yang dilaporkan penyedia data untuk ticker indeks.",
+          "satuan": "Satuan pelaporan Yahoo; bukan rupiah atau poin indeks",
+          "peran": "Informasi perdagangan"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ret",
+          "arti": "Return logaritmik harian: 100 × (ln Close hari ini - ln Close sebelumnya).",
+          "satuan": "Persen log-return"
+        }
+      ]
+    },
+    "ihsg_panjang.csv": {
+      "judul": "IHSG riwayat panjang",
+      "satu_baris": "satu hari perdagangan di pasar saham",
+      "sumber": "https://finance.yahoo.com/quote/%5EJKSE/history/",
+      "catatan": "IHSG adalah indeks, sehingga Close = 6.000 berarti 6.000 poin, bukan Rp6.000. Return dihitung dari perubahan Close. Nilai Volume nol tidak otomatis menunjukkan tidak ada perdagangan; cakupan pelaporan mengikuti penyedia.",
+      "variabel": [
+        {
+          "kolom": "Date",
+          "arti": "Tanggal hari perdagangan.",
+          "satuan": "Tanggal YYYY-MM-DD",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "Close",
+          "arti": "Nilai penutupan Indeks Harga Saham Gabungan (IHSG).",
+          "satuan": "Poin indeks",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "High",
+          "arti": "Nilai indeks tertinggi pada hari tersebut.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Low",
+          "arti": "Nilai indeks terendah pada hari tersebut.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Open",
+          "arti": "Nilai indeks saat pembukaan hari perdagangan.",
+          "satuan": "Poin indeks",
+          "peran": "Informasi perdagangan"
+        },
+        {
+          "kolom": "Volume",
+          "arti": "Volume perdagangan yang dilaporkan penyedia data untuk ticker indeks.",
+          "satuan": "Satuan pelaporan Yahoo; bukan rupiah atau poin indeks",
+          "peran": "Informasi perdagangan"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ret",
+          "arti": "Return logaritmik harian: 100 × selisih log Close.",
+          "satuan": "Persen log-return"
+        }
+      ]
+    },
+    "idn_inflasi_bulanan.csv": {
+      "judul": "IHK dan inflasi Indonesia bulanan",
+      "satu_baris": "satu bulan kalender",
+      "sumber": "https://fred.stlouisfed.org/series/IDNCPIALLMINMEI",
+      "catatan": "indeks adalah level, sedangkan inflasi_mom dan inflasi_yoy adalah perubahan persen yang dihitung oleh skrip unduhan. Angka 2 pada kolom inflasi berarti 2%, bukan 0,02%.",
+      "variabel": [
+        {
+          "kolom": "tanggal",
+          "arti": "Bulan pengamatan; tanggal berfungsi sebagai penanda bulan.",
+          "satuan": "Tanggal YYYY-MM-DD",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "indeks",
+          "arti": "Indeks Harga Konsumen (IHK), yaitu ukuran tingkat harga keranjang konsumsi.",
+          "satuan": "Poin indeks; tahun dasar mengikuti seri sumber",
+          "peran": "Level harga"
+        },
+        {
+          "kolom": "inflasi_mom",
+          "arti": "Persentase perubahan indeks dari bulan sebelumnya (month-on-month).",
+          "satuan": "100 × (indeks bulan ini / bulan lalu - 1)",
+          "peran": "Deret yang dianalisis"
+        },
+        {
+          "kolom": "inflasi_yoy",
+          "arti": "Persentase perubahan indeks dari bulan yang sama setahun sebelumnya (year-on-year).",
+          "satuan": "100 × (indeks bulan ini / indeks 12 bulan lalu - 1)",
+          "peran": "Deret yang dianalisis"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "era",
+          "arti": "Label pengelompokan periode untuk ringkasan/grafik inflasi.",
+          "satuan": "Kategori periode, bukan variabel inflasi baru"
+        }
+      ]
+    },
+    "provinsi_2021.csv": {
+      "judul": "Indikator 34 provinsi tahun 2021",
+      "satu_baris": "satu provinsi pada tahun 2021 dalam kompilasi sumber",
+      "sumber": "https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv",
+      "catatan": "Berkas ini adalah kompilasi indikator, bukan tabel metadata lengkap BPS. Cakupan indikator dan skala PDRB perlu diperiksa pada sumber BPS sebelum dipakai untuk riset; barisnya mengikuti 34 provinsi pada tahun 2021.",
+      "variabel": [
+        {
+          "kolom": "Provinsi",
+          "arti": "Nama provinsi yang diamati.",
+          "satuan": "Nama wilayah",
+          "peran": "Penanda, bukan besaran ekonomi"
+        },
+        {
+          "kolom": "PDRB_Kapita",
+          "arti": "Produk Domestik Regional Bruto per penduduk, ukuran output ekonomi per kapita.",
+          "satuan": "Skala sumber; dipakai sebagai ribu rupiah dalam tutorial",
+          "peran": "Y atau X sesuai model"
+        },
+        {
+          "kolom": "IPM",
+          "arti": "Indeks Pembangunan Manusia yang merangkum dimensi kesehatan, pendidikan, dan taraf hidup.",
+          "satuan": "Poin indeks, bukan persen",
+          "peran": "Y atau X sesuai model"
+        },
+        {
+          "kolom": "Pengangguran",
+          "arti": "Tingkat Pengangguran Terbuka (TPT).",
+          "satuan": "Persen angkatan kerja",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "Kemiskinan",
+          "arti": "Penduduk yang berada di bawah garis kemiskinan.",
+          "satuan": "Persen penduduk",
+          "peran": "Y: target"
+        },
+        {
+          "kolom": "AHH_Laki",
+          "arti": "Angka Harapan Hidup laki-laki pada kompilasi sumber.",
+          "satuan": "Tahun",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "AHH_Perempuan",
+          "arti": "Angka Harapan Hidup perempuan pada kompilasi sumber.",
+          "satuan": "Tahun",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "APS_7_12",
+          "arti": "Angka Partisipasi Sekolah penduduk umur 7 sampai 12 tahun.",
+          "satuan": "Persen penduduk kelompok umur tersebut",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "APS_13_15",
+          "arti": "Angka Partisipasi Sekolah penduduk umur 13 sampai 15 tahun.",
+          "satuan": "Persen penduduk kelompok umur tersebut",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "APS_16_18",
+          "arti": "Angka Partisipasi Sekolah penduduk umur 16 sampai 18 tahun.",
+          "satuan": "Persen penduduk kelompok umur tersebut",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "APS_19_23",
+          "arti": "Angka Partisipasi Sekolah penduduk umur 19 sampai 23 tahun.",
+          "satuan": "Persen penduduk kelompok umur tersebut",
+          "peran": "Indikator pendamping"
+        },
+        {
+          "kolom": "Perokok",
+          "arti": "Persentase perokok pada kompilasi data provinsi.",
+          "satuan": "Persen; cakupan umur mengikuti sumber",
+          "peran": "Indikator pendamping"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "ln_pdrb",
+          "arti": "Logaritma alami PDRB_Kapita.",
+          "satuan": "Skala logaritma"
+        }
+      ]
+    },
+    "kredit_default.csv": {
+      "judul": "Gagal bayar kartu kredit Taiwan",
+      "satu_baris": "satu nasabah dari subset 1.000 pengamatan data UCI Taiwan",
+      "sumber": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+      "catatan": "Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis mempunyai jarak numerik yang bermakna; misalnya kode pendidikan 2 bukan dua kali pendidikan kode 1.",
+      "variabel": [
+        {
+          "kolom": "limit_kredit",
+          "arti": "Batas kredit yang diberikan kepada nasabah.",
+          "satuan": "Dolar Taiwan (NT$), bukan rupiah",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "jenis_kelamin",
+          "arti": "Kategori jenis kelamin menurut pencatatan sumber.",
+          "satuan": "1 = laki-laki; 2 = perempuan",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "pendidikan",
+          "arti": "Jenjang pendidikan menurut kode sumber.",
+          "satuan": "1 = pascasarjana; 2 = universitas; 3 = sekolah menengah; 4 = lainnya; kode lain tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "status_nikah",
+          "arti": "Status perkawinan menurut kode sumber.",
+          "satuan": "1 = menikah; 2 = lajang; 3 = lainnya; kode lain tidak dirinci",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "usia",
+          "arti": "Umur nasabah.",
+          "satuan": "Tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "gagal_bayar",
+          "arti": "Apakah nasabah mengalami gagal bayar pada periode target.",
+          "satuan": "1 = gagal bayar; 0 = tidak",
+          "peran": "Y: target"
+        }
+      ]
+    },
+    "housing.csv": {
+      "judul": "Harga rumah historis Boston",
+      "satu_baris": "satu wilayah sensus dalam data historis Boston, bukan satu rumah di Indonesia",
+      "sumber": "https://lib.stat.cmu.edu/datasets/boston",
+      "catatan": "BLACK bukan hasil pengkodean biner dan AGE bukan usia satu rumah. Catatan keterbatasan dan bias dataset dibahas pada notebook Housing.",
+      "variabel": [
+        {
+          "kolom": "CRIM",
+          "arti": "Tingkat kejahatan per kapita wilayah.",
+          "satuan": "Tingkat per kapita",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "ZN",
+          "arti": "Lahan hunian dengan kavling lebih dari 25.000 kaki persegi.",
+          "satuan": "Persen lahan hunian",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "INDUS",
+          "arti": "Proporsi lahan untuk bisnis nonritel di wilayah.",
+          "satuan": "Persen",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "CHAS",
+          "arti": "Apakah wilayah berbatasan dengan Sungai Charles.",
+          "satuan": "1 = ya; 0 = tidak",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "NOX",
+          "arti": "Konsentrasi nitrogen oksida.",
+          "satuan": "Bagian per 10 juta",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "RM",
+          "arti": "Rata-rata jumlah kamar per hunian.",
+          "satuan": "Kamar per hunian",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "AGE",
+          "arti": "Hunian milik penghuni yang dibangun sebelum 1940.",
+          "satuan": "Persen hunian, bukan umur rumah dalam tahun",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "DIS",
+          "arti": "Jarak tertimbang ke lima pusat pekerjaan Boston.",
+          "satuan": "Ukuran jarak tertimbang pada sumber",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "RAD",
+          "arti": "Indeks akses ke jalan raya radial.",
+          "satuan": "Indeks, bukan jarak kilometer",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "TAX",
+          "arti": "Tarif pajak properti terhadap nilai penuh properti.",
+          "satuan": "Pajak per US$10.000 nilai properti",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "PTRATIO",
+          "arti": "Jumlah murid relatif terhadap jumlah guru di wilayah.",
+          "satuan": "Murid per guru",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "BLACK",
+          "arti": "B pada sumber historis: 1000 × (p - 0,63)²; p adalah proporsi penduduk kulit hitam.",
+          "satuan": "Transformasi matematis, bukan persentase langsung",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "LSTAT",
+          "arti": "Penduduk berstatus sosial ekonomi rendah menurut label historis sumber.",
+          "satuan": "Persen penduduk",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "MEDV",
+          "arti": "Median nilai rumah yang ditempati pemiliknya.",
+          "satuan": "Ribuan dolar AS historis; 24 berarti US$24.000",
+          "peran": "Y: target"
+        }
+      ]
+    },
+    "spector": {
+      "judul": "Efektivitas metode pengajaran Spector",
+      "satu_baris": "satu mahasiswa; total 32 mahasiswa pada data sumber",
+      "sumber": "https://www.statsmodels.org/stable/datasets/generated/spector.html",
+      "catatan": "GRADE bukan nilai huruf A/B/C dan 0 tidak berarti mahasiswa pasti gagal kuliah. Data ini dibaca dari statsmodels, sehingga tidak memiliki CSV terpisah di paket.",
+      "variabel": [
+        {
+          "kolom": "GPA",
+          "arti": "Grade Point Average: rata-rata prestasi akademik mahasiswa, sejenis IPK.",
+          "satuan": "Poin rata-rata nilai",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "TUCE",
+          "arti": "Skor tes pemahaman ekonomi mahasiswa.",
+          "satuan": "Poin tes",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "PSI",
+          "arti": "Keikutsertaan dalam Personalized System of Instruction, program/metode pengajaran yang diteliti.",
+          "satuan": "1 = mengikuti; 0 = tidak",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "GRADE",
+          "arti": "Apakah nilai mahasiswa meningkat pada pengamatan program.",
+          "satuan": "1 = meningkat; 0 = tidak meningkat",
+          "peran": "Y: target"
+        }
+      ]
+    },
+    "contoh_taksi": {
+      "judul": "Contoh hitungan tarif taksi",
+      "satu_baris": "satu jarak perjalanan yang ingin dihitung tarifnya",
+      "sumber": "Contoh buatan dalam notebook Housing",
+      "catatan": "Angka tarif hanya ilustrasi persamaan garis pada tutorial, bukan daftar tarif operator taksi saat ini.",
+      "variabel": [
+        {
+          "kolom": "km",
+          "arti": "Jarak perjalanan.",
+          "satuan": "Kilometer",
+          "peran": "X: penjelas"
+        },
+        {
+          "kolom": "taksi_standar",
+          "arti": "Tarif awal Rp5.000 ditambah Rp4.000 untuk setiap kilometer.",
+          "satuan": "Rupiah",
+          "peran": "Hasil hitungan"
+        },
+        {
+          "kolom": "taksi_premium",
+          "arti": "Tarif awal Rp5.000 ditambah Rp7.500 untuk setiap kilometer.",
+          "satuan": "Rupiah",
+          "peran": "Hasil hitungan"
+        }
+      ]
+    }
+  }
+}
