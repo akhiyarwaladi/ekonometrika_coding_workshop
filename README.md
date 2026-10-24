@@ -17,12 +17,14 @@ yang belum mempunyai pengalaman coding.
 
 ## Langkah untuk peserta
 
-1. Unduh [data_tutorial.zip](paket/data_tutorial.zip) dari folder `paket/`.
-2. Buka notebook melalui tautan **Buka di Colab** pada [daftar materi](panduan/00_daftar_materi.md),
+1. Buka notebook melalui tautan **Buka di Colab** pada [daftar materi](panduan/00_daftar_materi.md),
    lalu simpan salinan ke Google Drive.
-3. Di panel **Files** sebelah kiri Colab, unggah `data_tutorial.zip`.
-4. Jalankan sel dari atas dengan **Shift + Enter**. Baca penjelasan dan hasil
-   sebelum beralih ke sel berikutnya.
+2. Jalankan sel alamat data (`URL_DATA`). CSV dibaca langsung dari GitHub; gunakan koneksi internet.
+3. Jalankan sel berikutnya dengan **Shift + Enter**. Baca penjelasan dan hasil sebelum lanjut.
+
+**Data untuk dashboard hanya `provinsi_2021.csv`.** Untuk sesi lain, lihat
+[peta pemakaian data per notebook](panduan/08_peta_pemakaian_data.md).
+Folder `data/` berisi 44 CSV yang dipakai; 15 CSV tambahan tersimpan di `data/cadangan/`.
 
 Sebelum membaca tabel data, pelajari bagian **Kenali data** di notebook.
 Bagian itu menjelaskan arti setiap kolom, satuan atau kode kategorinya,
@@ -32,7 +34,7 @@ serta nama singkat yang dipakai di kode. Definisi seluruh dataset juga ada di
 Gunakan **`.ipynb` untuk belajar dan mengajar**. Ikuti contoh di
 `materi/01_ekonometrika/`, kemudian kerjakan `materi/02_latihan/` dengan nomor
 yang sama. Praktik Housing di `materi/03_regresi_housing/` dapat dipelajari tersendiri.
-ZIP PNG dipakai untuk gambar slide; ZIP data dipakai untuk menjalankan notebook.
+[data_tutorial.zip](paket/data_tutorial.zip) berada di `paket/` sebagai salinan offline opsional bagi pengajar.
 
 ## Pola pemodelan
 
@@ -56,8 +58,8 @@ dan GARCH tetap memakai pustaka yang sesuai. Rinciannya ada di
 | [materi/02_latihan/](materi/02_latihan/README.md) | Tujuh notebook latihan dan tugas proyek mini. |
 | [materi/03_regresi_housing/](materi/03_regresi_housing/README.md) | Praktik regresi sesuai slide dengan data Housing. |
 | [materi/04_dashboard_indonesia/](materi/04_dashboard_indonesia/README.md) | Materi penutup: dashboard, grafik interaktif, regresi, dan simulasi dari notebook. |
-| [data/](data/README.md) | Seluruh 59 CSV untuk tutorial. |
-| [paket/](paket/README.md) | Paket data untuk Colab dan ZIP berisi 31 PNG tajam. |
+| [data/](data/README.md) | 44 CSV aktif; 15 CSV tambahan berada di subfolder `cadangan/`. |
+| [paket/](paket/README.md) | Salinan data offline opsional dan ZIP berisi 31 PNG tajam. |
 | [slide/](slide/README.md) | Slide pembuka, PDF regresi, dan 31 PNG tajam berukuran 6000 × 3375 piksel. |
 | [gambar/](gambar/README.md) | Grafik ekonometrika dan regresi Housing. |
 | [pengajar/](pengajar/README.md) | Panduan fasilitator dan tujuh notebook kunci jawaban. |
@@ -77,8 +79,7 @@ serta [peta perubahan nama](laporan/peta_perubahan_nama.csv) untuk mencari berka
 
 Di Jupyter atau VS Code, buka `.ipynb` dan pertahankan susunan folder proyek.
 Pasang paket dari [requirements.txt](requirements.txt) pada lingkungan Python
-yang dipakai kernel. Sel persiapan menemukan data dari folder notebook atau
-folder utama proyek.
+yang dipakai kernel. Pembacaan data menggunakan alamat GitHub yang sama seperti di Colab.
 
 Berkas `.py` dengan nama yang sama adalah sumber penyuntingan, dengan penanda
 sel `# %%`. Sebagian berisi perintah `%pip` milik notebook. Jalankan per sel

@@ -8,7 +8,8 @@ pilih fitur X, pilih target y, buat model, jalankan `fit`, lalu `predict`.
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-saham = pd.read_csv("data/uts_2.csv")
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
+saham = pd.read_csv(URL_DATA + "uts_2.csv")
 X = saham[["X1_Pendapatan_per_Saham"]]
 y = saham["Y_Harga_Saham"]
 model = LinearRegression()
@@ -18,8 +19,8 @@ print("Intersep:", model.intercept_)
 print("Koefisien EPS:", model.coef_[0])
 ```
 
-Jalankan contoh dari folder utama proyek setelah data tersedia. Dalam notebook,
-sel persiapan sudah mengatur lokasi data. `X` memakai dua pasang kurung siku
+Jalankan contoh dengan koneksi internet. Dalam notebook,
+sel persiapan menetapkan alamat data GitHub. `X` memakai dua pasang kurung siku
 karena harus berbentuk tabel, termasuk ketika fiturnya hanya satu.
 `y` memakai satu pasang kurung siku karena berupa satu kolom.
 

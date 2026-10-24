@@ -37,10 +37,11 @@ def pecah_sel(teks):
 
 def baca_kamus():
     kamus = json.loads((ROOT / "alat_bantu/kamus_variabel.json").read_text(encoding="utf-8"))["dataset"]
-    csv_files = sorted((ROOT / "data").glob("*.csv"))
+    csv_files = sorted((ROOT / "data").rglob("*.csv"))
     assert len(csv_files) == 59
     assert {p.name for p in csv_files} == {k for k in kamus if k.endswith(".csv")}
     for path in csv_files:
+        assert path.relative_to(ROOT).as_posix() == kamus[path.name]["lokasi"], path
         with path.open(encoding="utf-8-sig", newline="") as stream:
             columns = next(csv.reader(stream))
         assert columns == [v["kolom"] for v in kamus[path.name]["variabel"]], path
@@ -52,6 +53,7 @@ def baca_kamus():
 
 def dataset_dibaca(sel, path):
     nama = re.findall(r"read_csv\(\s*['\"](?:data/)?([a-z0-9_]+\.csv)['\"]", sel)
+    nama += re.findall(r"read_csv\(\s*URL_DATA\s*\+\s*['\"]([a-z0-9_]+\.csv)['\"]", sel)
     if "sm.datasets.spector.load_pandas()" in sel:
         nama.append("spector")
     if path.parent.name == "03_regresi_housing":
@@ -93,7 +95,7 @@ def alias_dan_kode(sels, kamus):
 def tabel_variabel(name, dataset, alias=None, kode=None):
     alias = alias or {}
     lines = [f"### Kenali data: {dataset['judul']}", ""]
-    lokasi = f"`data/{name}`" if name.endswith(".csv") else ("dataset bawaan statsmodels (`spector`)" if name == "spector" else "tabel contoh yang dibuat langsung di kode")
+    lokasi = f"`{dataset['lokasi']}`" if name.endswith(".csv") else ("dataset bawaan statsmodels (`spector`)" if name == "spector" else "tabel contoh yang dibuat langsung di kode")
     lines += [f"**Data:** {lokasi}. **Satu baris:** {dataset['satu_baris']}.", ""]
     if alias:
         lines += ["Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.", "", "| Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |", "|---|---|---|---|---|"]
@@ -185,13 +187,14 @@ def sinkron(path, kamus, periksa):
 
 def katalog(kamus, usage):
     lines = ["# Kamus variabel data tutorial", "", "Tabel ini menjelaskan seluruh 59 CSV, data Spector, dan contoh taksi pada tutorial.", "Definisi yang diperlukan juga ditampilkan sebelum pembacaan data di setiap", "sumber `.py` dan notebook `.ipynb`, termasuk latihan serta kunci jawaban.", "", "X adalah variabel penjelas dan Y adalah target yang dijelaskan/diprediksi.", "Kolom identitas dan waktu membantu mengenali pengamatan; keduanya tidak otomatis", "menjadi fitur numerik model. Peran suatu kolom dapat berbeda mengikuti pertanyaan model.", "", "Satuan yang tidak dijelaskan sumber ditulis apa adanya. Ukuran angka tidak cukup", "untuk menetapkan rupiah, juta rupiah, persen, atau skala lainnya.", "", "## Cari dataset", "", "| Data | Isi |", "|---|---|"]
+    lines[3:3] = ["CSV aktif berjumlah **44**, sedangkan **15** CSV di `data/cadangan/` belum dipakai notebook.", "Lihat [peta pemakaian data](08_peta_pemakaian_data.md) untuk memilih file per sesi.", ""]
     for name in sorted(kamus):
         anchor = name.replace(".", "_")
         lines.append(f"| [{name}](#{anchor}) | {kamus[name]['judul']} |")
     for name in sorted(kamus):
         lines += ["", f'<a id="{name.replace(".", "_")}"></a>', "", tabel_variabel(name, kamus[name])]
         if name.endswith(".csv"):
-            lines += [f"[Buka berkas data](../data/{name}).", ""]
+            lines += [f"[Buka berkas data](../{kamus[name]['lokasi']}).", ""]
         if usage[name]:
             lines += ["Dijelaskan pada:", ""]
             for notebook in usage[name]:
@@ -200,6 +203,43 @@ def katalog(kamus, usage):
         else:
             lines += ["Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini."]
     return "\n".join(lines) + "\n"
+
+
+def peta_pemakaian(kamus, result):
+    lines = [
+        "# Data yang dipakai setiap notebook", "",
+        "**Untuk dashboard, hanya `provinsi_2021.csv` yang dipakai.**", "",
+        "Seluruh notebook membaca CSV langsung dari GitHub dengan koneksi internet.",
+        "Peserta cukup membuka `.ipynb` dan menjalankan sel dari atas.", "",
+        "```python", "import pandas as pd", "", 'URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"',
+        'data = pd.read_csv(URL_DATA + "provinsi_2021.csv")', "```", "",
+        "`URL_DATA` adalah alamat folder; nama CSV menentukan tabel yang dibaca.",
+        "Nama file dalam tabel berikut sama persis dengan yang tertulis di notebook.", "",
+        "## Pilih notebook, lalu lihat datanya", "",
+        "| Notebook | Data yang dipakai |", "|---|---|",
+    ]
+    dipakai = set()
+    for row in result:
+        target = Path(row["sumber"]).with_suffix(".ipynb").as_posix()
+        data = []
+        for name in row["dataset"]:
+            if name.endswith(".csv"):
+                dipakai.add(name)
+                data.append(f"[{name}](../{kamus[name]['lokasi']})")
+            else:
+                data.append("Spector (bawaan statsmodels)" if name == "spector" else "contoh taksi (dibuat di kode)")
+        lines.append(f"| [{target}](../{target}) | {', '.join(data)} |")
+    assert dipakai == {name for name, item in kamus.items() if item.get("status") == "dipakai"}
+    lines += ["", "## Arti folder data", "",
+              "- `data/`: **44 CSV aktif**, digunakan oleh contoh, latihan, atau kunci jawaban di atas.",
+              "- `data/cadangan/`: **15 CSV cadangan**, belum dibaca oleh 23 notebook saat ini; bahan tambahan bagi pengajar.",
+              "- `laporan/peta_perubahan_nama.csv`: catatan pengelolaan nama berkas, bukan data untuk pemodelan.", "",
+              "[Daftar CSV aktif](../data/README.md) · [Daftar cadangan](../data/cadangan/README.md) · [Definisi variabel](07_kamus_variabel.md)", "",
+              "## Salinan offline opsional", "",
+              "[data_tutorial.zip](../paket/data_tutorial.zip) ada di **`paket/data_tutorial.zip`**.",
+              "Isinya 44 CSV aktif dan satu modul pendukung. ZIP ini merupakan salinan untuk pengajar;",
+              "alur notebook peserta menggunakan alamat GitHub di atas.", ""]
+    return "\n".join(lines)
 
 
 def main():
@@ -218,10 +258,14 @@ def main():
             usage[name].append(relative)
         result.append({"sumber": relative, "dataset": names})
     text = katalog(kamus, usage)
+    peta = peta_pemakaian(kamus, result)
+    lokasi_peta = ROOT / "panduan/08_peta_pemakaian_data.md"
     if args.periksa:
         assert KATALOG.read_text(encoding="utf-8") == text
+        assert lokasi_peta.read_text(encoding="utf-8") == peta
     else:
         KATALOG.write_text(text, encoding="utf-8")
+        lokasi_peta.write_text(peta, encoding="utf-8")
         report = {"status": "PASS", "jumlah_csv": 59, "jumlah_definisi_kolom": sum(len(x["variabel"]) for x in kamus.values()), "jumlah_pasangan_tutorial": len(paths), "jumlah_tabel_di_tutorial": sum(len(r["dataset"]) for r in result), "kode_dan_output_notebook_tetap": True, "tutorial": result}
         (ROOT / "laporan/kamus_variabel.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: kamus 59 CSV; {len(paths)} pasangan .py/.ipynb; {sum(len(r['dataset']) for r in result)} tabel definisi; kode dan output notebook tetap utuh.")

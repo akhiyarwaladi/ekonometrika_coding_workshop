@@ -5,9 +5,9 @@
 1. Pilih sesi dari [daftar materi](../panduan/00_daftar_materi.md).
 2. Untuk tayangan regresi, gunakan [31 PNG tajam](../slide/png_regresi_tajam/)
    atau ambil [ZIP PNG](../paket/png_regresi_tajam.zip).
-3. Bagikan tautan notebook dan [data_tutorial.zip](../paket/data_tutorial.zip)
-   kepada peserta. Untuk Housing, satu berkas [housing.csv](../data/housing.csv)
-   juga dapat digunakan.
+3. Bagikan tautan notebook kepada peserta. Siapkan koneksi internet; CSV dibaca langsung dari GitHub.
+   [Peta pemakaian data](../panduan/08_peta_pemakaian_data.md) merinci dataset tiap sesi.
+   [data_tutorial.zip](../paket/data_tutorial.zip) tersedia sebagai salinan offline opsional untuk pengajar.
 4. Buka notebook pilihan dan jalankan sel secara berurutan sebelum kelas dimulai.
 
 ## Saat mengajar

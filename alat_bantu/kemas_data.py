@@ -1,4 +1,4 @@
-"""Buat ulang paket data peserta dari isi folder data/.
+"""Buat ulang salinan data offline opsional dari CSV aktif di folder data/.
 
 Jalankan setelah mengubah CSV atau metode_lanjutan.py:
     python alat_bantu/kemas_data.py

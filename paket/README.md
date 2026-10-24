@@ -8,15 +8,21 @@ dari `halaman_01.png` sampai `halaman_31.png`. Setiap gambar berukuran
 Gambar juga tersedia langsung di [folder PNG tajam](../slide/png_regresi_tajam/).
 Pengelola membuat ulang ZIP dengan `python alat_bantu/kemas_png.py`.
 
-## Data untuk Google Colab
+## Salinan data offline opsional bagi pengajar
 
-Unggah [data_tutorial.zip](data_tutorial.zip) lewat panel **Files** di Colab,
-lalu jalankan sel persiapan notebook. ZIP memuat folder `data/` dengan 59 CSV
-serta `alat_bantu/metode_lanjutan.py`. Struktur yang diekstrak sudah sesuai kode.
+Lokasi berkas: **[paket/data_tutorial.zip](data_tutorial.zip)**.
+Isinya folder `data/` dengan **44 CSV aktif** dan `alat_bantu/metode_lanjutan.py`.
+Lima belas CSV cadangan tidak disertakan karena belum dipakai oleh notebook saat ini.
 
-Untuk dibagikan di kelas, siapkan ZIP ini dan notebook `.ipynb` yang dipilih
-dari [daftar materi](../panduan/00_daftar_materi.md). Semua notebook menggunakan
-ZIP yang sama. Khusus Housing, unggahan satu berkas [housing.csv](../data/housing.csv)
-juga dapat digunakan.
+Alur peserta adalah membuka notebook dan menjalankan sel `URL_DATA`; CSV dibaca
+langsung dari GitHub dengan koneksi internet. Untuk mengetahui file yang dipakai,
+buka [peta pemakaian data per notebook](../panduan/08_peta_pemakaian_data.md).
+Dashboard hanya memakai `provinsi_2021.csv`.
+
+Untuk kelas offline, pengajar mengekstrak ZIP dan menyiapkan pustaka terlebih dahulu,
+lalu mengganti nilai `URL_DATA` menjadi alamat absolut folder `data/` lokal dengan `/` di akhir.
+Contoh pada Windows: `URL_DATA = "C:/kelas/data/"`.
+Pada model kategorikal, modul pendukung juga perlu tersedia pada kernel lokal.
+Pratinjau Colab tetap memerlukan koneksi internet.
 
 Pengelola membuat ulang ZIP dengan `python alat_bantu/kemas_data.py` dari folder utama.

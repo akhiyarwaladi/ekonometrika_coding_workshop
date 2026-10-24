@@ -11,17 +11,17 @@
 # kategorikal dan hitungan. Lab 5 masuk ke data waktu dan panel.
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Notebook ini membaca CSV dari folder `data/`. Kalau belum ada (misalnya di
-# Colab), unggah `data_tutorial.zip` lewat panel Files, lalu jalankan
-# sel di bawah sekali.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -48,31 +48,21 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
+# Siapkan alat untuk contoh model khusus; jalankan apa adanya.
+import sys
+import tempfile
+from urllib.request import urlretrieve
 
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
+folder_alat = tempfile.mkdtemp(prefix="alat_ekonometrika_")
+urlretrieve(
+    "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/alat_bantu/metode_lanjutan.py",
+    folder_alat + "/metode_lanjutan.py",
+)
+sys.path.insert(0, folder_alat)
 
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import pandas as pd
@@ -272,7 +262,7 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# lulus = pd.read_csv("data/logit_probit_2.csv")
+# lulus = pd.read_csv(URL_DATA + "logit_probit_2.csv")
 # X_lulus = lulus[["IPK_SEM2", "SKS_LULUS_SEM2", "KEAKTIFAN_ORG", "BEASISWA"]]
 # y_lulus = lulus["LULUS_TEPAT"]
 # m1 = LogisticRegression(penalty=None, max_iter=5000)
@@ -310,7 +300,7 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 
 # %%
 # from statsmodels.miscmodels.ordinal_model import OrderedModel
-# kepuasan = pd.read_csv("data/multi_ordinal_1.csv")
+# kepuasan = pd.read_csv(URL_DATA + "multi_ordinal_1.csv")
 # model_ord = OrderedModel(kepuasan["Kepuasan"], kepuasan[["Kecepatan", "Staf_Ramah", "Digital_App"]], distr="logit")
 # hasil = model_ord.fit(method="bfgs", disp=False)
 # print(hasil.params.round(3))
@@ -338,7 +328,7 @@ print(confusion_matrix(y_uji, sk_latih.predict(X_uji)))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# klaim = pd.read_csv("data/poisson_data_1_klaim.csv")
+# klaim = pd.read_csv(URL_DATA + "poisson_data_1_klaim.csv")
 # X_klaim = klaim[["USIA", "PENGALAMAN", "TIPE_MOBIL"]]
 # y_klaim = klaim["JML_KLAIM"]
 # model_pois = PoissonRegressor(alpha=0, solver="newton-cholesky", max_iter=1000)

@@ -1,7 +1,7 @@
 """Verifikasi notebook per sel, dengan ruang variabel baru untuk tiap file.
 
 Jalankan: python alat_bantu/uji_notebook.py [folder atau file ...] [--dari-zip]
---dari-zip menguji notebook dari folder sementara yang hanya berisi paket ZIP.
+--dari-zip mengekstrak paket ke folder sementara dan mengarahkan URL data ke salinan lokal.
 --dari-folder-notebook memakai folder masing-masing notebook sebagai folder kerja.
 Sel %pip dilewati; pasang requirements.txt sebelum menjalankan pemeriksaan.
 Log mencatat output teks, ekspresi terakhir, warning statistik, dan traceback.
@@ -14,12 +14,12 @@ import io
 import json
 import os
 import shlex
-import shutil
 import sys
 import tempfile
 import traceback
 import warnings
 from pathlib import Path
+from zipfile import ZipFile
 
 import matplotlib
 
@@ -62,19 +62,31 @@ def jalankan_sel(sumber, label, ruang):
             print(repr(nilai))
 
 
-def jalankan(path, workdir):
+def jalankan(path, workdir, data_lokal=False):
     nb = json.loads(path.read_text(encoding="utf-8"))
     ruang = {"__name__": "__main__", "__file__": str(path)}
     # Entri kosong mengikuti perubahan folder kerja seperti pada kernel Jupyter.
+    sys_path_awal = sys.path[:]
     sys.path.insert(0, "")
     sys.modules.pop("alat_bantu.metode_lanjutan", None)
     sys.modules.pop("alat_bantu", None)
+    sys.modules.pop("metode_lanjutan", None)
     semula = Path.cwd()
     os.chdir(workdir)
     try:
         for numero, sel in enumerate(nb["cells"], 1):
             if sel["cell_type"] == "code":
-                jalankan_sel("".join(sel["source"]), f"{path.name}:sel-{numero}", ruang)
+                sumber = "".join(sel["source"])
+                if data_lokal:
+                    sumber = sumber.replace(
+                        "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/",
+                        (workdir / "data").resolve().as_posix() + "/",
+                    )
+                    sumber = sumber.replace(
+                        "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/alat_bantu/metode_lanjutan.py",
+                        (workdir / "alat_bantu/metode_lanjutan.py").resolve().as_uri(),
+                    )
+                jalankan_sel(sumber, f"{path.name}:sel-{numero}", ruang)
         hasil = periksa_pemodelan(ruang)
         print("Pemeriksaan model:", hasil)
     finally:
@@ -85,7 +97,7 @@ def jalankan(path, workdir):
         if "log_dashboard" in ruang:
             ruang["log_dashboard"].close()
         os.chdir(semula)
-        sys.path.pop(0)
+        sys.path[:] = sys_path_awal
         plt.close("all")
 
 
@@ -248,8 +260,9 @@ def main():
                             prefix="ekonometrika-"
                         ) as folder:
                             tempat = Path(folder)
-                            shutil.copy2(ROOT / "paket/data_tutorial.zip", tempat)
-                            jalankan(path, tempat)
+                            with ZipFile(ROOT / "paket/data_tutorial.zip") as paket:
+                                paket.extractall(tempat)
+                            jalankan(path, tempat, data_lokal=True)
                     else:
                         jalankan(path, path.parent if dari_folder else ROOT)
             status = "PASS"
@@ -280,7 +293,7 @@ def main():
     print(f"\n{len(files) - len(gagal)}/{len(files)} notebook berjalan tanpa error.")
     print(
         "Mode:",
-        "hanya paket ZIP, folder bersih per notebook" if zip_only else mode,
+        "salinan ZIP dengan URL data diarahkan ke folder lokal" if zip_only else mode,
     )
     return 1 if gagal else 0
 

@@ -8,7 +8,7 @@
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -35,31 +35,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import numpy as np
@@ -96,7 +74,7 @@ import statsmodels.api as sm
 # Sumber definisi: [rujukan data](https://www.frankfurter.dev/).
 
 # %%
-kurs = pd.read_csv("data/kurs_harian.csv", parse_dates=["Tanggal"])
+kurs = pd.read_csv(URL_DATA + "kurs_harian.csv", parse_dates=["Tanggal"])
 kurs["ret_kurs"] = 100 * kurs["Kurs_USD_IDR"].pct_change()
 kurs_ret = kurs.dropna()
 
@@ -145,7 +123,7 @@ print(f"persistensi (alpha+beta) = {a + b:.4f}")
 # Sumber definisi: [rujukan data](https://finance.yahoo.com/quote/%5EJKSE/history/).
 
 # %%
-panjang = pd.read_csv("data/ihsg_panjang.csv", parse_dates=["Date"])
+panjang = pd.read_csv(URL_DATA + "ihsg_panjang.csv", parse_dates=["Date"])
 panjang["ret"] = 100 * np.log(panjang["Close"]).diff()
 panjang = panjang.dropna()
 print(
@@ -227,7 +205,7 @@ print(tabel_era.round(4))
 # Sumber definisi: [rujukan data](https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv).
 
 # %%
-prov = pd.read_csv("data/provinsi_2021.csv")
+prov = pd.read_csv(URL_DATA + "provinsi_2021.csv")
 prov["ln_pdrb"] = np.log(prov["PDRB_Kapita"])
 
 sampel_model_kemiskinan = prov[["Kemiskinan", "IPM"]].dropna()
@@ -337,7 +315,7 @@ print(
 # %%
 from linearmodels.panel import PanelOLS, RandomEffects
 
-panel = pd.read_csv("data/asean_panel.csv")
+panel = pd.read_csv(URL_DATA + "asean_panel.csv")
 panel = panel.set_index(["Negara", "Tahun"])
 y = panel["PDB_Growth"]
 X = panel[["FDI", "Inflasi"]]

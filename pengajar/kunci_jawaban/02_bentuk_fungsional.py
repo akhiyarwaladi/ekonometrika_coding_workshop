@@ -2,15 +2,17 @@
 # # Kunci Lab 2: Bentuk Fungsional
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Jalankan sel di bawah sekali supaya folder `data/` siap dipakai.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -37,31 +39,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import pandas as pd
@@ -93,7 +73,7 @@ import numpy as np
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-didik = pd.read_csv("data/pendidikan_pendapatan.csv")
+didik = pd.read_csv(URL_DATA + "pendidikan_pendapatan.csv")
 didik["ln_pendapatan"] = np.log(didik["Pendapatan_Tahunan"])
 
 sampel_model_didik = didik[["ln_pendapatan", "Tahun_Pendidikan"]].dropna()
@@ -154,7 +134,7 @@ print("R2 linear :", round(model_linear.score(X_model_linear, y_model_linear), 4
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-usia = pd.read_csv("data/usia_unit.csv")
+usia = pd.read_csv(URL_DATA + "usia_unit.csv")
 usia["usia2"] = usia["Usia"] ** 2
 
 sampel_model_usia = usia[["Unit_Terjual", "Usia", "usia2"]].dropna()
@@ -200,7 +180,7 @@ print("Usia puncak:", round(-b1 / (2 * b2), 2), "tahun")
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-skor = pd.read_csv("data/jam_skor.csv")
+skor = pd.read_csv(URL_DATA + "jam_skor.csv")
 skor["satu_per_jam"] = 1 / skor["Jam_Belajar"]
 
 sampel_model_skor = skor[["Skor_Ujian", "satu_per_jam"]].dropna()
@@ -251,7 +231,7 @@ print(koefisien_model_skor.round(2))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-uts1 = pd.read_csv("data/uts_1.csv")
+uts1 = pd.read_csv(URL_DATA + "uts_1.csv")
 
 # Linear
 sampel_model_lin = uts1[

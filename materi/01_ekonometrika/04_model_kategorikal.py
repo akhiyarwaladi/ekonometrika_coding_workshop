@@ -41,17 +41,17 @@
 # ke data deret waktu.
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Notebook ini membaca CSV dari folder `data/`. Kalau belum ada (misalnya di
-# Colab), unggah `data_tutorial.zip` lewat panel Files, lalu jalankan
-# sel di bawah sekali.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -78,31 +78,21 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
+# Siapkan alat untuk contoh model khusus; jalankan apa adanya.
+import sys
+import tempfile
+from urllib.request import urlretrieve
 
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
+folder_alat = tempfile.mkdtemp(prefix="alat_ekonometrika_")
+urlretrieve(
+    "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/alat_bantu/metode_lanjutan.py",
+    folder_alat + "/metode_lanjutan.py",
+)
+sys.path.insert(0, folder_alat)
 
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %% [markdown]
 # ## 1. Logit biner: contoh klasik Spector dan Mazzeo
@@ -322,7 +312,7 @@ print(f"Akurasi = {akurasi:.3f}")
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-lulus = pd.read_csv("data/logit_probit_2.csv")
+lulus = pd.read_csv(URL_DATA + "logit_probit_2.csv")
 lulus = lulus.rename(
     columns={
         "LULUS_TEPAT": "lulus_tepat",
@@ -335,7 +325,7 @@ lulus = lulus.rename(
 
 # Alat bantu menangani kemungkinan MLE gagal, agar notebook bisa dilanjutkan.
 # Sumbernya ada di alat_bantu/metode_lanjutan.py dan sudah ikut paket data.
-from alat_bantu.metode_lanjutan import coba_logit
+from metode_lanjutan import coba_logit
 
 rumus_lulus = "lulus_tepat ~ ipk_sem2 + sks_lulus_sem2 + keaktifan_org + beasiswa"
 print(coba_logit(rumus_lulus, lulus))
@@ -471,7 +461,7 @@ print(
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-transport = pd.read_csv("data/multi_ordinal_2.csv")
+transport = pd.read_csv(URL_DATA + "multi_ordinal_2.csv")
 transport = transport.rename(
     columns={
         "Transport": "transport",
@@ -570,7 +560,7 @@ peluang.round(3)
 # %%
 from statsmodels.miscmodels.ordinal_model import OrderedModel
 
-kepuasan = pd.read_csv("data/multi_ordinal_1.csv")
+kepuasan = pd.read_csv(URL_DATA + "multi_ordinal_1.csv")
 kepuasan = kepuasan.rename(
     columns={
         "Kepuasan": "kepuasan",
@@ -640,9 +630,9 @@ print(
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-from alat_bantu.metode_lanjutan import estimasi_tobit
+from metode_lanjutan import estimasi_tobit
 
-rnd = pd.read_csv("data/tobit_data_1_rnd.csv")
+rnd = pd.read_csv(URL_DATA + "tobit_data_1_rnd.csv")
 rnd = rnd.rename(
     columns={"RND": "rnd", "PROFIT": "profit", "ASET": "aset", "PATEN": "paten"}
 )
@@ -687,7 +677,7 @@ print(hasil_tobit.round(4))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-pelanggan = pd.read_csv("data/poisson_data_2_restoran.csv")
+pelanggan = pd.read_csv(URL_DATA + "poisson_data_2_restoran.csv")
 pelanggan = pelanggan.rename(
     columns={
         "PELANGGAN": "pelanggan",

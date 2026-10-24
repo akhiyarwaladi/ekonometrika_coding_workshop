@@ -5,15 +5,17 @@
 # data di folder `data/`, jadi hasil Anda harus sama (atau sangat dekat).
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Jalankan sel di bawah sekali supaya folder `data/` siap dipakai.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -40,31 +42,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import pandas as pd
@@ -94,7 +74,7 @@ import numpy as np
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-padi = pd.read_csv("data/uts_3.csv")
+padi = pd.read_csv(URL_DATA + "uts_3.csv")
 sampel_model_padi = padi[
     ["Y_Produktivitas_Padi", "X1_Jumlah_Pupuk", "X2_Curah_Hujan", "X3_Sinar_Matahari"]
 ].dropna()
@@ -146,7 +126,7 @@ print(uji_model_padi.pvalues.round(4))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-harapan = pd.read_csv("data/uts_4.csv")
+harapan = pd.read_csv(URL_DATA + "uts_4.csv")
 sampel_model_harapan = harapan[
     [
         "Y_Angka_Harapan_Hidup",
@@ -220,7 +200,7 @@ print(
 )
 print("Prediksi penjualan uts-6 (iklan 60, harga 100, kompetitor 105):")
 
-jual = pd.read_csv("data/uts_6.csv")
+jual = pd.read_csv(URL_DATA + "uts_6.csv")
 sampel_model_jual = jual[
     ["Y_Penjualan_Unit", "X1_Biaya_Iklan", "X2_Harga_Produk", "X3_Harga_Kompetitor"]
 ].dropna()

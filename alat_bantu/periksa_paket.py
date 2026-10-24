@@ -59,7 +59,7 @@ def main():
             assert hash_file(tujuan) == baris["sha256_sebelum"], tujuan
             terlindungi += 1
 
-    csv_files = sorted((ROOT / "data").glob("*.csv"))
+    csv_files = sorted((ROOT / "data").rglob("*.csv"))
     assert len(csv_files) == 59
     nama_lama = {b["lokasi_baru"]: b["lokasi_lama"] for b in pemetaan}
     cadangan_path = ROOT / "arsip/cadangan_sebelum_penataan.zip"
@@ -67,10 +67,18 @@ def main():
         with ZipFile(cadangan_path) as cadangan:
             for path in csv_files:
                 lokasi = path.relative_to(ROOT).as_posix()
+                sebelum_pemisahan = lokasi.replace("data/cadangan/", "data/", 1)
                 assert (
-                    cadangan.read(nama_lama.get(lokasi, lokasi)) == path.read_bytes()
+                    cadangan.read(nama_lama.get(lokasi, sebelum_pemisahan)) == path.read_bytes()
                 ), path
-    expected = {p.relative_to(ROOT).as_posix() for p in csv_files}
+    aktif = sorted((ROOT / "data").glob("*.csv"))
+    assert len(aktif) == 44
+    assert len(list((ROOT / "data/cadangan").glob("*.csv"))) == 15
+    data_lepas = [p for p in files if p.is_file() and p.suffix in {".csv", ".xlsx", ".xls"}
+                  and not p.is_relative_to(ROOT / "data")
+                  and p != ROOT / "laporan/peta_perubahan_nama.csv"]
+    assert not data_lepas, data_lepas
+    expected = {p.relative_to(ROOT).as_posix() for p in aktif}
     expected.add("alat_bantu/metode_lanjutan.py")
     with ZipFile(ROOT / "paket/data_tutorial.zip") as paket:
         assert set(paket.namelist()) == expected
@@ -138,7 +146,8 @@ def main():
         "- Nama berkas aktif menggunakan huruf kecil, garis bawah, dan nomor urutan; nama standar seperti README.md dikecualikan.",
         f"- {len(pemetaan) - lokal_saja}/{len(pemetaan)} tujuan pada peta nama tersedia; {lokal_saja} berkas arsip/administrasi hanya disimpan lokal.",
         f"- {terlindungi} berkas data, PDF, dan gambar yang diperiksa sama persis dengan hash sebelum penataan.",
-        "- 59 CSV dan satu modul pendukung dalam ZIP sama dengan berkas di folder proyek.",
+        "- 44 CSV dipakai berada di data/; 15 CSV cadangan berada di data/cadangan/.",
+        "- ZIP opsional memuat 44 CSV dipakai dan satu modul pendukung, sama dengan berkas proyek.",
         (
             "- Seluruh 59 CSV sama persis dengan salinan sebelum penataan; nama kolom dan angka tidak berubah."
             if cadangan_path.exists()
@@ -160,15 +169,14 @@ def main():
         "| Cara menjalankan | Hasil |",
         "|---|---|",
     ]
-    for mode, nama in (
-        ("lokal", "Folder utama proyek"),
-        ("folder_notebook", "Folder masing-masing notebook"),
-        ("zip", "Folder kosong dengan ZIP saja"),
+    for berkas, nama in (
+        ("uji_kernel_semua_notebook.json", "Kernel baru; CSV langsung dari GitHub"),
+        ("uji_notebook_zip.json", "Salinan ZIP; URL data diarahkan ke folder uji lokal"),
     ):
-        lokasi = ROOT / f"laporan/uji_notebook_{mode}.json"
+        lokasi = ROOT / "laporan" / berkas
         if lokasi.exists():
             hasil = json.loads(lokasi.read_text(encoding="utf-8"))
-            assert not hasil["gagal"]
+            assert hasil["lulus"] == hasil["jumlah"]
             lines.append(f"| {nama} | {hasil['lulus']}/{hasil['jumlah']} lulus |")
     housing = json.loads(
         (ROOT / "laporan/hasil_uji_regresi_housing.json").read_text(encoding="utf-8")
@@ -190,7 +198,7 @@ def main():
         "",
         "Peringatan separation/konvergensi pada contoh kategorikal dan frekuensi waktu",
         "tercatat di log; contoh serta batas interpretasinya dijelaskan pada notebook.",
-        "Uji ini memeriksa eksekusi lokal dan skenario unggahan ZIP; antarmuka Google Colab belum diuji langsung.",
+        "Uji mencakup CSV GitHub pada kernel baru dan salinan ZIP dengan URL diarahkan ke folder lokal; antarmuka Google Colab belum diuji langsung.",
         "",
         "## Penelusuran berkas lama",
         "",

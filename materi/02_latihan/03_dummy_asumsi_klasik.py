@@ -11,17 +11,17 @@
 # 4 mengganti jenis variabel Y.
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Notebook ini membaca CSV dari folder `data/`. Kalau belum ada (misalnya di
-# Colab), unggah `data_tutorial.zip` lewat panel Files, lalu jalankan
-# sel di bawah sekali.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -48,31 +48,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import pandas as pd
@@ -121,7 +99,7 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-gaji = pd.read_csv("data/latihan_dummy_1.csv")
+gaji = pd.read_csv(URL_DATA + "latihan_dummy_1.csv")
 gaji = gaji.rename(
     columns={
         "GAJI": "gaji",
@@ -218,7 +196,7 @@ print(uji_model.pvalues.round(4))
 # %%
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-rumah = pd.read_csv("data/latihan_multikolinieritas_1.csv")
+rumah = pd.read_csv(URL_DATA + "latihan_multikolinieritas_1.csv")
 rumah = rumah.rename(
     columns={
         "HARGA": "harga",
@@ -314,7 +292,7 @@ print(uji_model_rumah.pvalues.round(4))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# kerja = pd.read_csv("data/hetero_2.csv")
+# kerja = pd.read_csv(URL_DATA + "hetero_2.csv")
 # X_kerja = kerja[["Pendidikan", "Pengalaman", "Usia"]]
 # y_kerja = kerja["Pendapatan"]
 # model_kerja = LinearRegression()
@@ -358,7 +336,7 @@ print(uji_model_rumah.pvalues.round(4))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# nrumah = pd.read_csv("data/latihan_normalitas_3.csv")
+# nrumah = pd.read_csv(URL_DATA + "latihan_normalitas_3.csv")
 # sampel_model_n = nrumah[
 #     ["Harga", "Luas_Bangunan", "Jumlah_Kamar", "Usia_Rumah"]
 # ].dropna()
@@ -402,7 +380,7 @@ print(uji_model_rumah.pvalues.round(4))
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# jual = pd.read_csv("data/hetero_1.csv")
+# jual = pd.read_csv(URL_DATA + "hetero_1.csv")
 # ...
 
 # %% [markdown]

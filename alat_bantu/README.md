@@ -8,13 +8,13 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | Perintah | Hasil |
 |---|---|
 | `python alat_bantu/konversi_notebook.py` | Membuat 23 notebook dari sumber `.py`, termasuk kunci jawaban dan dashboard. Output lama dikosongkan. |
-| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 23 pasangan `.py`/`.ipynb` dan panduan kamus; kode serta output notebook dipertahankan. |
+| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 23 pasangan `.py`/`.ipynb` serta panduan kamus dan peta pemakaian data; kode serta output notebook dipertahankan. |
 | `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memastikan seluruh kolom CSV sudah didefinisikan dan tabel definisi pada sumber/notebook tetap sinkron. |
-| `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` dari 59 CSV dan `metode_lanjutan.py`. |
+| `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` sebagai salinan offline opsional dari 44 CSV aktif dan `metode_lanjutan.py`. |
 | `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `paket/png_regresi_tajam.zip`. |
 | `python alat_bantu/uji_notebook.py` | Memeriksa sinkronisasi, keterbacaan kode, dan eksekusi seluruh notebook dari folder utama. |
-| `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji data ditemukan dari folder masing-masing notebook. |
-| `python alat_bantu/uji_notebook.py --dari-zip` | Menguji setiap notebook pada folder kosong yang hanya berisi paket ZIP. |
+| `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji pembacaan CSV GitHub dari folder masing-masing notebook. |
+| `python alat_bantu/uji_notebook.py --dari-zip` | Mengekstrak ZIP ke folder sementara dan mengarahkan URL data ke salinan lokal untuk pengujian. |
 | `python alat_bantu/uji_regresi_housing.py` | Menjalankan kernel baru, menyimpan output Housing, enam grafik, dan laporan pengujian. |
 | `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh 23 notebook pada kernel baru, termasuk sel instalasi; menyimpan output dan laporan kesesuaian model. |
 | `python alat_bantu/uji_dashboard.py --notebook` | Menguji interaksi dashboard, angka evaluasi, filter kosong, dan seluruh sel notebook pada kernel baru; server uji dihentikan otomatis. |

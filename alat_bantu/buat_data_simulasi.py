@@ -6,10 +6,12 @@ Jalankan: python alat_bantu/buat_data_simulasi.py
 Output: data/*.csv (ts-inflasi, volatilitas, panel-*, dst)
 """
 
+import json
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "data"
 OUT.mkdir(parents=True, exist_ok=True)
+KAMUS = json.loads((OUT.parent / "alat_bantu/kamus_variabel.json").read_text(encoding="utf-8"))["dataset"]
 
 INFLASI = [
     100.5,
@@ -1021,7 +1023,9 @@ JAM_SKOR = [
 
 
 def tulis(nama, header, baris):
-    (OUT / nama).write_text(header + "\n" + "\n".join(baris) + "\n", encoding="utf-8")
+    tujuan = OUT / Path(KAMUS[nama]["lokasi"]).relative_to("data")
+    tujuan.parent.mkdir(parents=True, exist_ok=True)
+    tujuan.write_text(header + "\n" + "\n".join(baris) + "\n", encoding="utf-8")
     print(f"OK {nama} ({len(baris)} baris)")
 
 

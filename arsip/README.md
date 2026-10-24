@@ -12,5 +12,8 @@ isinya tidak diunggah ke GitHub. Materi aktif berada di
 - `slide/png_regresi_300_dpi/`: 31 PNG ekspor lama berukuran 3000 × 1688 piksel.
 - `berkas_kerja/`: pratinjau dan skrip pengerjaan lama, termasuk migrasi sekali jalan.
   Skrip migrasi menyimpan jalur historis dan tidak dipakai ulang untuk tutorial.
+- `berkas_kerja/hasil_dashboard_sebelumnya/`: hasil dashboard lama, termasuk salinan CSV;
+  dipindahkan utuh dari folder utama. Notebook baru menyimpan aplikasi di folder sementara.
+- `berkas_kerja/uji_data_simulasi_scikit/`: salinan CSV untuk pengujian lama, bukan data peserta.
 
 Untuk mencari nama lama, buka [peta perubahan nama](../laporan/peta_perubahan_nama.csv).

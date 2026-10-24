@@ -2,8 +2,8 @@
 
 Buka [01_regresi_housing.ipynb](01_regresi_housing.ipynb), atau
 [langsung buka di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb).
-Untuk data, unggah [housing.csv](../../data/housing.csv) atau
-[data_tutorial.zip](../../paket/data_tutorial.zip) melalui panel **Files**.
+Notebook ini hanya memakai [housing.csv](../../data/housing.csv).
+Data dibaca langsung dari GitHub; gunakan koneksi internet dan jalankan sel dari atas.
 
 Notebook memakai scikit-learn untuk regresi sederhana dan berganda.
 Alurnya mencakup membaca data, membagi data latih/uji, mengisi nilai kosong,

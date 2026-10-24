@@ -11,18 +11,18 @@
 # model. Lab 6 menutup dengan data Indonesia asli.
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Notebook ini membaca CSV dari folder `data/`. Kalau belum ada (misalnya di
-# Colab), unggah `data_tutorial.zip` lewat panel Files, lalu jalankan
-# sel di bawah sekali. Paket `linearmodels` dipasang di sel berikutnya
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**. Paket `linearmodels` dipasang di sel berikutnya
 # (butuh internet sekali saja).
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -49,31 +49,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 %pip install "linearmodels==7.1" -q
@@ -112,7 +90,7 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-inflasi = pd.read_csv("data/ts_inflasi.csv")
+inflasi = pd.read_csv(URL_DATA + "ts_inflasi.csv")
 
 plt.figure(figsize=(9, 4))
 plt.plot(inflasi["obs"], inflasi["inflasi"], lw=1.6)
@@ -191,7 +169,7 @@ plt.show()
 # %%
 from statsmodels.tsa.stattools import coint
 
-makro = pd.read_csv("data/konsumsi_pendapatan.csv")
+makro = pd.read_csv(URL_DATA + "konsumsi_pendapatan.csv")
 makro = makro.rename(columns={"Konsumsi_Y": "konsumsi", "Pendapatan_X": "pendapatan"})
 makro["ln_konsumsi"] = np.log(makro["konsumsi"])
 makro["ln_pendapatan"] = np.log(makro["pendapatan"])
@@ -292,7 +270,7 @@ print(uji_model_ecm.pvalues.round(4))
 # %%
 from linearmodels.panel import PanelOLS
 
-padi = pd.read_csv("data/panel_padi.csv")
+padi = pd.read_csv(URL_DATA + "panel_padi.csv")
 padi = padi.set_index(["FarmID", "Season"])
 y = padi["Yield_Y"]
 X = padi[["Fertilizer_X1", "Rainfall_X2"]]
@@ -358,7 +336,7 @@ print(fem.f_pooled)
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# saham_ts = pd.read_csv("data/ts_saham.csv")
+# saham_ts = pd.read_csv(URL_DATA + "ts_saham.csv")
 # ...
 
 # %% [markdown]
@@ -385,7 +363,7 @@ print(fem.f_pooled)
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# ie = pd.read_csv("data/ihsg_emas.csv")
+# ie = pd.read_csv(URL_DATA + "ihsg_emas.csv")
 # ...
 
 # %% [markdown]
@@ -414,7 +392,7 @@ print(fem.f_pooled)
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-# retail = pd.read_csv("data/panel_retail.csv").set_index(["StoreID", "Month"])
+# retail = pd.read_csv(URL_DATA + "panel_retail.csv").set_index(["StoreID", "Month"])
 # ...
 
 # %% [markdown]

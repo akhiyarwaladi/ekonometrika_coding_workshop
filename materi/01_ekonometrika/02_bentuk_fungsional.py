@@ -16,11 +16,11 @@
 # | Reciprocal | $Y = \beta_0 + \beta_1 \frac{1}{X}$ | efek mengecil saat X membesar, ada batas asimtot $\beta_0$ |
 # | Polinomial | $Y = \beta_0 + \beta_1 X + \beta_2 X^2$ | bisa naik lalu turun, ada titik puncak |
 #
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 #
-# Notebook ini membaca CSV dari folder `data/`. Kalau belum ada (misalnya di
-# Colab), unggah `data_tutorial.zip` lewat panel Files, lalu jalankan
-# sel di bawah sekali.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # **Posisi dalam alur workshop.** Melanjutkan Sesi 1 yang berakhir dengan
@@ -31,7 +31,7 @@
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -58,31 +58,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %% [markdown]
 # ## Kasus 1: Fungsi produksi Cobb-Douglas (log-log)
@@ -128,7 +106,7 @@ import seaborn as sns
 sns.set_theme(style="whitegrid", palette=["#2F5D50", "#C15937", "#D9A441", "#5B8A8F"])
 plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size": 11})
 
-produksi = pd.read_csv("data/regresi_log.csv")
+produksi = pd.read_csv(URL_DATA + "regresi_log.csv")
 produksi = produksi.rename(
     columns={
         "Observasi ke-": "obs",
@@ -251,7 +229,7 @@ print(f"Eksak 100*(exp(beta)-1)  : {100 * (np.exp(beta) - 1):.2f} persen")
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-recip = pd.read_csv("data/regresi_reciprocal.csv")
+recip = pd.read_csv(URL_DATA + "regresi_reciprocal.csv")
 recip = recip.rename(
     columns={"Pengalaman (X)": "pengalaman", "Waktu Produksi (Y)": "waktu"}
 )
@@ -325,7 +303,7 @@ plt.show()
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-polinom = pd.read_csv("data/regresi_polinom.csv")
+polinom = pd.read_csv(URL_DATA + "regresi_polinom.csv")
 polinom = polinom.rename(
     columns={"Biaya Iklan (X)": "iklan", "Penjualan (Y)": "penjualan"}
 )
@@ -434,7 +412,7 @@ plt.show()
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-usia = pd.read_csv("data/usia_unit.csv")
+usia = pd.read_csv(URL_DATA + "usia_unit.csv")
 usia = usia.rename(columns={"Usia": "usia", "Unit_Terjual": "unit"})
 usia["usia2"] = usia["usia"] ** 2
 

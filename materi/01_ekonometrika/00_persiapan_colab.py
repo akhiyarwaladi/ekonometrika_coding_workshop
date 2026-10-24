@@ -6,10 +6,9 @@
 # Notebook ini untuk dosen atau pengajar. Isinya: menyiapkan lingkungan kerja,
 # menyiapkan data, dan mengenali padanan perintah EViews dengan Python.
 #
-# **Sebelum mulai:** notebook ini membaca file CSV dari folder `data/`.
-# Kalau folder itu belum ada, unggah `data_tutorial.zip` lewat panel
-# Files di kiri layar Colab, lalu jalankan sel pertama di bawah sekali.
-# Di komputer sendiri, biarkan struktur folder proyek tetap utuh.
+# **Sebelum mulai:** Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 #
 # Cara menjalankan sel: klik selnya, tekan `Shift + Enter`.
 
@@ -22,7 +21,7 @@
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -49,31 +48,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %% [markdown]
 # ## 1. Cek lingkungan
@@ -106,8 +83,8 @@ print("scikit-learn", sklearn.__version__)
 # %% [markdown]
 # ## 2. Baca data pertama
 #
-# Semua data ada di folder `data/`. Cara membacanya selalu satu baris:
-# `pd.read_csv("data/regresi_polinom.csv")`.
+# `URL_DATA` menyimpan alamat folder CSV di GitHub. Cara membacanya satu baris:
+# `pd.read_csv(URL_DATA + "regresi_polinom.csv")`.
 
 # %% [markdown]
 # <!-- kamus_variabel:regresi_polinom.csv -->
@@ -129,7 +106,7 @@ print("scikit-learn", sklearn.__version__)
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-data = pd.read_csv("data/regresi_polinom.csv")
+data = pd.read_csv(URL_DATA + "regresi_polinom.csv")
 print("Ukuran data:", data.shape)
 data.head()
 
@@ -190,7 +167,7 @@ print("AIC:", uji_model.aic)
 # %% [markdown]
 # <details><summary>Lihat jawaban</summary>
 #
-# Dua baris: `uts4 = pd.read_csv("data/uts_4.csv")` lalu
+# Dua baris: `uts4 = pd.read_csv(URL_DATA + "uts_4.csv")` lalu
 # `print(len(uts4), uts4["Y_Angka_Harapan_Hidup"].mean())`.
 # Hasilnya 50 baris dan rata-rata 76,95.
 #
@@ -276,7 +253,7 @@ print("AIC:", uji_model.aic)
 
 # %%
 # Tulis jawaban Anda di sini
-# uts4 = pd.read_csv("data/uts_4.csv")
+# uts4 = pd.read_csv(URL_DATA + "uts_4.csv")
 # ...
 
 # %% [markdown]

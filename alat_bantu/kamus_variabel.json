@@ -31,7 +31,9 @@
           "satuan": "Uang; skala dan periode belanja tidak dirinci",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/uts_2.csv",
+      "status": "dipakai"
     },
     "regresi_polinom.csv": {
       "judul": "Iklan dan penjualan",
@@ -64,7 +66,9 @@
           "arti": "Kuadrat biaya iklan: iklan × iklan; bukan biaya iklan baru.",
           "satuan": "Kuadrat satuan iklan"
         }
-      ]
+      ],
+      "lokasi": "data/regresi_polinom.csv",
+      "status": "dipakai"
     },
     "regresi_log.csv": {
       "judul": "Produksi, tenaga kerja, dan modal",
@@ -113,7 +117,9 @@
           "arti": "Logaritma alami dari modal K.",
           "satuan": "Skala logaritma"
         }
-      ]
+      ],
+      "lokasi": "data/regresi_log.csv",
+      "status": "dipakai"
     },
     "regresi_reciprocal.csv": {
       "judul": "Pengalaman dan waktu produksi",
@@ -140,7 +146,9 @@
           "arti": "Kebalikan pengalaman: 1 / pengalaman.",
           "satuan": "Kebalikan satuan pengalaman"
         }
-      ]
+      ],
+      "lokasi": "data/regresi_reciprocal.csv",
+      "status": "dipakai"
     },
     "uts_1.csv": {
       "judul": "Pertumbuhan ekonomi",
@@ -194,7 +202,9 @@
           "arti": "Logaritma alami ukuran keterbukaan perdagangan.",
           "satuan": "Skala logaritma"
         }
-      ]
+      ],
+      "lokasi": "data/uts_1.csv",
+      "status": "dipakai"
     },
     "uts_3.csv": {
       "judul": "Produktivitas padi",
@@ -226,7 +236,9 @@
           "satuan": "Jam; periode akumulasi tidak dirinci",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/uts_3.csv",
+      "status": "dipakai"
     },
     "uts_4.csv": {
       "judul": "Angka harapan hidup",
@@ -258,7 +270,9 @@
           "satuan": "Kalori harian; rincian satuan energi mengikuti sumber",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/uts_4.csv",
+      "status": "dipakai"
     },
     "uts_5.csv": {
       "judul": "Kriminalitas kota",
@@ -290,7 +304,9 @@
           "satuan": "Penduduk per satuan luas; unit luas tidak dirinci",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/uts_5.csv",
+      "status": "cadangan"
     },
     "uts_6.csv": {
       "judul": "Penjualan produk",
@@ -322,7 +338,9 @@
           "satuan": "Uang per unit; skala tidak dirinci",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/uts_6.csv",
+      "status": "dipakai"
     },
     "latihan_dummy_1.csv": {
       "judul": "Gaji dan karakteristik pekerja",
@@ -372,7 +390,9 @@
           "arti": "Indikator status Menikah; kelompok selain Menikah menjadi acuan.",
           "satuan": "1 = Menikah; 0 = selain Menikah"
         }
-      ]
+      ],
+      "lokasi": "data/latihan_dummy_1.csv",
+      "status": "dipakai"
     },
     "latihan_dummy_2.csv": {
       "judul": "PDB, investasi, dan krisis",
@@ -410,7 +430,9 @@
           "satuan": "1 = krisis; 0 = bukan krisis",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/latihan_dummy_2.csv",
+      "status": "dipakai"
     },
     "latihan_multikolinieritas_1.csv": {
       "judul": "Harga dan ukuran rumah",
@@ -448,7 +470,9 @@
           "satuan": "Kamar",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/latihan_multikolinieritas_1.csv",
+      "status": "dipakai"
     },
     "latihan_multikolinieritas_2.csv": {
       "judul": "Konsumsi rumah tangga",
@@ -486,7 +510,9 @@
           "satuan": "Orang",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/latihan_multikolinieritas_2.csv",
+      "status": "cadangan"
     },
     "hetero_1.csv": {
       "judul": "Iklan, tenaga penjualan, dan diskon",
@@ -518,7 +544,9 @@
           "satuan": "Persen; 5,2 berarti 5,2%",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/hetero_1.csv",
+      "status": "dipakai"
     },
     "hetero_2.csv": {
       "judul": "Pendapatan dan karakteristik pekerja",
@@ -550,7 +578,9 @@
           "satuan": "Tahun",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/hetero_2.csv",
+      "status": "dipakai"
     },
     "hetero_3.csv": {
       "judul": "Harga dan karakteristik rumah",
@@ -589,7 +619,9 @@
           "arti": "Nilai mutlak selisih harga aktual dan prediksi untuk uji Glejser.",
           "satuan": "Sama dengan satuan Harga"
         }
-      ]
+      ],
+      "lokasi": "data/hetero_3.csv",
+      "status": "dipakai"
     },
     "latihan_normalitas_1.csv": {
       "judul": "Harga saham dan kondisi makro",
@@ -621,7 +653,9 @@
           "satuan": "Persen",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/latihan_normalitas_1.csv",
+      "status": "dipakai"
     },
     "latihan_normalitas_2.csv": {
       "judul": "Hasil panen dan kondisi lahan",
@@ -653,7 +687,9 @@
           "satuan": "Jam per hari",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/latihan_normalitas_2.csv",
+      "status": "cadangan"
     },
     "latihan_normalitas_3.csv": {
       "judul": "Harga dan kondisi rumah",
@@ -685,7 +721,9 @@
           "satuan": "Tahun",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/latihan_normalitas_3.csv",
+      "status": "dipakai"
     },
     "logit_probit_1.csv": {
       "judul": "Persetujuan kredit usaha",
@@ -723,7 +761,9 @@
           "satuan": "1 = memiliki jaminan; 0 = tidak",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/logit_probit_1.csv",
+      "status": "cadangan"
     },
     "logit_probit_2.csv": {
       "judul": "Kelulusan tepat waktu",
@@ -761,7 +801,9 @@
           "satuan": "1 = penerima; 0 = bukan penerima",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/logit_probit_2.csv",
+      "status": "dipakai"
     },
     "logit_probit_3.csv": {
       "judul": "Penggunaan mobile banking",
@@ -799,7 +841,9 @@
           "satuan": "Skor 1 sampai 10",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/logit_probit_3.csv",
+      "status": "cadangan"
     },
     "multi_ordinal_1.csv": {
       "judul": "Kepuasan layanan bank",
@@ -831,7 +875,9 @@
           "satuan": "1 = sering memakai; 0 = jarang/tidak",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/multi_ordinal_1.csv",
+      "status": "dipakai"
     },
     "multi_ordinal_2.csv": {
       "judul": "Pilihan transportasi kerja",
@@ -863,7 +909,9 @@
           "satuan": "Kilometer (km)",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/multi_ordinal_2.csv",
+      "status": "dipakai"
     },
     "multi_ordinal_3.csv": {
       "judul": "Rating risiko kredit UMKM",
@@ -895,7 +943,9 @@
           "satuan": "Tahun",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/multi_ordinal_3.csv",
+      "status": "cadangan"
     },
     "tobit_data_1_rnd.csv": {
       "judul": "Pengeluaran penelitian dan pengembangan",
@@ -927,7 +977,9 @@
           "satuan": "Paten",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/tobit_data_1_rnd.csv",
+      "status": "dipakai"
     },
     "tobit_data_2_jamkerja.csv": {
       "judul": "Jam kerja dan keadaan keluarga",
@@ -959,7 +1011,9 @@
           "satuan": "Juta rupiah per bulan",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/tobit_data_2_jamkerja.csv",
+      "status": "cadangan"
     },
     "tobit_data_3_asuransi.csv": {
       "judul": "Pembelian premi asuransi",
@@ -991,7 +1045,9 @@
           "satuan": "Skor 0 sampai 100",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/tobit_data_3_asuransi.csv",
+      "status": "cadangan"
     },
     "poisson_data_1_klaim.csv": {
       "judul": "Klaim asuransi mobil",
@@ -1023,7 +1079,9 @@
           "satuan": "1 = sport; 0 = keluarga",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/poisson_data_1_klaim.csv",
+      "status": "dipakai"
     },
     "poisson_data_2_restoran.csv": {
       "judul": "Kunjungan pelanggan restoran",
@@ -1055,7 +1113,9 @@
           "satuan": "Program promosi",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/poisson_data_2_restoran.csv",
+      "status": "dipakai"
     },
     "poisson_data_3_cacat.csv": {
       "judul": "Cacat produksi",
@@ -1087,7 +1147,9 @@
           "satuan": "Derajat Celsius (°C)",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/poisson_data_3_cacat.csv",
+      "status": "cadangan"
     },
     "pendidikan_pendapatan.csv": {
       "judul": "Pendidikan dan pendapatan",
@@ -1114,7 +1176,9 @@
           "arti": "Logaritma alami dari Pendapatan_Tahunan.",
           "satuan": "Skala logaritma"
         }
-      ]
+      ],
+      "lokasi": "data/pendidikan_pendapatan.csv",
+      "status": "dipakai"
     },
     "usia_unit.csv": {
       "judul": "Usia dan kinerja penjual",
@@ -1141,7 +1205,9 @@
           "arti": "Kuadrat usia: usia × usia.",
           "satuan": "Tahun kuadrat"
         }
-      ]
+      ],
+      "lokasi": "data/usia_unit.csv",
+      "status": "dipakai"
     },
     "jam_skor.csv": {
       "judul": "Jam belajar dan hasil ujian",
@@ -1168,7 +1234,9 @@
           "arti": "Kebalikan jam belajar: 1 / Jam_Belajar.",
           "satuan": "Per jam"
         }
-      ]
+      ],
+      "lokasi": "data/jam_skor.csv",
+      "status": "dipakai"
     },
     "ts_inflasi.csv": {
       "judul": "Deret harga/inflasi simulasi",
@@ -1188,7 +1256,9 @@
           "satuan": "Level/indeks simulasi; bukan otomatis persen inflasi",
           "peran": "Deret yang dianalisis"
         }
-      ]
+      ],
+      "lokasi": "data/ts_inflasi.csv",
+      "status": "dipakai"
     },
     "ts_saham.csv": {
       "judul": "Harga saham simulasi",
@@ -1208,7 +1278,9 @@
           "satuan": "Level harga; skala uang tidak dirinci",
           "peran": "Deret yang dianalisis"
         }
-      ]
+      ],
+      "lokasi": "data/ts_saham.csv",
+      "status": "dipakai"
     },
     "ts_gdp_growth.csv": {
       "judul": "Pertumbuhan ekonomi simulasi",
@@ -1228,7 +1300,9 @@
           "satuan": "Persen dalam konteks pertumbuhan",
           "peran": "Deret yang dianalisis"
         }
-      ]
+      ],
+      "lokasi": "data/ts_gdp_growth.csv",
+      "status": "dipakai"
     },
     "ts_kurs.csv": {
       "judul": "Kurs simulasi",
@@ -1255,7 +1329,9 @@
           "arti": "Indikator perubahan level mulai pengamatan ke-25 pada contoh.",
           "satuan": "1 jika obs ≥ 25; 0 sebelumnya"
         }
-      ]
+      ],
+      "lokasi": "data/ts_kurs.csv",
+      "status": "dipakai"
     },
     "konsumsi_pendapatan.csv": {
       "judul": "Konsumsi dan pendapatan runtun waktu",
@@ -1308,7 +1384,9 @@
           "arti": "Error Correction Term: penyimpangan dari hubungan jangka panjang pada periode sebelumnya.",
           "satuan": "Residual log periode sebelumnya"
         }
-      ]
+      ],
+      "lokasi": "data/konsumsi_pendapatan.csv",
+      "status": "dipakai"
     },
     "ekspor_kurs.csv": {
       "judul": "Ekspor dan nilai tukar",
@@ -1334,7 +1412,9 @@
           "satuan": "Pasangan mata uang/skala tidak dirinci sumber",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/ekspor_kurs.csv",
+      "status": "cadangan"
     },
     "ihsg_emas.csv": {
       "judul": "IHSG dan harga emas simulasi",
@@ -1360,7 +1440,9 @@
           "satuan": "Mata uang dan berat acuan tidak dirinci",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/ihsg_emas.csv",
+      "status": "dipakai"
     },
     "ritel_iklan.csv": {
       "judul": "Penjualan ritel dan iklan mingguan",
@@ -1386,7 +1468,9 @@
           "satuan": "Satuan/skala tidak dirinci sumber",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/ritel_iklan.csv",
+      "status": "cadangan"
     },
     "volatilitas.csv": {
       "judul": "Lima deret simulasi volatilitas",
@@ -1430,7 +1514,9 @@
           "satuan": "Skala simulasi; definisi rinci shock tidak dicantumkan",
           "peran": "Deret yang dianalisis"
         }
-      ]
+      ],
+      "lokasi": "data/volatilitas.csv",
+      "status": "dipakai"
     },
     "panel_gdp.csv": {
       "judul": "Panel PDB simulasi",
@@ -1468,7 +1554,9 @@
           "satuan": "Skala jumlah tenaga kerja tidak dicantumkan",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/panel_gdp.csv",
+      "status": "dipakai"
     },
     "panel_retail.csv": {
       "judul": "Panel toko ritel",
@@ -1506,7 +1594,9 @@
           "satuan": "Pecahan; 0,10 berarti diskon 10%",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/panel_retail.csv",
+      "status": "dipakai"
     },
     "panel_kesehatan.csv": {
       "judul": "Panel tekanan darah",
@@ -1544,7 +1634,9 @@
           "satuan": "Ribuan kalori harian; 2,5 berarti 2.500 pada skala sumber",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/panel_kesehatan.csv",
+      "status": "cadangan"
     },
     "panel_pendidikan.csv": {
       "judul": "Panel hasil belajar",
@@ -1582,7 +1674,9 @@
           "satuan": "Persen kehadiran",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/panel_pendidikan.csv",
+      "status": "cadangan"
     },
     "panel_padi.csv": {
       "judul": "Panel hasil panen padi",
@@ -1620,7 +1714,9 @@
           "satuan": "Milimeter (mm)",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/panel_padi.csv",
+      "status": "dipakai"
     },
     "data_regresi_uts.csv": {
       "judul": "Data abstrak untuk latihan spesifikasi",
@@ -1670,7 +1766,9 @@
           "satuan": "Skala simulasi; bukan penjelas untuk prediksi data baru",
           "peran": "Komponen simulasi"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/data_regresi_uts.csv",
+      "status": "cadangan"
     },
     "asean_panel.csv": {
       "judul": "Panel negara ASEAN dari World Bank",
@@ -1733,7 +1831,9 @@
           "arti": "Logaritma alami jumlah angkatan kerja.",
           "satuan": "Skala logaritma"
         }
-      ]
+      ],
+      "lokasi": "data/asean_panel.csv",
+      "status": "dipakai"
     },
     "idn_makro_tahunan.csv": {
       "judul": "Makroekonomi Indonesia tahunan",
@@ -1783,7 +1883,9 @@
           "satuan": "Orang; SL.TLF.TOTL.IN",
           "peran": "X: penjelas"
         }
-      ]
+      ],
+      "lokasi": "data/idn_makro_tahunan.csv",
+      "status": "dipakai"
     },
     "idn_kurs_tahunan.csv": {
       "judul": "Kurs rupiah tahunan",
@@ -1810,7 +1912,9 @@
           "arti": "Perubahan relatif kurs dari tahun sebelumnya, dikalikan 100.",
           "satuan": "Persen per tahun"
         }
-      ]
+      ],
+      "lokasi": "data/idn_kurs_tahunan.csv",
+      "status": "dipakai"
     },
     "kurs_harian.csv": {
       "judul": "Kurs rupiah harian",
@@ -1837,7 +1941,9 @@
           "arti": "Perubahan relatif kurs harian: 100 × (kurs hari ini / kurs sebelumnya - 1).",
           "satuan": "Persen; positif berarti rupiah melemah"
         }
-      ]
+      ],
+      "lokasi": "data/kurs_harian.csv",
+      "status": "dipakai"
     },
     "ihsg_harian.csv": {
       "judul": "IHSG harian",
@@ -1888,7 +1994,9 @@
           "arti": "Return logaritmik harian: 100 × (ln Close hari ini - ln Close sebelumnya).",
           "satuan": "Persen log-return"
         }
-      ]
+      ],
+      "lokasi": "data/ihsg_harian.csv",
+      "status": "dipakai"
     },
     "ihsg_panjang.csv": {
       "judul": "IHSG riwayat panjang",
@@ -1939,7 +2047,9 @@
           "arti": "Return logaritmik harian: 100 × selisih log Close.",
           "satuan": "Persen log-return"
         }
-      ]
+      ],
+      "lokasi": "data/ihsg_panjang.csv",
+      "status": "dipakai"
     },
     "idn_inflasi_bulanan.csv": {
       "judul": "IHK dan inflasi Indonesia bulanan",
@@ -1978,7 +2088,9 @@
           "arti": "Label pengelompokan periode untuk ringkasan/grafik inflasi.",
           "satuan": "Kategori periode, bukan variabel inflasi baru"
         }
-      ]
+      ],
+      "lokasi": "data/idn_inflasi_bulanan.csv",
+      "status": "dipakai"
     },
     "provinsi_2021.csv": {
       "judul": "Indikator 34 provinsi tahun 2021",
@@ -2065,7 +2177,9 @@
           "arti": "Logaritma alami PDRB_Kapita.",
           "satuan": "Skala logaritma"
         }
-      ]
+      ],
+      "lokasi": "data/provinsi_2021.csv",
+      "status": "dipakai"
     },
     "kredit_default.csv": {
       "judul": "Gagal bayar kartu kredit Taiwan",
@@ -2109,7 +2223,9 @@
           "satuan": "1 = gagal bayar; 0 = tidak",
           "peran": "Y: target"
         }
-      ]
+      ],
+      "lokasi": "data/cadangan/kredit_default.csv",
+      "status": "cadangan"
     },
     "housing.csv": {
       "judul": "Harga rumah historis Boston",
@@ -2201,7 +2317,9 @@
           "satuan": "Ribuan dolar AS historis; 24 berarti US$24.000",
           "peran": "Y: target"
         }
-      ]
+      ],
+      "lokasi": "data/housing.csv",
+      "status": "dipakai"
     },
     "spector": {
       "judul": "Efektivitas metode pengajaran Spector",

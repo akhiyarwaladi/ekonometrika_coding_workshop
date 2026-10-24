@@ -2,8 +2,8 @@
 
 Buka `.ipynb` untuk belajar. `.py` di sebelahnya adalah sumber dengan isi sel yang sama.
 Nomor berkas menunjukkan urutan dalam tiap kelompok. Pilih **Buka di Colab** untuk menjalankan notebook dari browser.
-Unggah [data_tutorial.zip](../paket/data_tutorial.zip) melalui panel **Files**
-setiap memulai notebook pada runtime baru.
+Jalankan sel dari atas dengan koneksi internet. CSV dibaca langsung dari GitHub.
+[Peta pemakaian data](08_peta_pemakaian_data.md) menunjukkan CSV yang dibutuhkan setiap notebook.
 
 Kembali ke [halaman awal](../README.md).
 

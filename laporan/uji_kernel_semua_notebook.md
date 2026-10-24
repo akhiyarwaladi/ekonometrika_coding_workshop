@@ -1,6 +1,6 @@
 # Pengujian seluruh notebook pada kernel baru
 
-Hasil: **22/22 notebook lulus** pada Python 3.13.5.
+Hasil: **23/23 notebook lulus** pada Python 3.13.5.
 Setiap notebook dijalankan dari foldernya sendiri, termasuk sel instalasi paket.
 Sel pemeriksaan tambahan tidak disimpan ke materi peserta. Output pembelajaran disimpan.
 
@@ -21,6 +21,7 @@ Sel pemeriksaan tambahan tidak disimpan ke materi peserta. Output pembelajaran d
 | [materi/02_latihan/05_deret_waktu_panel.ipynb](../materi/02_latihan/05_deret_waktu_panel.ipynb) | PASS | 17 | 2 | 2 | 1 |
 | [materi/02_latihan/06_data_indonesia.ipynb](../materi/02_latihan/06_data_indonesia.ipynb) | PASS | 25 | 3 | 1 | 1 |
 | [materi/03_regresi_housing/01_regresi_housing.ipynb](../materi/03_regresi_housing/01_regresi_housing.ipynb) | PASS | 29 | 6 | 3 | 0 |
+| [materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb) | PASS | 10 | 0 | 0 | 0 |
 | [pengajar/kunci_jawaban/00_persiapan_colab.ipynb](../pengajar/kunci_jawaban/00_persiapan_colab.ipynb) | PASS | 5 | 0 | 1 | 1 |
 | [pengajar/kunci_jawaban/01_regresi_dasar.ipynb](../pengajar/kunci_jawaban/01_regresi_dasar.ipynb) | PASS | 6 | 0 | 3 | 2 |
 | [pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb](../pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb) | PASS | 7 | 0 | 6 | 2 |
@@ -35,5 +36,3 @@ intersep harus berhingga; peluang multinomial harus berjumlah satu dan mengikuti
 
 Peringatan pada demonstrasi separation atau model khusus dibaca bersama catatan notebook.
 Pengujian kernel lokal ini tidak memeriksa antarmuka Google Colab secara langsung.
-
-Lingkungan uji: numpy 2.1.3, pandas 2.2.3, statsmodels 0.15.0, scikit-learn 1.6.1, linearmodels 7.1, arch 8.0.0.

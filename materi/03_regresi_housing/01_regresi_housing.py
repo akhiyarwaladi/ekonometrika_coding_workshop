@@ -7,12 +7,10 @@
 # Alurnya mengikuti materi slide: supervised learning, regresi linear, modelling,
 # multikolinearitas, evaluasi, serta underfitting dan overfitting.
 #
-# **Cara mulai di komputer:** buka notebook ini dan pertahankan susunan folder
-# proyek. Data dibaca otomatis dari `data/housing.csv`.
-# **Di Google Colab:** unggah notebook ini, lalu unggah `housing.csv` dari folder
-# `data/` atau `data_tutorial.zip` dari folder `paket/` melalui panel **Files**.
-# Jalankan sel berurutan dengan **Shift + Enter** atau **Run all**. Tidak perlu
-# menyambungkan Google Drive atau menuliskan lokasi folder komputer tertentu.
+# **Cara mulai, di Colab maupun komputer:** Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
+# Notebook ini hanya memakai `housing.csv`.
 #
 # Hasil eksekusi disimpan di notebook ini. Jika ingin mencoba sendiri dari awal,
 # mulai ulang kernel/runtime dan jalankan semua sel berurutan.
@@ -77,24 +75,16 @@
 # taksi premium Rp7.500/km. Contoh ini membantu membaca persamaan sebelum memakai model.
 
 # %% [markdown]
-# ### Persiapan lokasi data
+# ### Alamat data
 #
-# Jalankan sel ini apa adanya. Sel ini menemukan data pada susunan folder
-# proyek atau membuka paket data yang Anda unggah di Colab.
+# Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-if Path("data_tutorial.zip").exists() and not Path("data/housing.csv").exists():
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 import pandas as pd
@@ -197,12 +187,7 @@ plt.show()
 # Sumber definisi: [rujukan data](https://lib.stat.cmu.edu/datasets/boston).
 
 # %%
-# CSV tunggal yang diunggah ke Colab dapat dibaca dari folder unggahan.
-lokasi_data = "data/housing.csv"
-if not Path(lokasi_data).exists() and Path("housing.csv").exists():
-    lokasi_data = "housing.csv"
-
-data = pd.read_csv(lokasi_data)
+data = pd.read_csv(URL_DATA + "housing.csv")
 print("Jumlah baris:", data.shape[0])
 print("Jumlah kolom:", data.shape[1])
 data.head()
@@ -781,7 +766,7 @@ plt.show()
 #
 # | Pesan | Yang diperiksa |
 # |---|---|
-# | FileNotFoundError | Jalankan sel persiapan; di Colab unggah housing.csv atau data_tutorial.zip. |
+# | Pembacaan CSV gagal | Periksa koneksi internet dan ejaan nama CSV pada sel pembacaan data. |
 # | NameError | Jalankan sel sebelumnya dari atas; periksa nama variabel. |
 # | KeyError | Cocokkan nama kolom dengan `print(data.columns)`. |
 # | ModuleNotFoundError | Pada komputer lokal, pasang paket dari requirements.txt sebelum membuka notebook. |

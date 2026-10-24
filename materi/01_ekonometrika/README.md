@@ -8,5 +8,6 @@ Jalankan sel dari atas. Setelah satu contoh selesai, kerjakan notebook dengan
 nomor yang sama di [folder latihan](../02_latihan/README.md).
 
 Tautan Colab dan topik setiap notebook ada pada
-[daftar materi](../../panduan/00_daftar_materi.md). Semua notebook memakai
-[data_tutorial.zip](../../paket/data_tutorial.zip).
+[daftar materi](../../panduan/00_daftar_materi.md). Semua notebook membaca CSV
+langsung dari GitHub dengan koneksi internet.
+[Lihat pemakaian data](../../panduan/08_peta_pemakaian_data.md).

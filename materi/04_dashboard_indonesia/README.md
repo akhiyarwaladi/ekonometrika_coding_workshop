@@ -5,20 +5,20 @@ Buka [01_dashboard_ekonomi.ipynb](01_dashboard_ekonomi.ipynb), atau
 Seluruh kode aplikasi dan langkah menjalankannya ada di notebook.
 Peserta cukup menjalankan sel; tidak perlu membuka terminal.
 
-1. Di Colab, simpan salinan notebook lalu unggah [data_tutorial.zip](../../paket/data_tutorial.zip) melalui panel **Files**.
+1. Di Colab, simpan salinan notebook. Gunakan koneksi internet; data dibaca langsung dari GitHub.
 2. Jalankan sel dari atas, termasuk instalasi dan persiapan data.
 3. Empat sel `%%writefile` menyimpan bagian aplikasi; masing-masing dapat dijalankan ulang.
 4. Jalankan sel server dan sel pratinjau. Di Colab, dashboard tampil dalam keluaran notebook.
 5. Coba filter, grafik, regresi, dan slider. Akhiri dengan tantangan presentasi dua menit.
 
-Dashboard memakai data 34 provinsi pada **2021**. Pengguna dapat memilih provinsi,
+Dashboard hanya memakai **[provinsi_2021.csv](../../data/provinsi_2021.csv)**: data 34 provinsi pada **2021**. Pengguna dapat memilih provinsi,
 membandingkan IPM, pengangguran, dan kemiskinan, melatih regresi scikit-learn,
 membaca RMSE/R², mencoba skenario, serta mengunduh data hasil filter.
 Tabel arti variabel disediakan sebelum data dibaca.
 
 ![Contoh tampilan model dan slider simulasi](../../gambar/dashboard/pratinjau_simulasi.png)
 
-Folder `hasil_dashboard/` dibuat otomatis saat notebook dijalankan. Berkas `.py`
+Berkas aplikasi dibuat otomatis di folder sementara komputer/runtime; CSV dibaca dari GitHub. Berkas `.py`
 di sebelah notebook adalah sumber penyuntingan bagi pengajar, mengikuti format
 materi sebelumnya. Peserta menjalankan versi `.ipynb`.
 

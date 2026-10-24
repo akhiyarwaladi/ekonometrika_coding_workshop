@@ -38,9 +38,10 @@ mahasiswa.
 
 Data dan kasus diambil dari halaman kuliah Ekonometrika
 (https://paggalih.github.io/matkul/sem2025-01/ekonometrika/), ditambah
-beberapa contoh dari dataset bawaan statsmodels. Semua data disimpan lokal
-di folder `data/`, jadi pembacaan CSV tidak mengunduh data lagi. Google
-Colab dan pemasangan paket tetap memerlukan koneksi internet.
+beberapa contoh dari dataset bawaan statsmodels. Notebook membaca CSV langsung
+dari salinan GitHub melalui `URL_DATA`. Gunakan koneksi internet.
+Salinan lokal tersedia: 44 CSV aktif di `data/` dan 15 CSV tambahan di `data/cadangan/`.
+[Peta pemakaian data](08_peta_pemakaian_data.md) merinci kebutuhan setiap notebook.
 
 Pustaka yang dipakai: pandas (tabel), scikit-learn (model linear, logit,
 multinomial, Poisson, prediksi, dan evaluasi), statsmodels (pelengkap inferensi,
@@ -79,16 +80,14 @@ supaya peserta aktif mencoba sendiri, bukan hanya menonton demo.
 
 ## Cara pakai di Google Colab
 
-1. Unduh paket ini, lalu unggah notebook `.ipynb` yang diinginkan ke
-   Colab (File > Upload notebook).
-2. Unggah `data_tutorial.zip` dari folder `paket/` lewat panel Files di kiri Colab.
-3. Jalankan sel pertama. Zip akan diekstrak otomatis ke folder `data/`.
-4. Lanjutkan dari atas ke bawah dengan `Shift + Enter`.
+1. Buka tautan Colab dari [daftar materi](00_daftar_materi.md), lalu simpan salinan ke Drive.
+2. Jalankan sel alamat data (`URL_DATA`) dengan koneksi internet.
+3. Lanjutkan dari atas ke bawah dengan `Shift + Enter`; setiap CSV dibaca langsung dari GitHub.
 
 Notebook yang memakai panel/GARCH menyediakan sel instalasi dengan versi
 `linearmodels==7.1` dan `arch==8.0.0`. Jalankan saat runtime baru, tunggu
 selesai, lalu lanjutkan. Uji Hausman memakai fasilitas linearmodels 7.1.
-Data dan alat bantu ikut disiapkan dari paket ZIP yang sama.
+Modul pendukung model khusus diambil oleh sel persiapan. ZIP data di folder `paket/` hanya salinan offline opsional bagi pengajar.
 
 ## Cara pakai di komputer sendiri
 
@@ -101,9 +100,8 @@ python alat_bantu/konversi_notebook.py
 ```
 
 3. Pasang paket dengan `python -m pip install -r requirements.txt`.
-4. Pertahankan susunan folder proyek. Sel persiapan menemukan folder data
-   dari folder utama atau dari folder notebook masing-masing. Buka versi
-   `.ipynb` untuk menjalankan sel `%pip`. Berkas `.py` adalah sumber dengan
+4. Buka versi `.ipynb` dan jalankan sel dari atas dengan koneksi internet.
+   CSV dibaca dari GitHub seperti di Colab. Gunakan notebook untuk menjalankan sel `%pip`. Berkas `.py` adalah sumber dengan
    penanda sel, sehingga tidak dijalankan langsung lewat `python nama.py`.
 
 ## Isi materi hari 1 (dosen)
@@ -223,7 +221,7 @@ Buat ulang dengan `python alat_bantu/buat_slide.py`.
 [Notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb)
 melengkapi contoh ekonometrika dengan supervised learning sesuai
 [slide regresi versi tajam](../slide/png_regresi_tajam/). Data tambahan
-`data/housing.csv` memuat 506 baris dan 14 kolom; total paket menjadi 59 CSV.
+`data/housing.csv` memuat 506 baris dan 14 kolom; total koleksi 59 CSV (44 aktif dan 15 cadangan).
 Notebook mencakup pembagian train/test, imputasi berdasarkan train, regresi
 sederhana dan berganda, VIF, RMSE, R², prediksi baru, serta validasi
 underfitting/overfitting. Hasil uji ada di [laporan Housing](../laporan/uji_regresi_housing.md).

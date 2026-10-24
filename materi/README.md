@@ -17,8 +17,8 @@ dapat dipakai untuk mencari singkatan yang belum dikenal.
 | [04_dashboard_indonesia/](04_dashboard_indonesia/README.md) | Penutup: ubah analisis menjadi dashboard interaktif dari notebook, tanpa terminal. |
 
 Tautan **Buka di Colab** untuk setiap notebook tersedia pada
-[daftar materi](../panduan/00_daftar_materi.md). Unggah
-[data_tutorial.zip](../paket/data_tutorial.zip) ke panel **Files**, lalu jalankan
-sel dari atas dengan **Shift + Enter**.
+[daftar materi](../panduan/00_daftar_materi.md). Jalankan sel dari atas dengan
+**Shift + Enter** dan koneksi internet. Sel `URL_DATA` menentukan alamat CSV di GitHub.
+[Lihat data yang dipakai tiap notebook](../panduan/08_peta_pemakaian_data.md).
 
 Jika baru pertama memakai notebook, baca [panduan pemula](../panduan/01_panduan_pemula.md).

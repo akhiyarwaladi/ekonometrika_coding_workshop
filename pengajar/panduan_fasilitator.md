@@ -16,7 +16,7 @@ alokasi panitia.
 
 | Perkiraan waktu | Materi | Cara mengajar |
 |---|---|---|
-| 08.30-09.15 | Panduan pemula dan Sesi 0 | Kenalkan sel, variabel, kolom, dan error; bantu unggah ZIP. |
+| 08.30-09.15 | Panduan pemula dan Sesi 0 | Kenalkan sel, variabel, kolom, dan error; bantu menjalankan sel alamat data. |
 | 09.15-10.15 | Sesi 1 | Jalankan OLS, baca satu koefisien, ubah satu nilai prediksi. |
 | 10.15-10.30 | Istirahat | |
 | 10.30-11.15 | Contoh inti Sesi 2 | Bandingkan garis lurus dan kuadratik, lalu jelaskan elastisitas log-log. |
@@ -45,11 +45,11 @@ terbuka di `alat_bantu/metode_lanjutan.py` dan ikut paket ZIP.
 - **Hari 2 (mahasiswa):** praktik terbimbing dengan latihan mandiri di
   setiap topik, ditutup proyek mini.
 - **Alat:** Google Colab. Tidak perlu instalasi apa pun di laptop peserta.
-- **Data:** semua CSV ada di folder `data/` dan dibagikan lewat
-  `data_tutorial.zip`. Notebook tidak mengambil data dari internet,
-  jadi lebih mudah dipahami peserta yang belum familier dengan kode.
-  Lab 6 memakai data Indonesia asli (IHSG, kurs, makro, panel ASEAN)
-  yang sudah diunduh dan disimpan lokal.
+- **Data:** notebook membaca CSV langsung dari GitHub melalui `URL_DATA`.
+  Gunakan koneksi internet. Salinan lokal: 44 CSV aktif di `data/`, sedangkan
+  15 CSV tambahan berada di `data/cadangan/`. Lab 6 memakai data Indonesia
+  (IHSG, kurs, makro, panel ASEAN) dari salinan GitHub tersebut.
+  [Peta pemakaian data](../panduan/08_peta_pemakaian_data.md) menunjukkan nama CSV per sesi.
 
 ## Benang merah mengajar
 
@@ -76,8 +76,9 @@ dan diverifikasi, jadi Anda bisa langsung mengoreksi.
 ## Checklist sebelum hari-H
 
 1. Uji buka setiap notebook di Colab sekali, jalankan dari atas ke bawah.
-2. Siapkan `data_tutorial.zip` di satu tempat yang mudah dibagikan
-   (Google Drive, WhatsApp grup, atau USB).
+2. Periksa koneksi internet dan tautan CSV. Salinan offline opsional ada di
+   [paket/data_tutorial.zip](../paket/data_tutorial.zip); jika mengajar offline,
+   pengajar menyiapkan kernel beserta pustaka dan mengganti `URL_DATA` menjadi alamat folder `data/` lokal.
 3. Sesi 6 memakai paket `linearmodels` dan `arch` yang tidak tersedia di
    Colab secara bawaan. Sel `%pip install` sudah disiapkan di notebook,
    tapi butuh internet. Kalau ruangan tanpa internet, minta peserta
@@ -199,18 +200,19 @@ Rinciannya ada di [panduan pemodelan](../panduan/06_pola_pemodelan.md).
 
 | Kendala | Solusi cepat |
 |---|---|
-| Data belum diunggah di Colab | Jalankan sel pertama; kalau folder kosong, unggah zip lalu ulangi |
+| Pembacaan CSV gagal | Periksa koneksi internet, URL_DATA, dan ejaan nama CSV; ulangi sel terkait |
 | `ModuleNotFoundError: linearmodels` | Jalankan sel `%pip install linearmodels arch -q`, tunggu selesai, lanjutkan |
 | Angka beda dengan kunci | Cek versi paket; jalankan `pip show statsmodels arch linearmodels` |
 | Warning "Perfect Separation" | Bukan error; itu bahan diskusi di sesi 4 |
 | Warning "non-invertible starting MA" | Periksa konvergensi estimasi akhir, parameter, dan diagnostik residual |
-| Colab terputus | Data lagi-lagi perlu diunggah; sarankan menyimpan salinan notebook ke Drive |
+| Colab terputus | Jalankan ulang dari sel pertama; simpan salinan notebook ke Drive |
 
 ## Bahan latihan tambahan
 
-Sebagian CSV di folder `data/` tidak dipakai di jalur utama workshop.
-Semuanya berasal dari kasus di halaman kuliah, siap dipakai untuk latihan
-tambahan atau tugas mandiri:
+Sebanyak 15 CSV di [data/cadangan/](../data/cadangan/README.md) belum dipakai
+oleh 23 notebook saat ini. Pengajar dapat memilihnya untuk latihan tambahan;
+peserta cukup memakai data pada [peta pemakaian data](../panduan/08_peta_pemakaian_data.md).
+Beberapa pilihan tambahan:
 
 | File data | Kasus | Latihan yang disarankan |
 |---|---|---|
@@ -240,8 +242,9 @@ tambahan atau tugas mandiri:
 ## Penutup pilihan: dashboard ekonomi Indonesia (60 menit)
 
 Gunakan [notebook dashboard](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb).
-Seluruh aplikasi dibuat dan dijalankan dari notebook. Siapkan `data_tutorial.zip`
-yang sama dengan sesi sebelumnya; peserta tidak perlu terminal atau token ngrok.
+Seluruh aplikasi dibuat dan dijalankan dari notebook. Data yang dipakai hanya
+`provinsi_2021.csv`, dibaca langsung dari GitHub dengan koneksi internet.
+Peserta menjalankan seluruh langkah dari notebook.
 
 | Waktu | Kegiatan |
 |---|---|

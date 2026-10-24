@@ -11,9 +11,9 @@
 # 2. Tekan `Shift + Enter` untuk menjalankan.
 # 3. Hasilnya muncul di bawah sel.
 #
-# **Data.** Semua data ada di folder `data/`. Kalau belum ada (misalnya saat
-# pertama kali membuka di Colab), unggah `data_tutorial.zip` lewat panel
-# Files di kiri layar, lalu jalankan sel pertama di bawah sekali.
+# **Data.** Jalankan sel alamat data di bawah. `URL_DATA` menyimpan alamat folder CSV di GitHub;
+# `pd.read_csv(...)` membaca tabel sesuai nama CSV pada sel kode berikutnya.
+# Gunakan koneksi internet dan jalankan sel berurutan dengan **Shift + Enter**.
 
 # %% [markdown]
 # **Posisi dalam alur workshop.** Lab 0 sampai 5 mengikuti urutan Hari 1
@@ -23,7 +23,7 @@
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -50,31 +50,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %% [markdown]
 # ## 1. Senjata yang dipakai
@@ -97,7 +75,7 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # %% [markdown]
 # ## 2. Baca data pertama
 #
-# Satu baris perintah: `pd.read_csv("data/uts_2.csv")`. Fungsi `head()`
+# Satu baris perintah: `pd.read_csv(URL_DATA + "uts_2.csv")`. Fungsi `head()`
 # menampilkan 5 baris pertama supaya kita tahu isinya.
 
 # %% [markdown]
@@ -119,7 +97,7 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
 # %%
-saham = pd.read_csv("data/uts_2.csv")
+saham = pd.read_csv(URL_DATA + "uts_2.csv")
 saham.head()
 
 # %% [markdown]

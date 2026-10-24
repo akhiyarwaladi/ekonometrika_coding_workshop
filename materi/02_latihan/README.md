@@ -9,4 +9,5 @@ Pengajar dapat memakai [kunci jawaban](../../pengajar/kunci_jawaban/)
 untuk membahas hasil setelah peserta mencoba.
 
 Tautan Colab untuk setiap latihan ada pada [daftar materi](../../panduan/00_daftar_materi.md).
-Unggah [data_tutorial.zip](../../paket/data_tutorial.zip) ketika membuka notebook baru.
+Jalankan sel alamat data setiap membuka notebook baru. CSV dibaca langsung dari GitHub.
+[Lihat pemakaian data](../../panduan/08_peta_pemakaian_data.md).

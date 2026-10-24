@@ -17,7 +17,7 @@
 # | `asean_panel.csv` | 10 negara ASEAN, 2000 sampai 2025 | World Bank |
 # | `provinsi_2021.csv` | 34 provinsi: PDRB, IPM, kemiskinan, dll | kompilasi BPS |
 #
-# Semua file sudah tersedia di folder `data/`. Cara memperbarui datanya ada
+# Semua file dibaca dari salinan GitHub melalui `URL_DATA`. Cara memperbarui datanya ada
 # di akhir lab ini.
 
 # %% [markdown]
@@ -26,13 +26,13 @@
 # teknik. Setelah ini, lanjut ke proyek mini.
 
 # %% [markdown]
-# ## Persiapan: pastikan data tersedia
+# ## Persiapan: alamat data
 
 # %% [markdown]
 # ## Cara mengikuti notebook ini
 #
 # Jalankan sel berurutan dengan `Shift + Enter`. Setiap notebook dapat
-# dimulai sendiri setelah paket data diunggah. Sel persiapan cukup dijalankan
+# dimulai sendiri dengan koneksi internet yang aktif. Sel persiapan cukup dijalankan
 # apa adanya; fokus latihan dimulai saat tabel data muncul.
 #
 # Baca penjelasan sebelum menjalankan kode, lalu sebutkan arti hasilnya.
@@ -59,31 +59,9 @@
 # catatan tersendiri ketika scikit-learn belum menyediakan estimatornya.
 
 # %%
-import os
-import zipfile
-from pathlib import Path
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-# Di komputer sendiri, temukan folder data dari lokasi notebook ini.
-# Di Colab, folder kerja tetap memakai lokasi unggahan Anda.
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-# Jalankan apa adanya. Paket dibuka jika alat bantu belum tersedia.
-# Jika data sudah siap, menjalankan ulang sel ini tidak menimpa CSV.
-if (
-    Path("data_tutorial.zip").exists()
-    and not Path("alat_bantu/metode_lanjutan.py").exists()
-):
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/uts_2.csv").exists():
-    raise FileNotFoundError(
-        "Unggah data_tutorial.zip lewat panel Files di kiri Colab, "
-        "lalu jalankan sel ini lagi."
-    )
-
-print("Data siap. Lanjutkan ke sel berikutnya.")
+print("Alamat data siap. Jalankan sel pembacaan CSV berikutnya.")
 
 # %%
 %pip install "linearmodels==7.1" "arch==8.0.0" -q
@@ -134,7 +112,7 @@ plt.rcParams.update({"figure.dpi": 110, "axes.titleweight": "bold", "font.size":
 # Sumber definisi: [rujukan data](https://finance.yahoo.com/quote/%5EJKSE/history/).
 
 # %%
-ihsg = pd.read_csv("data/ihsg_harian.csv", parse_dates=["Date"])
+ihsg = pd.read_csv(URL_DATA + "ihsg_harian.csv", parse_dates=["Date"])
 # Return logaritmik harian dalam persen: selisih log dikali 100
 ihsg["ret"] = 100 * np.log(ihsg["Close"]).diff()
 ihsg = ihsg.dropna()
@@ -259,7 +237,7 @@ print(
 # Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-development-indicators).
 
 # %%
-panel = pd.read_csv("data/asean_panel.csv")
+panel = pd.read_csv(URL_DATA + "asean_panel.csv")
 panel["ln_angkatan_kerja"] = np.log(panel["Angkatan_Kerja"])
 print("Negara:", sorted(panel["Negara"].unique()))
 panel.head()
@@ -365,7 +343,7 @@ print(hausman)
 # Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-development-indicators).
 
 # %%
-makro = pd.read_csv("data/idn_makro_tahunan.csv")
+makro = pd.read_csv(URL_DATA + "idn_makro_tahunan.csv")
 makro.tail()
 
 # %%
@@ -433,7 +411,7 @@ print(uji_model_makro.summary())
 # %%
 from statsmodels.tsa.stattools import adfuller
 
-kurs = pd.read_csv("data/kurs_harian.csv", parse_dates=["Tanggal"])
+kurs = pd.read_csv(URL_DATA + "kurs_harian.csv", parse_dates=["Tanggal"])
 print("Jumlah observasi:", len(kurs))
 print("ADF di level      : p =", round(adfuller(kurs["Kurs_USD_IDR"])[1], 4))
 print(
@@ -478,7 +456,7 @@ print(
 # Sumber definisi: [rujukan data](https://fred.stlouisfed.org/series/IDNCPIALLMINMEI).
 
 # %%
-inflasi = pd.read_csv("data/idn_inflasi_bulanan.csv", parse_dates=["tanggal"])
+inflasi = pd.read_csv(URL_DATA + "idn_inflasi_bulanan.csv", parse_dates=["tanggal"])
 
 plt.figure(figsize=(10, 4))
 plt.plot(inflasi["tanggal"], inflasi["inflasi_yoy"], lw=0.8)
@@ -546,7 +524,7 @@ print(
 # Sumber definisi: [rujukan data](https://data.worldbank.org/indicator/PA.NUS.FCRF).
 
 # %%
-kurs_panjang = pd.read_csv("data/idn_kurs_tahunan.csv")
+kurs_panjang = pd.read_csv(URL_DATA + "idn_kurs_tahunan.csv")
 print(kurs_panjang[kurs_panjang["tahun"].between(1996, 1999)])
 
 kurs_panjang["pertumbuhan"] = 100 * kurs_panjang["kurs"].pct_change()
@@ -572,7 +550,7 @@ print(
 # - Bandingkan dengan IHSG. Mana yang lebih persisten?
 
 # %%
-# kurs = pd.read_csv("data/kurs_harian.csv", parse_dates=["Tanggal"])
+# kurs = pd.read_csv(URL_DATA + "kurs_harian.csv", parse_dates=["Tanggal"])
 # kurs["ret_kurs"] = 100 * kurs["Kurs_USD_IDR"].pct_change()
 # kurs_ret = kurs.dropna()
 # ...
@@ -612,7 +590,7 @@ print(
 # Sumber definisi: [rujukan data](https://finance.yahoo.com/quote/%5EJKSE/history/).
 
 # %%
-# panjang = pd.read_csv("data/ihsg_panjang.csv", parse_dates=["Date"])
+# panjang = pd.read_csv(URL_DATA + "ihsg_panjang.csv", parse_dates=["Date"])
 # panjang["ret"] = 100 * np.log(panjang["Close"]).diff()
 # panjang = panjang.dropna()
 # ...
@@ -654,7 +632,7 @@ print(
 # Sumber definisi: [rujukan data](https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv).
 
 # %%
-# prov = pd.read_csv("data/provinsi_2021.csv")
+# prov = pd.read_csv(URL_DATA + "provinsi_2021.csv")
 # ...
 
 # %% [markdown]

@@ -96,7 +96,10 @@ def main():
     with TemporaryDirectory(prefix="uji_dashboard_") as temp:
         folder = Path(temp)
         file_app = folder / "dashboard_ekonomi.py"
-        file_app.write_text(aplikasi, encoding="utf-8")
+        # Arahkan alamat data ke fixture lokal untuk menguji interaksi tanpa internet.
+        alamat_data = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
+        aplikasi_lokal = aplikasi.replace(alamat_data, folder.as_posix() + "/")
+        file_app.write_text(aplikasi_lokal, encoding="utf-8")
         shutil.copyfile(ROOT / "data/provinsi_2021.csv", folder / "provinsi_2021.csv")
         data = pd.read_csv(folder / "provinsi_2021.csv")
         app = AppTest.from_file(file_app, default_timeout=30).run()

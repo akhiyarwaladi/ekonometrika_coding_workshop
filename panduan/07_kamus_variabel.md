@@ -1,6 +1,9 @@
 # Kamus variabel data tutorial
 
 Tabel ini menjelaskan seluruh 59 CSV, data Spector, dan contoh taksi pada tutorial.
+CSV aktif berjumlah **44**, sedangkan **15** CSV di `data/cadangan/` belum dipakai notebook.
+Lihat [peta pemakaian data](08_peta_pemakaian_data.md) untuk memilih file per sesi.
+
 Definisi yang diperlukan juga ditampilkan sebelum pembacaan data di setiap
 sumber `.py` dan notebook `.ipynb`, termasuk latihan serta kunci jawaban.
 
@@ -135,7 +138,7 @@ Dijelaskan pada:
 
 ### Kenali data: Data abstrak untuk latihan spesifikasi
 
-**Data:** `data/data_regresi_uts.csv`. **Satu baris:** satu pengamatan hasil simulasi statistik.
+**Data:** `data/cadangan/data_regresi_uts.csv`. **Satu baris:** satu pengamatan hasil simulasi statistik.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -151,7 +154,7 @@ Sumber tidak memberi konteks ekonomi untuk X1 sampai X4. Nama seperti pendapatan
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/data_regresi_uts.csv).
+[Buka berkas data](../data/cadangan/data_regresi_uts.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -159,7 +162,7 @@ Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban sa
 
 ### Kenali data: Ekspor dan nilai tukar
 
-**Data:** `data/ekspor_kurs.csv`. **Satu baris:** satu kuartal berurutan pada contoh simulasi.
+**Data:** `data/cadangan/ekspor_kurs.csv`. **Satu baris:** satu kuartal berurutan pada contoh simulasi.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -169,7 +172,7 @@ Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban sa
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/ekspor_kurs.csv).
+[Buka berkas data](../data/cadangan/ekspor_kurs.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -506,7 +509,7 @@ Dijelaskan pada:
 
 ### Kenali data: Gagal bayar kartu kredit Taiwan
 
-**Data:** `data/kredit_default.csv`. **Satu baris:** satu nasabah dari subset 1.000 pengamatan data UCI Taiwan.
+**Data:** `data/cadangan/kredit_default.csv`. **Satu baris:** satu nasabah dari subset 1.000 pengamatan data UCI Taiwan.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -521,7 +524,7 @@ Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis memp
 
 Sumber definisi: [rujukan data](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients).
 
-[Buka berkas data](../data/kredit_default.csv).
+[Buka berkas data](../data/cadangan/kredit_default.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -636,7 +639,7 @@ Dijelaskan pada:
 
 ### Kenali data: Konsumsi rumah tangga
 
-**Data:** `data/latihan_multikolinieritas_2.csv`. **Satu baris:** satu rumah tangga pada contoh latihan.
+**Data:** `data/cadangan/latihan_multikolinieritas_2.csv`. **Satu baris:** satu rumah tangga pada contoh latihan.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -648,7 +651,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/latihan_multikolinieritas_2.csv).
+[Buka berkas data](../data/cadangan/latihan_multikolinieritas_2.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -679,7 +682,7 @@ Dijelaskan pada:
 
 ### Kenali data: Hasil panen dan kondisi lahan
 
-**Data:** `data/latihan_normalitas_2.csv`. **Satu baris:** satu pengamatan lahan pada musim tanam.
+**Data:** `data/cadangan/latihan_normalitas_2.csv`. **Satu baris:** satu pengamatan lahan pada musim tanam.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -690,7 +693,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/latihan_normalitas_2.csv).
+[Buka berkas data](../data/cadangan/latihan_normalitas_2.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -722,7 +725,7 @@ Dijelaskan pada:
 
 ### Kenali data: Persetujuan kredit usaha
 
-**Data:** `data/logit_probit_1.csv`. **Satu baris:** satu pemohon kredit usaha.
+**Data:** `data/cadangan/logit_probit_1.csv`. **Satu baris:** satu pemohon kredit usaha.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -734,7 +737,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/logit_probit_1.csv).
+[Buka berkas data](../data/cadangan/logit_probit_1.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -766,7 +769,7 @@ Dijelaskan pada:
 
 ### Kenali data: Penggunaan mobile banking
 
-**Data:** `data/logit_probit_3.csv`. **Satu baris:** satu nasabah.
+**Data:** `data/cadangan/logit_probit_3.csv`. **Satu baris:** satu nasabah.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -778,7 +781,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/logit_probit_3.csv).
+[Buka berkas data](../data/cadangan/logit_probit_3.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -832,7 +835,7 @@ Dijelaskan pada:
 
 ### Kenali data: Rating risiko kredit UMKM
 
-**Data:** `data/multi_ordinal_3.csv`. **Satu baris:** satu usaha mikro, kecil, atau menengah.
+**Data:** `data/cadangan/multi_ordinal_3.csv`. **Satu baris:** satu usaha mikro, kecil, atau menengah.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -843,7 +846,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/multi_ordinal_3.csv).
+[Buka berkas data](../data/cadangan/multi_ordinal_3.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -875,7 +878,7 @@ Dijelaskan pada:
 
 ### Kenali data: Panel tekanan darah
 
-**Data:** `data/panel_kesehatan.csv`. **Satu baris:** satu pasien pada satu bulan pemeriksaan.
+**Data:** `data/cadangan/panel_kesehatan.csv`. **Satu baris:** satu pasien pada satu bulan pemeriksaan.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -887,7 +890,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/panel_kesehatan.csv).
+[Buka berkas data](../data/cadangan/panel_kesehatan.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -917,7 +920,7 @@ Dijelaskan pada:
 
 ### Kenali data: Panel hasil belajar
 
-**Data:** `data/panel_pendidikan.csv`. **Satu baris:** satu mahasiswa/siswa pada satu semester.
+**Data:** `data/cadangan/panel_pendidikan.csv`. **Satu baris:** satu mahasiswa/siswa pada satu semester.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -929,7 +932,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/panel_pendidikan.csv).
+[Buka berkas data](../data/cadangan/panel_pendidikan.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -1029,7 +1032,7 @@ Dijelaskan pada:
 
 ### Kenali data: Cacat produksi
 
-**Data:** `data/poisson_data_3_cacat.csv`. **Satu baris:** satu batch/kelompok produksi.
+**Data:** `data/cadangan/poisson_data_3_cacat.csv`. **Satu baris:** satu batch/kelompok produksi.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -1040,7 +1043,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/poisson_data_3_cacat.csv).
+[Buka berkas data](../data/cadangan/poisson_data_3_cacat.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -1172,7 +1175,7 @@ Dijelaskan pada:
 
 ### Kenali data: Penjualan ritel dan iklan mingguan
 
-**Data:** `data/ritel_iklan.csv`. **Satu baris:** satu minggu berurutan pada contoh.
+**Data:** `data/cadangan/ritel_iklan.csv`. **Satu baris:** satu minggu berurutan pada contoh.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -1182,7 +1185,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/ritel_iklan.csv).
+[Buka berkas data](../data/cadangan/ritel_iklan.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -1235,7 +1238,7 @@ Dijelaskan pada:
 
 ### Kenali data: Jam kerja dan keadaan keluarga
 
-**Data:** `data/tobit_data_2_jamkerja.csv`. **Satu baris:** satu responden dalam contoh penawaran tenaga kerja.
+**Data:** `data/cadangan/tobit_data_2_jamkerja.csv`. **Satu baris:** satu responden dalam contoh penawaran tenaga kerja.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -1246,7 +1249,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/tobit_data_2_jamkerja.csv).
+[Buka berkas data](../data/cadangan/tobit_data_2_jamkerja.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -1254,7 +1257,7 @@ Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban sa
 
 ### Kenali data: Pembelian premi asuransi
 
-**Data:** `data/tobit_data_3_asuransi.csv`. **Satu baris:** satu nasabah/responden.
+**Data:** `data/cadangan/tobit_data_3_asuransi.csv`. **Satu baris:** satu nasabah/responden.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -1265,7 +1268,7 @@ Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban sa
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/tobit_data_3_asuransi.csv).
+[Buka berkas data](../data/cadangan/tobit_data_3_asuransi.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 
@@ -1499,7 +1502,7 @@ Dijelaskan pada:
 
 ### Kenali data: Kriminalitas kota
 
-**Data:** `data/uts_5.csv`. **Satu baris:** satu kota pada contoh latihan.
+**Data:** `data/cadangan/uts_5.csv`. **Satu baris:** satu kota pada contoh latihan.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -1510,7 +1513,7 @@ Dijelaskan pada:
 
 Sumber definisi: [rujukan data](https://paggalih.github.io/matkul/sem2025-01/ekonometrika/).
 
-[Buka berkas data](../data/uts_5.csv).
+[Buka berkas data](../data/cadangan/uts_5.csv).
 
 Data cadangan: belum dibaca oleh notebook contoh, latihan, atau kunci jawaban saat ini.
 

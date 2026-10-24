@@ -10,9 +10,9 @@
 # Contoh tabel dan keluaran pemeriksaan dapat dibaca sebelum menjalankan ulang;
 # pratinjau dashboard akan aktif setelah Anda menjalankan sel server dan pratinjau.
 #
-# **Di Colab:** simpan salinan notebook, unggah `data_tutorial.zip` melalui panel
-# **Files**, lalu jalankan dari atas. Di komputer sendiri, pertahankan susunan
-# folder proyek dan gunakan kernel yang sudah dipakai untuk materi sebelumnya.
+# **Di Colab:** simpan salinan notebook, lalu jalankan dari atas dengan koneksi internet.
+# Dashboard hanya memakai `provinsi_2021.csv`, yang dibaca langsung dari GitHub.
+# Di komputer sendiri, gunakan kernel yang sudah dipakai untuk materi sebelumnya.
 #
 # **Posisi dalam alur workshop.** Kita menggunakan kembali membaca CSV, memilih
 # X/y, `LinearRegression`, dan evaluasi data uji. Tambahannya adalah tombol dan
@@ -28,35 +28,22 @@
 %pip install -q "streamlit==1.45.1" "plotly==5.24.1" "pandas==2.2.3" "numpy==2.1.3" "scikit-learn==1.6.1"
 
 # %% [markdown]
-# Sel berikut menemukan CSV, lalu membuat folder kerja `hasil_dashboard/`.
-# CSV disalin ke folder itu agar aplikasi dapat membacanya dengan nama pendek.
-# Jalankan sel persiapan ini apa adanya. Berkas data asli tetap disimpan di `data/`.
+# Sel berikut menetapkan alamat CSV di GitHub dan membuat folder sementara
+# untuk berkas aplikasi. Jalankan sel ini apa adanya. Data dibaca langsung
+# dari GitHub; tidak ada salinan CSV baru di folder materi.
 
 # %%
 import os
-import shutil
-import zipfile
+import tempfile
 from pathlib import Path
 
-if Path.cwd().name == "hasil_dashboard":
-    os.chdir("..")
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
 
-if not Path("data").is_dir() and Path("../../data").is_dir():
-    os.chdir("../..")
-
-if Path("data_tutorial.zip").exists() and not Path("data/provinsi_2021.csv").exists():
-    with zipfile.ZipFile("data_tutorial.zip") as paket:
-        paket.extractall(".")
-
-if not Path("data/provinsi_2021.csv").exists():
-    raise FileNotFoundError("Unggah data_tutorial.zip, lalu jalankan kembali sel persiapan.")
-
-Path("hasil_dashboard").mkdir(exist_ok=True)
-shutil.copyfile("data/provinsi_2021.csv", "hasil_dashboard/provinsi_2021.csv")
-os.chdir("hasil_dashboard")
+folder_dashboard = tempfile.mkdtemp(prefix="dashboard_ekonomi_")
+os.chdir(folder_dashboard)
 Path(".streamlit").mkdir(exist_ok=True)
 Path(".streamlit/config.toml").write_text('[theme]\nprimaryColor = "#2F5D50"\n', encoding="utf-8")
-print("Data siap. Berkas aplikasi akan dibuat di folder hasil_dashboard.")
+print("Data dibaca langsung dari GitHub. Berkas aplikasi disimpan di folder sementara.")
 
 # %% [markdown]
 # ## 2. Pahami data sebelum membuat tombol
@@ -98,7 +85,7 @@ print("Data siap. Berkas aplikasi akan dibuat di folder hasil_dashboard.")
 # %%
 import pandas as pd
 
-data = pd.read_csv("provinsi_2021.csv")
+data = pd.read_csv(URL_DATA + "provinsi_2021.csv")
 kolom_dashboard = ["Provinsi", "IPM", "Pengangguran", "Kemiskinan"]
 data[kolom_dashboard].head()
 
@@ -121,8 +108,6 @@ data[kolom_dashboard].head()
 
 # %%
 %%writefile bagian_01.py
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -131,11 +116,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
+
 st.set_page_config(page_title="Ekonomi Provinsi Indonesia", layout="wide")
 st.title("Ekonomi Provinsi Indonesia")
 st.caption("34 provinsi · Data tahun 2021 · Praktik ekonometrika dengan Python")
 
-data = pd.read_csv(Path(__file__).with_name("provinsi_2021.csv"))
+data = pd.read_csv(URL_DATA + "provinsi_2021.csv")
 data = data[["Provinsi", "IPM", "Pengangguran", "Kemiskinan"]].dropna()
 
 st.sidebar.header("Pilih data")
@@ -400,10 +387,10 @@ else:
 #
 # | Jika terjadi kendala | Langkah yang dilakukan |
 # |---|---|
-# | CSV belum ditemukan | Unggah data_tutorial.zip dan ulangi sel persiapan. |
+# | CSV belum terbaca | Periksa koneksi internet, lalu ulangi sel alamat data dan pembacaan CSV. |
 # | Perubahan judul belum terlihat | Ulangi sel bagian yang disunting, lalu sel server dan pratinjau. |
 # | Pratinjau kosong | Pastikan sel server selesai, izinkan akses runtime, lalu ulangi sel pratinjau. |
-# | Runtime dimulai ulang | Jalankan notebook dari awal dan unggah kembali ZIP jika diperlukan. |
+# | Runtime dimulai ulang | Jalankan kembali notebook dari sel pertama. |
 # | Pilihan provinsi kosong | Pilih kembali provinsi atau centang Tampilkan semua provinsi. |
 # | Model belum muncul | Pilih minimal 10 provinsi dan sedikitnya satu X. |
 #

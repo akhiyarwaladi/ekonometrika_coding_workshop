@@ -6,13 +6,15 @@ Anda cukup mengubah contoh yang sudah tersedia.
 
 ## Berkas yang dibuka peserta
 
-1. Unduh [data_tutorial.zip](../paket/data_tutorial.zip) ke komputer.
-2. [Buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb)
+1. [Buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb)
    dan simpan salinan ke Google Drive. Tautan untuk sesi berikutnya ada pada
    [daftar materi](00_daftar_materi.md).
-3. Di panel **Files** sebelah kiri, unggah [data_tutorial.zip](../paket/data_tutorial.zip) dari folder `paket/`.
-4. Jalankan kotak kode pertama dengan `Shift + Enter`. Tunggu sampai selesai.
-5. Setelah tulisan **Data siap** muncul, lanjutkan kotak berikutnya.
+2. Jalankan kotak kode alamat data dengan `Shift + Enter`. Gunakan koneksi internet.
+3. Setelah tulisan **Alamat data siap** muncul, jalankan kotak berikutnya.
+4. `pd.read_csv(URL_DATA + "nama_file.csv")` membaca tabel langsung dari GitHub.
+
+[Peta pemakaian data](08_peta_pemakaian_data.md) menunjukkan nama CSV untuk setiap notebook.
+Untuk dashboard penutup, hanya `provinsi_2021.csv` yang dipakai.
 
 Jika sudah mempunyai berkas `.ipynb` di komputer, notebook juga bisa dibuka
 melalui **File > Upload notebook**. Urutan pengerjaannya tetap sama.
@@ -22,10 +24,10 @@ hasil. Penjelasan dibaca; sel kode dijalankan. Angka dalam kurung siku di
 kiri sel menunjukkan bahwa sel pernah dijalankan. Simpan salinan notebook
 ke Drive agar jawaban latihan tidak hilang.
 
-Paket ZIP berisi tabel CSV dan `alat_bantu/metode_lanjutan.py` untuk perhitungan Tobit
-serta demonstrasi logit yang gagal diestimasi. Semua ikut disiapkan oleh sel
-pertama. Notebook baru mempunyai ruang variabel sendiri: jalankan kembali
-dari atas setiap membuka notebook lain.
+`URL_DATA` menyimpan alamat folder CSV di GitHub. Nama file di dalam `read_csv`
+memilih tabel yang akan dibaca. Pada materi kategorikal, sel persiapan juga mengambil
+modul untuk contoh Tobit dan logit khusus. Jalankan sel persiapan apa adanya.
+Notebook baru mempunyai ruang variabel sendiri: jalankan kembali dari atas setiap membuka notebook lain.
 
 ## Perintah yang sering muncul
 
@@ -38,7 +40,7 @@ Definisi lengkap ada di [kamus variabel](07_kamus_variabel.md).
 | Contoh | Cara membacanya |
 |---|---|
 | `import pandas as pd` | Siapkan alat untuk mengolah tabel; nama singkatnya `pd`. |
-| `saham = pd.read_csv("data/uts_2.csv")` | Baca berkas dan simpan tabel dengan nama `saham`. |
+| `saham = pd.read_csv(URL_DATA + "uts_2.csv")` | Baca berkas dan simpan tabel dengan nama `saham`. |
 | `saham.head()` | Tampilkan lima baris pertama tabel. |
 | `saham["Y_Harga_Saham"]` | Pilih kolom harga saham. Nama kolom harus persis sama. |
 | `model = LinearRegression()` | Siapkan model regresi linear. |
@@ -76,7 +78,8 @@ Jalankan sel berikut secara berurutan setelah sel persiapan data.
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-saham = pd.read_csv("data/uts_2.csv")
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
+saham = pd.read_csv(URL_DATA + "uts_2.csv")
 saham.head()
 ```
 
@@ -131,20 +134,20 @@ dengan daftar nilainya. Pada tahap ini cukup ikuti bentuk contoh tersebut.
 | `f"{nilai:.3f}"` | Menampilkan angka dengan tiga angka desimal. Tidak mengubah hasil estimasi. | Sesi 1 |
 
 Tidak perlu menghafal tabel ini sebelum mulai. Buka kembali ketika
-perintahnya muncul. Sel gaya grafik, instalasi paket, dan pembukaan ZIP
+perintahnya muncul. Sel gaya grafik, instalasi paket, dan persiapan alamat data
 cukup dijalankan sebagaimana disediakan.
 
 ## Jika hasil belum muncul
 
 | Pesan/keadaan | Langkah yang dilakukan |
 |---|---|
-| `FileNotFoundError` | Periksa unggahan ZIP dan jalankan kembali sel persiapan. |
+| Pembacaan CSV gagal | Periksa koneksi internet dan ejaan nama CSV. Jalankan kembali sel alamat data. |
 | `NameError` | Nama belum dibuat atau salah ketik. Jalankan sel sebelumnya dari atas. |
 | `KeyError` | Nama kolom berbeda. Tampilkan `print(saham.columns)` dan cocokkan ejaannya. |
 | `SyntaxError` | Periksa tanda kutip, kurung, dan koma di sel yang diubah. |
 | `ModuleNotFoundError` | Jalankan sel instalasi yang tersedia dan tunggu sampai selesai. |
 | Warning konvergensi/separation | Baca catatan metode pada notebook; koefisien/p-value bisa tidak layak ditafsirkan. |
-| Runtime dimulai ulang | Unggah ZIP kembali dan jalankan notebook dari sel pertama. |
+| Runtime dimulai ulang | Jalankan notebook kembali dari sel pertama. |
 
 Jika memakai AI untuk membantu, contoh permintaannya ada di `panduan/02_panduan_ai.md`.
 Sertakan pesan error dan sel terkait agar bantuan sesuai masalahnya.
@@ -152,6 +155,6 @@ Sertakan pesan error dan sel terkait agar bantuan sesuai masalahnya.
 ## Menjalankan di komputer sendiri
 
 Buka notebook `.ipynb` di Jupyter atau VS Code dengan kernel Python yang
-sudah dipasangi paket dari `requirements.txt`. Pertahankan susunan folder
-proyek. Sel persiapan menemukan folder `data/` dari lokasi notebook secara
-otomatis. Jalankan semua sel dari atas setiap memulai kernel baru.
+sudah dipasangi paket dari `requirements.txt`. Data dibaca dari alamat GitHub
+yang sama seperti di Colab; gunakan koneksi internet.
+Jalankan semua sel dari atas setiap memulai kernel baru.
