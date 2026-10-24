@@ -13,6 +13,17 @@ import hashlib
 import sys
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parent.parent
+SUMBER = ROOT / "alat_bantu/sumber_notebook"
+
+
+def sumber_notebook(notebook):
+    return SUMBER / Path(notebook).resolve().relative_to(ROOT).with_suffix(".py")
+
+
+def notebook_dari_sumber(sumber):
+    return ROOT / Path(sumber).resolve().relative_to(SUMBER).with_suffix(".ipynb")
+
 
 def parse_sel(teks):
     """Pecah isi .py jadi daftar (tipe, baris)."""
@@ -85,18 +96,19 @@ def konversi(path):
         "nbformat": 4,
         "nbformat_minor": 5,
     }
-    out = path.with_suffix(".ipynb")
+    out = notebook_dari_sumber(path)
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(nb, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{path} -> {out.name} ({len(cells)} sel)")
 
 
 def main():
-    root = Path(__file__).resolve().parent.parent
-    target = [Path(a) for a in sys.argv[1:]] or [
-        root / "materi",
-        root / "pengajar/kunci_jawaban",
-    ]
+    target = [Path(a).resolve() for a in sys.argv[1:]] or [SUMBER]
     for item in target:
+        if not item.is_relative_to(SUMBER):
+            item = sumber_notebook(item)
+            if item.suffix == ".py" and not item.exists():
+                item = item.with_suffix("")
         paths = (
             sorted(item.rglob("*.py")) if item.is_dir() else [item.with_suffix(".py")]
         )

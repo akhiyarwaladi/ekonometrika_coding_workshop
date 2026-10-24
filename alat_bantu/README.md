@@ -1,4 +1,16 @@
-# Alat bantu pengelola tutorial
+# Alat bantu pengelola
+
+Peserta cukup membuka `README.md` di folder utama, kemudian notebook dalam `materi/`.
+Folder ini menyimpan berkas pemeliharaan:
+
+| Folder | Isi |
+|---|---|
+| `sumber_notebook/` | 23 sumber `.py`; susunannya mengikuti `materi/` dan `pengajar/`. |
+| `gambar/` | Grafik dan contoh tampilan. |
+| `laporan/` | Hasil pengujian dan peta nama berkas lama. |
+| `paket/` | ZIP data dan PNG slide sebagai salinan opsional. |
+| `arsip/` | Cadangan lokal sebelum perubahan; tidak dipakai mengajar. |
+| `administrasi/` | Surat undangan lokal. |
 
 Peserta cukup membuka notebook di `materi/`. Perintah di bawah dijalankan dari
 folder utama proyek, memakai Python yang sudah dipasangi `requirements.txt`.
@@ -10,8 +22,8 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | `python alat_bantu/konversi_notebook.py` | Membuat 23 notebook dari sumber `.py`, termasuk kunci jawaban dan dashboard. Output lama dikosongkan. |
 | `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 23 pasangan `.py`/`.ipynb` serta panduan kamus dan peta pemakaian data; kode serta output notebook dipertahankan. |
 | `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memastikan seluruh kolom CSV sudah didefinisikan dan tabel definisi pada sumber/notebook tetap sinkron. |
-| `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` sebagai salinan offline opsional dari 44 CSV aktif dan `metode_lanjutan.py`. |
-| `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `paket/png_regresi_tajam.zip`. |
+| `python alat_bantu/kemas_data.py` | Membuat ulang `alat_bantu/paket/data_tutorial.zip` sebagai salinan offline opsional dari 44 CSV aktif dan `metode_lanjutan.py`. |
+| `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `alat_bantu/paket/png_regresi_tajam.zip`. |
 | `python alat_bantu/uji_notebook.py` | Memeriksa sinkronisasi, keterbacaan kode, dan eksekusi seluruh notebook dari folder utama. |
 | `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji pembacaan CSV GitHub dari folder masing-masing notebook. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Mengekstrak ZIP ke folder sementara dan mengarahkan URL data ke salinan lokal untuk pengujian. |
@@ -20,7 +32,7 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | `python alat_bantu/uji_dashboard.py --notebook` | Menguji interaksi dashboard, angka evaluasi, filter kosong, dan seluruh sel notebook pada kernel baru; server uji dihentikan otomatis. |
 | `python alat_bantu/uji_dashboard.py --ngrok` | Menjalankan kernel dan memeriksa HTTPS, healthcheck, serta halaman dashboard melalui ngrok. Siapkan `NGROK_AUTHTOKEN` di lingkungan pengujian; koneksi uji ditutup otomatis. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa nama, tautan, hash data, kesesuaian ZIP, dan pasangan notebook; menyimpan laporan penataan. |
-| `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `gambar/ekonometrika/`. |
+| `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `alat_bantu/gambar/ekonometrika/`. |
 | `python alat_bantu/buat_slide.py` | Membuat ulang `slide/01_pengantar_workshop.pptx`. |
 | `python alat_bantu/ekspor_slide_tajam.py` | Membuat 31 PNG 6K di `slide/png_regresi_tajam/`, memperbarui ZIP PNG, dan menyimpan PDF vektor pendamping. |
 | `python alat_bantu/buat_data_simulasi.py` | Menulis ulang 17 CSV simulasi dari tabel yang tercantum dalam skrip. |
@@ -32,7 +44,7 @@ Peserta menggunakannya lewat notebook; kode implementasinya disimpan di sini.
 Konversi dan uji umum menerima lokasi file/folder untuk mengerjakan sebagian materi,
 misalnya `python alat_bantu/konversi_notebook.py materi/03_regresi_housing`.
 Uji umum melewati sel instalasi `%pip`; dependensi harus sudah tersedia.
-Log dan ringkasan uji tersimpan di [laporan/](../laporan/README.md).
+Log dan ringkasan uji tersimpan di [laporan/](laporan/README.md).
 
 Pemeriksaan paket juga dapat dijalankan setelah mengunduh repositori GitHub.
 Surat administrasi dan arsip pengerjaan hanya disimpan lokal; pemeriksaan

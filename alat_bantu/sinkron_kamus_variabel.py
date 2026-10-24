@@ -18,10 +18,10 @@ from pathlib import Path
 
 import nbformat
 
-from konversi_notebook import ke_sumber, parse_sel
+from konversi_notebook import ke_sumber, parse_sel, SUMBER, notebook_dari_sumber
 
 ROOT = Path(__file__).resolve().parent.parent
-KATALOG = ROOT / "panduan/07_kamus_variabel.md"
+KATALOG = ROOT / "panduan/kamus_variabel.md"
 PENANDA = "<!-- kamus_variabel:"
 
 
@@ -145,7 +145,7 @@ def sinkron(path, kamus, periksa):
             events.setdefault(name, i)
     assert events, f"Tidak ada dataset yang dikenali: {path}"
 
-    notebook_path = path.with_suffix(".ipynb")
+    notebook_path = notebook_dari_sumber(path)
     notebook = nbformat.read(notebook_path, as_version=4)
     original_code = copy.deepcopy([c for c in notebook.cells if c.cell_type == "code"])
     base_cells = [c for c in notebook.cells if PENANDA not in c.source]
@@ -158,7 +158,7 @@ def sinkron(path, kamus, periksa):
             markdown = f"{PENANDA}{name} -->\n\n" + tabel_variabel(name, kamus[name], alias[name], kode)
             block = "# %% [markdown]\n" + "\n".join("# " + line if line else "#" for line in markdown.splitlines()) + "\n\n"
             new_sels.append(block)
-            cell_id = hashlib.sha256(f"{path.relative_to(ROOT)}:{i}:{name}".encode()).hexdigest()[:12]
+            cell_id = hashlib.sha256(f"{notebook_path.relative_to(ROOT).with_suffix('.py')}:{i}:{name}".encode()).hexdigest()[:12]
             _, source_lines = parse_sel(block)[0]
             markdown_source = "".join(ke_sumber("markdown", source_lines))
             new_cells.append(nbformat.v4.new_markdown_cell(markdown_source, id=cell_id, metadata={"tags": ["kamus_variabel"]}))
@@ -187,7 +187,7 @@ def sinkron(path, kamus, periksa):
 
 def katalog(kamus, usage):
     lines = ["# Kamus variabel data tutorial", "", "Tabel ini menjelaskan seluruh 59 CSV, data Spector, dan contoh taksi pada tutorial.", "Definisi yang diperlukan juga ditampilkan sebelum pembacaan data di setiap", "sumber `.py` dan notebook `.ipynb`, termasuk latihan serta kunci jawaban.", "", "X adalah variabel penjelas dan Y adalah target yang dijelaskan/diprediksi.", "Kolom identitas dan waktu membantu mengenali pengamatan; keduanya tidak otomatis", "menjadi fitur numerik model. Peran suatu kolom dapat berbeda mengikuti pertanyaan model.", "", "Satuan yang tidak dijelaskan sumber ditulis apa adanya. Ukuran angka tidak cukup", "untuk menetapkan rupiah, juta rupiah, persen, atau skala lainnya.", "", "## Cari dataset", "", "| Data | Isi |", "|---|---|"]
-    lines[3:3] = ["CSV aktif berjumlah **44**, sedangkan **15** CSV di `data/cadangan/` belum dipakai notebook.", "Lihat [peta pemakaian data](08_peta_pemakaian_data.md) untuk memilih file per sesi.", ""]
+    lines[3:3] = ["CSV aktif berjumlah **44**, sedangkan **15** CSV di `data/cadangan/` belum dipakai notebook.", "Lihat [peta pemakaian data](data_yang_dipakai.md) untuk memilih file per sesi.", ""]
     for name in sorted(kamus):
         anchor = name.replace(".", "_")
         lines.append(f"| [{name}](#{anchor}) | {kamus[name]['judul']} |")
@@ -220,7 +220,7 @@ def peta_pemakaian(kamus, result):
     ]
     dipakai = set()
     for row in result:
-        target = Path(row["sumber"]).with_suffix(".ipynb").as_posix()
+        target = row["notebook"]
         data = []
         for name in row["dataset"]:
             if name.endswith(".csv"):
@@ -233,10 +233,10 @@ def peta_pemakaian(kamus, result):
     lines += ["", "## Arti folder data", "",
               "- `data/`: **44 CSV aktif**, digunakan oleh contoh, latihan, atau kunci jawaban di atas.",
               "- `data/cadangan/`: **15 CSV cadangan**, belum dibaca oleh 23 notebook saat ini; bahan tambahan bagi pengajar.",
-              "- `laporan/peta_perubahan_nama.csv`: catatan pengelolaan nama berkas, bukan data untuk pemodelan.", "",
-              "[Daftar CSV aktif](../data/README.md) · [Daftar cadangan](../data/cadangan/README.md) · [Definisi variabel](07_kamus_variabel.md)", "",
+              "- `alat_bantu/laporan/peta_perubahan_nama.csv`: catatan pengelolaan nama berkas, bukan data untuk pemodelan.", "",
+              "[Daftar CSV aktif](../data/README.md) · [Daftar cadangan](../data/cadangan/README.md) · [Definisi variabel](kamus_variabel.md)", "",
               "## Salinan offline opsional", "",
-              "[data_tutorial.zip](../paket/data_tutorial.zip) ada di **`paket/data_tutorial.zip`**.",
+              "[data_tutorial.zip](../alat_bantu/paket/data_tutorial.zip) ada di **`alat_bantu/paket/data_tutorial.zip`**.",
               "Isinya 44 CSV aktif dan satu modul pendukung. ZIP ini merupakan salinan untuk pengajar;",
               "alur notebook peserta menggunakan alamat GitHub di atas.", ""]
     return "\n".join(lines)
@@ -247,19 +247,19 @@ def main():
     parser.add_argument("--periksa", action="store_true", help="Periksa tanpa mengubah berkas.")
     args = parser.parse_args()
     kamus = baca_kamus()
-    paths = sorted((ROOT / "materi").rglob("*.py")) + sorted((ROOT / "pengajar/kunci_jawaban").glob("*.py"))
+    paths = sorted(SUMBER.rglob("*.py"))
     assert len(paths) == 23
     usage = {k: [] for k in kamus}
     result = []
     for path in paths:
         names = sinkron(path, kamus, args.periksa)
-        relative = path.relative_to(ROOT).as_posix()
+        relative = notebook_dari_sumber(path).relative_to(ROOT).as_posix()
         for name in names:
             usage[name].append(relative)
-        result.append({"sumber": relative, "dataset": names})
+        result.append({"notebook": relative, "sumber": path.relative_to(ROOT).as_posix(), "dataset": names})
     text = katalog(kamus, usage)
     peta = peta_pemakaian(kamus, result)
-    lokasi_peta = ROOT / "panduan/08_peta_pemakaian_data.md"
+    lokasi_peta = ROOT / "panduan/data_yang_dipakai.md"
     if args.periksa:
         assert KATALOG.read_text(encoding="utf-8") == text
         assert lokasi_peta.read_text(encoding="utf-8") == peta
@@ -267,7 +267,7 @@ def main():
         KATALOG.write_text(text, encoding="utf-8")
         lokasi_peta.write_text(peta, encoding="utf-8")
         report = {"status": "PASS", "jumlah_csv": 59, "jumlah_definisi_kolom": sum(len(x["variabel"]) for x in kamus.values()), "jumlah_pasangan_tutorial": len(paths), "jumlah_tabel_di_tutorial": sum(len(r["dataset"]) for r in result), "kode_dan_output_notebook_tetap": True, "tutorial": result}
-        (ROOT / "laporan/kamus_variabel.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        (ROOT / "alat_bantu/laporan/kamus_variabel.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: kamus 59 CSV; {len(paths)} pasangan .py/.ipynb; {sum(len(r['dataset']) for r in result)} tabel definisi; kode dan output notebook tetap utuh.")
 
 

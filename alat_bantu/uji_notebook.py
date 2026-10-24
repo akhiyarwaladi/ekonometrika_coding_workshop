@@ -26,7 +26,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from konversi_notebook import ke_sumber, parse_sel
+from konversi_notebook import ke_sumber, parse_sel, sumber_notebook
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -163,7 +163,7 @@ def periksa_pemodelan(ruang):
 
 
 def periksa_sinkron(path):
-    sumber = path.with_suffix(".py")
+    sumber = sumber_notebook(path)
     sel_py = []
     for tipe, baris in parse_sel(sumber.read_text(encoding="utf-8")):
         if any(b.strip() for b in baris):
@@ -263,7 +263,7 @@ def main():
                             prefix="ekonometrika-"
                         ) as folder:
                             tempat = Path(folder)
-                            with ZipFile(ROOT / "paket/data_tutorial.zip") as paket:
+                            with ZipFile(ROOT / "alat_bantu/paket/data_tutorial.zip") as paket:
                                 paket.extractall(tempat)
                             jalankan(path, tempat, data_lokal=True)
                     else:
@@ -278,7 +278,7 @@ def main():
         log.write(f"\n{status} {path.relative_to(ROOT)}\n{buf.getvalue()}")
         print(f"{status} {path.relative_to(ROOT)} ({len(pesan)} warning)", flush=True)
     mode = "zip" if zip_only else "folder_notebook" if dari_folder else "lokal"
-    laporan = ROOT / "laporan"
+    laporan = ROOT / "alat_bantu/laporan"
     laporan.mkdir(exist_ok=True)
     (laporan / f"uji_notebook_{mode}.log").write_text(log.getvalue(), encoding="utf-8")
     (laporan / f"uji_notebook_{mode}.json").write_text(

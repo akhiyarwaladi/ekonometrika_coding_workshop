@@ -1,7 +1,7 @@
-"""Buat semua visualisasi utama tutorial, simpan ke folder gambar/ekonometrika/.
+"""Buat semua visualisasi utama tutorial, simpan ke folder alat_bantu/gambar/ekonometrika/.
 
 Jalankan: python alat_bantu/buat_gambar.py
-Output: gambar/ekonometrika/*.png (150 dpi) dan gambar/ekonometrika/galeri.png
+Output: alat_bantu/gambar/ekonometrika/*.png (150 dpi) dan alat_bantu/gambar/ekonometrika/galeri.png
 
 Gaya visual: palet hijau tua, terracotta, emas, dan abu-biru. Judul tebal di
 kiri, subjudul abu-abu di bawahnya, catatan sumber di kanan bawah.
@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent
 os.chdir(ROOT)
-OUT = ROOT / "gambar/ekonometrika"
+OUT = ROOT / "alat_bantu/gambar/ekonometrika"
 OUT.mkdir(parents=True, exist_ok=True)
 
 UTAMA = "#2F5D50"

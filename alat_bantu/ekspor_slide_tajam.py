@@ -32,7 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "slide/02_regresi_machine_learning.pdf"
 PDF_OUT = ROOT / "slide/03_regresi_machine_learning_tajam.pdf"
 PNG_OUT = ROOT / "slide/png_regresi_tajam"
-PNG_LAMA = ROOT / "arsip/slide/png_regresi_300_dpi"
+PNG_LAMA = ROOT / "alat_bantu/arsip/slide/png_regresi_300_dpi"
 DPI = 600
 BG = (247 / 255, 247 / 255, 247 / 255)
 
@@ -521,7 +521,7 @@ def main():
         "metrik_housing_tanpa_RAD": metrics,
         "sumber_dan_png_lama_tetap": True,
     }
-    (ROOT / "laporan/ekspor_slide_tajam.json").write_text(
+    (ROOT / "alat_bantu/laporan/ekspor_slide_tajam.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8"
     )
     print(

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def main():
     berkas = sorted((ROOT / "data").glob("*.csv"))
     berkas.append(ROOT / "alat_bantu" / "metode_lanjutan.py")
-    tujuan = ROOT / "paket" / "data_tutorial.zip"
+    tujuan = ROOT / "alat_bantu/paket" / "data_tutorial.zip"
     tujuan.parent.mkdir(parents=True, exist_ok=True)
     sementara = tujuan.with_suffix(".tmp")
     with ZipFile(sementara, "w", compression=ZIP_DEFLATED) as paket:

@@ -1,4 +1,4 @@
-"""Periksa 31 PNG tajam dan buat paket/png_regresi_tajam.zip.
+"""Periksa 31 PNG tajam dan buat alat_bantu/paket/png_regresi_tajam.zip.
 
 Jalankan dari folder utama: python alat_bantu/kemas_png.py
 ZIP hanya berisi halaman_01.png sampai halaman_31.png.
@@ -27,7 +27,7 @@ def kemas_png():
                 raise ValueError(f"Metadata dpi tidak sesuai: {path.name}")
             png.verify()
 
-    tujuan = ROOT / "paket/png_regresi_tajam.zip"
+    tujuan = ROOT / "alat_bantu/paket/png_regresi_tajam.zip"
     tujuan.parent.mkdir(parents=True, exist_ok=True)
     sementara = tujuan.with_suffix(".tmp")
     with ZipFile(sementara, "w", compression=ZIP_STORED) as paket:

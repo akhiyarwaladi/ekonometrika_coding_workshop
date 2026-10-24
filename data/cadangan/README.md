@@ -2,7 +2,7 @@
 
 Kelima belas CSV ini **belum dipakai oleh 23 notebook saat ini**.
 Disimpan sebagai bahan latihan tambahan; seluruh isi CSV tetap sama.
-Untuk mengikuti tutorial, pilih data pada [peta pemakaian data](../../panduan/08_peta_pemakaian_data.md).
+Untuk mengikuti tutorial, pilih data pada [peta pemakaian data](../../panduan/data_yang_dipakai.md).
 
 | File | Isi |
 |---|---|

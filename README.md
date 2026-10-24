@@ -1,87 +1,42 @@
-# Tutorial ekonometrika dan regresi
+# Workshop ekonometrika Python
 
-Materi untuk pelatihan Program Studi Ekonomi Pembangunan, FEB Universitas Jambi,
-26 Oktober 2026. Tutorial dimulai dari contoh yang sudah tersedia, untuk peserta
-yang belum mempunyai pengalaman coding.
+Materi pelatihan FEB Universitas Jambi, 26 Oktober 2026.
+**Mulai dari halaman ini. Semua kegiatan peserta dijalankan dalam notebook `.ipynb`.**
 
-## Pilih bahan yang dibutuhkan
+## Cara mulai
 
-| Keperluan | Buka |
-|---|---|
-| Menampilkan slide sebagai gambar | [31 PNG tajam, 6000 × 3375 piksel](slide/png_regresi_tajam/) atau [ZIP seluruh PNG](paket/png_regresi_tajam.zip). |
-| Mulai belajar dari awal | [Panduan pemula](panduan/01_panduan_pemula.md), lalu [buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb). |
-| Praktik regresi mengikuti slide | [Buka notebook Housing di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb). |
-| Penutup: membuat dashboard interaktif | [Buka notebook dashboard di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb). Pratinjau notebook dan pilihan tautan ngrok; seluruh langkah ada di notebook. |
-| Memilih contoh atau latihan berikutnya | [Daftar materi dan tautan Colab](panduan/00_daftar_materi.md). |
-| Menyiapkan pengajaran | [Bahan pengajar](pengajar/README.md). |
+1. Pilih sesi pada [daftar materi](panduan/daftar_materi.md), lalu klik **Buka di Colab**.
+2. Simpan salinan ke Google Drive.
+3. Jalankan sel dari atas menggunakan **Shift + Enter** dengan koneksi internet.
 
-## Langkah untuk peserta
+**CSV dan ZIP tidak perlu diunggah.** Data dibaca langsung dari GitHub.
+Jika memakai notebook dari komputer, cukup unggah satu file `.ipynb` yang dipilih.
 
-1. Buka notebook melalui tautan **Buka di Colab** pada [daftar materi](panduan/00_daftar_materi.md),
-   lalu simpan salinan ke Google Drive.
-2. Jalankan sel alamat data (`URL_DATA`). CSV dibaca langsung dari GitHub; gunakan koneksi internet.
-3. Jalankan sel berikutnya dengan **Shift + Enter**. Baca penjelasan dan hasil sebelum lanjut.
+## Pilih materi
 
-**Data untuk dashboard hanya `provinsi_2021.csv`.** Untuk sesi lain, lihat
-[peta pemakaian data per notebook](panduan/08_peta_pemakaian_data.md).
-Folder `data/` berisi 44 CSV yang dipakai; 15 CSV tambahan tersimpan di `data/cadangan/`.
+| Urutan | Materi | Letak notebook |
+|---|---|---|
+| 1 | Contoh ekonometrika | [materi/01_ekonometrika/](materi/01_ekonometrika/) — mulai nomor 00, lanjut 01–06. |
+| 2 | Latihan peserta | [materi/02_latihan/](materi/02_latihan/) — kerjakan nomor yang sesuai contoh. |
+| 3 | Regresi mengikuti slide | [01_regresi_housing.ipynb](materi/03_regresi_housing/01_regresi_housing.ipynb). |
+| 4 | Dashboard ekonomi | [01_dashboard_ekonomi.ipynb](materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb). |
 
-Sebelum membaca tabel data, pelajari bagian **Kenali data** di notebook.
-Bagian itu menjelaskan arti setiap kolom, satuan atau kode kategorinya,
-serta nama singkat yang dipakai di kode. Definisi seluruh dataset juga ada di
-[kamus variabel](panduan/07_kamus_variabel.md).
-
-Gunakan **`.ipynb` untuk belajar dan mengajar**. Ikuti contoh di
-`materi/01_ekonometrika/`, kemudian kerjakan `materi/02_latihan/` dengan nomor
-yang sama. Praktik Housing di `materi/03_regresi_housing/` dapat dipelajari tersendiri.
-[data_tutorial.zip](paket/data_tutorial.zip) berada di `paket/` sebagai salinan offline opsional bagi pengajar.
-
-## Pola pemodelan
-
-Model linear, logit, multinomial, dan Poisson memakai **scikit-learn** secara
-konsisten: tentukan X dan y, buat model, jalankan `fit`, lalu `predict`.
-Koefisien dibaca melalui `coef_` dan `intercept_`. Untuk klasifikasi,
-`predict` menghasilkan kelas dan `predict_proba` menghasilkan peluang.
-
-P-value, standard error, dan uji asumsi ada pada bagian pelengkap statistik
-bernama `uji_...`. Model khusus seperti probit, ordinal, Tobit, ARIMA, panel,
-dan GARCH tetap memakai pustaka yang sesuai. Rinciannya ada di
-[panduan pemodelan](panduan/06_pola_pemodelan.md).
+**Dashboard hanya satu notebook:** `01_dashboard_ekonomi.ipynb`.
+Langkah 8 menampilkan pratinjau, langkah 9 menyediakan ngrok, langkah 10 menghentikannya.
+Untuk ngrok, ubah `gunakan_ngrok` menjadi `True`, lalu masukkan token pada input tersembunyi.
+Token pengajar disimpan lokal di `pengajar/token_ngrok.txt`; salin isinya saat diminta.
 
 ## Letak berkas
 
-| Folder | Isi dan kegunaan |
+| Folder | Kegunaan |
 |---|---|
-| [panduan/](panduan/00_daftar_materi.md) | Daftar materi, cara mulai, glosarium, dan referensi. |
-| [materi/](materi/README.md) | Petunjuk memilih contoh, latihan, dan praktik Housing. |
-| [materi/01_ekonometrika/](materi/01_ekonometrika/README.md) | Tujuh notebook contoh ekonometrika, urutan 00 sampai 06. |
-| [materi/02_latihan/](materi/02_latihan/README.md) | Tujuh notebook latihan dan tugas proyek mini. |
-| [materi/03_regresi_housing/](materi/03_regresi_housing/README.md) | Praktik regresi sesuai slide dengan data Housing. |
-| [materi/04_dashboard_indonesia/](materi/04_dashboard_indonesia/README.md) | Materi penutup: dashboard, grafik interaktif, regresi, dan simulasi dari notebook. |
-| [data/](data/README.md) | 44 CSV aktif; 15 CSV tambahan berada di subfolder `cadangan/`. |
-| [paket/](paket/README.md) | Salinan data offline opsional dan ZIP berisi 31 PNG tajam. |
-| [slide/](slide/README.md) | Slide pembuka, PDF regresi, dan 31 PNG tajam berukuran 6000 × 3375 piksel. |
-| [gambar/](gambar/README.md) | Grafik ekonometrika dan regresi Housing. |
-| [pengajar/](pengajar/README.md) | Panduan fasilitator dan tujuh notebook kunci jawaban. |
-| [alat_bantu/](alat_bantu/README.md) | Perkakas konversi, pengemasan, dan pemeriksaan. |
-| [laporan/](laporan/README.md) | Hasil uji dan peta nama lama ke nama baru. |
-| [arsip/](arsip/README.md) | Catatan cadangan dan berkas kerja yang disimpan lokal. |
+| `materi/` | Notebook untuk peserta dan tugas proyek mini. |
+| `data/` | 44 CSV aktif; 15 CSV tambahan berada di `data/cadangan/`. |
+| `slide/` | PDF, presentasi, dan [31 PNG tajam](slide/png_regresi_tajam/). |
+| `panduan/` | Daftar materi, cara menggunakan notebook, istilah, dan definisi data. |
+| `pengajar/` | [Panduan mengajar](pengajar/panduan_mengajar.md), kunci jawaban, dan referensi. |
+| `alat_bantu/` | Sumber `.py`, perkakas pengelola, gambar, laporan, paket ZIP, serta arsip. |
 
-Nama berkas memakai huruf kecil dan garis bawah, misalnya `01_regresi_dasar.ipynb`
-dan `housing.csv`. Nomor menunjukkan urutan belajar. Kunci jawaban memakai nama
-yang sama dengan latihan pasangannya. Nama kolom dalam CSV tetap mengikuti data asli.
-
-Lihat [daftar seluruh notebook](panduan/00_daftar_materi.md) untuk memilih sesi,
-[rincian kurikulum dan asal data](panduan/05_isi_materi_lengkap.md) untuk persiapan mengajar,
-serta [peta perubahan nama](laporan/peta_perubahan_nama.csv) untuk mencari berkas lama.
-
-## Menjalankan lokal atau menyunting materi
-
-Di Jupyter atau VS Code, buka `.ipynb` dan pertahankan susunan folder proyek.
-Pasang paket dari [requirements.txt](requirements.txt) pada lingkungan Python
-yang dipakai kernel. Pembacaan data menggunakan alamat GitHub yang sama seperti di Colab.
-
-Berkas `.py` dengan nama yang sama adalah sumber penyuntingan, dengan penanda
-sel `# %%`. Sebagian berisi perintah `%pip` milik notebook. Jalankan per sel
-di Jupyter/Colab. Cara memperbarui notebook dan memeriksa hasil ada di
-[panduan alat bantu](alat_bantu/README.md).
+Untuk mengetahui CSV yang dipakai suatu sesi, buka [data yang dipakai](panduan/data_yang_dipakai.md).
+Baca tabel **Kenali data** sebelum pemodelan; [kamus variabel](panduan/kamus_variabel.md) menjadi rujukan lengkap.
+Jika baru memakai Colab, baca [cara menggunakan notebook](panduan/cara_menggunakan_notebook.md).

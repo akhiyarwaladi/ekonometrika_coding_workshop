@@ -198,11 +198,11 @@ def main():
     }
     if args.notebook or args.ngrok:
         report["kernel_notebook"] = uji_kernel(ngrok_aktif=args.ngrok)
-    (ROOT / "laporan/uji_dashboard.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "alat_bantu/laporan/uji_dashboard.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Pengujian notebook dan dashboard ekonomi provinsi", "",
         f"Hasil AppTest: **PASS**, {len(checks)} kelompok pengujian pada data 34 provinsi tahun 2021.", "",
-        f"Notebook: [{NOTEBOOK.name}](../{NOTEBOOK.relative_to(ROOT).as_posix()}).", "",
+        f"Notebook: [{NOTEBOOK.name}](../../{NOTEBOOK.relative_to(ROOT).as_posix()}).", "",
         "## Perilaku yang diperiksa", "",
     ]
     lines += [f"- {check}" for check in checks]
@@ -211,7 +211,7 @@ def main():
         lines += ["", f"Seluruh **{report['kernel_notebook']['sel_kode']} sel kode** dijalankan pada kernel baru, termasuk instalasi, pembuatan berkas aplikasi, server, dan pratinjau lokal. Server uji dihentikan setelah pemeriksaan."]
         lines += ["", "Ngrok: " + report["kernel_notebook"]["ngrok"] + ". Token dan tautan sementara tidak disimpan pada laporan."]
     lines += ["", "Kode aplikasi disimpan dalam empat sel notebook; tidak memerlukan langkah terminal dari peserta.", "Pratinjau browser lokal disimpan pada [gambar simulasi](../gambar/dashboard/pratinjau_simulasi.png).", "", report["batas_uji"], ""]
-    (ROOT / "laporan/uji_dashboard.md").write_text("\n".join(lines), encoding="utf-8")
+    (ROOT / "alat_bantu/laporan/uji_dashboard.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"PASS: {len(checks)} kelompok pengujian dashboard; RMSE {rmse:.4f}, R² {r2:.4f}.")
     return 0
 

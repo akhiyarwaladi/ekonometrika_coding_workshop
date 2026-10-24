@@ -4,12 +4,12 @@ Folder ini berisi **44 CSV aktif** yang dipakai oleh contoh, latihan, atau kunci
 **Dashboard hanya memakai [provinsi_2021.csv](provinsi_2021.csv).**
 
 Notebook membaca CSV langsung dari GitHub. Jalankan sel `URL_DATA`, lalu sel `pd.read_csv(...)`.
-[Peta pemakaian data](../panduan/08_peta_pemakaian_data.md) menunjukkan file yang diperlukan setiap notebook.
+[Peta pemakaian data](../panduan/data_yang_dipakai.md) menunjukkan file yang diperlukan setiap notebook.
 
 Sebanyak **15 CSV tambahan** berada di [cadangan/](cadangan/README.md); belum dipakai oleh 23 notebook saat ini.
 Isi angka dan nama kolom seluruh CSV dipertahankan.
 
-[Definisi variabel](../panduan/07_kamus_variabel.md) menjelaskan arti kolom, satuan, dan kode kategori.
+[Definisi variabel](../panduan/kamus_variabel.md) menjelaskan arti kolom, satuan, dan kode kategori.
 
 ## Daftar CSV aktif
 

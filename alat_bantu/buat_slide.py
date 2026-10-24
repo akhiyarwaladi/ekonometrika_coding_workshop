@@ -332,11 +332,11 @@ slide_isi(
         "IHSG sejak 1990: GARCH beta 0,82, persistensi 0,99; era krisis 1998 menyentuh IGARCH.",
         "Inflasi bulanan sejak 1968 dan kurs tahunan sejak 1967: krisis 1998 terlihat jelas, inflasi 58 persen dan rupiah melemah 244 persen.",
         "Panel 10 negara ASEAN dari World Bank dan cross-section 34 provinsi dari kompilasi BPS.",
-        "Referensi: panduan/04_referensi.md; alat: alat_bantu/unduh_data_indonesia.py.",
+        "Referensi: pengajar/referensi/sumber_materi.md; alat: alat_bantu/unduh_data_indonesia.py.",
     ],
     "Ini slide penutup yang kuat: setelah dua hari memakai data simulasi, peserta "
     "melihat hasil yang sama dengan gaya buku teks pada data asli. Tekankan bahwa "
-    "semua data sudah tersedia lokal, dan jalur BPS di panduan/04_referensi.md membuka pintu "
+    "semua data sudah tersedia lokal, dan jalur BPS di pengajar/referensi/sumber_materi.md membuka pintu "
     "untuk data yang lebih baru.",
 )
 

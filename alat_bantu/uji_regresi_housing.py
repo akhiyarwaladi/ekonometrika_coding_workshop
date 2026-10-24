@@ -5,6 +5,7 @@ Paket tambahan untuk pemeriksaan: nbclient, nbformat, dan ipykernel.
 """
 
 from pathlib import Path
+from konversi_notebook import sumber_notebook
 import ast
 import hashlib
 import json
@@ -90,7 +91,7 @@ def main():
     source_cells = [
         (kind, "".join(ke_sumber(kind, lines)))
         for kind, lines in parse_sel(
-            NOTEBOOK.with_suffix(".py").read_text(encoding="utf-8")
+            sumber_notebook(NOTEBOOK).read_text(encoding="utf-8")
         )
         if any(line.strip() for line in lines)
     ]
@@ -164,9 +165,9 @@ def main():
     nbformat.validate(nb)
     nbformat.write(nb, NOTEBOOK)
 
-    temp = ROOT / "gambar/regresi_housing"
+    temp = ROOT / "alat_bantu/gambar/regresi_housing"
     temp.mkdir(parents=True, exist_ok=True)
-    (ROOT / "laporan/hasil_uji_regresi_housing.json").write_text(
+    (ROOT / "alat_bantu/laporan/hasil_uji_regresi_housing.json").write_text(
         json.dumps(results, indent=2), encoding="utf-8"
     )
     import base64
@@ -176,8 +177,8 @@ def main():
     lines = [
         "# Hasil pemeriksaan notebook Regression (I)",
         "",
-        "Notebook: [01_regresi_housing.ipynb](../materi/03_regresi_housing/01_regresi_housing.ipynb).",
-        "Data: [housing.csv](../data/housing.csv), dibaca lokal tanpa Google Drive atau unduhan tambahan.",
+        "Notebook: [01_regresi_housing.ipynb](../../materi/03_regresi_housing/01_regresi_housing.ipynb).",
+        "Data: [housing.csv](../../data/housing.csv), dibaca lokal tanpa Google Drive atau unduhan tambahan.",
         "Folder kerja awal: folder notebook sendiri; sel persiapan menemukan folder data proyek.",
         f"Status: **{len(code_cells)}/{len(code_cells)} sel kode berjalan pada kernel baru tanpa error.**",
         f"Notebook berisi {len(nb.cells)} sel dan {len(pictures)} grafik; seluruh output tersimpan.",
@@ -223,7 +224,7 @@ def main():
             "Ini pemeriksaan eksekusi lokal, bukan pengujian antarmuka Google Colab.",
         ]
     )
-    (ROOT / "laporan/uji_regresi_housing.md").write_text(
+    (ROOT / "alat_bantu/laporan/uji_regresi_housing.md").write_text(
         "\n".join(lines) + "\n", encoding="utf-8"
     )
     print(json.dumps(results, indent=2))

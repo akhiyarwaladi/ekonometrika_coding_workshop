@@ -91,7 +91,7 @@ def main():
             item.update(status="FAIL", error=traceback.format_exc())
         hasil.append(item)
         print(item["status"], item["notebook"], flush=True)
-    laporan = ROOT / "laporan"
+    laporan = ROOT / "alat_bantu/laporan"
     ringkasan = {
         "waktu": datetime.now().isoformat(timespec="seconds"),
         "python": sys.version.split()[0],
@@ -125,7 +125,7 @@ def main():
     ]
     for item in hasil:
         lines.append(
-            f"| [{item['notebook']}](../{item['notebook']}) | {item['status']} | {item.get('sel_kode', '-')} | {item.get('grafik', '-')} | {item.get('model_scikit_learn', '-')} | {item.get('perbandingan_inferensi', '-')} |"
+            f"| [{item['notebook']}](../../{item['notebook']}) | {item['status']} | {item.get('sel_kode', '-')} | {item.get('grafik', '-')} | {item.get('model_scikit_learn', '-')} | {item.get('perbandingan_inferensi', '-')} |"
         )
     lines += [
         "",

@@ -1,0 +1,231 @@
+{
+  "status": "PASS",
+  "jumlah_csv": 59,
+  "jumlah_definisi_kolom": 266,
+  "jumlah_pasangan_tutorial": 23,
+  "jumlah_tabel_di_tutorial": 83,
+  "kode_dan_output_notebook_tetap": true,
+  "tutorial": [
+    {
+      "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/00_persiapan_colab.py",
+      "dataset": [
+        "regresi_polinom.csv",
+        "uts_4.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/01_regresi_dasar.py",
+      "dataset": [
+        "uts_2.csv",
+        "regresi_polinom.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/02_bentuk_fungsional.py",
+      "dataset": [
+        "regresi_log.csv",
+        "regresi_reciprocal.csv",
+        "regresi_polinom.csv",
+        "usia_unit.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/03_dummy_asumsi_klasik.py",
+      "dataset": [
+        "latihan_dummy_1.csv",
+        "latihan_dummy_2.csv",
+        "latihan_multikolinieritas_1.csv",
+        "hetero_3.csv",
+        "latihan_normalitas_1.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/04_model_kategorikal.py",
+      "dataset": [
+        "spector",
+        "logit_probit_2.csv",
+        "multi_ordinal_2.csv",
+        "multi_ordinal_1.csv",
+        "tobit_data_1_rnd.csv",
+        "poisson_data_2_restoran.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/05_deret_waktu_kointegrasi.py",
+      "dataset": [
+        "ts_inflasi.csv",
+        "ts_saham.csv",
+        "ts_gdp_growth.csv",
+        "ts_kurs.csv",
+        "konsumsi_pendapatan.csv"
+      ]
+    },
+    {
+      "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/01_ekonometrika/06_panel_garch.py",
+      "dataset": [
+        "panel_gdp.csv",
+        "volatilitas.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/00_persiapan_colab.py",
+      "dataset": [
+        "uts_2.csv",
+        "uts_4.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/01_regresi_dasar.py",
+      "dataset": [
+        "uts_6.csv",
+        "uts_3.csv",
+        "uts_4.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/02_bentuk_fungsional.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/02_bentuk_fungsional.py",
+      "dataset": [
+        "regresi_log.csv",
+        "pendidikan_pendapatan.csv",
+        "usia_unit.csv",
+        "jam_skor.csv",
+        "uts_1.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/03_dummy_asumsi_klasik.py",
+      "dataset": [
+        "latihan_dummy_1.csv",
+        "latihan_multikolinieritas_1.csv",
+        "hetero_2.csv",
+        "latihan_normalitas_3.csv",
+        "hetero_1.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/04_model_kategorikal.py",
+      "dataset": [
+        "spector",
+        "logit_probit_2.csv",
+        "multi_ordinal_1.csv",
+        "poisson_data_1_klaim.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/05_deret_waktu_panel.py",
+      "dataset": [
+        "ts_inflasi.csv",
+        "konsumsi_pendapatan.csv",
+        "panel_padi.csv",
+        "ts_saham.csv",
+        "ihsg_emas.csv",
+        "panel_retail.csv"
+      ]
+    },
+    {
+      "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/02_latihan/06_data_indonesia.py",
+      "dataset": [
+        "ihsg_harian.csv",
+        "asean_panel.csv",
+        "idn_makro_tahunan.csv",
+        "kurs_harian.csv",
+        "idn_inflasi_bulanan.csv",
+        "idn_kurs_tahunan.csv",
+        "ihsg_panjang.csv",
+        "provinsi_2021.csv"
+      ]
+    },
+    {
+      "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/03_regresi_housing/01_regresi_housing.py",
+      "dataset": [
+        "contoh_taksi",
+        "housing.csv"
+      ]
+    },
+    {
+      "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/materi/04_dashboard_indonesia/01_dashboard_ekonomi.py",
+      "dataset": [
+        "provinsi_2021.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/00_persiapan_colab.py",
+      "dataset": [
+        "uts_4.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/01_regresi_dasar.py",
+      "dataset": [
+        "uts_3.csv",
+        "uts_4.csv",
+        "uts_6.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/02_bentuk_fungsional.py",
+      "dataset": [
+        "pendidikan_pendapatan.csv",
+        "usia_unit.csv",
+        "jam_skor.csv",
+        "uts_1.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/03_dummy_asumsi_klasik.py",
+      "dataset": [
+        "hetero_2.csv",
+        "latihan_normalitas_3.csv",
+        "hetero_1.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/04_model_kategorikal.py",
+      "dataset": [
+        "logit_probit_2.csv",
+        "multi_ordinal_1.csv",
+        "poisson_data_1_klaim.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/05_deret_waktu_panel.py",
+      "dataset": [
+        "ts_saham.csv",
+        "ihsg_emas.csv",
+        "panel_retail.csv"
+      ]
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
+      "sumber": "alat_bantu/sumber_notebook/pengajar/kunci_jawaban/06_data_indonesia.py",
+      "dataset": [
+        "kurs_harian.csv",
+        "ihsg_panjang.csv",
+        "provinsi_2021.csv",
+        "asean_panel.csv"
+      ]
+    }
+  ]
+}
