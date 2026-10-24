@@ -255,8 +255,8 @@ Peserta menjalankan seluruh langkah dari notebook.
 
 Setelah pratinjau, langkah 9 menyediakan tautan ngrok untuk perangkat lain.
 Gunakan satu notebook, `01_dashboard_ekonomi.ipynb`, untuk pratinjau dan ngrok.
-Token pengajar disimpan lokal di `pengajar/token_ngrok.txt`; salin ke input tersembunyi
-saat langkah 9 dijalankan. Bagikan tautan dashboard kepada peserta.
+Token pengajar sudah diisi langsung pada `token_ngrok` di langkah 9.
+Aktifkan `gunakan_ngrok`, jalankan sel, lalu bagikan tautan dashboard kepada peserta.
 Langkah 10 menutup koneksi ngrok dan server; runtime harus tetap aktif selama demo.
 
 | Waktu | Kegiatan |

@@ -43,7 +43,6 @@ def uji_kernel(ngrok_aktif=False):
     notebook = nbformat.read(NOTEBOOK, as_version=4)
     pemeriksaan_ngrok = ""
     if ngrok_aktif:
-        assert os.environ.get("NGROK_AUTHTOKEN"), "Siapkan NGROK_AUTHTOKEN di lingkungan pengujian."
         sel_ngrok = next(c for c in notebook.cells if c.cell_type == "code" and "gunakan_ngrok = False" in c.source)
         sel_ngrok.source = sel_ngrok.source.replace("gunakan_ngrok = False", "gunakan_ngrok = True")
         pemeriksaan_ngrok = (
@@ -103,7 +102,7 @@ def uji_kernel(ngrok_aktif=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--notebook", action="store_true")
-    parser.add_argument("--ngrok", action="store_true", help="Uji tautan HTTPS dengan NGROK_AUTHTOKEN dari lingkungan, lalu tutup koneksi.")
+    parser.add_argument("--ngrok", action="store_true", help="Uji tautan HTTPS memakai token pada notebook, lalu tutup koneksi.")
     args = parser.parse_args()
     periksa_notebook(NOTEBOOK)
     notebook = nbformat.read(NOTEBOOK, as_version=4)

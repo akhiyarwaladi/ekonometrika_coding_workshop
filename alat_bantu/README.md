@@ -15,7 +15,7 @@ Jalankan dari folder utama dengan lingkungan Python yang memiliki paket dari
 | `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh notebook pada kernel baru dan menyimpan hasil serta grafik. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Uji cepat dengan salinan data lokal; tidak mengubah keluaran notebook. |
 | `python alat_bantu/uji_regresi_housing.py` | Memeriksa prediksi, pembagian data, imputasi, metrik, dan Pipeline secara independen. |
-| `python alat_bantu/uji_dashboard.py --ngrok` | Memeriksa interaksi aplikasi dan akses HTTPS; siapkan NGROK_AUTHTOKEN di lingkungan uji. |
+| `python alat_bantu/uji_dashboard.py --ngrok` | Memeriksa interaksi aplikasi dan akses HTTPS memakai token yang sudah diisi pada notebook. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa integritas data, PNG slide, format notebook, dan tautan. |
 | `python alat_bantu/audit_visual.py` | Memeriksa keluaran gambar dan membuat lembar tinjauan lokal. |
 
@@ -44,4 +44,5 @@ Grafik analisis peserta dibuat di notebook, sehingga tidak ada generator grafik 
 `arsip/` memuat cadangan sebelum perubahan, sumber lama, dan berkas pengerjaan.
 Isinya disimpan lokal dan tidak dibagikan sebagai materi kelas.
 `administrasi/` berisi surat undangan lokal.
-Token ngrok berada pada `pengajar/token_ngrok.txt` dan dikecualikan dari Git.
+Token ngrok sudah diisi langsung pada notebook dashboard sesuai pengaturan pengajar.
+Salinan token di `pengajar/token_ngrok.txt` tetap disimpan lokal.

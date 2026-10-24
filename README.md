@@ -39,8 +39,8 @@ Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka
 ### Dashboard dan ngrok
 
 Gunakan satu file: `01_dashboard_ekonomi.ipynb`. Langkah 8 adalah pratinjau, langkah 9 menyediakan ngrok, langkah 10 menghentikannya.
-Untuk ngrok, ubah `gunakan_ngrok` menjadi `True` dan masukkan token pada input tersembunyi.
-Token pengajar tersimpan lokal di `pengajar/token_ngrok.txt`; tempel isinya ketika diminta. CSV tetap dibaca dari GitHub.
+Untuk ngrok, ubah `gunakan_ngrok` menjadi `True`, lalu jalankan langkah 9.
+Token pengajar sudah diisi langsung pada sel tersebut; tidak ada permintaan input token. CSV tetap dibaca dari GitHub.
 
 ## Letak berkas
 
