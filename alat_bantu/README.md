@@ -1,62 +1,47 @@
-# Alat bantu pengelola
+# Perkakas pengelola materi
 
-Peserta cukup membuka `README.md` di folder utama, kemudian notebook dalam `materi/`.
-Folder ini menyimpan berkas pemeliharaan:
+Peserta mulai dari [README utama](../README.md). Notebook `.ipynb` merupakan sumber tunggal;
+penjelasan, kode, dan grafik disunting di notebook yang sama.
 
-| Folder | Isi |
+## Pemeriksaan
+
+Jalankan dari folder utama dengan lingkungan Python yang memiliki paket dari
+`requirements.txt` dan `alat_bantu/requirements_pengelola.txt`.
+
+| Perintah | Kegunaan |
 |---|---|
-| `sumber_notebook/` | 23 sumber `.py`; susunannya mengikuti `materi/` dan `pengajar/`. |
-| `gambar/` | Grafik dan contoh tampilan. |
-| `laporan/` | Hasil pengujian dan peta nama berkas lama. |
-| `paket/` | ZIP data dan PNG slide sebagai salinan opsional. |
-| `arsip/` | Cadangan lokal sebelum perubahan; tidak dipakai mengajar. |
-| `administrasi/` | Surat undangan lokal. |
+| `python alat_bantu/sinkron_kamus_variabel.py` | Menyisipkan definisi variabel dan memperbarui katalog data; kode serta output dipertahankan. |
+| `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memeriksa definisi tanpa mengubah notebook. |
+| `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh notebook pada kernel baru dan menyimpan hasil serta grafik. |
+| `python alat_bantu/uji_notebook.py --dari-zip` | Uji cepat dengan salinan data lokal; tidak mengubah keluaran notebook. |
+| `python alat_bantu/uji_regresi_housing.py` | Memeriksa prediksi, pembagian data, imputasi, metrik, dan Pipeline secara independen. |
+| `python alat_bantu/uji_dashboard.py --ngrok` | Memeriksa interaksi aplikasi dan akses HTTPS; siapkan NGROK_AUTHTOKEN di lingkungan uji. |
+| `python alat_bantu/periksa_paket.py` | Memeriksa integritas data, PNG slide, format notebook, dan tautan. |
+| `python alat_bantu/audit_visual.py` | Memeriksa keluaran gambar dan membuat lembar tinjauan lokal. |
 
-Peserta cukup membuka notebook di `materi/`. Perintah di bawah dijalankan dari
-folder utama proyek, memakai Python yang sudah dipasangi `requirements.txt`.
-Untuk perkakas pengelola, pasang tambahan dengan
-`python -m pip install -r alat_bantu/requirements_pengelola.txt`.
+Semua perkakas memperbarui satu [hasil pemeriksaan](laporan/hasil_pemeriksaan.md).
+Hasil terstruktur disimpan sebagai JSON untuk pemeriksaan ulang; log hanya disimpan lokal.
+Fungsi khusus Tobit dan separation tetap tersedia pada `metode_lanjutan.py`.
 
-| Perintah | Hasil |
-|---|---|
-| `python alat_bantu/konversi_notebook.py` | Membuat 23 notebook dari sumber `.py`, termasuk kunci jawaban dan dashboard. Output lama dikosongkan. |
-| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 23 pasangan `.py`/`.ipynb` serta panduan kamus dan peta pemakaian data; kode serta output notebook dipertahankan. |
-| `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memastikan seluruh kolom CSV sudah didefinisikan dan tabel definisi pada sumber/notebook tetap sinkron. |
-| `python alat_bantu/kemas_data.py` | Membuat ulang `alat_bantu/paket/data_tutorial.zip` sebagai salinan offline opsional dari 44 CSV aktif dan `metode_lanjutan.py`. |
-| `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `alat_bantu/paket/png_regresi_tajam.zip`. |
-| `python alat_bantu/uji_notebook.py` | Memeriksa sinkronisasi, keterbacaan kode, dan eksekusi seluruh notebook dari folder utama. |
-| `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji pembacaan CSV GitHub dari folder masing-masing notebook. |
-| `python alat_bantu/uji_notebook.py --dari-zip` | Mengekstrak ZIP ke folder sementara dan mengarahkan URL data ke salinan lokal untuk pengujian. |
-| `python alat_bantu/uji_regresi_housing.py` | Menjalankan kernel baru, menyimpan output Housing, enam grafik, dan laporan pengujian. |
-| `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh 23 notebook pada kernel baru, termasuk sel instalasi; menyimpan output dan laporan kesesuaian model. |
-| `python alat_bantu/uji_dashboard.py --notebook` | Menguji interaksi dashboard, angka evaluasi, filter kosong, dan seluruh sel notebook pada kernel baru; server uji dihentikan otomatis. |
-| `python alat_bantu/uji_dashboard.py --ngrok` | Menjalankan kernel dan memeriksa HTTPS, healthcheck, serta halaman dashboard melalui ngrok. Siapkan `NGROK_AUTHTOKEN` di lingkungan pengujian; koneksi uji ditutup otomatis. |
-| `python alat_bantu/periksa_paket.py` | Memeriksa nama, tautan, hash data, kesesuaian ZIP, dan pasangan notebook; menyimpan laporan penataan. |
-| `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `alat_bantu/gambar/ekonometrika/`. |
-| `python alat_bantu/buat_slide.py` | Membuat ulang `slide/01_pengantar_workshop.pptx`. |
-| `python alat_bantu/ekspor_slide_tajam.py` | Membuat 31 PNG 6K di `slide/png_regresi_tajam/`, memperbarui ZIP PNG, dan menyimpan PDF vektor pendamping. |
-| `python alat_bantu/buat_data_simulasi.py` | Menulis ulang 17 CSV simulasi dari tabel yang tercantum dalam skrip. |
-| `python alat_bantu/unduh_data_indonesia.py` | Memperbarui data dari sumber daring; memerlukan internet dan dapat mengubah isi CSV. |
+Sesudah benar-benar memeriksa tampilan lembar grafik, jalankan
+`python alat_bantu/audit_visual.py --selesai-ditinjau` untuk mencatat hasil tinjauan.
 
-`metode_lanjutan.py` memuat estimasi Tobit dan penanganan demonstrasi separation.
-Peserta menggunakannya lewat notebook; kode implementasinya disimpan di sini.
+## Paket opsional
 
-Konversi dan uji umum menerima lokasi file/folder untuk mengerjakan sebagian materi,
-misalnya `python alat_bantu/konversi_notebook.py materi/03_regresi_housing`.
-Uji umum melewati sel instalasi `%pip`; dependensi harus sudah tersedia.
-Log dan ringkasan uji tersimpan di [laporan/](laporan/README.md).
+`paket/data_tutorial.zip` berisi 44 CSV aktif dan modul model khusus.
+`paket/png_regresi_tajam.zip` berisi 31 PNG slide tajam.
+Keduanya salinan untuk pengajar; peserta membuka notebook dan membaca CSV dari GitHub.
+Buat ulang dengan `kemas_data.py` atau `kemas_png.py` jika sumber paket berubah.
 
-Pemeriksaan paket juga dapat dijalankan setelah mengunduh repositori GitHub.
-Surat administrasi dan arsip pengerjaan hanya disimpan lokal; pemeriksaan
-perbandingan dengan ZIP cadangan dilakukan jika cadangan tersebut tersedia.
+## Pemeliharaan bahan
 
-Jika memakai lingkungan lokal yang sudah disiapkan, ganti `python` dengan
-`.venv\Scripts\python.exe`. Setelah mengubah sumber `.py`, jalankan konversi;
-jalankan kembali uji Housing untuk mengisi output notebook Housing terbaru.
-Gunakan `uji_semua_notebook.py` untuk mengisi output seluruh materi dan kunci jawaban.
+`buat_data_simulasi.py` dan `unduh_data_indonesia.py` mengubah CSV; gunakan hanya saat memperbarui sumber data.
+`buat_slide.py` membuat presentasi pembuka. `ekspor_slide_tajam.py` membuat ulang ekspor PNG.
+Grafik analisis peserta dibuat di notebook, sehingga tidak ada generator grafik kedua yang perlu diselaraskan.
 
-Definisi variabel disunting pada `alat_bantu/kamus_variabel.json`, kemudian
-jalankan `sinkron_kamus_variabel.py`. Tabelnya ditampilkan sebelum dataset
-dibaca, termasuk untuk petunjuk latihan yang belum dijalankan.
-Satuan yang tidak tersedia pada sumber ditandai secara terbuka; jangan menebak
-skala mata uang hanya dari besar angka.
+## Cadangan
+
+`arsip/` memuat cadangan sebelum perubahan, sumber lama, dan berkas pengerjaan.
+Isinya disimpan lokal dan tidak dibagikan sebagai materi kelas.
+`administrasi/` berisi surat undangan lokal.
+Token ngrok berada pada `pengajar/token_ngrok.txt` dan dikecualikan dari Git.

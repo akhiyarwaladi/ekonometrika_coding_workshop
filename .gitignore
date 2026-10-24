@@ -5,7 +5,6 @@ __pycache__/
 hasil_dashboard/
 pengajar/token_ngrok.txt
 alat_bantu/arsip/*
-!alat_bantu/arsip/README.md
 alat_bantu/administrasi/
 alat_bantu/laporan/*.log
 .env

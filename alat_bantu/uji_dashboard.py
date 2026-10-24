@@ -15,6 +15,7 @@ import shutil
 import sys
 
 import nbformat
+from laporan_bersama import simpan_ringkasan
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -22,7 +23,7 @@ from streamlit.testing.v1 import AppTest
 from jupyter_client import KernelManager
 from nbclient import NotebookClient
 
-from uji_notebook import periksa_sinkron
+from uji_notebook import periksa_notebook
 
 ROOT = Path(__file__).resolve().parent.parent
 NOTEBOOK = ROOT / "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb"
@@ -38,6 +39,7 @@ def tanpa_error(app):
 
 
 def uji_kernel(ngrok_aktif=False):
+    os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
     notebook = nbformat.read(NOTEBOOK, as_version=4)
     pemeriksaan_ngrok = ""
     if ngrok_aktif:
@@ -85,6 +87,8 @@ def uji_kernel(ngrok_aktif=False):
     code_cells = [c for c in notebook.cells if c.cell_type == "code"]
     assert all(c.execution_count is not None for c in code_cells)
     assert not [o for c in code_cells for o in c.outputs if o.output_type == "error"]
+    grafik = [o for c in code_cells for o in c.outputs if "image/png" in o.get("data", {})]
+    assert grafik, "Grafik pengantar harus tetap terlihat di notebook."
     for cell in code_cells:
         cell.source = cell.source.replace("gunakan_ngrok = True", "gunakan_ngrok = False")
         # Instalasi dan alamat pratinjau bersifat khusus untuk runtime pengujian.
@@ -92,7 +96,7 @@ def uji_kernel(ngrok_aktif=False):
             cell.outputs = []
     nbformat.validate(notebook)
     nbformat.write(notebook, NOTEBOOK)
-    return {"status": "PASS", "sel_kode": len(code_cells), "server_dan_healthcheck": "PASS", "proses_uji_dihentikan": True,
+    return {"status": "PASS", "sel_kode": len(code_cells), "grafik_dalam_notebook": len(grafik), "server_dan_healthcheck": "PASS", "proses_uji_dihentikan": True,
             "ngrok": "PASS: HTTPS, healthcheck dan halaman Streamlit melalui internet" if ngrok_aktif else "Opsional; tidak diaktifkan pada pengujian ini"}
 
 
@@ -101,7 +105,7 @@ def main():
     parser.add_argument("--notebook", action="store_true")
     parser.add_argument("--ngrok", action="store_true", help="Uji tautan HTTPS dengan NGROK_AUTHTOKEN dari lingkungan, lalu tutup koneksi.")
     args = parser.parse_args()
-    periksa_sinkron(NOTEBOOK)
+    periksa_notebook(NOTEBOOK)
     notebook = nbformat.read(NOTEBOOK, as_version=4)
     bagian = []
     for cell in notebook.cells:
@@ -199,19 +203,7 @@ def main():
     if args.notebook or args.ngrok:
         report["kernel_notebook"] = uji_kernel(ngrok_aktif=args.ngrok)
     (ROOT / "alat_bantu/laporan/uji_dashboard.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    lines = [
-        "# Pengujian notebook dan dashboard ekonomi provinsi", "",
-        f"Hasil AppTest: **PASS**, {len(checks)} kelompok pengujian pada data 34 provinsi tahun 2021.", "",
-        f"Notebook: [{NOTEBOOK.name}](../../{NOTEBOOK.relative_to(ROOT).as_posix()}).", "",
-        "## Perilaku yang diperiksa", "",
-    ]
-    lines += [f"- {check}" for check in checks]
-    lines += ["", f"Model default pada data uji: RMSE **{rmse:.6f} poin persentase**, R² **{r2:.6f}**."]
-    if args.notebook or args.ngrok:
-        lines += ["", f"Seluruh **{report['kernel_notebook']['sel_kode']} sel kode** dijalankan pada kernel baru, termasuk instalasi, pembuatan berkas aplikasi, server, dan pratinjau lokal. Server uji dihentikan setelah pemeriksaan."]
-        lines += ["", "Ngrok: " + report["kernel_notebook"]["ngrok"] + ". Token dan tautan sementara tidak disimpan pada laporan."]
-    lines += ["", "Kode aplikasi disimpan dalam empat sel notebook; tidak memerlukan langkah terminal dari peserta.", "Pratinjau browser lokal disimpan pada [gambar simulasi](../gambar/dashboard/pratinjau_simulasi.png).", "", report["batas_uji"], ""]
-    (ROOT / "alat_bantu/laporan/uji_dashboard.md").write_text("\n".join(lines), encoding="utf-8")
+    simpan_ringkasan()
     print(f"PASS: {len(checks)} kelompok pengujian dashboard; RMSE {rmse:.4f}, R² {r2:.4f}.")
     return 0
 

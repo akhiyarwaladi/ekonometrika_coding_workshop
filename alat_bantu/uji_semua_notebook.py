@@ -15,9 +15,10 @@ import sys
 import traceback
 
 import nbformat
+from laporan_bersama import simpan_ringkasan
 from nbclient import NotebookClient
 from jupyter_client import KernelManager
-from uji_notebook import periksa_sinkron, periksa_pemodelan
+from uji_notebook import periksa_notebook, periksa_pemodelan
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -26,12 +27,15 @@ def main():
     paths = sorted((ROOT / "materi").rglob("*.ipynb")) + sorted(
         (ROOT / "pengajar/kunci_jawaban").glob("*.ipynb")
     )
+    if sys.argv[1:]:
+        paths = [Path(name).resolve() for name in sys.argv[1:]]
+        assert all(p.exists() and p.suffix == ".ipynb" for p in paths)
     hasil = []
     os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
     for path in paths:
-        item = {"notebook": path.relative_to(ROOT).as_posix()}
+        item = {"notebook": path.relative_to(ROOT).as_posix(), "waktu_uji": datetime.now().isoformat(timespec="seconds")}
         try:
-            periksa_sinkron(path)
+            periksa_notebook(path)
             nb = nbformat.read(path, as_version=4)
             # Sel pemeriksaan dilepas sebelum menyimpan bahan peserta.
             pemeriksaan = inspect.getsource(periksa_pemodelan)
@@ -92,6 +96,12 @@ def main():
         hasil.append(item)
         print(item["status"], item["notebook"], flush=True)
     laporan = ROOT / "alat_bantu/laporan"
+    jumlah_dijalankan = len(paths)
+    if sys.argv[1:] and (laporan / "uji_kernel_semua_notebook.json").exists():
+        sebelumnya = json.loads((laporan / "uji_kernel_semua_notebook.json").read_text(encoding="utf-8"))
+        gabungan = {item["notebook"]: item for item in sebelumnya["hasil"]}
+        gabungan.update({item["notebook"]: item for item in hasil})
+        hasil = [gabungan[name] for name in sorted(gabungan)]
     ringkasan = {
         "waktu": datetime.now().isoformat(timespec="seconds"),
         "python": sys.version.split()[0],
@@ -106,42 +116,17 @@ def main():
                 "arch",
             )
         },
-        "jumlah": len(paths),
+        "jumlah": len(hasil),
+        "jumlah_dijalankan_terakhir": jumlah_dijalankan,
         "lulus": sum(i["status"] == "PASS" for i in hasil),
         "hasil": hasil,
     }
     (laporan / "uji_kernel_semua_notebook.json").write_text(
         json.dumps(ringkasan, indent=2), encoding="utf-8"
     )
-    lines = [
-        "# Pengujian seluruh notebook pada kernel baru",
-        "",
-        f"Hasil: **{ringkasan['lulus']}/{len(paths)} notebook lulus** pada Python {ringkasan['python']}.",
-        "Setiap notebook dijalankan dari foldernya sendiri, termasuk sel instalasi paket.",
-        "Sel pemeriksaan tambahan tidak disimpan ke materi peserta. Output pembelajaran disimpan.",
-        "",
-        "| Notebook | Status | Sel kode | Grafik | Model scikit-learn | Perbandingan inferensi |",
-        "|---|---|---:|---:|---:|---:|",
-    ]
-    for item in hasil:
-        lines.append(
-            f"| [{item['notebook']}](../../{item['notebook']}) | {item['status']} | {item.get('sel_kode', '-')} | {item.get('grafik', '-')} | {item.get('model_scikit_learn', '-')} | {item.get('perbandingan_inferensi', '-')} |"
-        )
-    lines += [
-        "",
-        "Perbandingan inferensi memastikan prediksi dari estimator tanpa penalti sesuai dengan",
-        "pelengkap statistik pada X dan y yang sama dalam toleransi numerik. Koefisien dan",
-        "intersep harus berhingga; peluang multinomial harus berjumlah satu dan mengikuti urutan classes_.",
-        "",
-        "Peringatan pada demonstrasi separation atau model khusus dibaca bersama catatan notebook.",
-        "Pengujian kernel lokal ini tidak memeriksa antarmuka Google Colab secara langsung.",
-        "",
-    ]
-    (laporan / "uji_kernel_semua_notebook.md").write_text(
-        "\n".join(lines), encoding="utf-8"
-    )
-    print(f"{ringkasan['lulus']}/{len(paths)} notebook lulus.", flush=True)
-    return 0 if ringkasan["lulus"] == len(paths) else 1
+    simpan_ringkasan()
+    print(f"{ringkasan['lulus']}/{len(hasil)} notebook lulus; {jumlah_dijalankan} dijalankan pada pemeriksaan terakhir.", flush=True)
+    return 0 if ringkasan["lulus"] == len(hasil) else 1
 
 
 if __name__ == "__main__":

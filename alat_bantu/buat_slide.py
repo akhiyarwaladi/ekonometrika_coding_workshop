@@ -155,7 +155,7 @@ catatan(
     s,
     "Buka dengan tujuan praktis: peserta keluar dari ruangan bisa "
     "menjalankan analisis sendiri. Sebutkan bahwa semua kode sudah diuji "
-    "dan data tersedia lokal, jadi tidak ada kejutan teknis.",
+    "dan CSV dibaca dari GitHub dengan koneksi internet.",
 )
 
 # Slide 2: hasil yang dicapai
@@ -164,7 +164,7 @@ slide_isi(
     [
         "Hari 1: alur analisis lengkap, dari regresi linear sampai data panel dan GARCH.",
         "Hari 2: praktik terbimbing, latihan mandiri per topik, ditutup proyek mini.",
-        "Semua data tersedia lokal di folder data/, tanpa mengambil dari internet.",
+        "Notebook membaca CSV langsung dari GitHub; gunakan koneksi internet.",
         "Setiap notebook sudah diuji dijalankan dari atas ke bawah tanpa error.",
     ],
     "Tekankan bahwa workshop ini bukan pengantar teori, tapi latihan alur kerja. "
@@ -239,10 +239,10 @@ slide_dua_kolom(
 slide_isi(
     "Persiapan data (5 menit sebelum mulai)",
     [
-        "Unduh paket workshop, lalu unggah data_tutorial.zip ke panel Files di Colab.",
-        "Jalankan sel pertama di notebook: zip diekstrak otomatis ke folder data/.",
-        'Semua notebook membaca data lokal, contoh: pd.read_csv("data/uts_2.csv").',
-        "Kalau folder data/ kosong, sel pertama akan mengingatkan untuk mengunggah zip.",
+        "Buka notebook .ipynb dari tautan pada README utama.",
+        "Jalankan sel alamat data, lalu lanjutkan sel secara berurutan.",
+        'Baca tabel Kenali data dan lima baris contoh sebelum memasang model.',
+        "CSV dan ZIP tidak perlu diunggah ke Google Colab.",
     ],
     "Lakukan ini bersama-sama di awal. Minta satu peserta berbagi layar untuk "
     "memastikan langkahnya sama. Kesalahan paling umum di workshop adalah data "
@@ -332,11 +332,11 @@ slide_isi(
         "IHSG sejak 1990: GARCH beta 0,82, persistensi 0,99; era krisis 1998 menyentuh IGARCH.",
         "Inflasi bulanan sejak 1968 dan kurs tahunan sejak 1967: krisis 1998 terlihat jelas, inflasi 58 persen dan rupiah melemah 244 persen.",
         "Panel 10 negara ASEAN dari World Bank dan cross-section 34 provinsi dari kompilasi BPS.",
-        "Referensi: pengajar/referensi/sumber_materi.md; alat: alat_bantu/unduh_data_indonesia.py.",
+        "Referensi: pengajar/README.md#sumber; alat: alat_bantu/unduh_data_indonesia.py.",
     ],
     "Ini slide penutup yang kuat: setelah dua hari memakai data simulasi, peserta "
     "melihat hasil yang sama dengan gaya buku teks pada data asli. Tekankan bahwa "
-    "semua data sudah tersedia lokal, dan jalur BPS di pengajar/referensi/sumber_materi.md membuka pintu "
+    "CSV dibaca dari salinan GitHub, dan jalur BPS di pengajar/README.md#sumber membuka pintu "
     "untuk data yang lebih baru.",
 )
 
@@ -471,17 +471,17 @@ slide_dua_kolom(
     "Kendala umum dan solusi cepat",
     "Gejala",
     [
-        "Folder data/ kosong di Colab",
+        "CSV belum terbaca dari GitHub",
         "ModuleNotFoundError linearmodels",
         "Warning perfect separation",
         "Colab terputus di tengah sesi",
     ],
     "Solusi",
     [
-        "Unggah data_tutorial.zip, jalankan sel pertama",
+        "Periksa internet, lalu jalankan sel alamat data",
         "Jalankan sel %pip install linearmodels arch -q",
         "Bukan error; bahan diskusi Sesi 4 soal data terpisah",
-        "Unggah ulang data, simpan salinan notebook ke Drive",
+        "Jalankan ulang dari atas; simpan notebook ke Drive",
     ],
     "Siapkan jawaban ini di ujung lidah. Sebagian besar peserta akan menemui "
     "minimal satu dari empat kendala ini.",
@@ -498,7 +498,7 @@ teks(
     s,
     [
         "Target workshop: dari pertanyaan, data, model, diagnostik, sampai kesimpulan.",
-        "Semua kode sederhana, semua data lokal, semua sudah diuji berjalan.",
+        "Jalankan kode berurutan, baca grafik, lalu jelaskan hasilnya.",
     ],
     0.9,
     3.4,

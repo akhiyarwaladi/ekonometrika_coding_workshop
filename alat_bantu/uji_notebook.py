@@ -26,7 +26,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from konversi_notebook import ke_sumber, parse_sel, sumber_notebook
+import nbformat
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -162,18 +162,9 @@ def periksa_pemodelan(ruang):
     }
 
 
-def periksa_sinkron(path):
-    sumber = sumber_notebook(path)
-    sel_py = []
-    for tipe, baris in parse_sel(sumber.read_text(encoding="utf-8")):
-        if any(b.strip() for b in baris):
-            sel_py.append((tipe, "".join(ke_sumber(tipe, baris))))
+def periksa_notebook(path):
+    nbformat.validate(nbformat.read(path, as_version=4))
     nb = json.loads(path.read_text(encoding="utf-8"))
-    sel_nb = [(s["cell_type"], "".join(s["source"])) for s in nb["cells"]]
-    if sel_py != sel_nb:
-        raise ValueError(
-            "Python dan notebook berbeda. Jalankan alat_bantu/konversi_notebook.py."
-        )
     ids = [s["id"] for s in nb["cells"]]
     if len(ids) != len(set(ids)):
         raise ValueError("ID sel notebook tidak unik.")
@@ -254,7 +245,7 @@ def main():
         buf = io.StringIO()
         pesan = []
         try:
-            periksa_sinkron(path)
+            periksa_notebook(path)
             with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
                 with warnings.catch_warnings(record=True) as pesan:
                     warnings.simplefilter("always")
@@ -280,8 +271,8 @@ def main():
     mode = "zip" if zip_only else "folder_notebook" if dari_folder else "lokal"
     laporan = ROOT / "alat_bantu/laporan"
     laporan.mkdir(exist_ok=True)
-    (laporan / f"uji_notebook_{mode}.log").write_text(log.getvalue(), encoding="utf-8")
-    (laporan / f"uji_notebook_{mode}.json").write_text(
+    (laporan / "uji_kode.log").write_text(log.getvalue(), encoding="utf-8")
+    (laporan / "uji_kode.json").write_text(
         json.dumps(
             {
                 "mode": mode,

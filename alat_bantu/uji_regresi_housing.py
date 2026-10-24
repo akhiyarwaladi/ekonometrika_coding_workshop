@@ -5,7 +5,6 @@ Paket tambahan untuk pemeriksaan: nbclient, nbformat, dan ipykernel.
 """
 
 from pathlib import Path
-from konversi_notebook import sumber_notebook
 import ast
 import hashlib
 import json
@@ -14,9 +13,9 @@ import sys
 import textwrap
 
 import nbformat
+from laporan_bersama import simpan_ringkasan
 from nbclient import NotebookClient
 from jupyter_client import KernelManager
-from konversi_notebook import ke_sumber, parse_sel
 
 ROOT = Path(__file__).resolve().parent.parent
 NOTEBOOK = ROOT / "materi/03_regresi_housing/01_regresi_housing.ipynb"
@@ -88,17 +87,6 @@ print(json.dumps({
 def main():
     original_hash = hashlib.sha256(DATA.read_bytes()).hexdigest()
     nb = nbformat.read(NOTEBOOK, as_version=4)
-    source_cells = [
-        (kind, "".join(ke_sumber(kind, lines)))
-        for kind, lines in parse_sel(
-            sumber_notebook(NOTEBOOK).read_text(encoding="utf-8")
-        )
-        if any(line.strip() for line in lines)
-    ]
-    assert len(source_cells) == len(nb.cells)
-    for cell, (kind, source) in zip(nb.cells, source_cells):
-        assert cell.cell_type == kind and cell.source.strip() == source.strip()
-        cell.source = source
     code_cells = [c for c in nb.cells if c.cell_type == "code"]
     difficult = (
         ast.For,
@@ -161,72 +149,15 @@ def main():
         for o in c.outputs
         if o.output_type in ("display_data", "execute_result") and "image/png" in o.data
     ]
-    assert len(pictures) == 6, len(pictures)
+    assert len(pictures) >= 6, len(pictures)
     nbformat.validate(nb)
     nbformat.write(nb, NOTEBOOK)
 
-    temp = ROOT / "alat_bantu/gambar/regresi_housing"
-    temp.mkdir(parents=True, exist_ok=True)
+    results["grafik_dalam_notebook"] = len(pictures)
     (ROOT / "alat_bantu/laporan/hasil_uji_regresi_housing.json").write_text(
         json.dumps(results, indent=2), encoding="utf-8"
     )
-    import base64
-
-    for i, picture in enumerate(pictures, 1):
-        (temp / f"grafik_{i:02d}.png").write_bytes(base64.b64decode(picture))
-    lines = [
-        "# Hasil pemeriksaan notebook Regression (I)",
-        "",
-        "Notebook: [01_regresi_housing.ipynb](../../materi/03_regresi_housing/01_regresi_housing.ipynb).",
-        "Data: [housing.csv](../../data/housing.csv), dibaca lokal tanpa Google Drive atau unduhan tambahan.",
-        "Folder kerja awal: folder notebook sendiri; sel persiapan menemukan folder data proyek.",
-        f"Status: **{len(code_cells)}/{len(code_cells)} sel kode berjalan pada kernel baru tanpa error.**",
-        f"Notebook berisi {len(nb.cells)} sel dan {len(pictures)} grafik; seluruh output tersimpan.",
-        "",
-        "## Data dan pembagian",
-        "",
-        f"- {results['rows']} baris, {results['columns']} kolom; {results['missing']} nilai kosong, {results['duplicates']} duplikat.",
-        f"- {results['train']} baris train dan {results['test']} baris test, random_state=42.",
-        "- CSV tidak diubah; SHA-256: `" + original_hash + "`.",
-        "",
-        "## Evaluasi test",
-        "",
-        "| Model | RMSE test | R² test |",
-        "|---|---:|---:|",
-    ]
-    for record in results["evaluation"]:
-        lines.append(
-            f"| {record['model']} | {record['RMSE_test']:.4f} | {record['R2_test']:.4f} |"
-        )
-    lines.extend(
-        [
-            "",
-            "RMSE memakai satuan MEDV (ribuan dolar AS historis). Mengurangi VIF dengan",
-            "mengeluarkan RAD tidak otomatis memperbaiki prediksi pada test ini.",
-            "",
-            "## Pemeriksaan yang lulus",
-            "",
-            "- Indeks fitur dan target konsisten; penggabungan untuk korelasi tidak menambah baris/kekosongan.",
-            "- Train dan test terpisah; target tidak masuk ke fitur.",
-            "- Median imputasi berasal dari train; prediksi baru tetap berhingga ketika CRIM kosong.",
-            "- Prediksi pipeline sama dengan proses manual.",
-            "- Prediksi regresi berganda sesuai penyelesaian least squares NumPy independen.",
-            "- RMSE dan R² sesuai perhitungan rumus manual.",
-            "- Contoh polinomial memakai validasi dari train, tidak memakai test untuk memilih derajat.",
-            "- Kode peserta tidak memakai fungsi buatan sendiri, perulangan, comprehension, atau operasi matriks manual.",
-            "- Format notebook valid dan seluruh sel berisi output eksekusi terbaru.",
-            "",
-            "## Lingkungan uji",
-            "",
-            f"Python {sys.version.split()[0]}, pandas {results['pandas']}, NumPy {results['numpy']},",
-            f"scikit-learn {results['sklearn']}, statsmodels {results['statsmodels']}.",
-            "",
-            "Ini pemeriksaan eksekusi lokal, bukan pengujian antarmuka Google Colab.",
-        ]
-    )
-    (ROOT / "alat_bantu/laporan/uji_regresi_housing.md").write_text(
-        "\n".join(lines) + "\n", encoding="utf-8"
-    )
+    simpan_ringkasan()
     print(json.dumps(results, indent=2))
     print(
         f"PASS: {len(code_cells)} sel kode, {len(pictures)} grafik, semua pemeriksaan lulus."

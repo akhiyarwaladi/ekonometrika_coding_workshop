@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "jumlah_notebook": 23,
+  "jumlah_gambar": 80,
+  "tinjauan_tampilan": "PASS",
+  "notebook": [
+    {
+      "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
+      "gambar": 4
+    },
+    {
+      "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
+      "gambar": 4
+    },
+    {
+      "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
+      "gambar": 5
+    },
+    {
+      "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
+      "gambar": 6
+    },
+    {
+      "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
+      "gambar": 6
+    },
+    {
+      "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
+      "gambar": 3
+    },
+    {
+      "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/02_latihan/02_bentuk_fungsional.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
+      "gambar": 2
+    },
+    {
+      "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
+      "gambar": 5
+    },
+    {
+      "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
+      "gambar": 6
+    },
+    {
+      "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
+      "gambar": 8
+    },
+    {
+      "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
+      "gambar": 1
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
+      "gambar": 1
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
+      "gambar": 3
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb",
+      "gambar": 4
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
+      "gambar": 3
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
+      "gambar": 3
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
+      "gambar": 3
+    },
+    {
+      "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
+      "gambar": 3
+    }
+  ],
+  "masalah": [],
+  "lembar_lokal": [
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_01.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_02.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_03.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_04.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_05.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_06.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_07.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_08.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_09.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_10.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_11.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_12.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_13.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_14.png"
+  ]
+}
