@@ -2,8 +2,8 @@
   "status": "PASS",
   "jumlah_csv": 59,
   "jumlah_definisi_kolom": 266,
-  "jumlah_pasangan_tutorial": 22,
-  "jumlah_tabel_di_tutorial": 82,
+  "jumlah_pasangan_tutorial": 23,
+  "jumlah_tabel_di_tutorial": 83,
   "kode_dan_output_notebook_tetap": true,
   "tutorial": [
     {
@@ -140,6 +140,12 @@
       "dataset": [
         "contoh_taksi",
         "housing.csv"
+      ]
+    },
+    {
+      "sumber": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.py",
+      "dataset": [
+        "provinsi_2021.csv"
       ]
     },
     {

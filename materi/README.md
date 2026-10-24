@@ -14,6 +14,7 @@ dapat dipakai untuk mencari singkatan yang belum dikenal.
 | [01_ekonometrika/](01_ekonometrika/README.md) | Mulai dari `00_persiapan_colab.ipynb`, kemudian ikuti contoh 01 sampai 06. |
 | [02_latihan/](02_latihan/README.md) | Kerjakan latihan setelah mempelajari contoh dengan nomor yang sama. |
 | [03_regresi_housing/](03_regresi_housing/README.md) | Praktik regresi dari membaca data sampai menilai prediksi, mengikuti slide. |
+| [04_dashboard_indonesia/](04_dashboard_indonesia/README.md) | Penutup: ubah analisis menjadi dashboard interaktif dari notebook, tanpa terminal. |
 
 Tautan **Buka di Colab** untuk setiap notebook tersedia pada
 [daftar materi](../panduan/00_daftar_materi.md). Unggah

@@ -227,3 +227,16 @@ melengkapi contoh ekonometrika dengan supervised learning sesuai
 Notebook mencakup pembagian train/test, imputasi berdasarkan train, regresi
 sederhana dan berganda, VIF, RMSE, R², prediksi baru, serta validasi
 underfitting/overfitting. Hasil uji ada di [laporan Housing](../laporan/uji_regresi_housing.md).
+
+## Materi penutup: dashboard ekonomi provinsi
+
+[Notebook dashboard](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb)
+memakai data `provinsi_2021.csv` untuk menyatukan pemahaman data, grafik,
+regresi, dan evaluasi dalam sebuah aplikasi interaktif. Peserta menjalankan
+sel notebook untuk menulis aplikasi, menyalakan server, dan menampilkan pratinjau.
+Tidak ada langkah menjalankan Python di terminal.
+
+Paket kini memuat 23 notebook: 22 materi sebelumnya dan satu notebook penutup.
+Sel instalasi pada notebook terakhir menyiapkan Streamlit dan Plotly.
+Alokasi yang disarankan 60 menit; akhiri dengan presentasi pola data dan
+simulasi dalam dua menit per kelompok.

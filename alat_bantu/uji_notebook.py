@@ -13,6 +13,7 @@ import contextlib
 import io
 import json
 import os
+import shlex
 import shutil
 import sys
 import tempfile
@@ -39,6 +40,15 @@ plt.show = tutup_grafik
 
 def jalankan_sel(sumber, label, ruang):
     baris = sumber.splitlines()
+    if baris and baris[0].startswith("%%writefile "):
+        argumen = shlex.split(baris[0])[1:]
+        mode = "a" if "-a" in argumen else "w"
+        tujuan = Path(argumen[-1]).resolve()
+        assert tujuan.is_relative_to(Path.cwd().resolve()), tujuan
+        with tujuan.open(mode, encoding="utf-8") as file:
+            file.write("\n".join(baris[1:]) + "\n")
+        print(f"Berkas aplikasi disimpan: {tujuan.name}")
+        return
     # Perintah instalasi milik IPython; paket diuji lewat impor pada sel berikutnya.
     kode = "\n".join("pass" if s.lstrip().startswith("%pip ") else s for s in baris)
     pohon = ast.parse(kode, filename=label)
@@ -68,6 +78,12 @@ def jalankan(path, workdir):
         hasil = periksa_pemodelan(ruang)
         print("Pemeriksaan model:", hasil)
     finally:
+        proses = ruang.get("proses_dashboard")
+        if proses is not None and proses.poll() is None:
+            proses.terminate()
+            proses.wait(timeout=10)
+        if "log_dashboard" in ruang:
+            ruang["log_dashboard"].close()
         os.chdir(semula)
         sys.path.pop(0)
         plt.close("all")
@@ -165,7 +181,7 @@ def periksa_sinkron(path):
         if sel["cell_type"] != "code":
             continue
         kode = "\n".join(
-            "pass" if s.lstrip().startswith("%pip ") else s
+            "pass" if s.lstrip().startswith(("%pip ", "%%writefile ")) else s
             for s in "".join(sel["source"]).splitlines()
         )
         if any(isinstance(n, sulit) for n in ast.walk(ast.parse(kode))):

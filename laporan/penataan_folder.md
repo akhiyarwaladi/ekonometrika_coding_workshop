@@ -1,6 +1,6 @@
 # Hasil penataan folder tutorial
 
-Diperiksa pada 24-10-2026 15:40 waktu komputer.
+Diperiksa pada 24-10-2026 16:24 waktu komputer.
 
 ## Struktur dan integritas
 
@@ -9,10 +9,10 @@ Diperiksa pada 24-10-2026 15:40 waktu komputer.
 - 103 berkas data, PDF, dan gambar yang diperiksa sama persis dengan hash sebelum penataan.
 - 59 CSV dan satu modul pendukung dalam ZIP sama dengan berkas di folder proyek.
 - Seluruh 59 CSV sama persis dengan salinan sebelum penataan; nama kolom dan angka tidak berubah.
-- 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.
-- 82 tabel Kenali data menjelaskan variabel sebelum dataset dibaca; definisi seluruh 59 CSV tercakup dalam kamus variabel.
+- 23 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.
+- 83 tabel Kenali data menjelaskan variabel sebelum dataset dibaca; definisi seluruh 59 CSV tercakup dalam kamus variabel.
 - Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.
-- 380 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
+- 396 tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.
 - 31 PNG lama berukuran 3000 × 1688 piksel, 300 dpi, tersimpan di arsip lokal.
 - 31 PNG tajam berurutan; ukuran 6000 × 3375 piksel dan metadata 600 dpi; isi ZIP sama persis dengan PNG terpisah.
 
@@ -22,7 +22,10 @@ Diperiksa pada 24-10-2026 15:40 waktu komputer.
 |---|---|
 | Folder utama proyek | 22/22 lulus |
 | Folder masing-masing notebook | 22/22 lulus |
-| Folder kosong dengan ZIP saja | 22/22 lulus |
+| Folder kosong dengan ZIP saja | 23/23 lulus |
+
+Dashboard penutup mempunyai pengujian interaksi tersendiri; hasilnya ada di
+[laporan dashboard](uji_dashboard.md). Materi ini dijalankan dari notebook tanpa terminal peserta.
 
 Housing juga dijalankan pada kernel Jupyter baru dari folder notebook. Hasil dan
 enam grafik tersimpan di notebook; angka prediksi dan metrik diperiksa secara independen.

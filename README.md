@@ -11,6 +11,7 @@ yang belum mempunyai pengalaman coding.
 | Menampilkan slide sebagai gambar | [31 PNG tajam, 6000 × 3375 piksel](slide/png_regresi_tajam/) atau [ZIP seluruh PNG](paket/png_regresi_tajam.zip). |
 | Mulai belajar dari awal | [Panduan pemula](panduan/01_panduan_pemula.md), lalu [buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb). |
 | Praktik regresi mengikuti slide | [Buka notebook Housing di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb). |
+| Penutup: membuat dashboard interaktif | [Buka notebook dashboard di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb). Semua langkah dijalankan dari notebook. |
 | Memilih contoh atau latihan berikutnya | [Daftar materi dan tautan Colab](panduan/00_daftar_materi.md). |
 | Menyiapkan pengajaran | [Bahan pengajar](pengajar/README.md). |
 
@@ -54,6 +55,7 @@ dan GARCH tetap memakai pustaka yang sesuai. Rinciannya ada di
 | [materi/01_ekonometrika/](materi/01_ekonometrika/README.md) | Tujuh notebook contoh ekonometrika, urutan 00 sampai 06. |
 | [materi/02_latihan/](materi/02_latihan/README.md) | Tujuh notebook latihan dan tugas proyek mini. |
 | [materi/03_regresi_housing/](materi/03_regresi_housing/README.md) | Praktik regresi sesuai slide dengan data Housing. |
+| [materi/04_dashboard_indonesia/](materi/04_dashboard_indonesia/README.md) | Materi penutup: dashboard, grafik interaktif, regresi, dan simulasi dari notebook. |
 | [data/](data/README.md) | Seluruh 59 CSV untuk tutorial. |
 | [paket/](paket/README.md) | Paket data untuk Colab dan ZIP berisi 31 PNG tajam. |
 | [slide/](slide/README.md) | Slide pembuka, PDF regresi, dan 31 PNG tajam berukuran 6000 × 3375 piksel. |

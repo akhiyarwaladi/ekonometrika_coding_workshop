@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
+  "provinsi": 34,
+  "jumlah_bagian_aplikasi": 4,
+  "rmse_uji_default": 4.446708694590492,
+  "r2_uji_default": 0.19929195718859616,
+  "pemeriksaan": [
+    "Ringkasan 34 provinsi, RMSE, dan R² sesuai perhitungan independen.",
+    "Pilihan indikator peringkat dan sumbu grafik dapat diubah.",
+    "Slider mengubah prediksi; hasil sesuai model OLS independen.",
+    "Satu atau dua X bekerja; pilihan X kosong ditangani tanpa error.",
+    "Filter Jambi, jumlah provinsi sedikit, dan pilihan kosong ditangani dengan benar.",
+    "Model dan tabel mengikuti filter 10 provinsi yang dipilih.",
+    "X konstan ditangani tanpa membentuk model yang menyesatkan."
+  ],
+  "batas_uji": "Interaksi Streamlit diuji dengan AppTest lokal; antarmuka Google Colab tidak dikendalikan dalam pengujian ini.",
+  "kernel_notebook": {
+    "status": "PASS",
+    "sel_kode": 10,
+    "server_dan_healthcheck": "PASS",
+    "proses_uji_dihentikan": true
+  }
+}

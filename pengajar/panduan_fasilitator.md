@@ -237,6 +237,29 @@ tambahan atau tugas mandiri:
   memakai notebook 00-03, sesi 9-11 memakai notebook 04, sesi 12-15
   memakai notebook 05-06.
 
+## Penutup pilihan: dashboard ekonomi Indonesia (60 menit)
+
+Gunakan [notebook dashboard](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb).
+Seluruh aplikasi dibuat dan dijalankan dari notebook. Siapkan `data_tutorial.zip`
+yang sama dengan sesi sebelumnya; peserta tidak perlu terminal atau token ngrok.
+
+| Waktu | Kegiatan |
+|---|---|
+| 10 menit | Membaca definisi IPM, pengangguran, dan kemiskinan serta menyiapkan data. |
+| 15 menit | Menambahkan judul, filter provinsi, ringkasan, dan grafik. |
+| 15 menit | Membaca kode regresi, evaluasi data uji, dan slider skenario. |
+| 10 menit | Menjalankan server serta membuka pratinjau dari sel notebook. |
+| 10 menit | Presentasi singkat: pola data, perubahan prediksi, dan satu keterbatasan. |
+
+Tunjukkan bahwa ringkasan menggunakan rata-rata antarprovinsi tanpa bobot penduduk,
+serta bahwa data berasal dari 2021. Jumlah provinsi kecil dan R² data uji dapat rendah
+atau negatif. Tujuan sesi adalah menyajikan analisis yang dapat dicoba serta dijelaskan;
+simulasi tidak menunjukkan dampak sebab akibat.
+
+Jika waktu terbatas, pengajar dapat menyiapkan aplikasi dengan menjalankan notebook
+terlebih dahulu. Peserta mulai dari menggunakan filter, kemudian menyunting judul atau
+satu pilihan grafik. Setelah selesai, hentikan proses melalui sel terakhir.
+
 ## Peta alur analisis
 
 ```mermaid

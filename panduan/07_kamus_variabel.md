@@ -1080,6 +1080,7 @@ Sumber definisi: [rujukan data](https://github.com/sainsdataid/dataset/blob/main
 Dijelaskan pada:
 
 - [materi/02_latihan/06_data_indonesia.ipynb](../materi/02_latihan/06_data_indonesia.ipynb)
+- [materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb)
 - [pengajar/kunci_jawaban/06_data_indonesia.ipynb](../pengajar/kunci_jawaban/06_data_indonesia.ipynb)
 
 <a id="regresi_log_csv"></a>

@@ -12,6 +12,10 @@
 
 ## Saat mengajar
 
+Untuk penutup, gunakan [notebook dashboard](../materi/04_dashboard_indonesia/README.md).
+Peserta melihat bagaimana analisis yang sudah dipelajari menjadi aplikasi yang
+bisa dicoba melalui tombol dan slider. Seluruh langkah dijalankan dari notebook.
+
 Mulai dari [panduan fasilitator](panduan_fasilitator.md) untuk alur kelas dan
 penjelasan hasil. [Kunci jawaban](kunci_jawaban/) mempunyai nama yang sama
 dengan notebook pasangannya di [materi/02_latihan/](../materi/02_latihan/),

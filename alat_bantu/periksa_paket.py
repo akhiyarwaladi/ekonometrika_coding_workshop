@@ -26,7 +26,7 @@ def hash_file(path):
 
 
 def main():
-    abaikan = {".git", ".venv", "arsip", "__pycache__", ".ipynb_checkpoints"}
+    abaikan = {".git", ".venv", "arsip", "hasil_dashboard", "__pycache__", ".ipynb_checkpoints"}
     standar = {"README.md", ".gitignore", ".gitattributes", "requirements.txt"}
     files = [p for p in ROOT.rglob("*") if not set(p.relative_to(ROOT).parts) & abaikan]
     for path in files:
@@ -80,7 +80,7 @@ def main():
     notebooks = sorted((ROOT / "materi").rglob("*.ipynb")) + sorted(
         (ROOT / "pengajar/kunci_jawaban").glob("*.ipynb")
     )
-    assert len(notebooks) == 22
+    assert len(notebooks) == 23
     kamus = baca_kamus()
     jumlah_tabel_variabel = 0
     for path in notebooks:
@@ -144,7 +144,7 @@ def main():
             if cadangan_path.exists()
             else "- ZIP cadangan lokal tidak disertakan; integritas data diperiksa melalui hash pada peta nama dan kesesuaian paket data."
         ),
-        "- 22 notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.",
+        f"- {len(notebooks)} notebook valid, sinkron dengan sumber .py, dan tidak memuat sintaks tingkat lanjut yang dibatasi untuk peserta.",
         f"- {jumlah_tabel_variabel} tabel Kenali data menjelaskan variabel sebelum dataset dibaca; definisi seluruh 59 CSV tercakup dalam kamus variabel.",
         "- Tujuh latihan memiliki pasangan kunci jawaban dengan nama berkas yang sama.",
         f"- {jumlah_tautan} tautan lokal pada dokumen panduan mengarah ke berkas/folder yang tersedia.",
@@ -174,6 +174,14 @@ def main():
         (ROOT / "laporan/hasil_uji_regresi_housing.json").read_text(encoding="utf-8")
     )
     assert housing["checks"] == "PASS"
+    dashboard_path = ROOT / "laporan/uji_dashboard.json"
+    if dashboard_path.exists():
+        dashboard = json.loads(dashboard_path.read_text(encoding="utf-8"))
+        assert dashboard["status"] == "PASS"
+        lines += [
+            "", "Dashboard penutup mempunyai pengujian interaksi tersendiri; hasilnya ada di",
+            "[laporan dashboard](uji_dashboard.md). Materi ini dijalankan dari notebook tanpa terminal peserta.",
+        ]
     lines += [
         "",
         "Housing juga dijalankan pada kernel Jupyter baru dari folder notebook. Hasil dan",

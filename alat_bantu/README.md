@@ -7,8 +7,8 @@ Untuk perkakas pengelola, pasang tambahan dengan
 
 | Perintah | Hasil |
 |---|---|
-| `python alat_bantu/konversi_notebook.py` | Membuat 22 notebook dari sumber `.py`, termasuk kunci jawaban. Output lama dikosongkan. |
-| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 22 pasangan `.py`/`.ipynb` dan panduan kamus; kode serta output notebook dipertahankan. |
+| `python alat_bantu/konversi_notebook.py` | Membuat 23 notebook dari sumber `.py`, termasuk kunci jawaban dan dashboard. Output lama dikosongkan. |
+| `python alat_bantu/sinkron_kamus_variabel.py` | Memperbarui tabel definisi pada 23 pasangan `.py`/`.ipynb` dan panduan kamus; kode serta output notebook dipertahankan. |
 | `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memastikan seluruh kolom CSV sudah didefinisikan dan tabel definisi pada sumber/notebook tetap sinkron. |
 | `python alat_bantu/kemas_data.py` | Membuat ulang `paket/data_tutorial.zip` dari 59 CSV dan `metode_lanjutan.py`. |
 | `python alat_bantu/kemas_png.py` | Memeriksa ukuran dan kelengkapan 31 PNG tajam, lalu membuat ulang `paket/png_regresi_tajam.zip`. |
@@ -16,7 +16,8 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | `python alat_bantu/uji_notebook.py --dari-folder-notebook` | Menguji data ditemukan dari folder masing-masing notebook. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Menguji setiap notebook pada folder kosong yang hanya berisi paket ZIP. |
 | `python alat_bantu/uji_regresi_housing.py` | Menjalankan kernel baru, menyimpan output Housing, enam grafik, dan laporan pengujian. |
-| `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh 22 notebook pada kernel baru, termasuk sel instalasi; menyimpan output dan laporan kesesuaian model. |
+| `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh 23 notebook pada kernel baru, termasuk sel instalasi; menyimpan output dan laporan kesesuaian model. |
+| `python alat_bantu/uji_dashboard.py --notebook` | Menguji interaksi dashboard, angka evaluasi, filter kosong, dan seluruh sel notebook pada kernel baru; server uji dihentikan otomatis. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa nama, tautan, hash data, kesesuaian ZIP, dan pasangan notebook; menyimpan laporan penataan. |
 | `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `gambar/ekonometrika/`. |
 | `python alat_bantu/buat_slide.py` | Membuat ulang `slide/01_pengantar_workshop.pptx`. |

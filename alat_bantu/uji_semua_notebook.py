@@ -38,6 +38,13 @@ def main():
             pemeriksaan += (
                 "\nimport json\nprint(json.dumps(periksa_pemodelan(globals())))"
             )
+            if path.parent.name == "04_dashboard_indonesia":
+                pemeriksaan += (
+                    "\nif 'proses_dashboard' in globals() and proses_dashboard.poll() is None:"
+                    "\n    proses_dashboard.terminate()"
+                    "\n    proses_dashboard.wait(timeout=10)"
+                    "\nlog_dashboard.close()"
+                )
             nb.cells.append(nbformat.v4.new_code_cell(pemeriksaan))
             manager = KernelManager(kernel_name="python3")
             manager.kernel_spec.argv = [

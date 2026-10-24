@@ -39,6 +39,14 @@ Kembali ke [halaman awal](../README.md).
 [housing.csv](../data/housing.csv) dan mengikuti [PNG slide versi tajam](../slide/png_regresi_tajam/).
 [Buka notebook Housing di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb).
 
+## Penutup: dashboard interaktif
+
+[01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb)
+mengubah data 34 provinsi tahun 2021 menjadi dashboard Streamlit berbahasa Indonesia.
+Ada filter, grafik, regresi scikit-learn, evaluasi data uji, simulasi, dan unduhan CSV.
+Semua kode aplikasi serta langkah menjalankannya tersedia di notebook.
+[Buka di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb).
+
 ## Panduan pendukung
 
 - [Panduan pemula](01_panduan_pemula.md)

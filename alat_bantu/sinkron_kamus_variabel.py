@@ -71,7 +71,7 @@ def alias_dan_kode(sels, kamus):
         if sel.startswith("# %% [markdown]"):
             continue
         kode = "\n".join(
-            "pass" if line.lstrip().startswith("%pip ") else line
+            "pass" if line.lstrip().startswith(("%pip ", "%%writefile ")) else line
             for line in sel.splitlines()[1:]
         )
         semua_kode.append(kode)
@@ -208,7 +208,7 @@ def main():
     args = parser.parse_args()
     kamus = baca_kamus()
     paths = sorted((ROOT / "materi").rglob("*.py")) + sorted((ROOT / "pengajar/kunci_jawaban").glob("*.py"))
-    assert len(paths) == 22
+    assert len(paths) == 23
     usage = {k: [] for k in kamus}
     result = []
     for path in paths:
