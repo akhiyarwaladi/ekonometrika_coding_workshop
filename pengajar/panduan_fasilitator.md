@@ -246,6 +246,11 @@ Seluruh aplikasi dibuat dan dijalankan dari notebook. Data yang dipakai hanya
 `provinsi_2021.csv`, dibaca langsung dari GitHub dengan koneksi internet.
 Peserta menjalankan seluruh langkah dari notebook.
 
+Setelah pratinjau, langkah 9 menyediakan tautan ngrok untuk perangkat lain.
+Salinan pribadi pengajar berada di `pengajar/pribadi/01_dashboard_ekonomi_ngrok.ipynb`
+dengan token referensi sudah terisi. Bagikan tautan dashboard kepada peserta.
+Langkah 10 menutup koneksi ngrok dan server; runtime harus tetap aktif selama demo.
+
 | Waktu | Kegiatan |
 |---|---|
 | 10 menit | Membaca definisi IPM, pengangguran, dan kemiskinan serta menyiapkan data. |

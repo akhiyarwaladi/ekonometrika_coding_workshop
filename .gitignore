@@ -3,6 +3,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 hasil_dashboard/
+pengajar/pribadi/
 administrasi/
 arsip/*
 !arsip/README.md

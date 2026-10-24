@@ -40,6 +40,8 @@ def main():
             )
             if path.parent.name == "04_dashboard_indonesia":
                 pemeriksaan += (
+                    "\nif 'konfigurasi_ngrok' in globals():"
+                    "\n    ngrok.kill(pyngrok_config=konfigurasi_ngrok)"
                     "\nif 'proses_dashboard' in globals() and proses_dashboard.poll() is None:"
                     "\n    proses_dashboard.terminate()"
                     "\n    proses_dashboard.wait(timeout=10)"

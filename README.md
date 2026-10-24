@@ -11,7 +11,7 @@ yang belum mempunyai pengalaman coding.
 | Menampilkan slide sebagai gambar | [31 PNG tajam, 6000 × 3375 piksel](slide/png_regresi_tajam/) atau [ZIP seluruh PNG](paket/png_regresi_tajam.zip). |
 | Mulai belajar dari awal | [Panduan pemula](panduan/01_panduan_pemula.md), lalu [buka notebook persiapan di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb). |
 | Praktik regresi mengikuti slide | [Buka notebook Housing di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb). |
-| Penutup: membuat dashboard interaktif | [Buka notebook dashboard di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb). Semua langkah dijalankan dari notebook. |
+| Penutup: membuat dashboard interaktif | [Buka notebook dashboard di Colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb). Pratinjau notebook dan pilihan tautan ngrok; seluruh langkah ada di notebook. |
 | Memilih contoh atau latihan berikutnya | [Daftar materi dan tautan Colab](panduan/00_daftar_materi.md). |
 | Menyiapkan pengajaran | [Bahan pengajar](pengajar/README.md). |
 

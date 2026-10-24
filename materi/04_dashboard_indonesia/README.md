@@ -9,7 +9,27 @@ Peserta cukup menjalankan sel; tidak perlu membuka terminal.
 2. Jalankan sel dari atas, termasuk instalasi dan persiapan data.
 3. Empat sel `%%writefile` menyimpan bagian aplikasi; masing-masing dapat dijalankan ulang.
 4. Jalankan sel server dan sel pratinjau. Di Colab, dashboard tampil dalam keluaran notebook.
-5. Coba filter, grafik, regresi, dan slider. Akhiri dengan tantangan presentasi dua menit.
+5. Untuk tautan yang dapat dibuka dari perangkat lain, ikuti **langkah 9: ngrok** di bawah sel pratinjau.
+6. Coba filter, grafik, regresi, dan slider. Akhiri dengan tantangan presentasi dua menit.
+
+## Akses melalui ngrok
+
+Pada notebook peserta, ubah `gunakan_ngrok = False` menjadi `True`, lalu jalankan
+sel langkah 9 dan masukkan authtoken ngrok pada input tersembunyi. Klik tautan
+**Buka dashboard melalui ngrok** yang muncul. Jika ngrok menampilkan halaman
+pemberitahuan, klik **Visit Site**. Biarkan runtime dan server tetap berjalan.
+Tautan membuka dashboard yang sama dengan pratinjau notebook.
+
+Salinan pribadi pengajar disimpan lokal di
+`pengajar/pribadi/01_dashboard_ekonomi_ngrok.ipynb`. Token dari notebook referensi
+sudah terisi dan ngrok langsung diaktifkan. Berkas ini dikecualikan dari GitHub
+karena memuat token akun; yang dibagikan kepada peserta adalah tautan dashboard.
+Untuk menggunakan salinan pribadi di Colab, unggah notebook tersebut lalu jalankan dari atas.
+Data tetap dibaca dari GitHub, sehingga tidak ada CSV yang perlu diunggah.
+
+Langkah 10 menghentikan server dan koneksi ngrok milik notebook ini.
+Menjalankan ulang langkah 9 mengganti koneksi sebelumnya.
+[Rujukan ngrok untuk Colab](https://ngrok.com/docs/using-ngrok-with/googleColab).
 
 Dashboard hanya memakai **[provinsi_2021.csv](../../data/provinsi_2021.csv)**: data 34 provinsi pada **2021**. Pengguna dapat memilih provinsi,
 membandingkan IPM, pengangguran, dan kemiskinan, melatih regresi scikit-learn,

@@ -16,6 +16,12 @@ Untuk penutup, gunakan [notebook dashboard](../materi/04_dashboard_indonesia/REA
 Peserta melihat bagaimana analisis yang sudah dipelajari menjadi aplikasi yang
 bisa dicoba melalui tombol dan slider. Seluruh langkah dijalankan dari notebook.
 
+Dashboard juga menyediakan tautan ngrok pada langkah 9. Salinan pribadi dengan
+token dari notebook referensi tersimpan lokal di
+`pengajar/pribadi/01_dashboard_ekonomi_ngrok.ipynb`; unggah salinan itu ke Colab
+untuk menjalankan versi pengajar. Berkas pribadi tidak diunggah ke GitHub.
+Versi peserta meminta authtoken sendiri ketika ngrok diaktifkan.
+
 Mulai dari [panduan fasilitator](panduan_fasilitator.md) untuk alur kelas dan
 penjelasan hasil. [Kunci jawaban](kunci_jawaban/) mempunyai nama yang sama
 dengan notebook pasangannya di [materi/02_latihan/](../materi/02_latihan/),

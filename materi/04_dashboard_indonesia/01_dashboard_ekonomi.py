@@ -25,7 +25,7 @@
 # dengan lingkungan yang dipakai untuk menguji materi ini.
 
 # %%
-%pip install -q "streamlit==1.45.1" "plotly==5.24.1" "pandas==2.2.3" "numpy==2.1.3" "scikit-learn==1.6.1"
+%pip install -q "streamlit==1.45.1" "plotly==5.24.1" "pandas==2.2.3" "numpy==2.1.3" "scikit-learn==1.6.1" "pyngrok==9.0.2"
 
 # %% [markdown]
 # Sel berikut menetapkan alamat CSV di GitHub dan membuat folder sementara
@@ -373,6 +373,48 @@ else:
     output.serve_kernel_port_as_iframe(port_dashboard, height=950)
 
 # %% [markdown]
+# ## 9. Pilihan tambahan: buka dashboard melalui ngrok
+#
+# Ngrok membuat tautan HTTPS agar dashboard dapat dibuka dari browser atau perangkat lain.
+# Jalankan langkah 7 terlebih dahulu. Untuk menggunakan tautan ini, ubah
+# `gunakan_ngrok = False` menjadi `True`, lalu jalankan sel berikut.
+# Masukkan **authtoken ngrok** ketika diminta; ketikan token disembunyikan.
+# Token adalah kunci akun, bukan alamat dashboard yang dibagikan kepada peserta.
+#
+# Pada salinan pribadi pengajar, token dari notebook referensi sudah terisi dan
+# `gunakan_ngrok` sudah bernilai `True`. Salinan pribadi disimpan lokal, terpisah dari GitHub.
+#
+# Setelah tautan muncul, klik **Buka dashboard melalui ngrok**. Jika muncul halaman
+# pemberitahuan ngrok, klik **Visit Site**. Biarkan runtime/notebook tetap aktif
+# selama tautan digunakan. Untuk memperbarui dashboard, jalankan lagi langkah 7 dan 9.
+#
+# Rujukan: [panduan ngrok untuk Colab](https://ngrok.com/docs/using-ngrok-with/googleColab)
+# dan [API pyngrok](https://pyngrok.readthedocs.io/en/latest/api.html).
+
+# %%
+from getpass import getpass
+from IPython.display import Markdown
+from pyngrok import conf, ngrok
+
+gunakan_ngrok = False
+
+if gunakan_ngrok:
+    token_ngrok = os.environ.get("NGROK_AUTHTOKEN") or getpass("Authtoken ngrok: ")
+    # Folder sementara memisahkan koneksi notebook ini dari aplikasi lain.
+    konfigurasi_ngrok = conf.PyngrokConfig(
+        ngrok_path=folder_dashboard + "/" + os.path.basename(conf.get_default().ngrok_path),
+        config_path=folder_dashboard + "/ngrok.yml",
+    )
+    ngrok.kill(pyngrok_config=konfigurasi_ngrok)
+    ngrok.set_auth_token(token_ngrok, pyngrok_config=konfigurasi_ngrok)
+    tunnel_ngrok = ngrok.connect(alamat_dashboard, "http", pyngrok_config=konfigurasi_ngrok)
+    alamat_ngrok = tunnel_ngrok.public_url
+    display(Markdown(f"[Buka dashboard melalui ngrok]({alamat_ngrok})"))
+    print("Tautan ngrok aktif selama runtime dan server dashboard berjalan.")
+else:
+    print("Pratinjau notebook tetap tersedia. Ubah gunakan_ngrok menjadi True untuk membuka tautan ngrok.")
+
+# %% [markdown]
 # ### Tantangan penutup: presentasi hasil dalam dua menit
 #
 # 1. Pada tab **Jelajah provinsi**, pilih IPM, lalu jelaskan satu pola yang terlihat.
@@ -391,6 +433,9 @@ else:
 # | Perubahan judul belum terlihat | Ulangi sel bagian yang disunting, lalu sel server dan pratinjau. |
 # | Pratinjau kosong | Pastikan sel server selesai, izinkan akses runtime, lalu ulangi sel pratinjau. |
 # | Runtime dimulai ulang | Jalankan kembali notebook dari sel pertama. |
+# | Tautan ngrok belum muncul | Ubah gunakan_ngrok menjadi True, lalu jalankan langkah 9 setelah server siap. |
+# | Autentikasi ngrok ditolak | Periksa authtoken akun ngrok; gunakan token yang masih aktif. |
+# | Tautan ngrok berhenti | Pastikan runtime aktif, lalu ulangi langkah 7 dan 9. |
 # | Pilihan provinsi kosong | Pilih kembali provinsi atau centang Tampilkan semua provinsi. |
 # | Model belum muncul | Pilih minimal 10 provinsi dan sedikitnya satu X. |
 #
@@ -399,7 +444,7 @@ else:
 # dan [data provinsi](https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv).
 
 # %% [markdown]
-# ## 9. Hentikan setelah selesai mengajar
+# ## 10. Hentikan setelah selesai mengajar
 #
 # Nilai awal `False` membuat dashboard tetap hidup ketika **Run all** dipakai.
 # Setelah selesai mencoba, ubah menjadi `True` dan jalankan hanya sel ini.
@@ -408,11 +453,13 @@ else:
 hentikan_dashboard = False
 
 if hentikan_dashboard:
+    if "konfigurasi_ngrok" in globals():
+        ngrok.kill(pyngrok_config=konfigurasi_ngrok)
     if "proses_dashboard" in globals() and proses_dashboard.poll() is None:
         proses_dashboard.terminate()
         proses_dashboard.wait(timeout=10)
     if "log_dashboard" in globals():
         log_dashboard.close()
-    print("Dashboard sudah dihentikan.")
+    print("Dashboard dan koneksi ngrok sudah dihentikan.")
 else:
     print("Dashboard tetap aktif. Setelah selesai, ubah hentikan_dashboard menjadi True.")

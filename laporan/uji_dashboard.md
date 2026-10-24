@@ -16,7 +16,9 @@ Notebook: [01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashb
 
 Model default pada data uji: RMSE **4.446709 poin persentase**, R² **0.199292**.
 
-Seluruh **10 sel kode** dijalankan pada kernel baru, termasuk instalasi, pembuatan berkas aplikasi, server, dan pratinjau lokal. Server uji dihentikan setelah pemeriksaan.
+Seluruh **11 sel kode** dijalankan pada kernel baru, termasuk instalasi, pembuatan berkas aplikasi, server, dan pratinjau lokal. Server uji dihentikan setelah pemeriksaan.
+
+Ngrok: PASS: HTTPS, healthcheck dan halaman Streamlit melalui internet. Token dan tautan sementara tidak disimpan pada laporan.
 
 Kode aplikasi disimpan dalam empat sel notebook; tidak memerlukan langkah terminal dari peserta.
 Pratinjau browser lokal disimpan pada [gambar simulasi](../gambar/dashboard/pratinjau_simulasi.png).

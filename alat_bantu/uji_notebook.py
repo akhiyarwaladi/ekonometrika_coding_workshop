@@ -90,6 +90,9 @@ def jalankan(path, workdir, data_lokal=False):
         hasil = periksa_pemodelan(ruang)
         print("Pemeriksaan model:", hasil)
     finally:
+        konfigurasi = ruang.get("konfigurasi_ngrok")
+        if konfigurasi is not None:
+            ruang["ngrok"].kill(pyngrok_config=konfigurasi)
         proses = ruang.get("proses_dashboard")
         if proses is not None and proses.poll() is None:
             proses.terminate()

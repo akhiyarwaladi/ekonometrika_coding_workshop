@@ -232,9 +232,10 @@ underfitting/overfitting. Hasil uji ada di [laporan Housing](../laporan/uji_regr
 memakai data `provinsi_2021.csv` untuk menyatukan pemahaman data, grafik,
 regresi, dan evaluasi dalam sebuah aplikasi interaktif. Peserta menjalankan
 sel notebook untuk menulis aplikasi, menyalakan server, dan menampilkan pratinjau.
+Di bawah pratinjau, langkah 9 menyediakan akses lewat tautan HTTPS ngrok.
 Tidak ada langkah menjalankan Python di terminal.
 
 Paket kini memuat 23 notebook: 22 materi sebelumnya dan satu notebook penutup.
-Sel instalasi pada notebook terakhir menyiapkan Streamlit dan Plotly.
+Sel instalasi pada notebook terakhir menyiapkan Streamlit, Plotly, dan pyngrok.
 Alokasi yang disarankan 60 menit; akhiri dengan presentasi pola data dan
 simulasi dalam dua menit per kelompok.

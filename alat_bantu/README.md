@@ -18,6 +18,7 @@ Untuk perkakas pengelola, pasang tambahan dengan
 | `python alat_bantu/uji_regresi_housing.py` | Menjalankan kernel baru, menyimpan output Housing, enam grafik, dan laporan pengujian. |
 | `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh 23 notebook pada kernel baru, termasuk sel instalasi; menyimpan output dan laporan kesesuaian model. |
 | `python alat_bantu/uji_dashboard.py --notebook` | Menguji interaksi dashboard, angka evaluasi, filter kosong, dan seluruh sel notebook pada kernel baru; server uji dihentikan otomatis. |
+| `python alat_bantu/uji_dashboard.py --ngrok` | Menjalankan kernel dan memeriksa HTTPS, healthcheck, serta halaman dashboard melalui ngrok. Siapkan `NGROK_AUTHTOKEN` di lingkungan pengujian; koneksi uji ditutup otomatis. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa nama, tautan, hash data, kesesuaian ZIP, dan pasangan notebook; menyimpan laporan penataan. |
 | `python alat_bantu/buat_gambar.py` | Membuat ulang grafik di `gambar/ekonometrika/`. |
 | `python alat_bantu/buat_slide.py` | Membuat ulang `slide/01_pengantar_workshop.pptx`. |

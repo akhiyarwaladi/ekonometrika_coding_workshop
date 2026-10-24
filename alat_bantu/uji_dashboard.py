@@ -10,6 +10,7 @@ from tempfile import TemporaryDirectory
 import argparse
 import ast
 import json
+import os
 import shutil
 import sys
 
@@ -36,16 +37,31 @@ def tanpa_error(app):
     assert not app.exception, str(app.exception)
 
 
-def uji_kernel():
+def uji_kernel(ngrok_aktif=False):
     notebook = nbformat.read(NOTEBOOK, as_version=4)
+    pemeriksaan_ngrok = ""
+    if ngrok_aktif:
+        assert os.environ.get("NGROK_AUTHTOKEN"), "Siapkan NGROK_AUTHTOKEN di lingkungan pengujian."
+        sel_ngrok = next(c for c in notebook.cells if c.cell_type == "code" and "gunakan_ngrok = False" in c.source)
+        sel_ngrok.source = sel_ngrok.source.replace("gunakan_ngrok = False", "gunakan_ngrok = True")
+        pemeriksaan_ngrok = (
+            "assert alamat_ngrok.startswith('https://')\n"
+            "headers_ngrok = {'ngrok-skip-browser-warning': 'true'}\n"
+            "cek_ngrok = requests.get(alamat_ngrok + '/_stcore/health', headers=headers_ngrok, timeout=30)\n"
+            "assert cek_ngrok.status_code == 200 and cek_ngrok.text.strip() == 'ok'\n"
+            "halaman_ngrok = requests.get(alamat_ngrok, headers=headers_ngrok, timeout=30)\n"
+            "assert halaman_ngrok.status_code == 200 and 'streamlit' in halaman_ngrok.text.lower()\n"
+        )
     cleanup = (
+        "if 'konfigurasi_ngrok' in globals():\n"
+        "    ngrok.kill(pyngrok_config=konfigurasi_ngrok)\n"
         "if 'proses_dashboard' in globals() and proses_dashboard.poll() is None:\n"
         "    proses_dashboard.terminate()\n"
         "    proses_dashboard.wait(timeout=10)\n"
         "if 'log_dashboard' in globals():\n"
         "    log_dashboard.close()\n"
     )
-    notebook.cells.append(nbformat.v4.new_code_cell(cleanup))
+    notebook.cells.append(nbformat.v4.new_code_cell(pemeriksaan_ngrok + cleanup))
     manager = KernelManager(kernel_name="python3")
     manager.kernel_spec.argv = [sys.executable, "-m", "ipykernel_launcher", "-f", "{connection_file}"]
     client = NotebookClient(notebook, km=manager, timeout=300, resources={"metadata": {"path": str(NOTEBOOK.parent)}})
@@ -70,17 +86,20 @@ def uji_kernel():
     assert all(c.execution_count is not None for c in code_cells)
     assert not [o for c in code_cells for o in c.outputs if o.output_type == "error"]
     for cell in code_cells:
+        cell.source = cell.source.replace("gunakan_ngrok = True", "gunakan_ngrok = False")
         # Instalasi dan alamat pratinjau bersifat khusus untuk runtime pengujian.
-        if cell.source.startswith("%pip ") or "serve_kernel_port_as_iframe" in cell.source:
+        if cell.source.startswith("%pip ") or "serve_kernel_port_as_iframe" in cell.source or "gunakan_ngrok = False" in cell.source:
             cell.outputs = []
     nbformat.validate(notebook)
     nbformat.write(notebook, NOTEBOOK)
-    return {"status": "PASS", "sel_kode": len(code_cells), "server_dan_healthcheck": "PASS", "proses_uji_dihentikan": True}
+    return {"status": "PASS", "sel_kode": len(code_cells), "server_dan_healthcheck": "PASS", "proses_uji_dihentikan": True,
+            "ngrok": "PASS: HTTPS, healthcheck dan halaman Streamlit melalui internet" if ngrok_aktif else "Opsional; tidak diaktifkan pada pengujian ini"}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--notebook", action="store_true")
+    parser.add_argument("--ngrok", action="store_true", help="Uji tautan HTTPS dengan NGROK_AUTHTOKEN dari lingkungan, lalu tutup koneksi.")
     args = parser.parse_args()
     periksa_sinkron(NOTEBOOK)
     notebook = nbformat.read(NOTEBOOK, as_version=4)
@@ -177,8 +196,8 @@ def main():
         "rmse_uji_default": float(rmse), "r2_uji_default": float(r2), "pemeriksaan": checks,
         "batas_uji": "Interaksi Streamlit diuji dengan AppTest lokal; antarmuka Google Colab tidak dikendalikan dalam pengujian ini.",
     }
-    if args.notebook:
-        report["kernel_notebook"] = uji_kernel()
+    if args.notebook or args.ngrok:
+        report["kernel_notebook"] = uji_kernel(ngrok_aktif=args.ngrok)
     (ROOT / "laporan/uji_dashboard.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Pengujian notebook dan dashboard ekonomi provinsi", "",
@@ -188,8 +207,9 @@ def main():
     ]
     lines += [f"- {check}" for check in checks]
     lines += ["", f"Model default pada data uji: RMSE **{rmse:.6f} poin persentase**, R² **{r2:.6f}**."]
-    if args.notebook:
+    if args.notebook or args.ngrok:
         lines += ["", f"Seluruh **{report['kernel_notebook']['sel_kode']} sel kode** dijalankan pada kernel baru, termasuk instalasi, pembuatan berkas aplikasi, server, dan pratinjau lokal. Server uji dihentikan setelah pemeriksaan."]
+        lines += ["", "Ngrok: " + report["kernel_notebook"]["ngrok"] + ". Token dan tautan sementara tidak disimpan pada laporan."]
     lines += ["", "Kode aplikasi disimpan dalam empat sel notebook; tidak memerlukan langkah terminal dari peserta.", "Pratinjau browser lokal disimpan pada [gambar simulasi](../gambar/dashboard/pratinjau_simulasi.png).", "", report["batas_uji"], ""]
     (ROOT / "laporan/uji_dashboard.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"PASS: {len(checks)} kelompok pengujian dashboard; RMSE {rmse:.4f}, R² {r2:.4f}.")

@@ -11,3 +11,4 @@ linearmodels==7.1
 arch==8.0.0
 streamlit==1.45.1
 plotly==5.24.1
+pyngrok==9.0.2
