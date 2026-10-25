@@ -4,5 +4,9 @@
   "csv_aktif": 45,
   "csv_cadangan": 14,
   "hash_diperiksa": 85,
-  "tautan_lokal": 255
+  "tautan_lokal": 475,
+  "bagian_notebook": 187,
+  "judul_dan_nomor_bagian": "PASS",
+  "tautan_dan_penanda_bagian": "PASS",
+  "impor_identik_berulang": 0
 }

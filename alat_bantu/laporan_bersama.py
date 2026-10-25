@@ -33,8 +33,11 @@ def simpan_ringkasan():
     lines += ["", "## Struktur dan integritas", ""]
     if struktur:
         lines += [f"Status **{struktur['status']}**: {struktur['notebook']} notebook, {struktur['csv_aktif']} CSV aktif, {struktur['csv_cadangan']} CSV cadangan.",
-                  f"{struktur['hash_diperiksa']} hash berkas terlindungi dan {struktur['tautan_lokal']} tautan lokal diperiksa.",
+                  f"{struktur['hash_diperiksa']} hash berkas terlindungi dan {struktur['tautan_lokal']} tautan materi diperiksa, termasuk tujuan bagian dan tautan Colab.",
                   "31 PNG slide tetap berukuran 6000 × 3375 piksel, 600 dpi, dan sesuai dengan ZIP PNG."]
+        if "bagian_notebook" in struktur:
+            lines += [f"{struktur['bagian_notebook']} bagian pada seluruh notebook diperiksa: judul sesi/latihan/kunci seragam, nomor bagian inti berurutan, dan setiap judul bagian mengawali sel.",
+                      "Seluruh notebook mempunyai bagian Selanjutnya. Tidak ada impor identik yang berulang dalam ruang kerja yang sama."]
     if kamus:
         lines += [f"Definisi {kamus['jumlah_definisi_kolom']} kolom tersedia pada {kamus['jumlah_tabel_di_tutorial']} tabel Kenali data; [katalog data](../../data/README.md) memuat seluruh CSV."]
     if format_data:

@@ -6,11 +6,13 @@ Laporan disimpan ke alat_bantu/laporan/hasil_pemeriksaan.md; tidak menjalankan m
 
 from pathlib import Path
 from zipfile import ZipFile
+import ast
 import csv
 import hashlib
 import json
 import re
 from datetime import datetime
+from urllib.parse import unquote, urlsplit
 
 from PIL import Image
 import nbformat
@@ -25,6 +27,122 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def hash_file(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def baris_markdown(source):
+    """Abaikan isi pagar kode ketika membaca judul dan tautan dokumen."""
+    fenced = False
+    for line in source.splitlines():
+        if line.strip().startswith(("```", "~~~")):
+            fenced = not fenced
+            continue
+        if not fenced:
+            yield line
+
+
+def isi_dokumen(path):
+    if path.suffix == ".ipynb":
+        nb = nbformat.read(path, as_version=4)
+        return "\n\n".join(c.source for c in nb.cells if c.cell_type == "markdown")
+    return path.read_text(encoding="utf-8")
+
+
+def penanda_bagian(path):
+    text = "\n".join(baris_markdown(isi_dokumen(path)))
+    anchors = set(re.findall(r'<a\s+id=[\"\']([^\"\']+)', text))
+    occurrences = {}
+    for line in text.splitlines():
+        match = re.match(r"^#{1,6}\s+(.+)", line)
+        if not match:
+            continue
+        label = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", match[1]).strip().lower()
+        slug = re.sub(r"[^\w\- ]", "", label).replace(" ", "-")
+        n = occurrences.get(slug, 0)
+        occurrences[slug] = n + 1
+        anchors.add(slug + (f"-{n}" if n else ""))
+    return anchors
+
+
+def periksa_tautan(path, berkas):
+    text = "\n".join(baris_markdown(isi_dokumen(path)))
+    prefix = (
+        "https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/",
+        "https://github.com/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/",
+        "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/",
+    )
+    count = 0
+    for target in re.findall(r"\[[^]\n]*\]\(([^)\n]+)\)", text):
+        target = target.strip().strip("<>")
+        parsed = urlsplit(target)
+        own = next((p for p in prefix if target.startswith(p)), None)
+        if own:
+            destination = (ROOT / unquote(parsed.path.split("/main/", 1)[1])).resolve()
+        elif parsed.scheme or parsed.netloc:
+            continue
+        else:
+            destination = (path.parent / unquote(parsed.path)).resolve() if parsed.path else path
+        assert destination.is_relative_to(ROOT), (path, target)
+        assert destination.exists(), (path.relative_to(ROOT), target)
+        if parsed.fragment and destination.suffix in {".md", ".ipynb"}:
+            assert unquote(parsed.fragment) in penanda_bagian(destination), (path.relative_to(ROOT), target, "Bagian tujuan tidak ditemukan")
+        count += 1
+    # Nama berkas yang disebut di dalam teks juga harus dapat ditelusuri.
+    for name in re.findall(r"`([^`\n]+\.(?:csv|ipynb|md))`", text):
+        if any(c in name for c in " ()\""):
+            continue
+        if "/" in name:
+            assert (ROOT / name).exists() or (path.parent / name).exists(), (path, name)
+        else:
+            candidates = berkas.get(name, [])
+            assert candidates, (path, name)
+    return count
+
+
+def periksa_bagian_notebook(path):
+    nb = nbformat.read(path, as_version=4)
+    titles, main_sections = [], []
+    count = 0
+    imports = set()
+    level_sebelumnya = 0
+    for cell in nb.cells:
+        if cell.cell_type == "markdown":
+            for line in baris_markdown(cell.source):
+                heading = re.match(r"^(#{1,6}) ", line)
+                if heading:
+                    level = len(heading[1])
+                    assert level <= level_sebelumnya + 1, (path, line, "Hierarki judul melompat")
+                    level_sebelumnya = level
+            headings = [line for line in baris_markdown(cell.source) if re.match(r"^#{1,2} ", line)]
+            for line in headings:
+                if line.startswith("# "):
+                    titles.append(line)
+                else:
+                    assert cell.source.splitlines()[0] == line, (path, line, "Judul bagian harus mengawali sel")
+                    count += 1
+                    number = re.match(r"^## (\d+)\. ", line)
+                    if number:
+                        main_sections.append(int(number[1]))
+        elif cell.cell_type == "code":
+            assert cell.source.strip(), (path, "Sel kode kosong")
+            if cell.source.startswith("%%") or "set_auth_token" in cell.source:
+                continue
+            source = "\n".join("pass" if s.lstrip().startswith("%") else s for s in cell.source.splitlines())
+            for node in ast.parse(source).body:
+                if isinstance(node, (ast.Import, ast.ImportFrom)):
+                    signature = ast.dump(node, include_attributes=False)
+                    assert signature not in imports, (path, "Impor identik berulang", ast.unparse(node))
+                    imports.add(signature)
+    assert len(titles) == 1 and nb.cells[0].source.startswith(titles[0]), (path, titles)
+    assert main_sections == list(range(1, len(main_sections) + 1)), (path, main_sections)
+    assert main_sections, (path, "Bagian inti belum diberi nomor")
+    assert nb.cells[-1].source.startswith("## Selanjutnya"), path
+    number = path.stem.split("_", 1)[0]
+    if path.parent.name == "01_ekonometrika":
+        assert titles[0].startswith(f"# Sesi {number}: "), (path, titles[0])
+    elif path.parent.name in {"02_latihan", "kunci_jawaban"}:
+        prefix = "# Kunci Lab" if path.parent.name == "kunci_jawaban" else "# Lab"
+        assert titles[0].startswith(f"{prefix} {number}: "), (path, titles[0])
+    return count
 
 
 def main():
@@ -100,29 +218,28 @@ def main():
     ], "Gunakan satu notebook dashboard untuk pratinjau dan ngrok."
     kamus = baca_kamus()
     jumlah_tabel_variabel = 0
+    jumlah_bagian = 0
     for path in notebooks:
         periksa_notebook(path)
         nbformat.validate(nbformat.read(path, as_version=4))
         jumlah_tabel_variabel += len(sinkron(path, kamus, True))
+        jumlah_bagian += periksa_bagian_notebook(path)
     for latihan in (ROOT / "materi/02_latihan").glob("*.ipynb"):
-        assert (ROOT / "pengajar/kunci_jawaban" / latihan.name).exists(), latihan
+        kunci = ROOT / "pengajar/kunci_jawaban" / latihan.name
+        assert kunci.exists(), latihan
+        judul_latihan = nbformat.read(latihan, as_version=4).cells[0].source.splitlines()[0]
+        judul_kunci = nbformat.read(kunci, as_version=4).cells[0].source.splitlines()[0]
+        assert judul_kunci == judul_latihan.replace("# Lab", "# Kunci Lab", 1), (latihan, "Judul latihan dan kunci berbeda")
 
     jumlah_tautan = 0
+    berkas = {}
     for path in files:
-        if path.suffix != ".md" or not path.is_file():
+        if path.is_file():
+            berkas.setdefault(path.name, []).append(path)
+    for path in files:
+        if path.suffix not in {".md", ".ipynb"} or not path.is_file():
             continue
-        teks = path.read_text(encoding="utf-8")
-        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", teks):
-            if re.match(r"[a-zA-Z]+:|#", target):
-                continue
-            lokasi = target.split("#", 1)[0]
-            tujuan = (path.parent / lokasi).resolve()
-            laporan_ini = ROOT / "alat_bantu/laporan/hasil_pemeriksaan.md"
-            assert tujuan.exists() or tujuan == laporan_ini, (
-                path.relative_to(ROOT),
-                target,
-            )
-            jumlah_tautan += 1
+        jumlah_tautan += periksa_tautan(path, berkas)
 
     folder_lama = ROOT / "alat_bantu/arsip/slide/png_regresi_300_dpi"
     png_files = sorted(folder_lama.glob("*.png"))
@@ -147,7 +264,9 @@ def main():
 
     laporan = ROOT / "alat_bantu/laporan"
     hasil = {"status": "PASS", "notebook": len(notebooks), "csv_aktif": len(aktif),
-             "csv_cadangan": 14, "hash_diperiksa": terlindungi, "tautan_lokal": jumlah_tautan}
+             "csv_cadangan": 14, "hash_diperiksa": terlindungi, "tautan_lokal": jumlah_tautan,
+             "bagian_notebook": jumlah_bagian, "judul_dan_nomor_bagian": "PASS",
+             "tautan_dan_penanda_bagian": "PASS", "impor_identik_berulang": 0}
     (laporan / "struktur.json").write_text(json.dumps(hasil, indent=2), encoding="utf-8")
     simpan_ringkasan()
     print(

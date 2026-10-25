@@ -19,6 +19,11 @@ Notebook berisi seluruh kode dan hasil. Sel latihan yang masih berupa komentar d
 
 Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka Google Colab.
 
+Nomor **00 sampai 06** menghubungkan sesi, latihan, dan kunci jawaban dengan nama
+berkas yang sesuai. Nomor folder **01 sampai 04** mengelompokkan jenis bahan:
+materi inti, latihan, praktik Housing, dan dashboard. Nomor **01** di dalam folder
+praktik tambahan menunjukkan urutan praktik pada folder tersebut.
+
 | Urutan | Topik | Contoh | Latihan |
 |---|---|---|---|
 | 00 | Persiapan, format data, dan EDA | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb) | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/00_persiapan_colab.ipynb) |

@@ -6,7 +6,7 @@ Sesi 00 berfokus pada EDA; pembentukan model dimulai pada Sesi 01.
 
 ## Eksekusi seluruh notebook
 
-Hasil: **23/23 notebook lulus**. Waktu uji: 2026-10-25T19:58:51.
+Hasil: **23/23 notebook lulus**. Waktu uji: 2026-10-25T20:36:05.
 Setiap notebook dijalankan pada kernel baru, termasuk sel instalasi. Pemeriksaan model membandingkan prediksi scikit-learn dengan pelengkap inferensi yang sesuai.
 
 | Notebook | Status | Sel kode | Gambar keluaran |
@@ -28,7 +28,7 @@ Setiap notebook dijalankan pada kernel baru, termasuk sel instalasi. Pemeriksaan
 | [materi/03_regresi_housing/01_regresi_housing.ipynb](../../materi/03_regresi_housing/01_regresi_housing.ipynb) | PASS | 31 | 8 |
 | [materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb](../../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb) | PASS | 13 | 1 |
 | [pengajar/kunci_jawaban/00_persiapan_colab.ipynb](../../pengajar/kunci_jawaban/00_persiapan_colab.ipynb) | PASS | 19 | 4 |
-| [pengajar/kunci_jawaban/01_regresi_dasar.ipynb](../../pengajar/kunci_jawaban/01_regresi_dasar.ipynb) | PASS | 17 | 3 |
+| [pengajar/kunci_jawaban/01_regresi_dasar.ipynb](../../pengajar/kunci_jawaban/01_regresi_dasar.ipynb) | PASS | 18 | 3 |
 | [pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb](../../pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb) | PASS | 21 | 4 |
 | [pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb](../../pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb) | PASS | 19 | 4 |
 | [pengajar/kunci_jawaban/04_model_kategorikal.ipynb](../../pengajar/kunci_jawaban/04_model_kategorikal.ipynb) | PASS | 22 | 5 |
@@ -38,8 +38,10 @@ Setiap notebook dijalankan pada kernel baru, termasuk sel instalasi. Pemeriksaan
 ## Struktur dan integritas
 
 Status **PASS**: 23 notebook, 45 CSV aktif, 14 CSV cadangan.
-85 hash berkas terlindungi dan 255 tautan lokal diperiksa.
+85 hash berkas terlindungi dan 475 tautan materi diperiksa, termasuk tujuan bagian dan tautan Colab.
 31 PNG slide tetap berukuran 6000 × 3375 piksel, 600 dpi, dan sesuai dengan ZIP PNG.
+187 bagian pada seluruh notebook diperiksa: judul sesi/latihan/kunci seragam, nomor bagian inti berurutan, dan setiap judul bagian mengawali sel.
+Seluruh notebook mempunyai bagian Selanjutnya. Tidak ada impor identik yang berulang dalam ruang kerja yang sama.
 Definisi 269 kolom tersedia pada 93 tabel Kenali data; [katalog data](../../data/README.md) memuat seluruh CSV.
 
 ## Pembaca berbagai format data
