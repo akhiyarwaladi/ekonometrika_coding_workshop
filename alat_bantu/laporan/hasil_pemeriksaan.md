@@ -5,7 +5,7 @@ Notebook `.ipynb` adalah sumber utama. Grafik pembelajaran tersimpan pada keluar
 
 ## Eksekusi seluruh notebook
 
-Hasil: **23/23 notebook lulus**. Waktu uji: 2026-10-25T17:02:06.
+Hasil: **23/23 notebook lulus**. Waktu uji: 2026-10-25T17:08:13.
 Setiap notebook dijalankan pada kernel baru, termasuk sel instalasi. Pemeriksaan model membandingkan prediksi scikit-learn dengan pelengkap inferensi yang sesuai.
 
 | Notebook | Status | Sel kode | Gambar keluaran |

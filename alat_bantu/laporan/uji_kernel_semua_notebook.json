@@ -1,5 +1,5 @@
 {
-  "waktu": "2026-10-25T17:02:06",
+  "waktu": "2026-10-25T17:08:13",
   "python": "3.13.5",
   "paket": {
     "numpy": "2.1.3",
@@ -11,12 +11,12 @@
   },
   "jumlah": 23,
   "jumlah_dijalankan_terakhir": 3,
-  "sumber_data_uji_terakhir": "Salinan lokal",
+  "sumber_data_uji_terakhir": "GitHub",
   "lulus": 23,
   "hasil": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:01:10",
+      "waktu_uji": "2026-10-25T17:07:11",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -78,7 +78,7 @@
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:01:31",
+      "waktu_uji": "2026-10-25T17:07:36",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -156,7 +156,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:01:49",
+      "waktu_uji": "2026-10-25T17:07:55",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
