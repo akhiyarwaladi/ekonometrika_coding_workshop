@@ -21,6 +21,7 @@ def simpan_ringkasan():
     format_data = baca("uji_format_data.json")
     lines = ["# Hasil pemeriksaan materi", "",
              "Notebook `.ipynb` adalah sumber utama. Grafik pembelajaran tersimpan pada keluaran notebook.",
+             "Sesi 00 berfokus pada EDA; pembentukan model dimulai pada Sesi 01.",
              "[Kembali ke materi](../../README.md)", "", "## Eksekusi seluruh notebook", ""]
     if kernel:
         lines += [f"Hasil: **{kernel['lulus']}/{kernel['jumlah']} notebook lulus**. Waktu uji: {kernel['waktu']}.",

@@ -190,6 +190,14 @@ def periksa_notebook(path):
             "pass" if s.lstrip().startswith(("%pip ", "%%writefile ")) else s
             for s in "".join(sel["source"]).splitlines()
         )
+        if path.stem == "00_persiapan_colab":
+            for node in ast.walk(ast.parse(kode)):
+                if isinstance(node, ast.Attribute) and node.attr in {"fit", "predict", "predict_proba", "score"}:
+                    raise ValueError("Sesi 00 hanya EDA; pemodelan dimulai pada Sesi 01.")
+                if isinstance(node, ast.ImportFrom) and (node.module or "").split(".")[0] in {"sklearn", "statsmodels", "linearmodels", "arch"}:
+                    raise ValueError("Pustaka pemodelan belum digunakan pada Sesi 00.")
+                if isinstance(node, ast.Import) and any(a.name.split(".")[0] in {"sklearn", "statsmodels", "linearmodels", "arch"} for a in node.names):
+                    raise ValueError("Pustaka pemodelan belum digunakan pada Sesi 00.")
         if any(isinstance(n, sulit) for n in ast.walk(ast.parse(kode))):
             raise ValueError("Ada sintaks tingkat lanjut pada sel materi peserta.")
         for node in ast.walk(ast.parse(kode)):

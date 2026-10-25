@@ -1,12 +1,12 @@
 {
   "status": "PASS",
   "jumlah_notebook": 23,
-  "jumlah_gambar": 83,
+  "jumlah_gambar": 96,
   "tinjauan_tampilan": "PASS",
   "notebook": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "gambar": 3
+      "gambar": 4
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
@@ -14,23 +14,23 @@
     },
     {
       "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
-      "gambar": 4
+      "gambar": 6
     },
     {
       "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
-      "gambar": 5
+      "gambar": 7
     },
     {
       "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
-      "gambar": 6
+      "gambar": 9
     },
     {
       "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
-      "gambar": 6
+      "gambar": 7
     },
     {
       "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
-      "gambar": 3
+      "gambar": 4
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
@@ -58,7 +58,7 @@
     },
     {
       "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
-      "gambar": 6
+      "gambar": 7
     },
     {
       "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
@@ -70,7 +70,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "gambar": 2
+      "gambar": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
@@ -112,6 +112,8 @@
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_11.png",
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_12.png",
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_13.png",
-    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_14.png"
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_14.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_15.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_16.png"
   ]
 }

@@ -21,7 +21,7 @@ Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka
 
 | Urutan | Topik | Contoh | Latihan |
 |---|---|---|---|
-| 00 | Persiapan, format data, dan grafik pertama | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb) | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/00_persiapan_colab.ipynb) |
+| 00 | Persiapan, format data, dan EDA | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb) | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/00_persiapan_colab.ipynb) |
 | 01 | Regresi dasar dan prediksi | [01_regresi_dasar](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/01_regresi_dasar.ipynb) | [01_regresi_dasar](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/01_regresi_dasar.ipynb) |
 | 02 | Bentuk fungsional | [02_bentuk_fungsional](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/02_bentuk_fungsional.ipynb) | [02_bentuk_fungsional](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/02_bentuk_fungsional.ipynb) |
 | 03 | Dummy dan asumsi klasik | [03_dummy_asumsi_klasik](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb) | [03_dummy_asumsi_klasik](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/03_dummy_asumsi_klasik.ipynb) |
@@ -61,94 +61,80 @@ CSV sumber tetap di `data/`; enam format lain berada dalam satu folder
 <a id="dasar-notebook"></a>
 ## Dasar notebook untuk pemula
 
-### Perintah yang sering muncul
+### Perintah yang dipakai pada Sesi 00
 
-Sebelum menjalankan sel pembacaan data, baca tabel **Kenali data**.
-Contohnya, `eps` berarti laba per lembar saham dan `der` adalah rasio utang
-terhadap ekuitas. Pada data pendidikan, `GPA` adalah rata-rata nilai mahasiswa,
-sedangkan `GRADE` berkode 1 jika nilai meningkat dan 0 jika tidak meningkat.
+Sesi 00 berfokus pada eksplorasi data (EDA). Baca tabel **Kenali data**
+sebelum menjalankan pembacaan berkas. Pada contoh Indonesia, `Inflasi`
+menyatakan perubahan tahunan IHK dalam persen dan `tahun` adalah tahun kalender.
 Definisi lengkap ada di [kamus variabel](data/README.md#definisi-variabel).
 
 | Contoh | Cara membacanya |
 |---|---|
-| `import pandas as pd` | Siapkan alat untuk mengolah tabel; nama singkatnya `pd`. |
-| `saham = pd.read_csv(URL_DATA + "uts_2.csv")` | Baca berkas dan simpan tabel dengan nama `saham`. |
-| `saham.head()` | Tampilkan lima baris pertama tabel. |
-| `saham["Y_Harga_Saham"]` | Pilih kolom harga saham. Nama kolom harus persis sama. |
-| `model = LinearRegression()` | Siapkan model regresi linear. |
-| `model.fit(X, y)` | Pelajari koefisien dari tabel fitur X dan kolom target y. |
-| `model.predict(X_baru)` | Hitung prediksi untuk tabel fitur baru. |
+| `import pandas as pd` | Siapkan alat untuk tabel; nama singkatnya `pd`. |
+| `makro = pd.read_csv(URL_DATA + "idn_makro_tahunan.csv")` | Baca berkas dan simpan tabel dengan nama `makro`. |
+| `makro.head()` | Tampilkan lima baris pertama. |
+| `makro.shape` | Lihat jumlah baris dan kolom. |
+| `makro.info()` | Periksa nama kolom, tipe, dan nilai yang terisi. |
+| `makro["Inflasi"].mean()` | Hitung rata-rata inflasi antar tahun. |
+| `makro.isna().sum()` | Hitung nilai kosong pada tiap kolom. |
 
-`saham` dan `model` adalah nama tempat menyimpan hasil, disebut variabel.
-Ini berbeda dari variabel ekonomi, misalnya harga saham dan pendapatan.
+`makro` adalah nama tempat menyimpan tabel, disebut variabel Python.
+Kolom ekonomi seperti inflasi mempunyai makna dan satuan tersendiri.
 Nama dengan huruf besar dan kecil dianggap berbeda oleh Python.
 
-### Simbol yang perlu dikenal saat bertemu
+### Simbol yang perlu dikenal
 
 | Simbol | Contoh | Arti |
 |---|---|---|
 | `#` | `# Baca data` | Catatan untuk manusia, tidak dihitung. |
-| `=` | `batas = 0.05` | Simpan nilai ke sebuah nama. |
-| `==` | `gaji["gender"] == "Pria"` | Bandingkan apakah nilainya sama. |
-| `"..."` | `"harga"` | Teks, misalnya nama kolom atau rumus. |
-| `[]` | `[15, 20, 25]` | Daftar nilai; juga dipakai memilih kolom/baris. |
+| `=` | `batas = 2015` | Simpan nilai ke sebuah nama. |
+| `>=` | `makro["tahun"] >= 2015` | Bandingkan apakah tahun minimal 2015. |
+| `"..."` | `"Inflasi"` | Teks, misalnya nama kolom. |
+| `[]` | `makro["Inflasi"]` | Pilih kolom atau baris tabel. |
 | `()` | `print(...)` | Tempat mengisi masukan sebuah perintah. |
-| `.` | `saham.head()` | Jalankan fasilitas milik tabel/hasil tersebut. |
-| `**` | `usia ** 2` | Pangkat, misalnya usia kuadrat. |
-| `~` dalam rumus | `"harga ~ eps + iklan"` | Harga dijelaskan oleh EPS dan iklan. |
+| `.` | `makro.head()` | Jalankan fasilitas milik tabel. |
 
-Pada scikit-learn, pilih variabel penjelas sebagai daftar kolom X.
-`LinearRegression()` menyertakan intersep secara otomatis. Notasi `y ~ x`
-masih dipakai dalam uraian persamaan dan beberapa model khusus.
 Angka desimal di kode memakai titik: ketik `1.5`, bukan `1,5`.
 
-### Contoh lengkap: baca, hitung, lihat
+### Contoh EDA: baca, ringkas, lalu lihat
 
-Jalankan sel berikut secara berurutan setelah sel persiapan data.
+Jalankan sel berikut secara berurutan.
 
 ```python
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
 URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
-saham = pd.read_csv(URL_DATA + "uts_2.csv")
-saham.head()
+makro = pd.read_csv(URL_DATA + "idn_makro_tahunan.csv")
+makro.head()
 ```
 
-Tabel harus memuat kolom `Y_Harga_Saham` dan `X1_Pendapatan_per_Saham`.
-Satu baris tabel mewakili satu perusahaan pada contoh ini.
+Satu baris mewakili satu tahun pengamatan Indonesia.
 
 ```python
-X = saham[["X1_Pendapatan_per_Saham"]]
-y = saham["Y_Harga_Saham"]
-model = LinearRegression()
-model.fit(X, y)
-print("Intersep:", model.intercept_)
-print("Koefisien EPS:", model.coef_[0])
-print("R kuadrat pada data latih:", model.score(X, y))
+makro[["PDB_Growth", "Inflasi", "Pengangguran"]].describe().round(2)
 ```
 
-`coef_[0]` adalah koefisien fitur pertama, yaitu EPS. Angka ini menunjukkan
-perubahan prediksi harga untuk tambahan satu unit EPS. `intercept_` adalah
-intersep. Koefisien belum menunjukkan sebab akibat. R² pada data latih
-merangkum kecocokan; evaluasi prediksi memakai data uji yang terpisah.
-
-P-value dan standard error dibahas pada bagian pelengkap statistik di notebook.
-Nama `uji_...` menandai bagian ini, dengan X dan y yang sama seperti model utama.
+`mean` adalah rata-rata, sedangkan `50%` adalah median. Ringkasan antar tahun
+ini tidak sama dengan akumulasi inflasi selama seluruh periode.
 
 ```python
-# Nilai di dalam [] adalah nilai EPS baru yang ingin diprediksi.
-perusahaan_baru = pd.DataFrame({"X1_Pendapatan_per_Saham": [25]})
-prediksi = model.predict(perusahaan_baru)
-print(prediksi)
+makro.plot(x="tahun", y="Inflasi", marker="o", legend=False)
+plt.xlabel("Tahun")
+plt.ylabel("Inflasi tahunan (%)")
+plt.title("Inflasi Indonesia, 2000 sampai 2025")
+plt.show()
 ```
 
-Hasilnya sekitar 348,1 dalam satuan harga pada data. Untuk latihan pertama,
-ganti **hanya** angka `25` menjadi `20`, jalankan ulang sel prediksi, lalu
-jelaskan mengapa hasilnya berubah.
+Mulai latihan dengan mengganti kolom grafik menjadi `Pengangguran` dan
+menyesuaikan judul serta satuannya. Jelaskan pola yang terlihat dengan kata sendiri.
 
-`pd.DataFrame(...)` membuat tabel baru. Tanda `{}` memasangkan nama kolom
-dengan daftar nilainya. Pada tahap ini cukup ikuti bentuk contoh tersebut.
+### Pemodelan dimulai pada Sesi 01
+
+Setelah EDA, buka contoh dan latihan `01_regresi_dasar.ipynb`. Sesi 01
+memperkenalkan scikit-learn dengan urutan X, y, model, fit, dan predict.
+P-value serta standard error dibahas sebagai pelengkap statistik pada sesi tersebut.
+Sesi 00 tidak menjalankan pemodelan atau prediksi.
 
 ### Perintah tambahan diperkenalkan saat diperlukan
 
@@ -161,7 +147,7 @@ dengan daftar nilainya. Pada tahap ini cukup ikuti bentuk contoh tersebut.
 | `.loc[kondisi, "kolom"]` | Memilih baris sesuai kondisi dan satu kolom. | Lab 6 |
 | `.diff()` | Menghitung selisih dengan periode sebelumnya. | Sesi 5 |
 | `.shift(1)` | Menggeser data satu periode untuk membuat lag. | Sesi 5 |
-| `.dropna()` | Menghapus baris yang mempunyai nilai kosong pada kolom yang diperiksa. | Sesi 5 |
+| `.dropna()` | Menghapus baris yang mempunyai nilai kosong pada kolom yang diperiksa. | Sesi 1 |
 | `.set_index([...])` | Menandai unit dan waktu pada data panel. | Sesi 6 |
 | `f"{nilai:.3f}"` | Menampilkan angka dengan tiga angka desimal. Tidak mengubah hasil estimasi. | Sesi 1 |
 
@@ -175,7 +161,7 @@ cukup dijalankan sebagaimana disediakan.
 |---|---|
 | Pembacaan CSV gagal | Periksa koneksi internet dan ejaan nama CSV. Jalankan kembali sel alamat data. |
 | `NameError` | Nama belum dibuat atau salah ketik. Jalankan sel sebelumnya dari atas. |
-| `KeyError` | Nama kolom berbeda. Tampilkan `print(saham.columns)` dan cocokkan ejaannya. |
+| `KeyError` | Nama kolom berbeda. Tampilkan `print(makro.columns)` dan cocokkan ejaannya. |
 | `SyntaxError` | Periksa tanda kutip, kurung, dan koma di sel yang diubah. |
 | `ModuleNotFoundError` | Jalankan sel instalasi yang tersedia dan tunggu sampai selesai. |
 | Warning konvergensi/separation | Baca catatan metode pada notebook; koefisien/p-value bisa tidak layak ditafsirkan. |
@@ -190,7 +176,7 @@ Sertakan pesan error dan sel terkait agar bantuan sesuai masalahnya.
 Istilah yang muncul di workshop, diurutkan sesuai kemunculannya. Setiap
 entri menyebut tempat istilah itu diperkenalkan, supaya mudah dilacak.
 
-### Dasar regresi (Sesi 1, Lab 0-1)
+### Dasar regresi (Sesi 1, Lab 1)
 
 **Regresi linear**  
 Cara mencari garis (atau bidang) yang paling dekat dengan data, dengan

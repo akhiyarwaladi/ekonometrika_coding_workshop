@@ -176,7 +176,7 @@ slide_dua_kolom(
     "Peta dua hari",
     "Hari 1: pengajar",
     [
-        "00. Persiapan Colab dan padanan EViews",
+        "00. Persiapan Colab dan eksplorasi data",
         "01. Regresi linear dasar",
         "02. Bentuk fungsional",
         "03. Dummy dan uji asumsi klasik",
@@ -186,7 +186,7 @@ slide_dua_kolom(
     ],
     "Hari 2: mahasiswa",
     [
-        "Lab 0. Mulai dari nol",
+        "Lab 0. Membaca dan mengeksplorasi data",
         "Lab 1. Regresi dan interpretasi",
         "Lab 2. Memilih bentuk model",
         "Lab 3. Dummy dan diagnostik",

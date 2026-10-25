@@ -47,20 +47,22 @@ def dataset_dibaca(sel, path):
         nama.append("uts_4.csv")
     return list(dict.fromkeys(nama))
 
-def tabel_variabel(name, dataset, alias=None, kode=None):
+def tabel_variabel(name, dataset, alias=None, kode=None, peran=True):
     alias = alias or {}
     lines = [f"### Kenali data: {dataset['judul']}", ""]
     lokasi = f"`{dataset['lokasi']}`" if name.endswith(".csv") else ("dataset bawaan statsmodels (`spector`)" if name == "spector" else "tabel contoh yang dibuat langsung di kode")
     lines += [f"**Data:** {lokasi}. **Satu baris:** {dataset['satu_baris']}.", ""]
     if alias:
-        lines += ["Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.", "", "| Kolom CSV | Nama di kode | Pengertian | Satuan atau kode | Peran |", "|---|---|---|---|---|"]
+        lines += ["Nama singkat di kode berasal dari penggantian nama kolom CSV; isi angkanya tetap sama.", "", "| Kolom CSV | Nama di kode | Pengertian | Satuan atau kode" + (" | Peran |" if peran else " |"), "|---|---|---|---|" + ("---|" if peran else "")]
     else:
-        lines += ["| Variabel/kolom | Pengertian | Satuan atau kode | Peran |", "|---|---|---|---|"]
+        lines += ["| Variabel/kolom | Pengertian | Satuan atau kode" + (" | Peran |" if peran else " |"), "|---|---|---|" + ("---|" if peran else "")]
     for v in dataset["variabel"]:
         row = [f"`{v['kolom']}`"]
         if alias:
             row.append(f"`{alias.get(v['kolom'], v['kolom'])}`")
-        row += [v["arti"], v["satuan"], v["peran"]]
+        row += [v["arti"], v["satuan"]]
+        if peran:
+            row.append(v["peran"])
         assert not any("|" in value for value in row)
         lines.append("| " + " | ".join(row) + " |")
     lines.append("")
@@ -117,7 +119,7 @@ def sinkron(path, kamus, periksa=False):
     for i, cell in enumerate(base):
         for name, position in events.items():
             if position == i:
-                text = f"{PENANDA}{name} -->\n\n" + tabel_variabel(name, kamus[name], alias[name], kode)
+                text = f"{PENANDA}{name} -->\n\n" + tabel_variabel(name, kamus[name], alias[name], kode, peran=path.stem != "00_persiapan_colab")
                 cell_id = hashlib.sha256(f"{path.relative_to(ROOT)}:{i}:{name}".encode()).hexdigest()[:12]
                 cells.append(nbformat.v4.new_markdown_cell(text, id=cell_id, metadata={"tags": ["kamus_variabel"]}))
         cells.append(cell)

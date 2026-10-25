@@ -1,5 +1,5 @@
 {
-  "waktu": "2026-10-25T17:08:13",
+  "waktu": "2026-10-25T17:50:36",
   "python": "3.13.5",
   "paket": {
     "numpy": "2.1.3",
@@ -10,21 +10,22 @@
     "arch": "8.0.0"
   },
   "jumlah": 23,
-  "jumlah_dijalankan_terakhir": 3,
+  "jumlah_dijalankan_terakhir": 1,
   "sumber_data_uji_terakhir": "GitHub",
   "lulus": 23,
   "hasil": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:07:11",
-      "model_scikit_learn": 1,
-      "perbandingan_inferensi": 1,
+      "waktu_uji": "2026-10-25T17:34:30",
+      "model_scikit_learn": 0,
+      "perbandingan_inferensi": 0,
       "status": "PASS",
       "sel_kode": 21,
-      "grafik": 3
+      "grafik": 4
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
+      "waktu_uji": "2026-10-25T17:46:52",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
       "status": "PASS",
@@ -33,60 +34,61 @@
     },
     {
       "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
-      "waktu_uji": "2026-10-24T20:43:45",
+      "waktu_uji": "2026-10-25T17:41:54",
       "model_scikit_learn": 5,
       "perbandingan_inferensi": 5,
       "status": "PASS",
-      "sel_kode": 26,
-      "grafik": 4
+      "sel_kode": 28,
+      "grafik": 6
     },
     {
       "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
-      "waktu_uji": "2026-10-24T20:44:04",
+      "waktu_uji": "2026-10-25T17:42:08",
       "model_scikit_learn": 7,
       "perbandingan_inferensi": 6,
       "status": "PASS",
-      "sel_kode": 36,
-      "grafik": 5
+      "sel_kode": 39,
+      "grafik": 7
     },
     {
       "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-24T20:44:22",
+      "waktu_uji": "2026-10-25T17:42:22",
       "model_scikit_learn": 6,
       "perbandingan_inferensi": 2,
       "status": "PASS",
-      "sel_kode": 42,
-      "grafik": 6
+      "sel_kode": 47,
+      "grafik": 9
     },
     {
       "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
-      "waktu_uji": "2026-10-24T20:44:40",
+      "waktu_uji": "2026-10-25T17:35:49",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
       "status": "PASS",
-      "sel_kode": 30,
-      "grafik": 6
+      "sel_kode": 31,
+      "grafik": 7
     },
     {
       "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
-      "waktu_uji": "2026-10-24T20:45:01",
+      "waktu_uji": "2026-10-25T17:36:06",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
       "status": "PASS",
-      "sel_kode": 22,
-      "grafik": 3
+      "sel_kode": 23,
+      "grafik": 4
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:07:36",
-      "model_scikit_learn": 1,
-      "perbandingan_inferensi": 1,
+      "waktu_uji": "2026-10-25T17:36:26",
+      "model_scikit_learn": 0,
+      "perbandingan_inferensi": 0,
       "status": "PASS",
-      "sel_kode": 17,
+      "sel_kode": 16,
       "grafik": 3
     },
     {
       "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
+      "waktu_uji": "2026-10-25T17:36:43",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -95,6 +97,7 @@
     },
     {
       "notebook": "materi/02_latihan/02_bentuk_fungsional.ipynb",
+      "waktu_uji": "2026-10-25T17:36:54",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -103,6 +106,7 @@
     },
     {
       "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
+      "waktu_uji": "2026-10-25T17:37:06",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
       "status": "PASS",
@@ -111,7 +115,7 @@
     },
     {
       "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-24T20:45:27",
+      "waktu_uji": "2026-10-25T17:42:38",
       "model_scikit_learn": 2,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -120,7 +124,7 @@
     },
     {
       "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
-      "waktu_uji": "2026-10-24T20:45:41",
+      "waktu_uji": "2026-10-25T17:37:29",
       "model_scikit_learn": 2,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -129,16 +133,16 @@
     },
     {
       "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
-      "waktu_uji": "2026-10-24T20:46:06",
+      "waktu_uji": "2026-10-25T17:50:09",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
       "status": "PASS",
-      "sel_kode": 34,
-      "grafik": 6
+      "sel_kode": 35,
+      "grafik": 7
     },
     {
       "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
-      "waktu_uji": "2026-10-24T20:53:48",
+      "waktu_uji": "2026-10-25T17:38:11",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 0,
       "status": "PASS",
@@ -147,7 +151,7 @@
     },
     {
       "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
-      "waktu_uji": "2026-10-24T20:54:03",
+      "waktu_uji": "2026-10-25T17:38:24",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
       "status": "PASS",
@@ -156,15 +160,16 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:07:55",
-      "model_scikit_learn": 1,
-      "perbandingan_inferensi": 1,
+      "waktu_uji": "2026-10-25T17:38:43",
+      "model_scikit_learn": 0,
+      "perbandingan_inferensi": 0,
       "status": "PASS",
-      "sel_kode": 14,
-      "grafik": 2
+      "sel_kode": 19,
+      "grafik": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
+      "waktu_uji": "2026-10-25T17:38:59",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 2,
       "status": "PASS",
@@ -173,6 +178,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb",
+      "waktu_uji": "2026-10-25T17:39:11",
       "model_scikit_learn": 6,
       "perbandingan_inferensi": 2,
       "status": "PASS",
@@ -181,7 +187,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
-      "waktu_uji": "2026-10-24T20:46:52",
+      "waktu_uji": "2026-10-25T17:39:24",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -190,7 +196,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-24T20:47:10",
+      "waktu_uji": "2026-10-25T17:42:48",
       "model_scikit_learn": 2,
       "perbandingan_inferensi": 1,
       "status": "PASS",
@@ -199,7 +205,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
-      "waktu_uji": "2026-10-24T20:47:24",
+      "waktu_uji": "2026-10-25T17:39:49",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
       "status": "PASS",
@@ -208,6 +214,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
+      "waktu_uji": "2026-10-25T17:40:07",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
       "status": "PASS",

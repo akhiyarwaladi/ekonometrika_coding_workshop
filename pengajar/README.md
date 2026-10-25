@@ -21,7 +21,7 @@ alokasi panitia.
 
 | Perkiraan waktu | Materi | Cara mengajar |
 |---|---|---|
-| 08.30-09.15 | Panduan pemula dan Sesi 0 | Kenalkan sel dan kolom; bandingkan pembacaan CSV, Excel, SPSS, dan Stata. |
+| 08.30-09.15 | Panduan pemula dan Sesi 0 | Baca beberapa format, periksa kualitas tabel, rangkum angka, dan lakukan EDA. |
 | 09.15-10.15 | Sesi 1 | Jalankan OLS, baca satu koefisien, ubah satu nilai prediksi. |
 | 10.15-10.30 | Istirahat | |
 | 10.30-11.15 | Contoh inti Sesi 2 | Bandingkan garis lurus dan kuadratik, lalu jelaskan elastisitas log-log. |
@@ -63,10 +63,15 @@ Gunakan contoh Sesi 0 untuk membaca satu tabel makro Indonesia dalam tujuh forma
 CSV sumber tidak berubah; enam salinan format lain dikumpulkan di `data/contoh_format/`.
 Jelaskan dahulu arti kolom pada tabel Kenali data, kemudian tunjukkan bahwa
 CSV, Excel, SPSS, dan Stata menjadi tabel pandas dengan 26 baris serta tujuh kolom.
-Jalankan grafik inflasi dari tabel SPSS untuk menunjukkan kelanjutan alurnya.
+Lanjutkan dengan nilai kosong, duplikasi, statistik deskriptif, pemilihan tahun,
+grafik garis, histogram, diagram pencar, dan peringkat provinsi. Regresi baru
+dimulai pada Sesi 01; Sesi 00 tidak memakai fit, predict, atau p-value.
 TSV, JSON, dan Parquet dapat menjadi bahan baca mandiri agar sesi pengenalan
 tidak terlalu padat. Praktik perbandingan ukuran dan rata-rata ada di Lab 0
 dan kunci dengan nama yang sama. Tidak ada langkah unggah ZIP atau terminal.
+Untuk alokasi pengantar 45 menit, demonstrasikan empat format inti, pemeriksaan
+tabel, grafik garis, dan histogram; diagram pencar serta peringkat provinsi
+dapat dilanjutkan pada Lab 00. Versi contoh lengkap disediakan untuk 60 sampai 75 menit.
 
 ## Benang merah mengajar
 
@@ -85,11 +90,9 @@ Dua kebiasaan yang menjaga alur tetap terasa di kelas:
    kaitannya dengan pertemuan berikutnya. Bagikan `README.md` sebagai
    rujukan istilah.
 
-Satu kebiasaan lagi yang membuat kelas dua arah: setiap sesi punya 2
-sampai 3 checkpoint "Coba sendiri" (total 21 tersebar dari Sesi 0 sampai
-Lab 6). Hentikan demo saat checkpoint muncul, beri peserta 5 menit untuk
-mencoba, baru buka jawabannya bersama-sama. Semua jawaban sudah dihitung
-dan diverifikasi, jadi Anda bisa langsung mengoreksi.
+Saat bagian "Coba sendiri" atau latihan EDA muncul, hentikan demo dan beri
+peserta waktu mencoba. Bahas tabel dan grafik yang mereka peroleh sebelum
+melanjutkan ke konsep berikutnya. Gunakan kunci jawaban setelah peserta mencoba.
 
 ## Checklist sebelum hari-H
 
@@ -110,7 +113,7 @@ dan diverifikasi, jadi Anda bisa langsung mengoreksi.
 
 | Waktu | Sesi | Notebook | Fokus |
 |---|---|---|---|
-| 08.30-09.00 | Pembukaan + setup | `00_persiapan_colab.ipynb` | Colab, data, padanan EViews |
+| 08.30-09.00 | Pembukaan + setup | `00_persiapan_colab.ipynb` | Colab, format data, dan EDA |
 | 09.00-10.15 | Regresi dasar | `01_regresi_dasar.ipynb` | OLS, uji t/F, R kuadrat, prediksi |
 | 10.15-10.30 | Istirahat | | |
 | 10.30-11.45 | Bentuk fungsional | `02_bentuk_fungsional.ipynb` | log-log, reciprocal, polinomial |
@@ -128,7 +131,7 @@ diberikan sebagai bacaan mandiri dengan kunci yang sudah tersedia.
 
 | Waktu | Lab | Fokus |
 |---|---|---|
-| 08.30-09.15 | `00_persiapan_colab.ipynb` | Colab, data, regresi pertama |
+| 08.30-09.15 | `00_persiapan_colab.ipynb` | Colab, tabel, dan eksplorasi data |
 | 09.15-10.45 | `01_regresi_dasar.ipynb` | regresi dan interpretasi |
 | 10.45-11.00 | Istirahat | |
 | 11.00-12.30 | `02_bentuk_fungsional.ipynb` | memilih bentuk model |
@@ -203,8 +206,10 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
   Jangan buru-buru bilang "salah teori"; bahas konteks krisis 2005, 2008,
   dan 2020.
 - Bagian krisis 1997-1998 memakai inflasi bulanan sejak 1968 dan kurs
-  tahunan sejak 1967. Puncak inflasi 58 persen dan rupiah yang melemah
-  244 persen pada 1998 adalah patahan struktural yang asli.
+  tahunan sejak 1967. Puncak inflasi YoY bulanan pada berkas
+  ini sekitar 82,42 persen pada September 1998; rata-rata 12 angka YoY
+  selama 1998 sekitar 58,01 persen. Bedakan puncak bulanan dari rata-rata.
+  Kurs rata-rata tahunan melemah sekitar 244 persen pada 1998.
 - Latihan GARCH jangka panjang memakai IHSG sejak 1990. Periode 1990-1999
   menyentuh IGARCH (alpha + beta = 1), temuan bagus untuk diskusi rezim
   krisis.
@@ -378,11 +383,18 @@ underfitting/overfitting. Hasil uji ada di [laporan Housing](../alat_bantu/lapor
 Semua angka di bawah dihasilkan dari data di folder `data/`. Jalankan
 notebooknya sendiri untuk memverifikasi; hasilnya harus sama.
 
-### Sesi 0
+### Sesi 00: EDA
 
-1. `data/uts_4.csv` berisi 50 baris dan 4 kolom.
-2. Rata-rata `Y_Angka_Harapan_Hidup` = 76,95. Rata-rata
-   `X2_Tingkat_Imunisasi` = 91,86.
+1. Tabel makro Indonesia memuat 26 baris dan tujuh kolom; tidak ada nilai
+   kosong atau baris duplikat pada salinan yang digunakan.
+2. Rata-rata inflasi 5,671 persen; median 4,760 persen. Rata-rata sederhana
+   sejak 2015 sebesar 3,216 persen.
+3. Inflasi di atas 8 persen terjadi pada 2001, 2002, 2005, 2006, dan 2008.
+4. Lima IPM tertinggi pada berkas 2021: DKI Jakarta 81,11; DI Yogyakarta
+   80,22; Kalimantan Timur 76,88; Kepulauan Riau 75,79; dan Bali 75,69.
+5. Grafik garis memperlihatkan perubahan waktu, histogram memperlihatkan
+   frekuensi rentang nilai, dan batang memperlihatkan perbandingan provinsi.
+   EDA belum menjelaskan penyebab perbedaan yang terlihat.
 
 ### Sesi 1: regresi dasar
 
@@ -400,7 +412,7 @@ terlalu sempit atau ada faktor lain.
 ### Sesi 2: bentuk fungsional
 
 1. Reciprocal pengalaman dan waktu produksi: batas asimtot = 4,98
-   (dibaca dari intersep). Prediksi untuk pengalaman 6 bulan = 13,32.
+   (dibaca dari intersep). Prediksi untuk pengalaman 6 satuan pada data = 13,32.
 2. Usia dan kinerja: adj R kuadrat linear 0,268, kuadratik 0,999.
    Tambahan `usia2` sangat sepadan. Titik puncak 39,46 tahun.
 3. Uji skala Cobb-Douglas: p-value = 2,3e-26, tolak skala tetap. Jumlah
@@ -817,9 +829,10 @@ API gratis; unduh manual dari situs BI.
 CSV tanpa kunci:
 `https://fred.stlouisfed.org/graph/fredgraph.csv?id=IDNCPIALLMINMEI`
 Indeks harga konsumen bulanan Indonesia sejak 1968, dipakai di Lab 6
-bagian krisis. Nilainya sudah dicek: inflasi tahunan 1998 sekitar 58
-persen, sesuai angka BPS. Cocok untuk analisis rezim inflasi dan patahan
-struktural.
+bagian krisis. Pada salinan ini, puncak inflasi YoY bulanan
+sekitar 82,42 persen pada September 1998. Rata-rata 12 angka YoY selama
+1998 sekitar 58,01 persen. Baca frekuensi dan agregasinya sebelum
+membandingkan angka dengan indikator inflasi tahunan lain.
 
 **6. Data provinsi dan mikro.**
 - Data 34 provinsi 2021 (dipakai di Lab 6): kompilasi indikator BPS di

@@ -3,15 +3,14 @@
   "jumlah_csv": 59,
   "jumlah_definisi_kolom": 266,
   "jumlah_notebook": 23,
-  "jumlah_tabel_di_tutorial": 86,
+  "jumlah_tabel_di_tutorial": 84,
   "kode_dan_output_notebook_tetap": true,
   "tutorial": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
       "dataset": [
         "idn_makro_tahunan.csv",
-        "regresi_polinom.csv",
-        "uts_4.csv"
+        "provinsi_2021.csv"
       ]
     },
     {
@@ -72,8 +71,7 @@
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
       "dataset": [
         "idn_makro_tahunan.csv",
-        "uts_2.csv",
-        "uts_4.csv"
+        "provinsi_2021.csv"
       ]
     },
     {
@@ -154,7 +152,7 @@
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
       "dataset": [
         "idn_makro_tahunan.csv",
-        "uts_4.csv"
+        "provinsi_2021.csv"
       ]
     },
     {
