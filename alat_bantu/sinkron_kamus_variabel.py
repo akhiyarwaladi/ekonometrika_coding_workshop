@@ -45,6 +45,8 @@ def dataset_dibaca(sel, path):
             nama.append("contoh_taksi")
     if "harapan_hidup = pd.read_csv(...)" in sel:
         nama.append("uts_4.csv")
+    if "bantuan_did = pd.DataFrame(" in sel:
+        nama.append("contoh_did")
     return list(dict.fromkeys(nama))
 
 def tabel_variabel(name, dataset, alias=None, kode=None, peran=True):
@@ -138,8 +140,8 @@ def katalog(kamus, result):
     lines = ["# Data tutorial dan arti variabel", "",
              "**Data tidak perlu diunggah ke Colab.** Notebook membaca atau mengunduh berkas langsung dari GitHub.",
              "Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.", "",
-             "- **44 CSV aktif** berada di folder data/.",
-             "- **15 CSV cadangan** berada di data/cadangan/ dan belum dipakai oleh notebook saat ini.",
+             "- **45 CSV aktif** berada di folder data/.",
+             "- **14 CSV cadangan** berada di data/cadangan/ dan belum dipakai oleh notebook saat ini.",
              "- Arti variabel juga tersedia pada bagian **Kenali data** di setiap notebook.", "",
              "[Kembali ke materi](../README.md) · [Dasar notebook](../README.md#dasar-notebook)", "",
              "## Contoh berbagai format pada Sesi 0", "",

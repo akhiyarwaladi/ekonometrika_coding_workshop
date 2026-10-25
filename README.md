@@ -36,6 +36,20 @@ Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka
 
 [Tugas proyek mini](materi/02_latihan/07_proyek_mini.md) dikerjakan setelah latihan.
 
+### Pengayaan dengan pertanyaan dunia nyata
+
+Tiga praktik berikut sudah berada di notebook dengan nomor yang sama; tidak perlu membuka berkas tambahan.
+
+| Sesi | Pertanyaan | Yang dicoba |
+|---|---|---|
+| 03 | Apakah bantuan menaikkan pendapatan? | Hitung DiD dari empat rata-rata, cocokkan dengan regresi, dan periksa asumsi pembanding. Angka latihan adalah simulasi. |
+| 04 | Kapan nasabah ditandai berisiko gagal bayar? | Bandingkan dua ambang pada validasi, tetapkan pilihan, lalu ukur biaya pada data uji. Data berasal dari Taiwan. |
+| 05 | Apakah ramalan inflasi lebih baik daripada nilai bulan terakhir? | Validasi mengikuti waktu, lalu bandingkan regresi dan ramalan naif pada data Indonesia Januari 2024 sampai April 2025. |
+
+Setiap praktik menyertakan definisi variabel, langkah kode, grafik, cara membaca, dan rujukan.
+Latihan tersedia di Lab 03 sampai 05, dengan pembahasan pada kunci jawaban bernomor sama.
+Untuk kelas satu hari, pilih satu praktik pengayaan sesuai waktu; dashboard tetap menjadi kegiatan penutup.
+
 ### Dashboard dan ngrok
 
 Gunakan satu file: `01_dashboard_ekonomi.ipynb`. Langkah 8 adalah pratinjau, langkah 9 menyediakan ngrok, langkah 10 menghentikannya.
@@ -51,7 +65,7 @@ CSV sumber tetap di `data/`; enam format lain berada dalam satu folder
 | Folder | Isi |
 |---|---|
 | `materi/` | 16 notebook peserta dan tugas proyek mini. |
-| `data/` | 44 CSV aktif, enam salinan dalam format lain, 15 cadangan, dan satu katalog arti variabel. |
+| `data/` | 45 CSV aktif, enam salinan dalam format lain, 14 cadangan, dan satu katalog arti variabel. |
 | `slide/` | Presentasi, PDF, dan 31 PNG tajam 6000 × 3375 piksel. |
 | `pengajar/` | Satu panduan mengajar dan tujuh notebook kunci jawaban. |
 | `alat_bantu/` | Perkakas pengelola, hasil pemeriksaan, paket opsional, serta cadangan lokal. |

@@ -1,56 +1,59 @@
-# Proyek Mini: dari Pertanyaan ke Kesimpulan
+# Proyek mini: dari pertanyaan ke kesimpulan
 
-Proyek ini meniru alur UAS di halaman kuliah: tentukan topik, kumpulkan
-data, olah dengan regresi, lalu simpulkan. Batas waktu: dikerjakan setelah
-hari kedua, boleh kelompok 3 sampai 4 orang.
+Pilih satu pertanyaan, jalankan analisis dalam notebook, lalu jelaskan hasilnya.
+Proyek dikerjakan setelah latihan, boleh berkelompok 3 sampai 4 orang.
 
-## Pilihan sumber data
+## Pilih satu kasus
 
-**Opsi A: survei sendiri (seperti UAS).** Buat Google Form dengan 8 sampai
-12 pertanyaan, sebarkan ke teman sekelas, target minimal 50 responden.
-Skala Likert 1 sampai 5 boleh dipakai, tapi satu variabel dependen harus
-angka kontinu atau 0/1 supaya modelnya jelas.
+Kasus berikut memakai data yang sudah tersedia. Mulai dari notebook rujukan;
+baca tabel Kenali data untuk memahami arti setiap variabel dan satuannya.
 
-**Opsi B: data terbuka.** Contoh sumber yang bisa dipakai:
+| Kasus | Pertanyaan | Mulai dari | Hasil minimum |
+|---|---|---|---|
+| Ramalan inflasi | Apakah dua lag membantu meramal inflasi bulan berikutnya? | Pengayaan [Lab 05](05_deret_waktu_panel.ipynb), `data/idn_inflasi_bulanan.csv` | Pembagian berdasarkan waktu, pembanding naif, MAE/RMSE, dan grafik aktual versus ramalan. |
+| Keputusan kredit | Bagaimana perubahan biaya gagal bayar mengubah pilihan ambang? | Pengayaan [Lab 04](04_model_kategorikal.ipynb), `data/kredit_default.csv` | Pilihan ambang berdasarkan validasi, matriks kebingungan, dan perbandingan biaya pada data uji. |
+| Regresi harga rumah | Fitur mana yang membantu memprediksi harga pada data uji? | [Notebook Housing](../03_regresi_housing/01_regresi_housing.ipynb), `data/housing.csv` | Model sederhana dan berganda, pembanding rata-rata, RMSE, dan grafik residual. |
 
-- World Bank Open Data (data.worldbank.org): indikator ekonomi negara.
-- BPS (bps.go.id): data Indonesia per provinsi atau per waktu.
-- Kaggle dan GitHub dataset: cek lisensinya.
+Data kredit berasal dari Taiwan dan Housing dari Boston; keduanya bukan data Indonesia.
+Untuk kasus Indonesia, pilih inflasi. Tabel DiD delapan baris pada Sesi 03 adalah simulasi
+pengantar; jangan menjadikannya bukti keberhasilan program nyata.
 
-Contoh mengambil data World Bank langsung di Colab (butuh internet):
+Arti `tanggal`, `indeks`, `inflasi_mom`, dan `inflasi_yoy` mengikuti
+[kamus inflasi](../../data/README.md#idn_inflasi_bulanan_csv). Bacalah sebelum menjalankan kode.
+`inflasi_yoy` bersatuan persen; angka 2 berarti 2%, bukan 0,02%.
+
+Contoh membuka data inflasi dalam notebook:
 
 ```python
-# %pip install wbdata -q
-import wbdata
+import pandas as pd
 
-# PDB per kapita dan inflasi untuk Indonesia, Malaysia, Thailand
-indikator = {
-    "NY.GDP.PCAP.CD": "gdp_per_kapita",
-    "FP.CPI.TOTL.ZG": "inflasi",
-}
-data = wbdata.get_dataframe(indikator, country=["IDN", "MYS", "THA"])
-data = data.reset_index()
-data.head()
+URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
+inflasi = pd.read_csv(URL_DATA + "idn_inflasi_bulanan.csv")
+inflasi.head()
 ```
 
-Kalau situsnya tidak bisa diakses saat kelas, pakai Opsi A.
+Survei sendiri juga boleh. Buat 8 sampai 12 pertanyaan, jelaskan sasaran dan cara
+memilih responden, lalu kumpulkan data yang memadai untuk pertanyaan dan model.
+Sampel teman sekelas tidak otomatis mewakili penduduk Indonesia.
 
 ## Langkah pengerjaan
 
-1. **Rumuskan pertanyaan.** Satu kalimat, misalnya: "Apakah harga
-   berpengaruh terhadap jumlah pembelian?" Tulis juga dugaan arahnya.
+1. **Rumuskan pertanyaan.** Satu kalimat yang sesuai dengan kasus pilihan.
+   Bedakan tujuan menjelaskan hubungan, meramal, dan mengambil keputusan.
 2. **Tentukan variabel.** Satu Y (dependen), dua sampai empat X
    (independen). Sebutkan satuan tiap variabel.
-3. **Kumpulkan data.** Pastikan tidak ada kolom kosong. Kalau ada, jelaskan
-   cara menanganinya.
+3. **Periksa data.** Jelaskan periode, asal, jumlah pengamatan, nilai kosong,
+   dan cara menanganinya. Patokan pengolahan dipelajari dari data latihan.
 4. **Eksplorasi.** Tampilkan tabel ringkasan dan satu grafik untuk setiap
    hubungan utama.
-5. **Estimasi model.** Mulai dari OLS. Kalau Y kategorikal, pakai logit.
-6. **Uji asumsi.** Multikolinearitas (VIF), heteroskedastisitas
-   (Breusch-Pagan), normalitas residual, dan autokorelasi kalau data
-   deret waktu.
-7. **Perbaiki kalau perlu.** Robust standard error untuk
-   heteroskedastisitas, HAC untuk autokorelasi.
+5. **Latih model.** Gunakan scikit-learn dan mulai dari rancangan sederhana
+   pada notebook rujukan. Sisakan data uji; data deret waktu harus mengikuti urutan waktu.
+6. **Periksa sesuai tujuan.** Untuk inferensi regresi, periksa asumsi dan
+   standard error yang sesuai. Untuk prediksi, nilai data yang belum dipakai melatih.
+   Untuk kredit, bedakan dua jenis kesalahan dan biaya masing-masing.
+7. **Bandingkan hasil.** Gunakan pembanding sederhana. Pilih rancangan atau
+   ambang pada validasi; jangan memilih berdasarkan data uji lalu melaporkan
+   data yang sama sebagai pengujian independen.
 8. **Tulis laporan.** Maksimal 5 halaman: pendahuluan, data dan metode,
    hasil, interpretasi, keterbatasan.
 
@@ -59,7 +62,7 @@ Kalau situsnya tidak bisa diakses saat kelas, pakai Opsi A.
 | Aspek | Bobot | Yang dilihat |
 |---|---|---|
 | Pertanyaan dan desain | 20% | pertanyaan jelas, variabel masuk akal |
-| Ketepatan metode | 30% | model sesuai jenis Y, asumsi diuji |
+| Ketepatan metode | 30% | metode sesuai tujuan, pemisahan data dan pembanding tepat |
 | Interpretasi | 30% | angka dibaca dalam konteks, bukan sekadar signifikan |
 | Penyajian | 20% | laporan rapi, grafik berlabel, tidak ada klaim berlebihan |
 

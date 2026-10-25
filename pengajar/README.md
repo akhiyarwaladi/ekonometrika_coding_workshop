@@ -52,8 +52,8 @@ terbuka di `alat_bantu/metode_lanjutan.py` dan ikut paket ZIP.
   setiap topik, ditutup proyek mini.
 - **Alat:** Google Colab. Tidak perlu instalasi apa pun di laptop peserta.
 - **Data:** notebook membaca CSV langsung dari GitHub melalui `URL_DATA`.
-  Gunakan koneksi internet. Salinan lokal: 44 CSV aktif di `data/`, sedangkan
-  15 CSV tambahan berada di `data/cadangan/`. Lab 6 memakai data Indonesia
+  Gunakan koneksi internet. Salinan lokal: 45 CSV aktif di `data/`, sedangkan
+  14 CSV tambahan berada di `data/cadangan/`. Lab 6 memakai data Indonesia
   (IHSG, kurs, makro, panel ASEAN) dari salinan GitHub tersebut.
   [Peta pemakaian data](../data/README.md#data-yang-dipakai-tiap-notebook) menunjukkan nama CSV per sesi.
 
@@ -93,6 +93,68 @@ Dua kebiasaan yang menjaga alur tetap terasa di kelas:
 Saat bagian "Coba sendiri" atau latihan EDA muncul, hentikan demo dan beri
 peserta waktu mencoba. Bahas tabel dan grafik yang mereka peroleh sebelum
 melanjutkan ke konsep berikutnya. Gunakan kunci jawaban setelah peserta mencoba.
+
+## Pengayaan dunia nyata pada Sesi 03 sampai 05
+
+Pengayaan berada pada contoh, latihan, dan kunci jawaban yang sudah ada. Durasi berikut
+merupakan tambahan di luar materi inti. Untuk kelas satu hari, pilih satu praktik;
+pengayaan lain dapat dipakai pada pertemuan pendalaman. Dashboard tetap menjadi penutup.
+
+| Sesi | Praktik | Tambahan waktu | Urutan mengajar |
+|---|---|---|---|
+| 03 | Evaluasi bantuan dengan DiD | 25 sampai 35 menit | Baca dua kelompok sebelum/sesudah, hitung empat rata-rata, cocokkan koefisien interaksi, bahas asumsi. |
+| 04 | Keputusan kredit berdasarkan biaya | 30 sampai 40 menit | Baca kelas, pisahkan latihan/validasi/uji, latih logit, pilih di antara dua ambang pada validasi, nilai biaya uji. |
+| 05 | Pengujian ramalan inflasi Indonesia | 30 sampai 40 menit | Buat lag, pisahkan waktu, validasi pada 2021/2022/2023, latih sampai 2023, bandingkan ramalan pada 2024 sampai April 2025. |
+
+**Sesi 03.** Delapan baris dibuat langsung di notebook supaya peserta dapat menghitung
+ulang angkanya. Satu baris adalah kelompok-tahun, bukan rumah tangga. Kenaikan peserta
+0,7 juta dikurangi kenaikan pembanding 0,4 juta memberi DiD 0,3 juta rupiah per bulan.
+Koefisien interaksi scikit-learn harus sama. Jangan menambahkan p-value pada delapan
+agregat ini; pembahasan ketidakpastian mengikuti rancangan penelitian dengan banyak unit.
+Kesamaan perubahan sebelum program hanya petunjuk, bukan bukti asumsi tren paralel.
+Bahas pula program lain, perubahan komposisi, antisipasi, dan pengaruh ke pembanding.
+PKH pada referensi Cahyadi dkk. menggunakan penugasan acak; jangan menyebutnya studi DiD sederhana.
+
+**Sesi 04.** `data/kredit_default.csv` dipindahkan dari cadangan dan isinya dipertahankan.
+Asal data Taiwan serta satuan dolar Taiwan tetap dijelaskan. Dua fitur, batas kredit dan
+usia, cukup untuk latihan ini. Pembagian 600/200/200 memakai stratifikasi; patokan skala
+dipelajari dari 600 data latihan. Ambang 0,20 dan 0,50 dibandingkan menggunakan asumsi biaya
+1 unit untuk nasabah lancar yang ditolak dan 5 unit untuk gagal bayar yang terlewat.
+Pilihan tersebut dibekukan sebelum penilaian 200 nasabah uji. Grafik membandingkan juga
+aturan terima semua dan tolak semua. Ikuti hasil aktual, termasuk jika aturan sederhana
+lebih murah. Ini pengantar keputusan, bukan model persetujuan kredit yang siap digunakan bank.
+
+Pada pembagian yang diuji, ambang 0,20 memberi biaya uji 132 unit, dibandingkan 220
+untuk terima semua dan 156 untuk tolak semua. Akurasi logit 46%, sedangkan 38 dari
+44 gagal bayar terdeteksi (86,4%). Minta peserta menjelaskan mengapa penilaian
+berdasarkan biaya dapat berbeda dari penilaian berdasarkan akurasi.
+
+**Sesi 05.** Gunakan inflasi YoY dalam persen, bukan level IHK. MAE/RMSE memakai satuan
+poin persentase. `lag_1` dan `lag_12` dibuat dengan mengambil masa lalu; tidak ada pembagian
+acak. `TimeSeriesSplit` memberi tiga validasi tahunan sebelum 2024. Ramalan uji adalah
+satu bulan ke depan yang diulang menggunakan realisasi bulan sebelumnya; koefisien model
+tetap berasal dari latihan sampai 2023. Ini tidak sama dengan meramal 16 bulan sekaligus.
+Jeda publikasi diabaikan dalam demonstrasi, sehingga aplikasi operasional perlu menyesuaikan
+ketersediaan informasi. Salinan data berakhir April 2025 dan bukan data inflasi terkini.
+
+Pada rentang uji ini, MAE naif sekitar 0,372 poin persentase, lebih rendah daripada
+regresi dua lag sekitar 0,419. Pertahankan contoh ini untuk menunjukkan bahwa
+tambahan fitur tidak otomatis memperbaiki ramalan; jangan mencari pembagian lain
+hanya untuk membuat regresi terlihat unggul.
+
+Perintah baru dijelaskan saat muncul: `unstack`, `idxmin`, `StandardScaler`, `shift`,
+`TimeSeriesSplit`, dan `cross_val_score`. Peserta tidak perlu menulis fungsi atau perulangan.
+Tabel Kenali data tersedia sebelum pembacaan CSV atau pembuatan tabel simulasi.
+
+Rujukan pengayaan:
+
+- [World Bank: difference-in-differences](https://dimewiki.worldbank.org/Difference-in-Differences).
+- [Cahyadi dkk. (2020): evaluasi PKH](https://economics.mit.edu/sites/default/files/publications/pol.20190245.pdf).
+- [Duflo (2001): SD Inpres, pendidikan, dan upah](https://pubs.aeaweb.org/doi/10.1257/aer.91.4.795).
+- [scikit-learn: keputusan berdasarkan biaya](https://scikit-learn.org/stable/auto_examples/model_selection/plot_cost_sensitive_learning.html).
+- [UCI: data nasabah kartu kredit Taiwan](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients).
+- [scikit-learn: evaluasi ramalan dengan lag](https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html).
+- [OECD melalui FRED: seri IHK Indonesia, basis 2015=100](https://fred.stlouisfed.org/series/IDNCPIALLMINMEI).
 
 ## Checklist sebelum hari-H
 
@@ -205,7 +267,7 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
 - Regresi inflasi dan pengangguran Indonesia menunjukkan tanda positif.
   Jangan buru-buru bilang "salah teori"; bahas konteks krisis 2005, 2008,
   dan 2020.
-- Bagian krisis 1997-1998 memakai inflasi bulanan sejak 1968 dan kurs
+- Bagian krisis 1997-1998 memakai inflasi bulanan sejak 1969 dan kurs
   tahunan sejak 1967. Puncak inflasi YoY bulanan pada berkas
   ini sekitar 82,42 persen pada September 1998; rata-rata 12 angka YoY
   selama 1998 sekitar 58,01 persen. Bedakan puncak bulanan dari rata-rata.
@@ -232,7 +294,7 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
 
 ## Bahan latihan tambahan
 
-Sebanyak 15 CSV di [data/cadangan/](../data/README.md) belum dipakai
+Sebanyak 14 CSV di [data/cadangan/](../data/README.md) belum dipakai
 oleh 23 notebook saat ini. Pengajar dapat memilihnya untuk latihan tambahan;
 peserta cukup memakai data pada [peta pemakaian data](../data/README.md#data-yang-dipakai-tiap-notebook).
 Beberapa pilihan tambahan:
@@ -347,7 +409,7 @@ flowchart TD
   | `ihsg_panjang.csv` | IHSG harian 1990 sampai 2026 | Yahoo Finance |
   | `kurs_harian.csv` | Kurs USD/IDR harian 2019 sampai 2026 | ECB via Frankfurter |
   | `idn_kurs_tahunan.csv` | Kurs tahunan 1967 sampai 2025, memuat krisis 1998 | World Bank |
-  | `idn_inflasi_bulanan.csv` | Inflasi bulanan 1968 sampai 2025 | BPS via OECD/FRED |
+  | `idn_inflasi_bulanan.csv` | Inflasi bulanan 1969 sampai 2025 | BPS via OECD/FRED |
   | `idn_makro_tahunan.csv` | Inflasi, PDB, pengangguran, kurs 2000 sampai 2025 | World Bank |
   | `asean_panel.csv` | Panel 10 negara ASEAN 2000 sampai 2025 | World Bank |
   | `provinsi_2021.csv` | 34 provinsi: PDRB, IPM, kemiskinan, dll | kompilasi BPS |
@@ -372,7 +434,7 @@ flowchart TD
 [Notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb)
 melengkapi contoh ekonometrika dengan supervised learning sesuai
 [slide regresi versi tajam](../slide/png_regresi_tajam). Data tambahan
-`data/housing.csv` memuat 506 baris dan 14 kolom; total koleksi 59 CSV (44 aktif dan 15 cadangan).
+`data/housing.csv` memuat 506 baris dan 14 kolom; total koleksi 59 CSV (45 aktif dan 14 cadangan).
 Notebook mencakup pembagian train/test, imputasi berdasarkan train, regresi
 sederhana dan berganda, VIF, RMSE, R², prediksi baru, serta validasi
 underfitting/overfitting. Hasil uji ada di [laporan Housing](../alat_bantu/laporan/hasil_pemeriksaan.md#regresi-housing).
@@ -828,7 +890,7 @@ API gratis; unduh manual dari situs BI.
 **5. FRED (OECD Main Economic Indicators), untuk inflasi bulanan.**
 CSV tanpa kunci:
 `https://fred.stlouisfed.org/graph/fredgraph.csv?id=IDNCPIALLMINMEI`
-Indeks harga konsumen bulanan Indonesia sejak 1968, dipakai di Lab 6
+Indeks harga konsumen bulanan Indonesia sejak 1969, dipakai di Lab 6
 bagian krisis. Pada salinan ini, puncak inflasi YoY bulanan
 sekitar 82,42 persen pada September 1998. Rata-rata 12 angka YoY selama
 1998 sekitar 58,01 persen. Baca frekuensi dan agregasinya sebelum
@@ -865,7 +927,7 @@ membandingkan angka dengan indikator inflasi tahunan lain.
 - Sesi 5 dan 6: dokumentasi arch dan linearmodels menjawab pertanyaan
   teknis lanjutan (orde GARCH, efek tetap dua arah, klaster).
 - Lab 6: data asli Indonesia sudah terpasang (IHSG sejak 1990, inflasi
-  bulanan sejak 1968, kurs tahunan sejak 1967, panel ASEAN, dan 34
+  bulanan sejak 1969, kurs tahunan sejak 1967, panel ASEAN, dan 34
   provinsi), dan jalur BPS membuka pintu ke data mikro dan bulanan untuk
   proyek mini atau skripsi.
 - Proyek mini: semua sumber data di atas bisa dipakai. Untuk survei

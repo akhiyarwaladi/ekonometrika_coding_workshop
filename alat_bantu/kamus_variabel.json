@@ -2087,6 +2087,16 @@
           "kolom": "era",
           "arti": "Label pengelompokan periode untuk ringkasan/grafik inflasi.",
           "satuan": "Kategori periode, bukan variabel inflasi baru"
+        },
+        {
+          "kolom": "lag_1",
+          "arti": "Inflasi YoY pada satu bulan sebelumnya; digunakan sebagai fitur ramalan.",
+          "satuan": "Persen; dibuat dengan shift(1)"
+        },
+        {
+          "kolom": "lag_12",
+          "arti": "Inflasi YoY pada bulan yang sama setahun sebelumnya; digunakan sebagai fitur ramalan.",
+          "satuan": "Persen; dibuat dengan shift(12)"
         }
       ],
       "lokasi": "data/idn_inflasi_bulanan.csv",
@@ -2185,7 +2195,7 @@
       "judul": "Gagal bayar kartu kredit Taiwan",
       "satu_baris": "satu nasabah dari subset 1.000 pengamatan data UCI Taiwan",
       "sumber": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
-      "catatan": "Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis mempunyai jarak numerik yang bermakna; misalnya kode pendidikan 2 bukan dua kali pendidikan kode 1.",
+      "catatan": "Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis mempunyai jarak numerik yang bermakna; misalnya kode pendidikan 2 bukan dua kali pendidikan kode 1. Pengayaan keputusan kredit hanya memakai limit_kredit dan usia sebagai fitur; kolom kategori tidak diperlakukan sebagai angka berjarak. Biaya kesalahan adalah asumsi latihan dalam unit biaya.",
       "variabel": [
         {
           "kolom": "limit_kredit",
@@ -2224,8 +2234,8 @@
           "peran": "Y: target"
         }
       ],
-      "lokasi": "data/cadangan/kredit_default.csv",
-      "status": "cadangan"
+      "lokasi": "data/kredit_default.csv",
+      "status": "dipakai"
     },
     "housing.csv": {
       "judul": "Harga rumah historis Boston",
@@ -2376,6 +2386,44 @@
           "arti": "Tarif awal Rp5.000 ditambah Rp7.500 untuk setiap kilometer.",
           "satuan": "Rupiah",
           "peran": "Hasil hitungan"
+        }
+      ]
+    },
+    "contoh_did": {
+      "judul": "Simulasi evaluasi bantuan dan pendapatan",
+      "satu_baris": "satu kelompok pada satu tahun; delapan baris agregat, bukan delapan rumah tangga",
+      "sumber": "Angka ilustrasi buatan untuk pengantar DiD dalam notebook Sesi 03",
+      "catatan": "Semua nilai adalah simulasi. Program mulai 2023. Setiap baris memiliki bobot sama untuk latihan; ini bukan hasil evaluasi PKH dan bukan dasar pengujian signifikansi statistik.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun pengamatan kelompok.",
+          "satuan": "2021 sampai 2024",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "peserta",
+          "arti": "Penanda kelompok yang akan menerima program mulai 2023.",
+          "satuan": "1 = peserta; 0 = pembanding",
+          "peran": "X: dummy kelompok"
+        },
+        {
+          "kolom": "pendapatan",
+          "arti": "Rata-rata pendapatan rumah tangga pada kelompok dan tahun tersebut.",
+          "satuan": "Juta rupiah per bulan",
+          "peran": "Y: hasil yang dibandingkan"
+        }
+      ],
+      "turunan": [
+        {
+          "kolom": "sesudah",
+          "arti": "Penanda periode setelah program mulai.",
+          "satuan": "1 = tahun 2023 atau 2024; 0 = tahun 2021 atau 2022"
+        },
+        {
+          "kolom": "interaksi",
+          "arti": "Perkalian peserta dan sesudah; bernilai satu pada peserta setelah program.",
+          "satuan": "Dummy 0 atau 1"
         }
       ]
     }

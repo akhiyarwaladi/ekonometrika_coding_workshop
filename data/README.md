@@ -3,8 +3,8 @@
 **Data tidak perlu diunggah ke Colab.** Notebook membaca atau mengunduh berkas langsung dari GitHub.
 Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.
 
-- **44 CSV aktif** berada di folder data/.
-- **15 CSV cadangan** berada di data/cadangan/ dan belum dipakai oleh notebook saat ini.
+- **45 CSV aktif** berada di folder data/.
+- **14 CSV cadangan** berada di data/cadangan/ dan belum dipakai oleh notebook saat ini.
 - Arti variabel juga tersedia pada bagian **Kenali data** di setiap notebook.
 
 [Kembali ke materi](../README.md) · [Dasar notebook](../README.md#dasar-notebook)
@@ -34,25 +34,25 @@ Sumber: [World Bank Indonesia](https://data.worldbank.org/country/indonesia), li
 | [materi/01_ekonometrika/00_persiapan_colab.ipynb](../materi/01_ekonometrika/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [provinsi_2021.csv](#provinsi_2021_csv) |
 | [materi/01_ekonometrika/01_regresi_dasar.ipynb](../materi/01_ekonometrika/01_regresi_dasar.ipynb) | [uts_2.csv](#uts_2_csv), [regresi_polinom.csv](#regresi_polinom_csv) |
 | [materi/01_ekonometrika/02_bentuk_fungsional.ipynb](../materi/01_ekonometrika/02_bentuk_fungsional.ipynb) | [regresi_log.csv](#regresi_log_csv), [regresi_reciprocal.csv](#regresi_reciprocal_csv), [regresi_polinom.csv](#regresi_polinom_csv), [usia_unit.csv](#usia_unit_csv) |
-| [materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb](../materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_dummy_2.csv](#latihan_dummy_2_csv), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [hetero_3.csv](#hetero_3_csv), [latihan_normalitas_1.csv](#latihan_normalitas_1_csv) |
-| [materi/01_ekonometrika/04_model_kategorikal.ipynb](../materi/01_ekonometrika/04_model_kategorikal.ipynb) | [spector](#spector), [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_2.csv](#multi_ordinal_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [tobit_data_1_rnd.csv](#tobit_data_1_rnd_csv), [poisson_data_2_restoran.csv](#poisson_data_2_restoran_csv) |
-| [materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb](../materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb) | [ts_inflasi.csv](#ts_inflasi_csv), [ts_saham.csv](#ts_saham_csv), [ts_gdp_growth.csv](#ts_gdp_growth_csv), [ts_kurs.csv](#ts_kurs_csv), [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv) |
+| [materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb](../materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_dummy_2.csv](#latihan_dummy_2_csv), [contoh_did](#contoh_did), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [hetero_3.csv](#hetero_3_csv), [latihan_normalitas_1.csv](#latihan_normalitas_1_csv) |
+| [materi/01_ekonometrika/04_model_kategorikal.ipynb](../materi/01_ekonometrika/04_model_kategorikal.ipynb) | [spector](#spector), [logit_probit_2.csv](#logit_probit_2_csv), [kredit_default.csv](#kredit_default_csv), [multi_ordinal_2.csv](#multi_ordinal_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [tobit_data_1_rnd.csv](#tobit_data_1_rnd_csv), [poisson_data_2_restoran.csv](#poisson_data_2_restoran_csv) |
+| [materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb](../materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb) | [ts_inflasi.csv](#ts_inflasi_csv), [ts_saham.csv](#ts_saham_csv), [ts_gdp_growth.csv](#ts_gdp_growth_csv), [ts_kurs.csv](#ts_kurs_csv), [idn_inflasi_bulanan.csv](#idn_inflasi_bulanan_csv), [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv) |
 | [materi/01_ekonometrika/06_panel_garch.ipynb](../materi/01_ekonometrika/06_panel_garch.ipynb) | [panel_gdp.csv](#panel_gdp_csv), [volatilitas.csv](#volatilitas_csv) |
 | [materi/02_latihan/00_persiapan_colab.ipynb](../materi/02_latihan/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [provinsi_2021.csv](#provinsi_2021_csv) |
 | [materi/02_latihan/01_regresi_dasar.ipynb](../materi/02_latihan/01_regresi_dasar.ipynb) | [uts_6.csv](#uts_6_csv), [uts_3.csv](#uts_3_csv), [uts_4.csv](#uts_4_csv) |
 | [materi/02_latihan/02_bentuk_fungsional.ipynb](../materi/02_latihan/02_bentuk_fungsional.ipynb) | [regresi_log.csv](#regresi_log_csv), [pendidikan_pendapatan.csv](#pendidikan_pendapatan_csv), [usia_unit.csv](#usia_unit_csv), [jam_skor.csv](#jam_skor_csv), [uts_1.csv](#uts_1_csv) |
-| [materi/02_latihan/03_dummy_asumsi_klasik.ipynb](../materi/02_latihan/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv) |
-| [materi/02_latihan/04_model_kategorikal.ipynb](../materi/02_latihan/04_model_kategorikal.ipynb) | [spector](#spector), [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [poisson_data_1_klaim.csv](#poisson_data_1_klaim_csv) |
-| [materi/02_latihan/05_deret_waktu_panel.ipynb](../materi/02_latihan/05_deret_waktu_panel.ipynb) | [ts_inflasi.csv](#ts_inflasi_csv), [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv), [panel_padi.csv](#panel_padi_csv), [ts_saham.csv](#ts_saham_csv), [ihsg_emas.csv](#ihsg_emas_csv), [panel_retail.csv](#panel_retail_csv) |
+| [materi/02_latihan/03_dummy_asumsi_klasik.ipynb](../materi/02_latihan/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [contoh_did](#contoh_did), [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv) |
+| [materi/02_latihan/04_model_kategorikal.ipynb](../materi/02_latihan/04_model_kategorikal.ipynb) | [spector](#spector), [kredit_default.csv](#kredit_default_csv), [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [poisson_data_1_klaim.csv](#poisson_data_1_klaim_csv) |
+| [materi/02_latihan/05_deret_waktu_panel.ipynb](../materi/02_latihan/05_deret_waktu_panel.ipynb) | [ts_inflasi.csv](#ts_inflasi_csv), [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv), [panel_padi.csv](#panel_padi_csv), [idn_inflasi_bulanan.csv](#idn_inflasi_bulanan_csv), [ts_saham.csv](#ts_saham_csv), [ihsg_emas.csv](#ihsg_emas_csv), [panel_retail.csv](#panel_retail_csv) |
 | [materi/02_latihan/06_data_indonesia.ipynb](../materi/02_latihan/06_data_indonesia.ipynb) | [ihsg_harian.csv](#ihsg_harian_csv), [asean_panel.csv](#asean_panel_csv), [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [kurs_harian.csv](#kurs_harian_csv), [idn_inflasi_bulanan.csv](#idn_inflasi_bulanan_csv), [idn_kurs_tahunan.csv](#idn_kurs_tahunan_csv), [ihsg_panjang.csv](#ihsg_panjang_csv), [provinsi_2021.csv](#provinsi_2021_csv) |
 | [materi/03_regresi_housing/01_regresi_housing.ipynb](../materi/03_regresi_housing/01_regresi_housing.ipynb) | [contoh_taksi](#contoh_taksi), [housing.csv](#housing_csv) |
 | [materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb) | [provinsi_2021.csv](#provinsi_2021_csv) |
 | [pengajar/kunci_jawaban/00_persiapan_colab.ipynb](../pengajar/kunci_jawaban/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [provinsi_2021.csv](#provinsi_2021_csv) |
 | [pengajar/kunci_jawaban/01_regresi_dasar.ipynb](../pengajar/kunci_jawaban/01_regresi_dasar.ipynb) | [uts_3.csv](#uts_3_csv), [uts_4.csv](#uts_4_csv), [uts_6.csv](#uts_6_csv) |
 | [pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb](../pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb) | [pendidikan_pendapatan.csv](#pendidikan_pendapatan_csv), [usia_unit.csv](#usia_unit_csv), [jam_skor.csv](#jam_skor_csv), [uts_1.csv](#uts_1_csv) |
-| [pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb](../pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb) | [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv) |
-| [pengajar/kunci_jawaban/04_model_kategorikal.ipynb](../pengajar/kunci_jawaban/04_model_kategorikal.ipynb) | [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [poisson_data_1_klaim.csv](#poisson_data_1_klaim_csv) |
-| [pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb](../pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb) | [ts_saham.csv](#ts_saham_csv), [ihsg_emas.csv](#ihsg_emas_csv), [panel_retail.csv](#panel_retail_csv) |
+| [pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb](../pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb) | [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv), [contoh_did](#contoh_did) |
+| [pengajar/kunci_jawaban/04_model_kategorikal.ipynb](../pengajar/kunci_jawaban/04_model_kategorikal.ipynb) | [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [poisson_data_1_klaim.csv](#poisson_data_1_klaim_csv), [kredit_default.csv](#kredit_default_csv) |
+| [pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb](../pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb) | [ts_saham.csv](#ts_saham_csv), [ihsg_emas.csv](#ihsg_emas_csv), [panel_retail.csv](#panel_retail_csv), [idn_inflasi_bulanan.csv](#idn_inflasi_bulanan_csv) |
 | [pengajar/kunci_jawaban/06_data_indonesia.ipynb](../pengajar/kunci_jawaban/06_data_indonesia.ipynb) | [kurs_harian.csv](#kurs_harian_csv), [ihsg_panjang.csv](#ihsg_panjang_csv), [provinsi_2021.csv](#provinsi_2021_csv), [asean_panel.csv](#asean_panel_csv) |
 
 ## Cari nama dataset
@@ -60,6 +60,7 @@ Sumber: [World Bank Indonesia](https://data.worldbank.org/country/indonesia), li
 | Data | Status | Isi |
 |---|---|---|
 | [asean_panel.csv](#asean_panel_csv) | dipakai | Panel negara ASEAN dari World Bank |
+| [contoh_did](#contoh_did) | contoh di kode | Simulasi evaluasi bantuan dan pendapatan |
 | [contoh_taksi](#contoh_taksi) | contoh di kode | Contoh hitungan tarif taksi |
 | [data_regresi_uts.csv](#data_regresi_uts_csv) | cadangan | Data abstrak untuk latihan spesifikasi |
 | [ekspor_kurs.csv](#ekspor_kurs_csv) | cadangan | Ekspor dan nilai tukar |
@@ -75,7 +76,7 @@ Sumber: [World Bank Indonesia](https://data.worldbank.org/country/indonesia), li
 | [ihsg_panjang.csv](#ihsg_panjang_csv) | dipakai | IHSG riwayat panjang |
 | [jam_skor.csv](#jam_skor_csv) | dipakai | Jam belajar dan hasil ujian |
 | [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv) | dipakai | Konsumsi dan pendapatan runtun waktu |
-| [kredit_default.csv](#kredit_default_csv) | cadangan | Gagal bayar kartu kredit Taiwan |
+| [kredit_default.csv](#kredit_default_csv) | dipakai | Gagal bayar kartu kredit Taiwan |
 | [kurs_harian.csv](#kurs_harian_csv) | dipakai | Kurs rupiah harian |
 | [latihan_dummy_1.csv](#latihan_dummy_1_csv) | dipakai | Gaji dan karakteristik pekerja |
 | [latihan_dummy_2.csv](#latihan_dummy_2_csv) | dipakai | PDB, investasi, dan krisis |
@@ -155,6 +156,31 @@ Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-deve
 [Buka CSV](asean_panel.csv).
 
 Dipakai pada: [06_data_indonesia](../materi/02_latihan/06_data_indonesia.ipynb), [06_data_indonesia](../pengajar/kunci_jawaban/06_data_indonesia.ipynb).
+
+<a id="contoh_did"></a>
+
+### Kenali data: Simulasi evaluasi bantuan dan pendapatan
+
+**Data:** tabel contoh yang dibuat langsung di kode. **Satu baris:** satu kelompok pada satu tahun; delapan baris agregat, bukan delapan rumah tangga.
+
+| Variabel/kolom | Pengertian | Satuan atau kode | Peran |
+|---|---|---|---|
+| `tahun` | Tahun pengamatan kelompok. | 2021 sampai 2024 | Penanda waktu |
+| `peserta` | Penanda kelompok yang akan menerima program mulai 2023. | 1 = peserta; 0 = pembanding | X: dummy kelompok |
+| `pendapatan` | Rata-rata pendapatan rumah tangga pada kelompok dan tahun tersebut. | Juta rupiah per bulan | Y: hasil yang dibandingkan |
+
+Semua nilai adalah simulasi. Program mulai 2023. Setiap baris memiliki bobot sama untuk latihan; ini bukan hasil evaluasi PKH dan bukan dasar pengujian signifikansi statistik.
+
+Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
+
+| Kolom turunan | Pengertian | Satuan/kode |
+|---|---|---|
+| `sesudah` | Penanda periode setelah program mulai. | 1 = tahun 2023 atau 2024; 0 = tahun 2021 atau 2022 |
+| `interaksi` | Perkalian peserta dan sesudah; bernilai satu pada peserta setelah program. | Dummy 0 atau 1 |
+
+Sumber: Angka ilustrasi buatan untuk pengantar DiD dalam notebook Sesi 03.
+
+Dipakai pada: [03_dummy_asumsi_klasik](../materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb), [03_dummy_asumsi_klasik](../materi/02_latihan/03_dummy_asumsi_klasik.ipynb), [03_dummy_asumsi_klasik](../pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb).
 
 <a id="contoh_taksi"></a>
 
@@ -330,12 +356,14 @@ Kolom turunan berikut dibuat saat praktik; kolom ini belum ada pada CSV awal.
 | Kolom turunan | Pengertian | Satuan/kode |
 |---|---|---|
 | `era` | Label pengelompokan periode untuk ringkasan/grafik inflasi. | Kategori periode, bukan variabel inflasi baru |
+| `lag_1` | Inflasi YoY pada satu bulan sebelumnya; digunakan sebagai fitur ramalan. | Persen; dibuat dengan shift(1) |
+| `lag_12` | Inflasi YoY pada bulan yang sama setahun sebelumnya; digunakan sebagai fitur ramalan. | Persen; dibuat dengan shift(12) |
 
 Sumber definisi: [rujukan data](https://fred.stlouisfed.org/series/IDNCPIALLMINMEI).
 
 [Buka CSV](idn_inflasi_bulanan.csv).
 
-Dipakai pada: [06_data_indonesia](../materi/02_latihan/06_data_indonesia.ipynb).
+Dipakai pada: [05_deret_waktu_kointegrasi](../materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb), [05_deret_waktu_panel](../materi/02_latihan/05_deret_waktu_panel.ipynb), [06_data_indonesia](../materi/02_latihan/06_data_indonesia.ipynb), [05_deret_waktu_panel](../pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb).
 
 <a id="idn_kurs_tahunan_csv"></a>
 
@@ -519,7 +547,7 @@ Dipakai pada: [05_deret_waktu_kointegrasi](../materi/01_ekonometrika/05_deret_wa
 
 ### Kenali data: Gagal bayar kartu kredit Taiwan
 
-**Data:** `data/cadangan/kredit_default.csv`. **Satu baris:** satu nasabah dari subset 1.000 pengamatan data UCI Taiwan.
+**Data:** `data/kredit_default.csv`. **Satu baris:** satu nasabah dari subset 1.000 pengamatan data UCI Taiwan.
 
 | Variabel/kolom | Pengertian | Satuan atau kode | Peran |
 |---|---|---|---|
@@ -530,13 +558,13 @@ Dipakai pada: [05_deret_waktu_kointegrasi](../materi/01_ekonometrika/05_deret_wa
 | `usia` | Umur nasabah. | Tahun | X: penjelas |
 | `gagal_bayar` | Apakah nasabah mengalami gagal bayar pada periode target. | 1 = gagal bayar; 0 = tidak | Y: target |
 
-Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis mempunyai jarak numerik yang bermakna; misalnya kode pendidikan 2 bukan dua kali pendidikan kode 1.
+Data ini berasal dari Taiwan, bukan Indonesia. Kode kategori tidak otomatis mempunyai jarak numerik yang bermakna; misalnya kode pendidikan 2 bukan dua kali pendidikan kode 1. Pengayaan keputusan kredit hanya memakai limit_kredit dan usia sebagai fitur; kolom kategori tidak diperlakukan sebagai angka berjarak. Biaya kesalahan adalah asumsi latihan dalam unit biaya.
 
 Sumber definisi: [rujukan data](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients).
 
-[Buka CSV](cadangan/kredit_default.csv).
+[Buka CSV](kredit_default.csv).
 
-Data cadangan: bahan tambahan pengajar, belum dibaca oleh notebook saat ini.
+Dipakai pada: [04_model_kategorikal](../materi/01_ekonometrika/04_model_kategorikal.ipynb), [04_model_kategorikal](../materi/02_latihan/04_model_kategorikal.ipynb), [04_model_kategorikal](../pengajar/kunci_jawaban/04_model_kategorikal.ipynb).
 
 <a id="kurs_harian_csv"></a>
 

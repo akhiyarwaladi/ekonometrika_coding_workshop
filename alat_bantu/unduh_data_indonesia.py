@@ -251,7 +251,7 @@ def main():
             .reset_index(drop=True)
         )
         (DATA / "cadangan").mkdir(parents=True, exist_ok=True)
-        contoh.to_csv(DATA / "cadangan/kredit_default.csv", index=False)
+        contoh.to_csv(DATA / "kredit_default.csv", index=False)
         print(f"  OK kredit_default.csv: {len(contoh)} baris")
     except ImportError:
         print("  GAGAL kredit default: butuh paket xlrd (pip install xlrd)")

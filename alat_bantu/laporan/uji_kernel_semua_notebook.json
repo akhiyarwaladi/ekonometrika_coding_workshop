@@ -1,5 +1,5 @@
 {
-  "waktu": "2026-10-25T17:50:36",
+  "waktu": "2026-10-25T19:58:51",
   "python": "3.13.5",
   "paket": {
     "numpy": "2.1.3",
@@ -11,212 +11,253 @@
   },
   "jumlah": 23,
   "jumlah_dijalankan_terakhir": 1,
-  "sumber_data_uji_terakhir": "GitHub",
+  "sumber_data_uji_terakhir": "Salinan lokal",
   "lulus": 23,
   "hasil": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:34:30",
+      "waktu_uji": "2026-10-25T19:44:11",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 21,
       "grafik": 4
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
-      "waktu_uji": "2026-10-25T17:46:52",
+      "waktu_uji": "2026-10-25T19:44:31",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 19,
       "grafik": 4
     },
     {
       "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
-      "waktu_uji": "2026-10-25T17:41:54",
+      "waktu_uji": "2026-10-25T19:44:43",
       "model_scikit_learn": 5,
       "perbandingan_inferensi": 5,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 28,
       "grafik": 6
     },
     {
       "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
-      "waktu_uji": "2026-10-25T17:42:08",
-      "model_scikit_learn": 7,
+      "waktu_uji": "2026-10-25T19:44:56",
+      "model_scikit_learn": 8,
       "perbandingan_inferensi": 6,
+      "pengayaan_terverifikasi": [
+        "did: hitungan manual, koefisien, dan pembanding simulasi"
+      ],
       "status": "PASS",
-      "sel_kode": 39,
-      "grafik": 7
+      "sel_kode": 43,
+      "grafik": 8
     },
     {
       "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-25T17:42:22",
-      "model_scikit_learn": 6,
+      "waktu_uji": "2026-10-25T19:51:05",
+      "model_scikit_learn": 7,
       "perbandingan_inferensi": 2,
+      "pengayaan_terverifikasi": [
+        "kredit: pemisahan sampel, skala latihan, biaya, dan ambang validasi"
+      ],
       "status": "PASS",
-      "sel_kode": 47,
-      "grafik": 9
+      "sel_kode": 54,
+      "grafik": 11
     },
     {
       "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
-      "waktu_uji": "2026-10-25T17:35:49",
-      "model_scikit_learn": 3,
+      "waktu_uji": "2026-10-25T19:45:26",
+      "model_scikit_learn": 4,
       "perbandingan_inferensi": 3,
+      "pengayaan_terverifikasi": [
+        "ramalan: lag masa lalu, validasi waktu, dan metrik uji akhir"
+      ],
       "status": "PASS",
-      "sel_kode": 31,
-      "grafik": 7
+      "sel_kode": 36,
+      "grafik": 9
     },
     {
       "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
-      "waktu_uji": "2026-10-25T17:36:06",
+      "waktu_uji": "2026-10-25T19:45:43",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 23,
       "grafik": 4
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:36:26",
+      "waktu_uji": "2026-10-25T19:46:04",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 16,
       "grafik": 3
     },
     {
       "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
-      "waktu_uji": "2026-10-25T17:36:43",
+      "waktu_uji": "2026-10-25T19:46:20",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 13,
       "grafik": 2
     },
     {
       "notebook": "materi/02_latihan/02_bentuk_fungsional.ipynb",
-      "waktu_uji": "2026-10-25T17:36:54",
+      "waktu_uji": "2026-10-25T19:46:31",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 14,
       "grafik": 2
     },
     {
       "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
-      "waktu_uji": "2026-10-25T17:37:06",
-      "model_scikit_learn": 3,
+      "waktu_uji": "2026-10-25T19:46:42",
+      "model_scikit_learn": 4,
       "perbandingan_inferensi": 3,
+      "pengayaan_terverifikasi": [
+        "did: hitungan manual, koefisien, dan pembanding simulasi"
+      ],
       "status": "PASS",
-      "sel_kode": 17,
-      "grafik": 2
+      "sel_kode": 22,
+      "grafik": 3
     },
     {
       "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-25T17:42:38",
-      "model_scikit_learn": 2,
+      "waktu_uji": "2026-10-25T19:51:24",
+      "model_scikit_learn": 3,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [
+        "kredit: pemisahan sampel, skala latihan, biaya, dan ambang validasi"
+      ],
       "status": "PASS",
-      "sel_kode": 17,
-      "grafik": 2
+      "sel_kode": 25,
+      "grafik": 4
     },
     {
       "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
-      "waktu_uji": "2026-10-25T17:37:29",
-      "model_scikit_learn": 2,
+      "waktu_uji": "2026-10-25T19:47:06",
+      "model_scikit_learn": 3,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [
+        "ramalan: lag masa lalu, validasi waktu, dan metrik uji akhir"
+      ],
       "status": "PASS",
-      "sel_kode": 24,
-      "grafik": 5
+      "sel_kode": 30,
+      "grafik": 7
     },
     {
       "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
-      "waktu_uji": "2026-10-25T17:50:09",
+      "waktu_uji": "2026-10-25T19:58:26",
       "model_scikit_learn": 1,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 35,
       "grafik": 7
     },
     {
       "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
-      "waktu_uji": "2026-10-25T17:38:11",
+      "waktu_uji": "2026-10-25T19:47:48",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 31,
       "grafik": 8
     },
     {
       "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
-      "waktu_uji": "2026-10-25T17:38:24",
+      "waktu_uji": "2026-10-25T19:54:08",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 13,
       "grafik": 1
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "waktu_uji": "2026-10-25T17:38:43",
+      "waktu_uji": "2026-10-25T19:48:20",
       "model_scikit_learn": 0,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 19,
       "grafik": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
-      "waktu_uji": "2026-10-25T17:38:59",
+      "waktu_uji": "2026-10-25T19:48:37",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 2,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 17,
       "grafik": 3
     },
     {
       "notebook": "pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb",
-      "waktu_uji": "2026-10-25T17:39:11",
+      "waktu_uji": "2026-10-25T19:48:49",
       "model_scikit_learn": 6,
       "perbandingan_inferensi": 2,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 21,
       "grafik": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
-      "waktu_uji": "2026-10-25T17:39:24",
-      "model_scikit_learn": 3,
+      "waktu_uji": "2026-10-25T19:49:02",
+      "model_scikit_learn": 4,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [
+        "did: hitungan manual, koefisien, dan pembanding simulasi"
+      ],
       "status": "PASS",
-      "sel_kode": 14,
-      "grafik": 3
+      "sel_kode": 19,
+      "grafik": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
-      "waktu_uji": "2026-10-25T17:42:48",
-      "model_scikit_learn": 2,
+      "waktu_uji": "2026-10-25T19:51:36",
+      "model_scikit_learn": 3,
       "perbandingan_inferensi": 1,
+      "pengayaan_terverifikasi": [
+        "kredit: pemisahan sampel, skala latihan, biaya, dan ambang validasi"
+      ],
       "status": "PASS",
-      "sel_kode": 14,
-      "grafik": 3
+      "sel_kode": 22,
+      "grafik": 5
     },
     {
       "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
-      "waktu_uji": "2026-10-25T17:39:49",
-      "model_scikit_learn": 0,
+      "waktu_uji": "2026-10-25T19:49:29",
+      "model_scikit_learn": 1,
       "perbandingan_inferensi": 0,
+      "pengayaan_terverifikasi": [
+        "ramalan: lag masa lalu, validasi waktu, dan metrik uji akhir"
+      ],
       "status": "PASS",
-      "sel_kode": 12,
-      "grafik": 3
+      "sel_kode": 18,
+      "grafik": 5
     },
     {
       "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
-      "waktu_uji": "2026-10-25T17:40:07",
+      "waktu_uji": "2026-10-25T19:49:48",
       "model_scikit_learn": 3,
       "perbandingan_inferensi": 3,
+      "pengayaan_terverifikasi": [],
       "status": "PASS",
       "sel_kode": 18,
       "grafik": 3

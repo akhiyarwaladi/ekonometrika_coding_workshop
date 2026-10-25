@@ -156,9 +156,89 @@ def periksa_pemodelan(ruang):
         peluang = ruang["peluang"]
         np.testing.assert_allclose(peluang.sum(axis=1), 1)
         assert peluang.columns.to_list() == ruang["model_mn"].classes_.tolist()
+    pengayaan = []
+    if "bantuan_did" in ruang:
+        d = ruang["bantuan_did"]
+        assert len(d) == 8 and not d.duplicated(["tahun", "peserta"]).any()
+        assert (d["sesudah"] == (d["tahun"] >= 2023)).all()
+        assert (d["interaksi"] == d["peserta"] * d["sesudah"]).all()
+        # Verifikasi lewat aljabar matriks, terpisah dari tabel empat rata-rata.
+        desain = np.column_stack([np.ones(len(d)), d[["peserta", "sesudah", "interaksi"]]])
+        assert np.linalg.matrix_rank(desain) == 4
+        koef = np.linalg.lstsq(desain, d["pendapatan"], rcond=None)[0]
+        np.testing.assert_allclose(koef[-1], 0.3, atol=1e-12)
+        np.testing.assert_allclose(ruang["dampak_did"], koef[-1], atol=1e-12)
+        np.testing.assert_allclose(ruang["model_did"].coef_, koef[1:], atol=1e-12)
+        gap = ruang["rata_tahunan_did"][1] - ruang["tanpa_program_did"]
+        np.testing.assert_allclose(gap.loc[2021:2022], 0, atol=1e-12)
+        np.testing.assert_allclose(gap.loc[2023:2024], 0.3, atol=1e-12)
+        if "did_satu_tahun" in ruang:
+            np.testing.assert_allclose(ruang["did_satu_tahun"], 0.3, atol=1e-12)
+        pengayaan.append("did: hitungan manual, koefisien, dan pembanding simulasi")
+    if "model_kredit" in ruang:
+        sets = [set(ruang[n].index) for n in ("kredit_latih", "kredit_validasi", "kredit_uji")]
+        assert [len(s) for s in sets] == [600, 200, 200]
+        assert not (sets[0] & sets[1] or sets[0] & sets[2] or sets[1] & sets[2])
+        assert set.union(*sets) == set(ruang["kredit"].index)
+        skala = ruang["skala_kredit"]
+        assert skala.n_samples_seen_ == 600
+        np.testing.assert_allclose(skala.mean_, ruang["X_latih_kredit"].mean())
+        ulang = LogisticRegression(max_iter=1000).fit(
+            skala.transform(ruang["X_latih_kredit"]), ruang["y_latih_kredit"]
+        )
+        np.testing.assert_allclose(ulang.coef_, ruang["model_kredit"].coef_)
+        assert ruang["model_kredit"].classes_.tolist() == [0, 1]
+        y_valid = ruang["y_validasi_kredit"].to_numpy()
+        biaya_valid = []
+        for ambang in (0.2, 0.5):
+            pred = ulang.predict_proba(skala.transform(ruang["X_validasi_kredit"]))[:, 1] >= ambang
+            biaya_valid.append(int(((y_valid == 0) & pred).sum() + 5 * ((y_valid == 1) & ~pred).sum()))
+        np.testing.assert_array_equal(ruang["biaya_validasi_kredit"]["biaya"], biaya_valid)
+        assert ruang["ambang_terpilih_kredit"] == (0.2, 0.5)[int(np.argmin(biaya_valid))]
+        y_uji = ruang["y_uji_kredit"].to_numpy()
+        peluang_uji = ulang.predict_proba(skala.transform(ruang["X_uji_kredit"]))[:, 1]
+        np.testing.assert_allclose(peluang_uji, ruang["peluang_uji_kredit"])
+        pred_uji = peluang_uji >= ruang["ambang_terpilih_kredit"]
+        biaya_uji = int(((y_uji == 0) & pred_uji).sum() + 5 * ((y_uji == 1) & ~pred_uji).sum())
+        np.testing.assert_array_equal(ruang["kelas_uji_kredit"], pred_uji)
+        np.testing.assert_array_equal(ruang["hasil_uji_kredit"]["biaya_uji"], [5 * y_uji.sum(), (y_uji == 0).sum(), biaya_uji])
+        pengayaan.append("kredit: pemisahan sampel, skala latihan, biaya, dan ambang validasi")
+    if "model_ramalan" in ruang:
+        d = ruang["inflasi_ramalan"]
+        assert d.index.is_unique and d.index.is_monotonic_increasing
+        assert pd.infer_freq(d.index) == "MS"
+        np.testing.assert_allclose(d["lag_1"].iloc[1:], d["inflasi_yoy"].shift(1).iloc[1:])
+        np.testing.assert_allclose(d["lag_12"].iloc[12:], d["inflasi_yoy"].shift(12).iloc[12:])
+        latih, uji = ruang["latih_ramalan"], ruang["uji_ramalan"]
+        assert len(latih) == 168 and len(uji) == 16
+        assert latih.index.max() < uji.index.min()
+        assert latih.index.max() == pd.Timestamp("2023-12-01")
+        assert uji.index.min() == pd.Timestamp("2024-01-01")
+        assert uji.index.max() == pd.Timestamp("2025-04-01")
+        X, y = ruang["X_latih_ramalan"], ruang["y_latih_ramalan"]
+        tahun_validasi, galat_cv = [], []
+        for a, b in ruang["pembagian_waktu_ramalan"].split(X):
+            assert X.index[a].max() < X.index[b].min() < uji.index.min()
+            assert len(b) == 12
+            tahun_validasi.append(X.index[b][0].year)
+            m = LinearRegression().fit(X.iloc[a], y.iloc[a])
+            galat_cv.append(np.abs(y.iloc[b].to_numpy() - m.predict(X.iloc[b])).mean())
+        np.testing.assert_array_equal(ruang["hasil_validasi_ramalan"]["tahun_validasi"], tahun_validasi)
+        np.testing.assert_allclose(ruang["mae_validasi_ramalan"], galat_cv)
+        # Model uji harus sama dengan estimasi dari data sampai 2023 saja.
+        akhir = LinearRegression().fit(X, y)
+        np.testing.assert_allclose(akhir.coef_, ruang["model_ramalan"].coef_)
+        pred = akhir.predict(ruang["X_uji_ramalan"])
+        np.testing.assert_allclose(pred, ruang["prediksi_uji_ramalan"])
+        np.testing.assert_allclose(ruang["prediksi_naif_ramalan"], uji["lag_1"])
+        galat = np.column_stack([uji["inflasi_yoy"] - uji["lag_1"], uji["inflasi_yoy"] - pred])
+        np.testing.assert_allclose(ruang["hasil_uji_ramalan"]["MAE_poin_persentase"], np.abs(galat).mean(axis=0))
+        np.testing.assert_allclose(ruang["hasil_uji_ramalan"]["RMSE_poin_persentase"], np.sqrt((galat ** 2).mean(axis=0)))
+        pengayaan.append("ramalan: lag masa lalu, validasi waktu, dan metrik uji akhir")
     return {
         "model_scikit_learn": jumlah_model,
         "perbandingan_inferensi": jumlah_banding,
+        "pengayaan_terverifikasi": pengayaan,
     }
 
 
@@ -190,6 +270,13 @@ def periksa_notebook(path):
             "pass" if s.lstrip().startswith(("%pip ", "%%writefile ")) else s
             for s in "".join(sel["source"]).splitlines()
         )
+        for node in ast.walk(ast.parse(kode)):
+            if isinstance(node, ast.ImportFrom) and node.module == "pathlib":
+                raise ValueError("Materi peserta memakai alamat data langsung dan pembacaan berkas biasa, tanpa pathlib.")
+            if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "os" and node.attr in {"environ", "getenv"}:
+                raise ValueError("Pengaturan tutorial tidak menggunakan variabel lingkungan.")
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "Path":
+                raise ValueError("Path() tidak dipakai pada kode peserta.")
         if path.stem == "00_persiapan_colab":
             for node in ast.walk(ast.parse(kode)):
                 if isinstance(node, ast.Attribute) and node.attr in {"fit", "predict", "predict_proba", "score"}:

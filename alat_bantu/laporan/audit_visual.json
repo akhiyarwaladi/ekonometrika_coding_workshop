@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "jumlah_notebook": 23,
-  "jumlah_gambar": 96,
+  "jumlah_gambar": 111,
   "tinjauan_tampilan": "PASS",
   "notebook": [
     {
@@ -18,15 +18,15 @@
     },
     {
       "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
-      "gambar": 7
+      "gambar": 8
     },
     {
       "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
-      "gambar": 9
+      "gambar": 11
     },
     {
       "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
-      "gambar": 7
+      "gambar": 9
     },
     {
       "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
@@ -46,15 +46,15 @@
     },
     {
       "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
-      "gambar": 2
+      "gambar": 3
     },
     {
       "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
-      "gambar": 2
+      "gambar": 4
     },
     {
       "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
-      "gambar": 5
+      "gambar": 7
     },
     {
       "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
@@ -82,15 +82,15 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
-      "gambar": 3
+      "gambar": 4
     },
     {
       "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
-      "gambar": 3
+      "gambar": 5
     },
     {
       "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
-      "gambar": 3
+      "gambar": 5
     },
     {
       "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
@@ -114,6 +114,9 @@
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_13.png",
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_14.png",
     "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_15.png",
-    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_16.png"
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_16.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_17.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_18.png",
+    "alat_bantu/arsip/penyempurnaan_pemula/tinjauan_visual/lembar_19.png"
   ]
 }

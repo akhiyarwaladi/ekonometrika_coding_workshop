@@ -21,7 +21,7 @@ def main():
         for path in berkas:
             paket.write(path, path.relative_to(ROOT).as_posix())
     sementara.replace(tujuan)
-    print(f"{tujuan.name}: 44 CSV, 6 contoh format lain, dan metode_lanjutan.py")
+    print(f"{tujuan.name}: 45 CSV, 6 contoh format lain, dan metode_lanjutan.py")
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ Sesudah benar-benar memeriksa tampilan lembar grafik, jalankan
 
 ## Paket opsional
 
-`paket/data_tutorial.zip` berisi 44 CSV aktif, enam salinan format lain untuk Sesi 0, dan modul model khusus.
+`paket/data_tutorial.zip` berisi 45 CSV aktif, enam salinan format lain untuk Sesi 0, dan modul model khusus.
 `paket/png_regresi_tajam.zip` berisi 31 PNG slide tajam.
 Keduanya salinan untuk pengajar; peserta membuka notebook dan membaca CSV dari GitHub.
 Buat ulang dengan `kemas_data.py` atau `kemas_png.py` jika sumber paket berubah.

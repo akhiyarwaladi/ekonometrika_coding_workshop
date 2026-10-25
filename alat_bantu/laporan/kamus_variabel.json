@@ -1,9 +1,9 @@
 {
   "status": "PASS",
   "jumlah_csv": 59,
-  "jumlah_definisi_kolom": 266,
+  "jumlah_definisi_kolom": 269,
   "jumlah_notebook": 23,
-  "jumlah_tabel_di_tutorial": 84,
+  "jumlah_tabel_di_tutorial": 93,
   "kode_dan_output_notebook_tetap": true,
   "tutorial": [
     {
@@ -34,6 +34,7 @@
       "dataset": [
         "latihan_dummy_1.csv",
         "latihan_dummy_2.csv",
+        "contoh_did",
         "latihan_multikolinieritas_1.csv",
         "hetero_3.csv",
         "latihan_normalitas_1.csv"
@@ -44,6 +45,7 @@
       "dataset": [
         "spector",
         "logit_probit_2.csv",
+        "kredit_default.csv",
         "multi_ordinal_2.csv",
         "multi_ordinal_1.csv",
         "tobit_data_1_rnd.csv",
@@ -57,6 +59,7 @@
         "ts_saham.csv",
         "ts_gdp_growth.csv",
         "ts_kurs.csv",
+        "idn_inflasi_bulanan.csv",
         "konsumsi_pendapatan.csv"
       ]
     },
@@ -97,6 +100,7 @@
       "dataset": [
         "latihan_dummy_1.csv",
         "latihan_multikolinieritas_1.csv",
+        "contoh_did",
         "hetero_2.csv",
         "latihan_normalitas_3.csv",
         "hetero_1.csv"
@@ -106,6 +110,7 @@
       "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
       "dataset": [
         "spector",
+        "kredit_default.csv",
         "logit_probit_2.csv",
         "multi_ordinal_1.csv",
         "poisson_data_1_klaim.csv"
@@ -117,6 +122,7 @@
         "ts_inflasi.csv",
         "konsumsi_pendapatan.csv",
         "panel_padi.csv",
+        "idn_inflasi_bulanan.csv",
         "ts_saham.csv",
         "ihsg_emas.csv",
         "panel_retail.csv"
@@ -177,7 +183,8 @@
       "dataset": [
         "hetero_2.csv",
         "latihan_normalitas_3.csv",
-        "hetero_1.csv"
+        "hetero_1.csv",
+        "contoh_did"
       ]
     },
     {
@@ -185,7 +192,8 @@
       "dataset": [
         "logit_probit_2.csv",
         "multi_ordinal_1.csv",
-        "poisson_data_1_klaim.csv"
+        "poisson_data_1_klaim.csv",
+        "kredit_default.csv"
       ]
     },
     {
@@ -193,7 +201,8 @@
       "dataset": [
         "ts_saham.csv",
         "ihsg_emas.csv",
-        "panel_retail.csv"
+        "panel_retail.csv",
+        "idn_inflasi_bulanan.csv"
       ]
     },
     {

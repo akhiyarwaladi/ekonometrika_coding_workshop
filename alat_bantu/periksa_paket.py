@@ -74,8 +74,8 @@ def main():
                     cadangan.read(nama_lama.get(lokasi, sebelum_pemisahan)) == path.read_bytes()
                 ), path
     aktif = sorted((ROOT / "data").glob("*.csv"))
-    assert len(aktif) == 44
-    assert len(list((ROOT / "data/cadangan").glob("*.csv"))) == 15
+    assert len(aktif) == 45
+    assert len(list((ROOT / "data/cadangan").glob("*.csv"))) == 14
     data_lepas = [p for p in files if p.is_file() and p.suffix in {".csv", ".xlsx", ".xls"}
                   and not p.is_relative_to(ROOT / "data")
                   and p != ROOT / "alat_bantu/laporan/peta_perubahan_nama.csv"]
@@ -147,7 +147,7 @@ def main():
 
     laporan = ROOT / "alat_bantu/laporan"
     hasil = {"status": "PASS", "notebook": len(notebooks), "csv_aktif": len(aktif),
-             "csv_cadangan": 15, "hash_diperiksa": terlindungi, "tautan_lokal": jumlah_tautan}
+             "csv_cadangan": 14, "hash_diperiksa": terlindungi, "tautan_lokal": jumlah_tautan}
     (laporan / "struktur.json").write_text(json.dumps(hasil, indent=2), encoding="utf-8")
     simpan_ringkasan()
     print(
