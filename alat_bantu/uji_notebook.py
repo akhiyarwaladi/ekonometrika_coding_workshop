@@ -80,7 +80,7 @@ def jalankan(path, workdir, data_lokal=False):
                 if data_lokal:
                     sumber = sumber.replace(
                         "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/",
-                        (workdir / "data").resolve().as_posix() + "/",
+                        (workdir / "data").resolve().as_uri() + "/",
                     )
                     sumber = sumber.replace(
                         "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/alat_bantu/metode_lanjutan.py",

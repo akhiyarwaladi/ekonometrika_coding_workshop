@@ -1,12 +1,12 @@
 {
   "status": "PASS",
   "jumlah_notebook": 23,
-  "jumlah_gambar": 80,
+  "jumlah_gambar": 83,
   "tinjauan_tampilan": "PASS",
   "notebook": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "gambar": 2
+      "gambar": 3
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
@@ -34,7 +34,7 @@
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
-      "gambar": 2
+      "gambar": 3
     },
     {
       "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
@@ -70,7 +70,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "gambar": 1
+      "gambar": 2
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",

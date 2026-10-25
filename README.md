@@ -21,7 +21,7 @@ Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka
 
 | Urutan | Topik | Contoh | Latihan |
 |---|---|---|---|
-| 00 | Persiapan dan grafik pertama | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb) | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/00_persiapan_colab.ipynb) |
+| 00 | Persiapan, format data, dan grafik pertama | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/00_persiapan_colab.ipynb) | [00_persiapan_colab](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/00_persiapan_colab.ipynb) |
 | 01 | Regresi dasar dan prediksi | [01_regresi_dasar](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/01_regresi_dasar.ipynb) | [01_regresi_dasar](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/01_regresi_dasar.ipynb) |
 | 02 | Bentuk fungsional | [02_bentuk_fungsional](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/02_bentuk_fungsional.ipynb) | [02_bentuk_fungsional](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/02_bentuk_fungsional.ipynb) |
 | 03 | Dummy dan asumsi klasik | [03_dummy_asumsi_klasik](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb) | [03_dummy_asumsi_klasik](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/02_latihan/03_dummy_asumsi_klasik.ipynb) |
@@ -42,12 +42,16 @@ Gunakan satu file: `01_dashboard_ekonomi.ipynb`. Langkah 8 adalah pratinjau, lan
 Untuk ngrok, ubah `gunakan_ngrok` menjadi `True`, lalu jalankan langkah 9.
 Token pengajar sudah diisi langsung pada sel tersebut; tidak ada permintaan input token. CSV tetap dibaca dari GitHub.
 
+Pada Sesi 0, tabel makro Indonesia dibaca dari CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet.
+CSV sumber tetap di `data/`; enam format lain berada dalam satu folder
+`data/contoh_format/`. [Daftar berkas dan arti variabel](data/README.md#contoh-berbagai-format-pada-sesi-0).
+
 ## Letak berkas
 
 | Folder | Isi |
 |---|---|
 | `materi/` | 16 notebook peserta dan tugas proyek mini. |
-| `data/` | 44 CSV aktif, 15 cadangan, dan satu katalog arti variabel. |
+| `data/` | 44 CSV aktif, enam salinan dalam format lain, 15 cadangan, dan satu katalog arti variabel. |
 | `slide/` | Presentasi, PDF, dan 31 PNG tajam 6000 × 3375 piksel. |
 | `pengajar/` | Satu panduan mengajar dan tujuh notebook kunci jawaban. |
 | `alat_bantu/` | Perkakas pengelola, hasil pemeriksaan, paket opsional, serta cadangan lokal. |

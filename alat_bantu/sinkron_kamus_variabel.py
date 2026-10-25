@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 
 import nbformat
+from uji_format_data import FORMAT_DATA
 
 ROOT = Path(__file__).resolve().parent.parent
 KATALOG = ROOT / "data/README.md"
@@ -133,13 +134,22 @@ def sinkron(path, kamus, periksa=False):
 
 def katalog(kamus, result):
     lines = ["# Data tutorial dan arti variabel", "",
-             "**CSV tidak perlu diunggah ke Colab.** Notebook membaca tabel langsung dari GitHub.",
+             "**Data tidak perlu diunggah ke Colab.** Notebook membaca atau mengunduh berkas langsung dari GitHub.",
              "Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.", "",
              "- **44 CSV aktif** berada di folder data/.",
              "- **15 CSV cadangan** berada di data/cadangan/ dan belum dipakai oleh notebook saat ini.",
              "- Arti variabel juga tersedia pada bagian **Kenali data** di setiap notebook.", "",
              "[Kembali ke materi](../README.md) · [Dasar notebook](../README.md#dasar-notebook)", "",
-             "## Data yang dipakai tiap notebook", "", "| Notebook | Data |", "|---|---|"]
+             "## Contoh berbagai format pada Sesi 0", "",
+             "Satu tabel makro Indonesia 2000 sampai 2025, berisi 26 baris dan tujuh kolom.",
+             "[CSV sumber](idn_makro_tahunan.csv) tetap menjadi acuan. Enam salinan berikut berada pada satu folder contoh_format/ dan semuanya dipakai dalam tutorial pembuka.",
+             "SPSS dan Stata adalah hasil konversi untuk latihan membaca berkas, bukan mikrodata survei asli. Nama kolom dan angka dipertahankan.", "",
+             "| Format | Berkas | Cara membaca |", "|---|---|---|"]
+    for nama, ext, pembaca in FORMAT_DATA:
+        lines.append(f"| {nama} | [idn_makro_tahunan.{ext}](contoh_format/idn_makro_tahunan.{ext}) | `{pembaca}` |")
+    lines += ["", "Definisi kolom mengikuti [kamus makro Indonesia](#idn_makro_tahunan_csv). Excel menyediakan lembar data dan sumber.",
+              "Sumber: [World Bank Indonesia](https://data.worldbank.org/country/indonesia), lisensi CC BY 4.0. Salinan CSV tutorial dipertahankan agar angka konsisten dengan Lab 6.", "",
+              "## Data yang dipakai tiap notebook", "", "| Notebook | Data |", "|---|---|"]
     usage = {name: [] for name in kamus}
     for row in result:
         target = row["notebook"]

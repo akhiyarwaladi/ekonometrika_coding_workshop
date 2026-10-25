@@ -1,6 +1,6 @@
 # Data tutorial dan arti variabel
 
-**CSV tidak perlu diunggah ke Colab.** Notebook membaca tabel langsung dari GitHub.
+**Data tidak perlu diunggah ke Colab.** Notebook membaca atau mengunduh berkas langsung dari GitHub.
 Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.
 
 - **44 CSV aktif** berada di folder data/.
@@ -9,18 +9,36 @@ Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.
 
 [Kembali ke materi](../README.md) · [Dasar notebook](../README.md#dasar-notebook)
 
+## Contoh berbagai format pada Sesi 0
+
+Satu tabel makro Indonesia 2000 sampai 2025, berisi 26 baris dan tujuh kolom.
+[CSV sumber](idn_makro_tahunan.csv) tetap menjadi acuan. Enam salinan berikut berada pada satu folder contoh_format/ dan semuanya dipakai dalam tutorial pembuka.
+SPSS dan Stata adalah hasil konversi untuk latihan membaca berkas, bukan mikrodata survei asli. Nama kolom dan angka dipertahankan.
+
+| Format | Berkas | Cara membaca |
+|---|---|---|
+| Excel | [idn_makro_tahunan.xlsx](contoh_format/idn_makro_tahunan.xlsx) | `pd.read_excel(..., sheet_name="data")` |
+| SPSS | [idn_makro_tahunan.sav](contoh_format/idn_makro_tahunan.sav) | `pd.read_spss(...)` |
+| Stata | [idn_makro_tahunan.dta](contoh_format/idn_makro_tahunan.dta) | `pd.read_stata(...)` |
+| Teks tab/TSV | [idn_makro_tahunan.tsv](contoh_format/idn_makro_tahunan.tsv) | `pd.read_csv(..., sep="\t")` |
+| JSON | [idn_makro_tahunan.json](contoh_format/idn_makro_tahunan.json) | `pd.read_json(..., orient="records")` |
+| Parquet | [idn_makro_tahunan.parquet](contoh_format/idn_makro_tahunan.parquet) | `pd.read_parquet(...)` |
+
+Definisi kolom mengikuti [kamus makro Indonesia](#idn_makro_tahunan_csv). Excel menyediakan lembar data dan sumber.
+Sumber: [World Bank Indonesia](https://data.worldbank.org/country/indonesia), lisensi CC BY 4.0. Salinan CSV tutorial dipertahankan agar angka konsisten dengan Lab 6.
+
 ## Data yang dipakai tiap notebook
 
 | Notebook | Data |
 |---|---|
-| [materi/01_ekonometrika/00_persiapan_colab.ipynb](../materi/01_ekonometrika/00_persiapan_colab.ipynb) | [regresi_polinom.csv](#regresi_polinom_csv), [uts_4.csv](#uts_4_csv) |
+| [materi/01_ekonometrika/00_persiapan_colab.ipynb](../materi/01_ekonometrika/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [regresi_polinom.csv](#regresi_polinom_csv), [uts_4.csv](#uts_4_csv) |
 | [materi/01_ekonometrika/01_regresi_dasar.ipynb](../materi/01_ekonometrika/01_regresi_dasar.ipynb) | [uts_2.csv](#uts_2_csv), [regresi_polinom.csv](#regresi_polinom_csv) |
 | [materi/01_ekonometrika/02_bentuk_fungsional.ipynb](../materi/01_ekonometrika/02_bentuk_fungsional.ipynb) | [regresi_log.csv](#regresi_log_csv), [regresi_reciprocal.csv](#regresi_reciprocal_csv), [regresi_polinom.csv](#regresi_polinom_csv), [usia_unit.csv](#usia_unit_csv) |
 | [materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb](../materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_dummy_2.csv](#latihan_dummy_2_csv), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [hetero_3.csv](#hetero_3_csv), [latihan_normalitas_1.csv](#latihan_normalitas_1_csv) |
 | [materi/01_ekonometrika/04_model_kategorikal.ipynb](../materi/01_ekonometrika/04_model_kategorikal.ipynb) | [spector](#spector), [logit_probit_2.csv](#logit_probit_2_csv), [multi_ordinal_2.csv](#multi_ordinal_2_csv), [multi_ordinal_1.csv](#multi_ordinal_1_csv), [tobit_data_1_rnd.csv](#tobit_data_1_rnd_csv), [poisson_data_2_restoran.csv](#poisson_data_2_restoran_csv) |
 | [materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb](../materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb) | [ts_inflasi.csv](#ts_inflasi_csv), [ts_saham.csv](#ts_saham_csv), [ts_gdp_growth.csv](#ts_gdp_growth_csv), [ts_kurs.csv](#ts_kurs_csv), [konsumsi_pendapatan.csv](#konsumsi_pendapatan_csv) |
 | [materi/01_ekonometrika/06_panel_garch.ipynb](../materi/01_ekonometrika/06_panel_garch.ipynb) | [panel_gdp.csv](#panel_gdp_csv), [volatilitas.csv](#volatilitas_csv) |
-| [materi/02_latihan/00_persiapan_colab.ipynb](../materi/02_latihan/00_persiapan_colab.ipynb) | [uts_2.csv](#uts_2_csv), [uts_4.csv](#uts_4_csv) |
+| [materi/02_latihan/00_persiapan_colab.ipynb](../materi/02_latihan/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [uts_2.csv](#uts_2_csv), [uts_4.csv](#uts_4_csv) |
 | [materi/02_latihan/01_regresi_dasar.ipynb](../materi/02_latihan/01_regresi_dasar.ipynb) | [uts_6.csv](#uts_6_csv), [uts_3.csv](#uts_3_csv), [uts_4.csv](#uts_4_csv) |
 | [materi/02_latihan/02_bentuk_fungsional.ipynb](../materi/02_latihan/02_bentuk_fungsional.ipynb) | [regresi_log.csv](#regresi_log_csv), [pendidikan_pendapatan.csv](#pendidikan_pendapatan_csv), [usia_unit.csv](#usia_unit_csv), [jam_skor.csv](#jam_skor_csv), [uts_1.csv](#uts_1_csv) |
 | [materi/02_latihan/03_dummy_asumsi_klasik.ipynb](../materi/02_latihan/03_dummy_asumsi_klasik.ipynb) | [latihan_dummy_1.csv](#latihan_dummy_1_csv), [latihan_multikolinieritas_1.csv](#latihan_multikolinieritas_1_csv), [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv) |
@@ -29,7 +47,7 @@ Untuk dashboard, data yang dipakai hanya **provinsi_2021.csv**.
 | [materi/02_latihan/06_data_indonesia.ipynb](../materi/02_latihan/06_data_indonesia.ipynb) | [ihsg_harian.csv](#ihsg_harian_csv), [asean_panel.csv](#asean_panel_csv), [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [kurs_harian.csv](#kurs_harian_csv), [idn_inflasi_bulanan.csv](#idn_inflasi_bulanan_csv), [idn_kurs_tahunan.csv](#idn_kurs_tahunan_csv), [ihsg_panjang.csv](#ihsg_panjang_csv), [provinsi_2021.csv](#provinsi_2021_csv) |
 | [materi/03_regresi_housing/01_regresi_housing.ipynb](../materi/03_regresi_housing/01_regresi_housing.ipynb) | [contoh_taksi](#contoh_taksi), [housing.csv](#housing_csv) |
 | [materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb) | [provinsi_2021.csv](#provinsi_2021_csv) |
-| [pengajar/kunci_jawaban/00_persiapan_colab.ipynb](../pengajar/kunci_jawaban/00_persiapan_colab.ipynb) | [uts_4.csv](#uts_4_csv) |
+| [pengajar/kunci_jawaban/00_persiapan_colab.ipynb](../pengajar/kunci_jawaban/00_persiapan_colab.ipynb) | [idn_makro_tahunan.csv](#idn_makro_tahunan_csv), [uts_4.csv](#uts_4_csv) |
 | [pengajar/kunci_jawaban/01_regresi_dasar.ipynb](../pengajar/kunci_jawaban/01_regresi_dasar.ipynb) | [uts_3.csv](#uts_3_csv), [uts_4.csv](#uts_4_csv), [uts_6.csv](#uts_6_csv) |
 | [pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb](../pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb) | [pendidikan_pendapatan.csv](#pendidikan_pendapatan_csv), [usia_unit.csv](#usia_unit_csv), [jam_skor.csv](#jam_skor_csv), [uts_1.csv](#uts_1_csv) |
 | [pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb](../pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb) | [hetero_2.csv](#hetero_2_csv), [latihan_normalitas_3.csv](#latihan_normalitas_3_csv), [hetero_1.csv](#hetero_1_csv) |
@@ -366,7 +384,7 @@ Sumber definisi: [rujukan data](https://databank.worldbank.org/source/world-deve
 
 [Buka CSV](idn_makro_tahunan.csv).
 
-Dipakai pada: [06_data_indonesia](../materi/02_latihan/06_data_indonesia.ipynb).
+Dipakai pada: [00_persiapan_colab](../materi/01_ekonometrika/00_persiapan_colab.ipynb), [00_persiapan_colab](../materi/02_latihan/00_persiapan_colab.ipynb), [06_data_indonesia](../materi/02_latihan/06_data_indonesia.ipynb), [00_persiapan_colab](../pengajar/kunci_jawaban/00_persiapan_colab.ipynb).
 
 <a id="ihsg_emas_csv"></a>
 

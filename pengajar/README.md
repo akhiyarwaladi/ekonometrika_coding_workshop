@@ -21,7 +21,7 @@ alokasi panitia.
 
 | Perkiraan waktu | Materi | Cara mengajar |
 |---|---|---|
-| 08.30-09.15 | Panduan pemula dan Sesi 0 | Kenalkan sel, variabel, kolom, dan error; bantu menjalankan sel alamat data. |
+| 08.30-09.15 | Panduan pemula dan Sesi 0 | Kenalkan sel dan kolom; bandingkan pembacaan CSV, Excel, SPSS, dan Stata. |
 | 09.15-10.15 | Sesi 1 | Jalankan OLS, baca satu koefisien, ubah satu nilai prediksi. |
 | 10.15-10.30 | Istirahat | |
 | 10.30-11.15 | Contoh inti Sesi 2 | Bandingkan garis lurus dan kuadratik, lalu jelaskan elastisitas log-log. |
@@ -56,6 +56,17 @@ terbuka di `alat_bantu/metode_lanjutan.py` dan ikut paket ZIP.
   15 CSV tambahan berada di `data/cadangan/`. Lab 6 memakai data Indonesia
   (IHSG, kurs, makro, panel ASEAN) dari salinan GitHub tersebut.
   [Peta pemakaian data](../data/README.md#data-yang-dipakai-tiap-notebook) menunjukkan nama CSV per sesi.
+
+## Pengenalan berbagai format data
+
+Gunakan contoh Sesi 0 untuk membaca satu tabel makro Indonesia dalam tujuh format.
+CSV sumber tidak berubah; enam salinan format lain dikumpulkan di `data/contoh_format/`.
+Jelaskan dahulu arti kolom pada tabel Kenali data, kemudian tunjukkan bahwa
+CSV, Excel, SPSS, dan Stata menjadi tabel pandas dengan 26 baris serta tujuh kolom.
+Jalankan grafik inflasi dari tabel SPSS untuk menunjukkan kelanjutan alurnya.
+TSV, JSON, dan Parquet dapat menjadi bahan baca mandiri agar sesi pengenalan
+tidak terlalu padat. Praktik perbandingan ukuran dan rata-rata ada di Lab 0
+dan kunci dengan nama yang sama. Tidak ada langkah unggah ZIP atau terminal.
 
 ## Benang merah mengajar
 

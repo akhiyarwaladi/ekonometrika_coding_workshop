@@ -14,6 +14,7 @@ Jalankan dari folder utama dengan lingkungan Python yang memiliki paket dari
 | `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memeriksa definisi tanpa mengubah notebook. |
 | `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh notebook pada kernel baru dan menyimpan hasil serta grafik. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Uji cepat dengan salinan data lokal; tidak mengubah keluaran notebook. |
+| `python alat_bantu/uji_format_data.py` | Membandingkan semua nilai pada CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet. |
 | `python alat_bantu/uji_regresi_housing.py` | Memeriksa prediksi, pembagian data, imputasi, metrik, dan Pipeline secara independen. |
 | `python alat_bantu/uji_dashboard.py --ngrok` | Memeriksa interaksi aplikasi dan akses HTTPS memakai token yang sudah diisi pada notebook. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa integritas data, PNG slide, format notebook, dan tautan. |
@@ -23,12 +24,16 @@ Semua perkakas memperbarui satu [hasil pemeriksaan](laporan/hasil_pemeriksaan.md
 Hasil terstruktur disimpan sebagai JSON untuk pemeriksaan ulang; log hanya disimpan lokal.
 Fungsi khusus Tobit dan separation tetap tersedia pada `metode_lanjutan.py`.
 
+Untuk menguji berkas baru sebelum tersedia di GitHub, gunakan
+`python alat_bantu/uji_semua_notebook.py --data-lokal`. Pemeriksaan berjalan
+di folder sementara dan tetap menyimpan alamat GitHub pada kode notebook.
+
 Sesudah benar-benar memeriksa tampilan lembar grafik, jalankan
 `python alat_bantu/audit_visual.py --selesai-ditinjau` untuk mencatat hasil tinjauan.
 
 ## Paket opsional
 
-`paket/data_tutorial.zip` berisi 44 CSV aktif dan modul model khusus.
+`paket/data_tutorial.zip` berisi 44 CSV aktif, enam salinan format lain untuk Sesi 0, dan modul model khusus.
 `paket/png_regresi_tajam.zip` berisi 31 PNG slide tajam.
 Keduanya salinan untuk pengajar; peserta membuka notebook dan membaca CSV dari GitHub.
 Buat ulang dengan `kemas_data.py` atau `kemas_png.py` jika sumber paket berubah.

@@ -2,11 +2,14 @@
 
 Jalankan: python alat_bantu/uji_semua_notebook.py
 Menguji sel instalasi %pip juga. Butuh nbclient, nbformat, dan ipykernel.
-Setiap notebook dimulai dari foldernya sendiri, dengan ruang variabel baru.
+Setiap notebook memakai folder sementara dan ruang variabel baru, seperti runtime Colab.
+--data-lokal menguji salinan data lokal sebelum berkas baru tersedia di GitHub.
 """
 
 from pathlib import Path
 from datetime import datetime
+from tempfile import TemporaryDirectory
+import argparse
 import inspect
 from importlib.metadata import version
 import json
@@ -24,19 +27,31 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data-lokal", action="store_true")
+    parser.add_argument("notebook", nargs="*")
+    args = parser.parse_args()
     paths = sorted((ROOT / "materi").rglob("*.ipynb")) + sorted(
         (ROOT / "pengajar/kunci_jawaban").glob("*.ipynb")
     )
-    if sys.argv[1:]:
-        paths = [Path(name).resolve() for name in sys.argv[1:]]
+    if args.notebook:
+        paths = [Path(name).resolve() for name in args.notebook]
         assert all(p.exists() and p.suffix == ".ipynb" for p in paths)
     hasil = []
     os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
     for path in paths:
         item = {"notebook": path.relative_to(ROOT).as_posix(), "waktu_uji": datetime.now().isoformat(timespec="seconds")}
+        folder_kerja = TemporaryDirectory(prefix="uji_notebook_")
         try:
             periksa_notebook(path)
             nb = nbformat.read(path, as_version=4)
+            sumber_asli = {c.id: c.source for c in nb.cells}
+            if args.data_lokal:
+                for cell in nb.cells:
+                    cell.source = cell.source.replace(
+                        "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/",
+                        (ROOT / "data").as_uri() + "/",
+                    )
             # Sel pemeriksaan dilepas sebelum menyimpan bahan peserta.
             pemeriksaan = inspect.getsource(periksa_pemodelan)
             pemeriksaan += (
@@ -64,7 +79,7 @@ def main():
                 nb,
                 timeout=240,
                 km=manager,
-                resources={"metadata": {"path": str(path.parent)}},
+                resources={"metadata": {"path": folder_kerja.name}},
             )
             try:
                 client.execute()
@@ -74,6 +89,8 @@ def main():
                 if client.kc is not None:
                     client.kc.stop_channels()
             check = nb.cells.pop()
+            for cell in nb.cells:
+                cell.source = sumber_asli[cell.id]
             text = "".join(
                 o.get("text", "") for o in check.outputs if o.output_type == "stream"
             )
@@ -93,11 +110,13 @@ def main():
             item.update(status="PASS", sel_kode=len(code), grafik=len(pictures))
         except Exception:
             item.update(status="FAIL", error=traceback.format_exc())
+        finally:
+            folder_kerja.cleanup()
         hasil.append(item)
         print(item["status"], item["notebook"], flush=True)
     laporan = ROOT / "alat_bantu/laporan"
     jumlah_dijalankan = len(paths)
-    if sys.argv[1:] and (laporan / "uji_kernel_semua_notebook.json").exists():
+    if args.notebook and (laporan / "uji_kernel_semua_notebook.json").exists():
         sebelumnya = json.loads((laporan / "uji_kernel_semua_notebook.json").read_text(encoding="utf-8"))
         gabungan = {item["notebook"]: item for item in sebelumnya["hasil"]}
         gabungan.update({item["notebook"]: item for item in hasil})
@@ -118,6 +137,7 @@ def main():
         },
         "jumlah": len(hasil),
         "jumlah_dijalankan_terakhir": jumlah_dijalankan,
+        "sumber_data_uji_terakhir": "Salinan lokal" if args.data_lokal else "GitHub",
         "lulus": sum(i["status"] == "PASS" for i in hasil),
         "hasil": hasil,
     }

@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "sumber_csv": "data/idn_makro_tahunan.csv",
+  "sha256_csv": "b1145f13a445588a482f40f813c2bf5a4f85c483b3948ffb6fb1475e9c3399db",
+  "periode": "2000 sampai 2025",
+  "baris": 26,
+  "kolom": 7,
+  "jumlah_format": 7,
+  "asal": "World Bank; salinan CSV tutorial yang sudah tersedia. Enam format lain dikonversi untuk latihan membaca berkas; nilai tidak diubah.",
+  "sumber": "https://data.worldbank.org/country/indonesia",
+  "lisensi": "CC BY 4.0",
+  "hasil": [
+    {
+      "format": "Excel",
+      "berkas": "data/contoh_format/idn_makro_tahunan.xlsx",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "570f8e1974b976c02216311ed941bc474f4d6d97f54631fa65beb101dba0c541",
+      "status": "PASS"
+    },
+    {
+      "format": "SPSS",
+      "berkas": "data/contoh_format/idn_makro_tahunan.sav",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "eb1f12fd9eee9d3abdf3f269e3f46712108263cb26dba697dc5f6529bc91b894",
+      "status": "PASS"
+    },
+    {
+      "format": "Stata",
+      "berkas": "data/contoh_format/idn_makro_tahunan.dta",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "3bab63ee6026d3bd5da2ea89bdd565e1e3244ce0e6cf4c2f79d6960304457729",
+      "status": "PASS"
+    },
+    {
+      "format": "Teks tab/TSV",
+      "berkas": "data/contoh_format/idn_makro_tahunan.tsv",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "ce44e069ec673a3bff615a8b97a5e97455c31198a2df81d672a850ae82395313",
+      "status": "PASS"
+    },
+    {
+      "format": "JSON",
+      "berkas": "data/contoh_format/idn_makro_tahunan.json",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "d48096bf4bd5daa48ecab53ede96ac5567ddc5a5ffdb8454f860c3c2700bc59c",
+      "status": "PASS"
+    },
+    {
+      "format": "Parquet",
+      "berkas": "data/contoh_format/idn_makro_tahunan.parquet",
+      "baris": 26,
+      "kolom": 7,
+      "sha256": "f08870c0cd228ab59b02754418babf3467a4a2ca02903dbad57cafad1a60015e",
+      "status": "PASS"
+    }
+  ]
+}

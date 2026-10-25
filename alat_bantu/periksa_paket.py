@@ -18,6 +18,7 @@ from laporan_bersama import simpan_ringkasan
 
 from uji_notebook import periksa_notebook
 from sinkron_kamus_variabel import baca_kamus, sinkron
+from uji_format_data import periksa_format
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -80,6 +81,8 @@ def main():
                   and p != ROOT / "alat_bantu/laporan/peta_perubahan_nama.csv"]
     assert not data_lepas, data_lepas
     expected = {p.relative_to(ROOT).as_posix() for p in aktif}
+    format_data = periksa_format()
+    expected.update(item["berkas"] for item in format_data["hasil"])
     expected.add("alat_bantu/metode_lanjutan.py")
     with ZipFile(ROOT / "alat_bantu/paket/data_tutorial.zip") as paket:
         assert set(paket.namelist()) == expected

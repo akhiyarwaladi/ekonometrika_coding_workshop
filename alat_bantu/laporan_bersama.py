@@ -18,6 +18,7 @@ def simpan_ringkasan():
     dashboard = baca("uji_dashboard.json")
     visual = baca("audit_visual.json")
     kamus = baca("kamus_variabel.json")
+    format_data = baca("uji_format_data.json")
     lines = ["# Hasil pemeriksaan materi", "",
              "Notebook `.ipynb` adalah sumber utama. Grafik pembelajaran tersimpan pada keluaran notebook.",
              "[Kembali ke materi](../../README.md)", "", "## Eksekusi seluruh notebook", ""]
@@ -35,6 +36,10 @@ def simpan_ringkasan():
                   "31 PNG slide tetap berukuran 6000 × 3375 piksel, 600 dpi, dan sesuai dengan ZIP PNG."]
     if kamus:
         lines += [f"Definisi {kamus['jumlah_definisi_kolom']} kolom tersedia pada {kamus['jumlah_tabel_di_tutorial']} tabel Kenali data; [katalog data](../../data/README.md) memuat seluruh CSV."]
+    if format_data:
+        lines += ["", "## Pembaca berbagai format data", "",
+                  f"Status **{format_data['status']}**: CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet menghasilkan {format_data['baris']} baris dan {format_data['kolom']} kolom dengan nilai yang sama.",
+                  "Semua salinan berasal dari tabel makro Indonesia yang sama; berkas CSV asli dipertahankan. Label variabel SPSS/Stata dan kedua lembar Excel juga diperiksa."]
     lines += ["", "## Visualisasi dan keterbacaan", ""]
     if visual:
         lines += [f"Status **{visual['status']}**: {visual['jumlah_notebook']} notebook diperiksa; total {visual['jumlah_gambar']} gambar keluaran.",
