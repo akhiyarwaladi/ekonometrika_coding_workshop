@@ -53,25 +53,33 @@ terbuka di `alat_bantu/metode_lanjutan.py` dan ikut paket ZIP.
 - **Alat:** Google Colab. Tidak perlu instalasi apa pun di laptop peserta.
 - **Data:** notebook membaca CSV langsung dari GitHub melalui `URL_DATA`.
   Gunakan koneksi internet. Salinan lokal: 45 CSV aktif di `data/`, sedangkan
-  14 CSV tambahan berada di `data/cadangan/`. Lab 6 memakai data Indonesia
+  14 CSV tambahan berada di `data/latihan_tambahan/`. Lab 6 memakai data Indonesia
   (IHSG, kurs, makro, panel ASEAN) dari salinan GitHub tersebut.
   [Peta pemakaian data](../data/README.md#data-yang-dipakai-tiap-notebook) menunjukkan nama CSV per sesi.
 
 ## Pengenalan berbagai format data
 
-Gunakan contoh Sesi 0 untuk membaca satu tabel makro Indonesia dalam tujuh format.
-CSV sumber tidak berubah; enam salinan format lain dikumpulkan di `data/contoh_format/`.
-Jelaskan dahulu arti kolom pada tabel Kenali data, kemudian tunjukkan bahwa
-CSV, Excel, SPSS, dan Stata menjadi tabel pandas dengan 26 baris serta tujuh kolom.
-Lanjutkan dengan nilai kosong, duplikasi, statistik deskriptif, pemilihan tahun,
-grafik garis, histogram, diagram pencar, dan peringkat provinsi. Regresi baru
-dimulai pada Sesi 01; Sesi 00 tidak memakai fit, predict, atau p-value.
-TSV, JSON, dan Parquet dapat menjadi bahan baca mandiri agar sesi pengenalan
-tidak terlalu padat. Praktik perbandingan ukuran dan rata-rata ada di Lab 0
-dan kunci dengan nama yang sama. Tidak ada langkah unggah ZIP atau terminal.
-Untuk alokasi pengantar 45 menit, demonstrasikan empat format inti, pemeriksaan
-tabel, grafik garis, dan histogram; diagram pencar serta peringkat provinsi
-dapat dilanjutkan pada Lab 00. Versi contoh lengkap disediakan untuk 60 sampai 75 menit.
+Sesi 00 memakai tujuh format dengan tujuh kasus berbeda. CSV berisi makro Indonesia;
+Excel berisi produksi padi dan beras kabupaten/kota Jawa Barat pada 2025;
+SPSS berisi kemiskinan; Stata berisi penggunaan internet; TSV berisi ekspor;
+JSON berisi prakiraan cuaca Simpang IV Sipin, Jambi; Parquet berisi jumlah penduduk.
+CSV makro tetap di `data/`; enam format lain ada di `data/contoh_format/`.
+
+Baca tabel Kenali data sebelum membuka berkas. Bandingkan jumlah baris, jenis kolom,
+unit pengamatan, periode, dan satuannya. SAV, DTA, TSV, dan Parquet dikonversi dari
+seri publik World Bank untuk demonstrasi format. Excel menyalin tabel BPS,
+sedangkan JSON BMKG diratakan. Semua sumber ditautkan di notebook; contoh SPSS
+bukan mikrodata survei. Prakiraan cuaca juga harus dibedakan dari pengamatan aktual.
+
+Untuk pengantar 45 menit, utamakan CSV, Excel, dan SPSS, lalu pemeriksaan nilai kosong,
+ringkasan, grafik garis, dan histogram. Empat format lain serta grafik peringkat dan
+diagram pencar dapat dilanjutkan pada Lab 00. Versi lengkap memerlukan sekitar
+60 sampai 75 menit, bergantung pada waktu praktik peserta.
+
+Tabel Perintah pada tahap ini menjelaskan kegunaan, masukan/argumen, dan hasil
+fungsi. Fungsi yang sudah dijelaskan tidak diulang pada setiap sel. Regresi dimulai
+di Sesi 01; Sesi 00 hanya EDA. Lab 05 menggabungkan Sesi 05 dengan bagian panel
+Sesi 06. Tidak ada langkah unggah ZIP atau menjalankan terminal bagi peserta.
 
 ## Benang merah mengajar
 
@@ -115,7 +123,7 @@ Kesamaan perubahan sebelum program hanya petunjuk, bukan bukti asumsi tren paral
 Bahas pula program lain, perubahan komposisi, antisipasi, dan pengaruh ke pembanding.
 PKH pada referensi Cahyadi dkk. menggunakan penugasan acak; jangan menyebutnya studi DiD sederhana.
 
-**Sesi 04.** `data/kredit_default.csv` dipindahkan dari cadangan dan isinya dipertahankan.
+**Sesi 04.** `data/gagal_bayar_kredit_taiwan.csv` dipindahkan dari cadangan dan isinya dipertahankan.
 Asal data Taiwan serta satuan dolar Taiwan tetap dijelaskan. Dua fitur, batas kredit dan
 usia, cukup untuk latihan ini. Pembagian 600/200/200 memakai stratifikasi; patokan skala
 dipelajari dari 600 data latihan. Ambang 0,20 dan 0,50 dibandingkan menggunakan asumsi biaya
@@ -226,7 +234,7 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
 ### Sesi 2, bentuk fungsional
 - Aturan praktis: log untuk persentase, reciprocal untuk titik jenuh,
   polinomial untuk pola naik-turun.
-- Demo `regresi_polinom.csv` di sesi 1 sengaja gagal dengan model linear.
+- Demo `iklan_penjualan.csv` di sesi 1 sengaja gagal dengan model linear.
   Buka kembali di sesi ini sebagai pay-off: model kuadratik memperbaiki
   R kuadrat dari 0,007 ke 0,999.
 
@@ -238,7 +246,7 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
 - Pesan kunci: robust SE mengubah standard error, bukan koefisien.
 
 ### Sesi 4, model kategorikal
-- Data kursus untuk logit (`logit_probit_1.csv` sampai `logit_probit_3.csv`) terpisah
+- Data kursus untuk logit (`persetujuan_kredit_usaha.csv` sampai `penggunaan_mobile_banking.csv`) terpisah
   sempurna. Ini dijelaskan di notebook sebagai pelajaran. Jangan panik
   kalau peserta bertanya kenapa koefisiennya ekstrem.
 - Dataset Spector dipakai sebagai contoh bersih. Bisa dibandingkan dengan
@@ -294,25 +302,25 @@ Rinciannya ada di [panduan pemodelan](README.md#pemodelan).
 
 ## Bahan latihan tambahan
 
-Sebanyak 14 CSV di [data/cadangan/](../data/README.md) belum dipakai
+Sebanyak 14 CSV di [data/latihan_tambahan/](../data/README.md) belum dipakai
 oleh 23 notebook saat ini. Pengajar dapat memilihnya untuk latihan tambahan;
 peserta cukup memakai data pada [peta pemakaian data](../data/README.md#data-yang-dipakai-tiap-notebook).
 Beberapa pilihan tambahan:
 
 | File data | Kasus | Latihan yang disarankan |
 |---|---|---|
-| `uts_5.csv` | kriminalitas vs pengangguran, pendidikan, kepadatan | regresi berganda dan interpretasi |
-| `data_regresi_uts.csv` | 100 observasi dengan kolom tren dan error | latihan uji spesifikasi model |
-| `latihan_normalitas_2.csv` | hasil panen | uji normalitas residual |
-| `logit_probit_3.csv` | adopsi mobile banking | ulangi pelajaran perfect separation |
-| `tobit_data_2_jamkerja.csv` | jam kerja tersensor di nol | estimasi Tobit MLE |
-| `tobit_data_3_asuransi.csv` | premi asuransi tersensor di nol | estimasi Tobit MLE |
-| `poisson_data_3_cacat.csv` | cacat produksi per batch | Poisson dan cek overdispersi |
+| `kriminalitas_kota.csv` | kriminalitas vs pengangguran, pendidikan, kepadatan | regresi berganda dan interpretasi |
+| `latihan_spesifikasi_regresi.csv` | 100 observasi dengan kolom tren dan error | latihan uji spesifikasi model |
+| `panen_kondisi_lahan.csv` | hasil panen | uji normalitas residual |
+| `penggunaan_mobile_banking.csv` | adopsi mobile banking | ulangi pelajaran perfect separation |
+| `jam_kerja_keluarga.csv` | jam kerja tersensor di nol | estimasi Tobit MLE |
+| `premi_asuransi.csv` | premi asuransi tersensor di nol | estimasi Tobit MLE |
+| `cacat_produksi.csv` | cacat produksi per batch | Poisson dan cek overdispersi |
 | `ekspor_kurs.csv` | ekspor dan nilai tukar | ADF, kointegrasi, lalu ECM |
-| `ritel_iklan.csv` | penjualan ritel dan iklan digital | regresi tren atau ARIMA |
+| `iklan_penjualan_mingguan.csv` | penjualan ritel dan iklan digital | regresi tren atau ARIMA |
 | `panel_kesehatan.csv` | tekanan darah pasien | panel CEM, FEM, REM |
 | `panel_pendidikan.csv` | nilai ujian siswa | panel CEM, FEM, REM |
-| `kredit_default.csv` | 1.000 nasabah kartu kredit (data asli UCI, bukan Indonesia) | logit dengan data asli tanpa perfect separation |
+| `gagal_bayar_kredit_taiwan.csv` | 1.000 nasabah kartu kredit (data asli UCI, bukan Indonesia) | logit dengan data asli tanpa perfect separation |
 
 ## Penilaian dan tindak lanjut
 
@@ -328,7 +336,7 @@ Beberapa pilihan tambahan:
 
 Gunakan [notebook dashboard](../materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb).
 Seluruh aplikasi dibuat dan dijalankan dari notebook. Data yang dipakai hanya
-`provinsi_2021.csv`, dibaca langsung dari GitHub dengan koneksi internet.
+`indikator_provinsi_2021.csv`, dibaca langsung dari GitHub dengan koneksi internet.
 Peserta menjalankan seluruh langkah dari notebook.
 
 Setelah pratinjau, langkah 9 menyediakan tautan ngrok untuk perangkat lain.
@@ -394,26 +402,26 @@ flowchart TD
 
 ### Catatan data
 
-- 32 CSV berasal langsung dari repositori halaman kuliah (`regresi_log.csv`,
-  `hetero_1.csv` sampai `hetero_3.csv`, `uts_1.csv` sampai `uts_6.csv`, dan seterusnya).
+- 32 CSV berasal langsung dari repositori halaman kuliah (`produksi_tenaga_kerja_modal.csv`,
+  `penjualan_iklan_diskon.csv` sampai `rumah_heteroskedastisitas.csv`, `pertumbuhan_ekonomi_negara.csv` sampai `penjualan_produk.csv`, dan seterusnya).
 - 17 CSV lain dibuat dari tabel inline Pertemuan 3 dan 12-15 yang tidak
   tersedia sebagai file unduhan di halaman kuliah (`ts_*`, `panel_*`,
-  `volatilitas.csv`, `pendidikan_pendapatan.csv`, `usia_unit.csv`,
-  `jam_skor.csv`). Script pembuatnya ada di `alat_bantu/buat_data_simulasi.py`.
+  `return_volatilitas_simulasi.csv`, `pendidikan_pendapatan.csv`, `usia_penjualan.csv`,
+  `jam_belajar_nilai_ujian.csv`). Script pembuatnya ada di `alat_bantu/buat_data_simulasi.py`.
 - 9 CSV adalah data asli dari sumber terbuka, delapan di antaranya
   Indonesia, dipakai di Lab 6 dan latihannya:
 
   | File | Isi | Sumber |
   |---|---|---|
   | `ihsg_harian.csv` | IHSG harian 2019 sampai 2026 | Yahoo Finance |
-  | `ihsg_panjang.csv` | IHSG harian 1990 sampai 2026 | Yahoo Finance |
-  | `kurs_harian.csv` | Kurs USD/IDR harian 2019 sampai 2026 | ECB via Frankfurter |
-  | `idn_kurs_tahunan.csv` | Kurs tahunan 1967 sampai 2025, memuat krisis 1998 | World Bank |
-  | `idn_inflasi_bulanan.csv` | Inflasi bulanan 1969 sampai 2025 | BPS via OECD/FRED |
-  | `idn_makro_tahunan.csv` | Inflasi, PDB, pengangguran, kurs 2000 sampai 2025 | World Bank |
-  | `asean_panel.csv` | Panel 10 negara ASEAN 2000 sampai 2025 | World Bank |
-  | `provinsi_2021.csv` | 34 provinsi: PDRB, IPM, kemiskinan, dll | kompilasi BPS |
-  | `kredit_default.csv` | 1.000 nasabah kartu kredit, bahan latihan logit | UCI (Taiwan) |
+  | `ihsg_riwayat_panjang.csv` | IHSG harian 1990 sampai 2026 | Yahoo Finance |
+  | `kurs_rupiah_harian.csv` | Kurs USD/IDR harian 2019 sampai 2026 | ECB via Frankfurter |
+  | `kurs_rupiah_tahunan.csv` | Kurs tahunan 1967 sampai 2025, memuat krisis 1998 | World Bank |
+  | `inflasi_indonesia_bulanan.csv` | Inflasi bulanan 1969 sampai 2025 | BPS via OECD/FRED |
+  | `makro_indonesia_tahunan.csv` | Inflasi, PDB, pengangguran, kurs 2000 sampai 2025 | World Bank |
+  | `panel_asean.csv` | Panel 10 negara ASEAN 2000 sampai 2025 | World Bank |
+  | `indikator_provinsi_2021.csv` | 34 provinsi: PDRB, IPM, kemiskinan, dll | kompilasi BPS |
+  | `gagal_bayar_kredit_taiwan.csv` | 1.000 nasabah kartu kredit, bahan latihan logit | UCI (Taiwan) |
 
   Perbarui dengan `python alat_bantu/unduh_data_indonesia.py` (butuh internet,
   dan `xlrd` untuk data kredit default).
@@ -425,16 +433,16 @@ flowchart TD
   dekat nol. Parameter ambang ordinal pada summary perlu ditransformasi
   sebelum dibaca sebagai batas kategori. Hal-hal ini menjadi bahan diskusi yang
   bagus, bukan alasan untuk menyembunyikan data.
-- Sebagian CSV cadangan (misalnya `uts_5.csv`, `panel_kesehatan.csv`,
-  `tobit_data_2_jamkerja.csv`) tidak dipakai di jalur utama. Daftar
+- Sebagian CSV latihan tambahan (misalnya `kriminalitas_kota.csv`, `panel_kesehatan.csv`,
+  `jam_kerja_keluarga.csv`) tidak dipakai di jalur utama. Daftar
   lengkap dan saran latihannya ada di `pengajar/README.md`.
 
 ### Praktik regresi Housing
 
-[Notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb)
+[Notebook Housing](../materi/03_regresi_rumah/01_regresi_rumah.ipynb)
 melengkapi contoh ekonometrika dengan supervised learning sesuai
 [slide regresi versi tajam](../slide/png_regresi_tajam). Data tambahan
-`data/housing.csv` memuat 506 baris dan 14 kolom; total koleksi 59 CSV (45 aktif dan 14 cadangan).
+`data/harga_rumah_boston.csv` memuat 506 baris dan 14 kolom; total koleksi 59 CSV (45 utama dan 14 latihan tambahan).
 Notebook mencakup pembagian train/test, imputasi berdasarkan train, regresi
 sederhana dan berganda, VIF, RMSE, R², prediksi baru, serta validasi
 underfitting/overfitting. Hasil uji ada di [laporan Housing](../alat_bantu/laporan/hasil_pemeriksaan.md#regresi-housing).
@@ -482,23 +490,23 @@ terlalu sempit atau ada faktor lain.
 
 ### Sesi 3: dummy dan asumsi klasik
 
-1. VIF `latihan_multikolinieritas_2.csv`: pendapatan 59,65, kekayaan
+1. VIF `konsumsi_rumah_tangga.csv`: pendapatan 59,65, kekayaan
    54,90, jumlah anggota 2,59. Koefisien pendapatan bergeser dari 0,696
    (dengan kekayaan) ke 0,503 (tanpa kekayaan). Pergeseran sebesar itu
    adalah gejala khas multikolinearitas; pilih salah satu variabel yang
    paling sesuai teori.
-2. Heteroskedastisitas `hetero_2.csv`: Breusch-Pagan p = 0,0025 (ada
+2. Heteroskedastisitas `pendapatan_pekerja.csv`: Breusch-Pagan p = 0,0025 (ada
    masalah), White p = 0,0638 (tidak menolak pada 5%). Setelah robust SE,
    p-value pendidikan naik dari 0,0089 ke 0,0286. Tetap signifikan, tapi
    lebih lemah.
-3. `hetero_1.csv`: BP p = 0,997 dan White p = 0,542. Tidak ada bukti
+3. `penjualan_iklan_diskon.csv`: BP p = 0,997 dan White p = 0,542. Tidak ada bukti
    heteroskedastis. Dugaan di soal tidak didukung data.
-4. Normalitas `latihan_normalitas_3.csv`: Jarque-Bera = 3,19 dengan
+4. Normalitas `rumah_normalitas.csv`: Jarque-Bera = 3,19 dengan
    p = 0,203. Residual normal.
 
 ### Sesi 4: model kategorikal
 
-1. Logit kelulusan (`logit_probit_2.csv`): data terpisah sempurna, MLE
+1. Logit kelulusan (`kelulusan_mahasiswa.csv`): data terpisah sempurna, MLE
    polos tidak stabil. Tiga jalan keluar yang bisa dibandingkan:
    - statsmodels `fit_regularized` (alpha = 0,5): IPK +15,10, SKS -1,23,
      keaktifan organisasi -0,12, beasiswa 0,00.
@@ -508,12 +516,12 @@ terlalu sempit atau ada faktor lain.
    - Kesimpulan untuk diajarkan: regularisasi menstabilkan estimasi;
      p-value tidak tersedia di kedua versi regularisasi. Jelaskan
      penyebabnya (separation), bukan sekadar "koefisiennya aneh".
-2. Ordinal `multi_ordinal_1.csv` dengan probit: waktu tunggu -7,18,
+2. Ordinal `kepuasan_layanan_bank.csv` dengan probit: waktu tunggu -7,18,
    keramahan staf +10,80, aplikasi digital +6,24. Parameter ambang pada
    summary harus ditransformasi dengan `transform_threshold_params`
    sebelum dibaca sebagai batas kategori. Tanda sama dengan versi logit, hanya skalanya
    lebih kecil (rasio khas logit terhadap probit sekitar 1,6).
-3. `multi_ordinal_3.csv`: angka 9,36 lalu 4,92 pada summary adalah
+3. `peringkat_kredit_umkm.csv`: angka 9,36 lalu 4,92 pada summary adalah
    parameter transformasi, sehingga urutannya bukan bukti ambang terbalik.
    Ambang asli kedua dihitung dari ambang pertama ditambah exp(parameter
    kedua). Tampilkan dengan `model.transform_threshold_params(hasil.params)`.
@@ -524,7 +532,7 @@ terlalu sempit atau ada faktor lain.
    10 orang, jadi satu orang saja yang berpindah prediksi sudah
    menggeser akurasi 10 poin persen. Pesan: metrik pada sampel kecil
    tidak stabil, laporkan beberapa pembagian data.
-5. Poisson klaim (`poisson_data_1_klaim.csv`): IRR usia 1,023 (p = 0,91),
+5. Poisson klaim (`klaim_asuransi_mobil.csv`): IRR usia 1,023 (p = 0,91),
    pengalaman 0,784 (p = 0,35), tipe mobil 1,410 (p = 0,42). Tidak ada
    yang signifikan. Overdispersi 0,141 (aman), AIC Poisson 80,9 lebih
    kecil dari NB 82,9. Kesimpulan jujur: data ini tidak menunjukkan efek
@@ -675,7 +683,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 
 URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
-saham = pd.read_csv(URL_DATA + "uts_2.csv")
+saham = pd.read_csv(URL_DATA + "harga_saham_perusahaan.csv")
 X = saham[["X1_Pendapatan_per_Saham"]]
 y = saham["Y_Harga_Saham"]
 model = LinearRegression()
@@ -903,7 +911,7 @@ membandingkan angka dengan indikator inflasi tahunan lain.
 - Alternatif dengan DOI dan lisensi CC-BY: Zenodo record 20372479, data
   38 provinsi 2024 di https://zenodo.org/records/20372479.
 - Data kredit default (1.000 baris, bahan latihan logit di
-  `data/kredit_default.csv`): UCI Machine Learning Repository,
+  `data/gagal_bayar_kredit_taiwan.csv`): UCI Machine Learning Repository,
   https://archive.ics.uci.edu/dataset/350. Data asli kartu kredit
   Taiwan 2005, bukan Indonesia, tapi berguna karena tidak ada masalah
   perfect separation seperti data simulasi kuliah.

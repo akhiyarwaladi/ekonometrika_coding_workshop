@@ -10,16 +10,16 @@ baca tabel Kenali data untuk memahami arti setiap variabel dan satuannya.
 
 | Kasus | Pertanyaan | Mulai dari | Hasil minimum |
 |---|---|---|---|
-| Ramalan inflasi | Apakah dua lag membantu meramal inflasi bulan berikutnya? | Pengayaan [Lab 05](05_deret_waktu_panel.ipynb), `data/idn_inflasi_bulanan.csv` | Pembagian berdasarkan waktu, pembanding naif, MAE/RMSE, dan grafik aktual versus ramalan. |
-| Keputusan kredit | Bagaimana perubahan biaya gagal bayar mengubah pilihan ambang? | Pengayaan [Lab 04](04_model_kategorikal.ipynb), `data/kredit_default.csv` | Pilihan ambang berdasarkan validasi, matriks kebingungan, dan perbandingan biaya pada data uji. |
-| Regresi harga rumah | Fitur mana yang membantu memprediksi harga pada data uji? | [Notebook Housing](../03_regresi_housing/01_regresi_housing.ipynb), `data/housing.csv` | Model sederhana dan berganda, pembanding rata-rata, RMSE, dan grafik residual. |
+| Ramalan inflasi | Apakah dua lag membantu meramal inflasi bulan berikutnya? | Pengayaan [Lab 05](05_deret_waktu_panel.ipynb), `data/inflasi_indonesia_bulanan.csv` | Pembagian berdasarkan waktu, pembanding naif, MAE/RMSE, dan grafik aktual versus ramalan. |
+| Keputusan kredit | Bagaimana perubahan biaya gagal bayar mengubah pilihan ambang? | Pengayaan [Lab 04](04_model_kategorikal.ipynb), `data/gagal_bayar_kredit_taiwan.csv` | Pilihan ambang berdasarkan validasi, matriks kebingungan, dan perbandingan biaya pada data uji. |
+| Regresi harga rumah | Fitur mana yang membantu memprediksi harga pada data uji? | [Notebook Housing](../03_regresi_rumah/01_regresi_rumah.ipynb), `data/harga_rumah_boston.csv` | Model sederhana dan berganda, pembanding rata-rata, RMSE, dan grafik residual. |
 
 Data kredit berasal dari Taiwan dan Housing dari Boston; keduanya bukan data Indonesia.
 Untuk kasus Indonesia, pilih inflasi. Tabel DiD delapan baris pada Sesi 03 adalah simulasi
 pengantar; jangan menjadikannya bukti keberhasilan program nyata.
 
 Arti `tanggal`, `indeks`, `inflasi_mom`, dan `inflasi_yoy` mengikuti
-[kamus inflasi](../../data/README.md#idn_inflasi_bulanan_csv). Bacalah sebelum menjalankan kode.
+[kamus inflasi](../../data/README.md#inflasi_indonesia_bulanan_csv). Bacalah sebelum menjalankan kode.
 `inflasi_yoy` bersatuan persen; angka 2 berarti 2%, bukan 0,02%.
 
 Contoh membuka data inflasi dalam notebook:
@@ -28,7 +28,7 @@ Contoh membuka data inflasi dalam notebook:
 import pandas as pd
 
 URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
-inflasi = pd.read_csv(URL_DATA + "idn_inflasi_bulanan.csv")
+inflasi = pd.read_csv(URL_DATA + "inflasi_indonesia_bulanan.csv")
 inflasi.head()
 ```
 

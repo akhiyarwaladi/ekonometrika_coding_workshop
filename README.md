@@ -7,7 +7,7 @@ Pelatihan FEB Universitas Jambi, 26 Oktober 2026.
 
 1. Klik notebook pada tabel **Pilih materi** di bawah, lalu simpan salinan ke Google Drive.
 2. Jalankan sel dari atas dengan **Shift + Enter** dan koneksi internet.
-3. Baca tabel **Kenali data**, amati grafik, lalu jelaskan arti hasil dengan kata sendiri.
+3. Baca tabel **Kenali data** dan **Perintah pada tahap ini**, amati grafik, lalu jelaskan arti hasil dengan kata sendiri.
 
 **CSV dan ZIP tidak perlu diunggah.** Jika memakai file dari komputer, cukup unggah satu `.ipynb`.
 Notebook berisi seluruh kode dan hasil. Sel latihan yang masih berupa komentar dikerjakan setelah contoh terbimbing.
@@ -17,11 +17,11 @@ Notebook berisi seluruh kode dan hasil. Sel latihan yang masih berupa komentar d
 <a id="pilih-materi"></a>
 ## Pilih materi
 
-Ikuti contoh, lalu latihan dengan nomor yang sama. Semua tautan notebook membuka Google Colab.
+Ikuti contoh, lalu latihan bernomor sama. Lab 05 memerlukan Sesi 05 dan bagian panel pada Sesi 06. Semua tautan notebook membuka Google Colab.
 
 Nomor **00 sampai 06** menghubungkan sesi, latihan, dan kunci jawaban dengan nama
 berkas yang sesuai. Nomor folder **01 sampai 04** mengelompokkan jenis bahan:
-materi inti, latihan, praktik Housing, dan dashboard. Nomor **01** di dalam folder
+materi inti, latihan, praktik regresi rumah, dan dashboard. Nomor **01** di dalam folder
 praktik tambahan menunjukkan urutan praktik pada folder tersebut.
 
 | Urutan | Topik | Contoh | Latihan |
@@ -36,7 +36,7 @@ praktik tambahan menunjukkan urutan praktik pada folder tersebut.
 
 | Praktik tambahan | Notebook |
 |---|---|
-| Regresi sesuai slide | [01_regresi_housing.ipynb](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_housing/01_regresi_housing.ipynb) |
+| Regresi sesuai slide | [01_regresi_rumah.ipynb](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/03_regresi_rumah/01_regresi_rumah.ipynb) |
 | Penutup: dashboard ekonomi | [01_dashboard_ekonomi.ipynb](https://colab.research.google.com/github/akhiyarwaladi/ekonometrika_coding_workshop/blob/main/materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb) |
 
 [Tugas proyek mini](materi/02_latihan/07_proyek_mini.md) dikerjakan setelah latihan.
@@ -61,16 +61,17 @@ Gunakan satu file: `01_dashboard_ekonomi.ipynb`. Langkah 8 adalah pratinjau, lan
 Untuk ngrok, ubah `gunakan_ngrok` menjadi `True`, lalu jalankan langkah 9.
 Token pengajar sudah diisi langsung pada sel tersebut; tidak ada permintaan input token. CSV tetap dibaca dari GitHub.
 
-Pada Sesi 0, tabel makro Indonesia dibaca dari CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet.
-CSV sumber tetap di `data/`; enam format lain berada dalam satu folder
-`data/contoh_format/`. [Daftar berkas dan arti variabel](data/README.md#contoh-berbagai-format-pada-sesi-0).
+Sesi 00 memakai tujuh kasus Indonesia yang berbeda: makro (CSV), padi Jawa Barat (Excel),
+kemiskinan (SPSS), penggunaan internet (Stata), ekspor (TSV), prakiraan cuaca Jambi (JSON),
+dan penduduk (Parquet). Sumber serta konversi berkas dijelaskan di notebook.
+CSV makro berada di `data/`; enam format lain berada di `data/contoh_format/`. [Daftar berkas dan arti variabel](data/README.md#contoh-berbagai-format-pada-sesi-0).
 
 ## Letak berkas
 
 | Folder | Isi |
 |---|---|
 | `materi/` | 16 notebook peserta dan tugas proyek mini. |
-| `data/` | 45 CSV aktif, enam salinan dalam format lain, 14 cadangan, dan satu katalog arti variabel. |
+| `data/` | 45 CSV utama, enam contoh format dengan kasus berbeda, 14 CSV latihan tambahan, dan katalog variabel. |
 | `slide/` | Presentasi, PDF, dan 31 PNG tajam 6000 × 3375 piksel. |
 | `pengajar/` | Satu panduan mengajar dan tujuh notebook kunci jawaban. |
 | `alat_bantu/` | Perkakas pengelola, hasil pemeriksaan, paket opsional, serta cadangan lokal. |
@@ -90,7 +91,7 @@ Definisi lengkap ada di [kamus variabel](data/README.md#definisi-variabel).
 | Contoh | Cara membacanya |
 |---|---|
 | `import pandas as pd` | Siapkan alat untuk tabel; nama singkatnya `pd`. |
-| `makro = pd.read_csv(URL_DATA + "idn_makro_tahunan.csv")` | Baca berkas dan simpan tabel dengan nama `makro`. |
+| `makro = pd.read_csv(URL_DATA + "makro_indonesia_tahunan.csv")` | Baca berkas dan simpan tabel dengan nama `makro`. |
 | `makro.head()` | Tampilkan lima baris pertama. |
 | `makro.shape` | Lihat jumlah baris dan kolom. |
 | `makro.info()` | Periksa nama kolom, tipe, dan nilai yang terisi. |
@@ -124,7 +125,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 URL_DATA = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
-makro = pd.read_csv(URL_DATA + "idn_makro_tahunan.csv")
+makro = pd.read_csv(URL_DATA + "makro_indonesia_tahunan.csv")
 makro.head()
 ```
 

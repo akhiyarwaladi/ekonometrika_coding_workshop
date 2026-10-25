@@ -1,7 +1,7 @@
 {
   "versi": 1,
   "dataset": {
-    "uts_2.csv": {
+    "harga_saham_perusahaan.csv": {
       "judul": "Harga saham perusahaan",
       "satu_baris": "satu perusahaan pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -32,10 +32,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/uts_2.csv",
+      "lokasi": "data/harga_saham_perusahaan.csv",
       "status": "dipakai"
     },
-    "regresi_polinom.csv": {
+    "iklan_penjualan.csv": {
       "judul": "Iklan dan penjualan",
       "satu_baris": "satu tahun pengamatan pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -67,10 +67,10 @@
           "satuan": "Kuadrat satuan iklan"
         }
       ],
-      "lokasi": "data/regresi_polinom.csv",
+      "lokasi": "data/iklan_penjualan.csv",
       "status": "dipakai"
     },
-    "regresi_log.csv": {
+    "produksi_tenaga_kerja_modal.csv": {
       "judul": "Produksi, tenaga kerja, dan modal",
       "satu_baris": "satu unit usaha/pengamatan dalam contoh produksi",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -118,10 +118,10 @@
           "satuan": "Skala logaritma"
         }
       ],
-      "lokasi": "data/regresi_log.csv",
+      "lokasi": "data/produksi_tenaga_kerja_modal.csv",
       "status": "dipakai"
     },
-    "regresi_reciprocal.csv": {
+    "pengalaman_waktu_produksi.csv": {
       "judul": "Pengalaman dan waktu produksi",
       "satu_baris": "satu pengamatan pengalaman pekerja dan waktu produksinya",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -147,10 +147,10 @@
           "satuan": "Kebalikan satuan pengalaman"
         }
       ],
-      "lokasi": "data/regresi_reciprocal.csv",
+      "lokasi": "data/pengalaman_waktu_produksi.csv",
       "status": "dipakai"
     },
-    "uts_1.csv": {
+    "pertumbuhan_ekonomi_negara.csv": {
       "judul": "Pertumbuhan ekonomi",
       "satu_baris": "satu negara pada contoh 50 negara berkembang",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -203,10 +203,10 @@
           "satuan": "Skala logaritma"
         }
       ],
-      "lokasi": "data/uts_1.csv",
+      "lokasi": "data/pertumbuhan_ekonomi_negara.csv",
       "status": "dipakai"
     },
-    "uts_3.csv": {
+    "produktivitas_padi.csv": {
       "judul": "Produktivitas padi",
       "satu_baris": "satu wilayah pertanian pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -237,10 +237,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/uts_3.csv",
+      "lokasi": "data/produktivitas_padi.csv",
       "status": "dipakai"
     },
-    "uts_4.csv": {
+    "harapan_hidup.csv": {
       "judul": "Angka harapan hidup",
       "satu_baris": "satu negara pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -271,10 +271,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/uts_4.csv",
+      "lokasi": "data/harapan_hidup.csv",
       "status": "dipakai"
     },
-    "uts_5.csv": {
+    "kriminalitas_kota.csv": {
       "judul": "Kriminalitas kota",
       "satu_baris": "satu kota pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -305,10 +305,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/uts_5.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/kriminalitas_kota.csv",
+      "status": "tambahan"
     },
-    "uts_6.csv": {
+    "penjualan_produk.csv": {
       "judul": "Penjualan produk",
       "satu_baris": "satu pengamatan penjualan produk dalam contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -339,10 +339,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/uts_6.csv",
+      "lokasi": "data/penjualan_produk.csv",
       "status": "dipakai"
     },
-    "latihan_dummy_1.csv": {
+    "gaji_pekerja.csv": {
       "judul": "Gaji dan karakteristik pekerja",
       "satu_baris": "satu pekerja pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -391,10 +391,10 @@
           "satuan": "1 = Menikah; 0 = selain Menikah"
         }
       ],
-      "lokasi": "data/latihan_dummy_1.csv",
+      "lokasi": "data/gaji_pekerja.csv",
       "status": "dipakai"
     },
-    "latihan_dummy_2.csv": {
+    "pdb_investasi_krisis.csv": {
       "judul": "PDB, investasi, dan krisis",
       "satu_baris": "satu tahun pada contoh ekonomi simulasi",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -431,10 +431,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/latihan_dummy_2.csv",
+      "lokasi": "data/pdb_investasi_krisis.csv",
       "status": "dipakai"
     },
-    "latihan_multikolinieritas_1.csv": {
+    "rumah_multikolinearitas.csv": {
       "judul": "Harga dan ukuran rumah",
       "satu_baris": "satu rumah pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -471,10 +471,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/latihan_multikolinieritas_1.csv",
+      "lokasi": "data/rumah_multikolinearitas.csv",
       "status": "dipakai"
     },
-    "latihan_multikolinieritas_2.csv": {
+    "konsumsi_rumah_tangga.csv": {
       "judul": "Konsumsi rumah tangga",
       "satu_baris": "satu rumah tangga pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -511,10 +511,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/latihan_multikolinieritas_2.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/konsumsi_rumah_tangga.csv",
+      "status": "tambahan"
     },
-    "hetero_1.csv": {
+    "penjualan_iklan_diskon.csv": {
       "judul": "Iklan, tenaga penjualan, dan diskon",
       "satu_baris": "satu pengamatan penjualan perusahaan dalam contoh",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -545,10 +545,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/hetero_1.csv",
+      "lokasi": "data/penjualan_iklan_diskon.csv",
       "status": "dipakai"
     },
-    "hetero_2.csv": {
+    "pendapatan_pekerja.csv": {
       "judul": "Pendapatan dan karakteristik pekerja",
       "satu_baris": "satu orang pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -579,10 +579,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/hetero_2.csv",
+      "lokasi": "data/pendapatan_pekerja.csv",
       "status": "dipakai"
     },
-    "hetero_3.csv": {
+    "rumah_heteroskedastisitas.csv": {
       "judul": "Harga dan karakteristik rumah",
       "satu_baris": "satu rumah pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -620,10 +620,10 @@
           "satuan": "Sama dengan satuan Harga"
         }
       ],
-      "lokasi": "data/hetero_3.csv",
+      "lokasi": "data/rumah_heteroskedastisitas.csv",
       "status": "dipakai"
     },
-    "latihan_normalitas_1.csv": {
+    "harga_saham_makro.csv": {
       "judul": "Harga saham dan kondisi makro",
       "satu_baris": "satu pengamatan gabungan harga saham dan indikator makro",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -654,10 +654,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/latihan_normalitas_1.csv",
+      "lokasi": "data/harga_saham_makro.csv",
       "status": "dipakai"
     },
-    "latihan_normalitas_2.csv": {
+    "panen_kondisi_lahan.csv": {
       "judul": "Hasil panen dan kondisi lahan",
       "satu_baris": "satu pengamatan lahan pada musim tanam",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -688,10 +688,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/latihan_normalitas_2.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/panen_kondisi_lahan.csv",
+      "status": "tambahan"
     },
-    "latihan_normalitas_3.csv": {
+    "rumah_normalitas.csv": {
       "judul": "Harga dan kondisi rumah",
       "satu_baris": "satu rumah pada contoh latihan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -722,10 +722,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/latihan_normalitas_3.csv",
+      "lokasi": "data/rumah_normalitas.csv",
       "status": "dipakai"
     },
-    "logit_probit_1.csv": {
+    "persetujuan_kredit_usaha.csv": {
       "judul": "Persetujuan kredit usaha",
       "satu_baris": "satu pemohon kredit usaha",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -762,10 +762,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/logit_probit_1.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/persetujuan_kredit_usaha.csv",
+      "status": "tambahan"
     },
-    "logit_probit_2.csv": {
+    "kelulusan_mahasiswa.csv": {
       "judul": "Kelulusan tepat waktu",
       "satu_baris": "satu mahasiswa",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -802,10 +802,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/logit_probit_2.csv",
+      "lokasi": "data/kelulusan_mahasiswa.csv",
       "status": "dipakai"
     },
-    "logit_probit_3.csv": {
+    "penggunaan_mobile_banking.csv": {
       "judul": "Penggunaan mobile banking",
       "satu_baris": "satu nasabah",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -842,10 +842,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/logit_probit_3.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/penggunaan_mobile_banking.csv",
+      "status": "tambahan"
     },
-    "multi_ordinal_1.csv": {
+    "kepuasan_layanan_bank.csv": {
       "judul": "Kepuasan layanan bank",
       "satu_baris": "satu responden pengguna layanan bank",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -876,10 +876,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/multi_ordinal_1.csv",
+      "lokasi": "data/kepuasan_layanan_bank.csv",
       "status": "dipakai"
     },
-    "multi_ordinal_2.csv": {
+    "pilihan_transportasi.csv": {
       "judul": "Pilihan transportasi kerja",
       "satu_baris": "satu pekerja/responden perjalanan ke kantor",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -910,10 +910,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/multi_ordinal_2.csv",
+      "lokasi": "data/pilihan_transportasi.csv",
       "status": "dipakai"
     },
-    "multi_ordinal_3.csv": {
+    "peringkat_kredit_umkm.csv": {
       "judul": "Rating risiko kredit UMKM",
       "satu_baris": "satu usaha mikro, kecil, atau menengah",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -944,10 +944,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/multi_ordinal_3.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/peringkat_kredit_umkm.csv",
+      "status": "tambahan"
     },
-    "tobit_data_1_rnd.csv": {
+    "belanja_penelitian.csv": {
       "judul": "Pengeluaran penelitian dan pengembangan",
       "satu_baris": "satu perusahaan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -978,10 +978,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/tobit_data_1_rnd.csv",
+      "lokasi": "data/belanja_penelitian.csv",
       "status": "dipakai"
     },
-    "tobit_data_2_jamkerja.csv": {
+    "jam_kerja_keluarga.csv": {
       "judul": "Jam kerja dan keadaan keluarga",
       "satu_baris": "satu responden dalam contoh penawaran tenaga kerja",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1012,10 +1012,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/tobit_data_2_jamkerja.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/jam_kerja_keluarga.csv",
+      "status": "tambahan"
     },
-    "tobit_data_3_asuransi.csv": {
+    "premi_asuransi.csv": {
       "judul": "Pembelian premi asuransi",
       "satu_baris": "satu nasabah/responden",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1046,10 +1046,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/tobit_data_3_asuransi.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/premi_asuransi.csv",
+      "status": "tambahan"
     },
-    "poisson_data_1_klaim.csv": {
+    "klaim_asuransi_mobil.csv": {
       "judul": "Klaim asuransi mobil",
       "satu_baris": "satu pengemudi/pemegang polis yang diamati selama satu tahun",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1080,10 +1080,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/poisson_data_1_klaim.csv",
+      "lokasi": "data/klaim_asuransi_mobil.csv",
       "status": "dipakai"
     },
-    "poisson_data_2_restoran.csv": {
+    "kunjungan_restoran.csv": {
       "judul": "Kunjungan pelanggan restoran",
       "satu_baris": "satu interval pengamatan selama satu jam",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1114,10 +1114,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/poisson_data_2_restoran.csv",
+      "lokasi": "data/kunjungan_restoran.csv",
       "status": "dipakai"
     },
-    "poisson_data_3_cacat.csv": {
+    "cacat_produksi.csv": {
       "judul": "Cacat produksi",
       "satu_baris": "satu batch/kelompok produksi",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1148,8 +1148,8 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/poisson_data_3_cacat.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/cacat_produksi.csv",
+      "status": "tambahan"
     },
     "pendidikan_pendapatan.csv": {
       "judul": "Pendidikan dan pendapatan",
@@ -1180,7 +1180,7 @@
       "lokasi": "data/pendidikan_pendapatan.csv",
       "status": "dipakai"
     },
-    "usia_unit.csv": {
+    "usia_penjualan.csv": {
       "judul": "Usia dan kinerja penjual",
       "satu_baris": "satu tenaga penjual",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1206,10 +1206,10 @@
           "satuan": "Tahun kuadrat"
         }
       ],
-      "lokasi": "data/usia_unit.csv",
+      "lokasi": "data/usia_penjualan.csv",
       "status": "dipakai"
     },
-    "jam_skor.csv": {
+    "jam_belajar_nilai_ujian.csv": {
       "judul": "Jam belajar dan hasil ujian",
       "satu_baris": "satu siswa/responden",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1235,10 +1235,10 @@
           "satuan": "Per jam"
         }
       ],
-      "lokasi": "data/jam_skor.csv",
+      "lokasi": "data/jam_belajar_nilai_ujian.csv",
       "status": "dipakai"
     },
-    "ts_inflasi.csv": {
+    "indeks_harga_simulasi.csv": {
       "judul": "Deret harga/inflasi simulasi",
       "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1257,10 +1257,10 @@
           "peran": "Deret yang dianalisis"
         }
       ],
-      "lokasi": "data/ts_inflasi.csv",
+      "lokasi": "data/indeks_harga_simulasi.csv",
       "status": "dipakai"
     },
-    "ts_saham.csv": {
+    "harga_saham_simulasi.csv": {
       "judul": "Harga saham simulasi",
       "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1279,10 +1279,10 @@
           "peran": "Deret yang dianalisis"
         }
       ],
-      "lokasi": "data/ts_saham.csv",
+      "lokasi": "data/harga_saham_simulasi.csv",
       "status": "dipakai"
     },
-    "ts_gdp_growth.csv": {
+    "pertumbuhan_pdb_simulasi.csv": {
       "judul": "Pertumbuhan ekonomi simulasi",
       "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1301,10 +1301,10 @@
           "peran": "Deret yang dianalisis"
         }
       ],
-      "lokasi": "data/ts_gdp_growth.csv",
+      "lokasi": "data/pertumbuhan_pdb_simulasi.csv",
       "status": "dipakai"
     },
-    "ts_kurs.csv": {
+    "kurs_simulasi.csv": {
       "judul": "Kurs simulasi",
       "satu_baris": "satu urutan periode simulasi; bukan tanggal kalender",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1330,10 +1330,10 @@
           "satuan": "1 jika obs ≥ 25; 0 sebelumnya"
         }
       ],
-      "lokasi": "data/ts_kurs.csv",
+      "lokasi": "data/kurs_simulasi.csv",
       "status": "dipakai"
     },
-    "konsumsi_pendapatan.csv": {
+    "konsumsi_pendapatan_tahunan.csv": {
       "judul": "Konsumsi dan pendapatan runtun waktu",
       "satu_baris": "satu tahun berurutan pada data simulasi",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1385,7 +1385,7 @@
           "satuan": "Residual log periode sebelumnya"
         }
       ],
-      "lokasi": "data/konsumsi_pendapatan.csv",
+      "lokasi": "data/konsumsi_pendapatan_tahunan.csv",
       "status": "dipakai"
     },
     "ekspor_kurs.csv": {
@@ -1413,10 +1413,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/ekspor_kurs.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/ekspor_kurs.csv",
+      "status": "tambahan"
     },
-    "ihsg_emas.csv": {
+    "ihsg_emas_simulasi.csv": {
       "judul": "IHSG dan harga emas simulasi",
       "satu_baris": "satu bulan berurutan pada contoh simulasi",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1441,10 +1441,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/ihsg_emas.csv",
+      "lokasi": "data/ihsg_emas_simulasi.csv",
       "status": "dipakai"
     },
-    "ritel_iklan.csv": {
+    "iklan_penjualan_mingguan.csv": {
       "judul": "Penjualan ritel dan iklan mingguan",
       "satu_baris": "satu minggu berurutan pada contoh",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1469,10 +1469,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/ritel_iklan.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/iklan_penjualan_mingguan.csv",
+      "status": "tambahan"
     },
-    "volatilitas.csv": {
+    "return_volatilitas_simulasi.csv": {
       "judul": "Lima deret simulasi volatilitas",
       "satu_baris": "satu periode simulasi dengan lima contoh deret yang berbeda",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1515,10 +1515,10 @@
           "peran": "Deret yang dianalisis"
         }
       ],
-      "lokasi": "data/volatilitas.csv",
+      "lokasi": "data/return_volatilitas_simulasi.csv",
       "status": "dipakai"
     },
-    "panel_gdp.csv": {
+    "panel_pdb_simulasi.csv": {
       "judul": "Panel PDB simulasi",
       "satu_baris": "satu negara pada satu tahun",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1555,10 +1555,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/panel_gdp.csv",
+      "lokasi": "data/panel_pdb_simulasi.csv",
       "status": "dipakai"
     },
-    "panel_retail.csv": {
+    "panel_toko_ritel.csv": {
       "judul": "Panel toko ritel",
       "satu_baris": "satu cabang toko pada satu bulan",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1595,7 +1595,7 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/panel_retail.csv",
+      "lokasi": "data/panel_toko_ritel.csv",
       "status": "dipakai"
     },
     "panel_kesehatan.csv": {
@@ -1635,8 +1635,8 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/panel_kesehatan.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/panel_kesehatan.csv",
+      "status": "tambahan"
     },
     "panel_pendidikan.csv": {
       "judul": "Panel hasil belajar",
@@ -1675,8 +1675,8 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/cadangan/panel_pendidikan.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/panel_pendidikan.csv",
+      "status": "tambahan"
     },
     "panel_padi.csv": {
       "judul": "Panel hasil panen padi",
@@ -1718,7 +1718,7 @@
       "lokasi": "data/panel_padi.csv",
       "status": "dipakai"
     },
-    "data_regresi_uts.csv": {
+    "latihan_spesifikasi_regresi.csv": {
       "judul": "Data abstrak untuk latihan spesifikasi",
       "satu_baris": "satu pengamatan hasil simulasi statistik",
       "sumber": "https://paggalih.github.io/matkul/sem2025-01/ekonometrika/",
@@ -1767,10 +1767,10 @@
           "peran": "Komponen simulasi"
         }
       ],
-      "lokasi": "data/cadangan/data_regresi_uts.csv",
-      "status": "cadangan"
+      "lokasi": "data/latihan_tambahan/latihan_spesifikasi_regresi.csv",
+      "status": "tambahan"
     },
-    "asean_panel.csv": {
+    "panel_asean.csv": {
       "judul": "Panel negara ASEAN dari World Bank",
       "satu_baris": "satu negara pada satu tahun",
       "sumber": "https://databank.worldbank.org/source/world-development-indicators",
@@ -1832,10 +1832,10 @@
           "satuan": "Skala logaritma"
         }
       ],
-      "lokasi": "data/asean_panel.csv",
+      "lokasi": "data/panel_asean.csv",
       "status": "dipakai"
     },
-    "idn_makro_tahunan.csv": {
+    "makro_indonesia_tahunan.csv": {
       "judul": "Makroekonomi Indonesia tahunan",
       "satu_baris": "satu tahun kalender untuk Indonesia",
       "sumber": "https://databank.worldbank.org/source/world-development-indicators",
@@ -1884,10 +1884,10 @@
           "peran": "X: penjelas"
         }
       ],
-      "lokasi": "data/idn_makro_tahunan.csv",
+      "lokasi": "data/makro_indonesia_tahunan.csv",
       "status": "dipakai"
     },
-    "idn_kurs_tahunan.csv": {
+    "kurs_rupiah_tahunan.csv": {
       "judul": "Kurs rupiah tahunan",
       "satu_baris": "satu tahun kalender",
       "sumber": "https://data.worldbank.org/indicator/PA.NUS.FCRF",
@@ -1913,10 +1913,10 @@
           "satuan": "Persen per tahun"
         }
       ],
-      "lokasi": "data/idn_kurs_tahunan.csv",
+      "lokasi": "data/kurs_rupiah_tahunan.csv",
       "status": "dipakai"
     },
-    "kurs_harian.csv": {
+    "kurs_rupiah_harian.csv": {
       "judul": "Kurs rupiah harian",
       "satu_baris": "satu tanggal tersedianya kurs acuan",
       "sumber": "https://www.frankfurter.dev/",
@@ -1942,7 +1942,7 @@
           "satuan": "Persen; positif berarti rupiah melemah"
         }
       ],
-      "lokasi": "data/kurs_harian.csv",
+      "lokasi": "data/kurs_rupiah_harian.csv",
       "status": "dipakai"
     },
     "ihsg_harian.csv": {
@@ -1998,7 +1998,7 @@
       "lokasi": "data/ihsg_harian.csv",
       "status": "dipakai"
     },
-    "ihsg_panjang.csv": {
+    "ihsg_riwayat_panjang.csv": {
       "judul": "IHSG riwayat panjang",
       "satu_baris": "satu hari perdagangan di pasar saham",
       "sumber": "https://finance.yahoo.com/quote/%5EJKSE/history/",
@@ -2048,10 +2048,10 @@
           "satuan": "Persen log-return"
         }
       ],
-      "lokasi": "data/ihsg_panjang.csv",
+      "lokasi": "data/ihsg_riwayat_panjang.csv",
       "status": "dipakai"
     },
-    "idn_inflasi_bulanan.csv": {
+    "inflasi_indonesia_bulanan.csv": {
       "judul": "IHK dan inflasi Indonesia bulanan",
       "satu_baris": "satu bulan kalender",
       "sumber": "https://fred.stlouisfed.org/series/IDNCPIALLMINMEI",
@@ -2099,10 +2099,10 @@
           "satuan": "Persen; dibuat dengan shift(12)"
         }
       ],
-      "lokasi": "data/idn_inflasi_bulanan.csv",
+      "lokasi": "data/inflasi_indonesia_bulanan.csv",
       "status": "dipakai"
     },
-    "provinsi_2021.csv": {
+    "indikator_provinsi_2021.csv": {
       "judul": "Indikator 34 provinsi tahun 2021",
       "satu_baris": "satu provinsi pada tahun 2021 dalam kompilasi sumber",
       "sumber": "https://github.com/sainsdataid/dataset/blob/main/Data%2034%20Provinsi%202021.csv",
@@ -2188,10 +2188,10 @@
           "satuan": "Skala logaritma"
         }
       ],
-      "lokasi": "data/provinsi_2021.csv",
+      "lokasi": "data/indikator_provinsi_2021.csv",
       "status": "dipakai"
     },
-    "kredit_default.csv": {
+    "gagal_bayar_kredit_taiwan.csv": {
       "judul": "Gagal bayar kartu kredit Taiwan",
       "satu_baris": "satu nasabah dari subset 1.000 pengamatan data UCI Taiwan",
       "sumber": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
@@ -2234,10 +2234,10 @@
           "peran": "Y: target"
         }
       ],
-      "lokasi": "data/kredit_default.csv",
+      "lokasi": "data/gagal_bayar_kredit_taiwan.csv",
       "status": "dipakai"
     },
-    "housing.csv": {
+    "harga_rumah_boston.csv": {
       "judul": "Harga rumah historis Boston",
       "satu_baris": "satu wilayah sensus dalam data historis Boston, bukan satu rumah di Indonesia",
       "sumber": "https://lib.stat.cmu.edu/datasets/boston",
@@ -2328,7 +2328,7 @@
           "peran": "Y: target"
         }
       ],
-      "lokasi": "data/housing.csv",
+      "lokasi": "data/harga_rumah_boston.csv",
       "status": "dipakai"
     },
     "spector": {
@@ -2426,6 +2426,967 @@
           "satuan": "Dummy 0 atau 1"
         }
       ]
+    },
+    "produksi_padi_jawa_barat.xlsx": {
+      "nama": "produksi_padi_jawa_barat.xlsx",
+      "judul": "Produksi padi dan beras di Jawa Barat, 2025",
+      "satu_baris": "satu kabupaten atau kota di Jawa Barat pada 2025",
+      "sumber": "https://jabar.bps.go.id/id/statistics-table/3/ZDNaak0yODBUVTlGYW5sa2REUkVUVVY1YVZkbmR6MDkjMw%3D%3D/produksi-padi-sup-1--sup--dan-beras-menurut-kabupaten-kota-di-provinsi-jawa-barat--2020.html",
+      "sumber_unduhan": "https://jabar.bps.go.id/id/statistics-table/3/ZDNaak0yODBUVTlGYW5sa2REUkVUVVY1YVZkbmR6MDkjMw%3D%3D/produksi-padi-sup-1--sup--dan-beras-menurut-kabupaten-kota-di-provinsi-jawa-barat--2020.html",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "Salinan Excel dibuat untuk latihan dari tabel statistik BPS Jawa Barat, tahun data 2025, diperbarui 12 Februari 2026. Produksi padi memakai gabah kering giling. Baris total provinsi tidak dimasukkan agar tidak dihitung dua kali. Ini bukan berkas Excel unduhan asli BPS.",
+      "variabel": [
+        {
+          "kolom": "kabupaten_kota",
+          "arti": "Nama kabupaten atau kota di Provinsi Jawa Barat.",
+          "satuan": "Nama wilayah",
+          "peran": "Penanda wilayah"
+        },
+        {
+          "kolom": "tahun",
+          "arti": "Tahun produksi yang dilaporkan.",
+          "satuan": "Tahun kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "produksi_padi_ton",
+          "arti": "Jumlah padi dalam kualitas gabah kering giling yang diproduksi selama setahun.",
+          "satuan": "Ton per tahun",
+          "peran": "Indikator yang diamati"
+        },
+        {
+          "kolom": "produksi_beras_ton",
+          "arti": "Jumlah produksi beras menurut tabel BPS; berbeda dari berat gabah.",
+          "satuan": "Ton per tahun",
+          "peran": "Indikator yang diamati"
+        }
+      ],
+      "lokasi": "data/contoh_format/produksi_padi_jawa_barat.xlsx",
+      "status": "contoh format",
+      "baris": 27,
+      "kolom": [
+        "kabupaten_kota",
+        "tahun",
+        "produksi_padi_ton",
+        "produksi_beras_ton"
+      ],
+      "total_padi_sumber": 10226654,
+      "total_beras_sumber": 5905710,
+      "sha256": "a5f151e4e15edb05dc15fb815ceac54dda05407713726315f2be730c18ac22c6",
+      "turunan": [
+        {
+          "kolom": "produksi_juta_ton",
+          "arti": "Produksi padi dibagi satu juta untuk memperjelas sumbu grafik.",
+          "satuan": "Juta ton gabah kering giling per tahun"
+        }
+      ]
+    },
+    "kemiskinan_indonesia.sav": {
+      "nama": "kemiskinan_indonesia.sav",
+      "judul": "Kemiskinan Indonesia menurut garis kemiskinan nasional",
+      "satu_baris": "satu tahun pengamatan Indonesia",
+      "sumber": "https://data.worldbank.org/indicator/SI.POV.NAHC?locations=ID",
+      "sumber_unduhan": "https://api.worldbank.org/v2/country/IDN/indicator/SI.POV.NAHC?format=json&per_page=1000",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "SPSS/SAV ini dikonversi dari seri publik World Bank SI.POV.NAHC, mulai tahun 2000. Ini data agregat tahunan, bukan mikrodata rumah tangga BPS. Tahun tanpa nilai tidak diisi dengan nol.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun pengamatan Indonesia.",
+          "satuan": "Tahun kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "kemiskinan_persen",
+          "arti": "Persentase penduduk di bawah garis kemiskinan nasional menurut seri World Bank.",
+          "satuan": "Persen penduduk; 10 berarti 10%",
+          "peran": "Indikator yang diamati"
+        }
+      ],
+      "lokasi": "data/contoh_format/kemiskinan_indonesia.sav",
+      "status": "contoh format",
+      "baris": 26,
+      "kolom": [
+        "tahun",
+        "kemiskinan_persen"
+      ],
+      "sha256": "5f067f4fa612ba1a8fead212afe6649e4ebe4ff8d79b4f38cc247d5373ccff76"
+    },
+    "pengguna_internet_indonesia.dta": {
+      "nama": "pengguna_internet_indonesia.dta",
+      "judul": "Penggunaan internet di Indonesia",
+      "satu_baris": "satu tahun pengamatan Indonesia",
+      "sumber": "https://data.worldbank.org/indicator/IT.NET.USER.ZS?locations=ID",
+      "sumber_unduhan": "https://api.worldbank.org/v2/country/IDN/indicator/IT.NET.USER.ZS?format=json&per_page=1000",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "Stata/DTA ini dikonversi dari seri World Bank IT.NET.USER.ZS. Tahun tersedia dipertahankan mulai 1990; tahun tanpa nilai dikeluarkan, bukan dianggap nol.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun pengamatan Indonesia.",
+          "satuan": "Tahun kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "pengguna_internet_persen",
+          "arti": "Bagian penduduk yang menggunakan internet menurut seri World Bank.",
+          "satuan": "Persen penduduk; 25 berarti 25%",
+          "peran": "Indikator yang diamati"
+        }
+      ],
+      "lokasi": "data/contoh_format/pengguna_internet_indonesia.dta",
+      "status": "contoh format",
+      "baris": 32,
+      "kolom": [
+        "tahun",
+        "pengguna_internet_persen"
+      ],
+      "sha256": "00deda912ceac78472c03c0aeb8187375663b5ba8284e87f432561a17c402ac7"
+    },
+    "ekspor_indonesia.tsv": {
+      "nama": "ekspor_indonesia.tsv",
+      "judul": "Ekspor barang dan jasa Indonesia",
+      "satu_baris": "satu tahun pengamatan Indonesia",
+      "sumber": "https://data.worldbank.org/indicator/NE.EXP.GNFS.CD?locations=ID",
+      "sumber_unduhan": "https://api.worldbank.org/v2/country/IDN/indicator/NE.EXP.GNFS.CD?format=json&per_page=1000",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "TSV ini disiapkan dari seri World Bank NE.EXP.GNFS.CD, mulai 1995. Nilai memakai dolar AS berlaku, sehingga perubahan nominalnya juga dipengaruhi harga dan kurs; jangan langsung membacanya sebagai pertumbuhan volume ekspor.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun pencatatan ekspor Indonesia.",
+          "satuan": "Tahun kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "ekspor_usd",
+          "arti": "Nilai ekspor barang dan jasa pada harga berlaku.",
+          "satuan": "Dolar AS berlaku, bukan rupiah dan bukan dolar konstan",
+          "peran": "Indikator yang diamati"
+        }
+      ],
+      "lokasi": "data/contoh_format/ekspor_indonesia.tsv",
+      "status": "contoh format",
+      "baris": 31,
+      "kolom": [
+        "tahun",
+        "ekspor_usd"
+      ],
+      "sha256": "2bb4b32d824c5d03b8e2526076f7c9641eef6d85f7eace40fc0ec713cf2c25b7"
+    },
+    "prakiraan_cuaca_jambi.json": {
+      "nama": "prakiraan_cuaca_jambi.json",
+      "judul": "Prakiraan cuaca Simpang IV Sipin, Kota Jambi",
+      "satu_baris": "satu waktu prakiraan cuaca tiga jam di Kelurahan Simpang IV Sipin, Kecamatan Telanaipura, Kota Jambi",
+      "sumber": "https://data.bmkg.go.id/prakiraan-cuaca/",
+      "sumber_unduhan": "https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=15.71.01.1001",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "Sumber BMKG (Badan Meteorologi, Klimatologi, dan Geofisika). JSON API bertingkat diratakan menjadi daftar rekaman untuk latihan pd.read_json. Nilai prakiraan tidak diubah. Ini salinan yang diambil 25 Oktober 2026; prakiraan bukan pengamatan cuaca yang sudah terjadi. Waktu lokal memakai WIB, sedangkan waktu produksi memakai UTC.",
+      "variabel": [
+        {
+          "kolom": "waktu_lokal",
+          "arti": "Tanggal dan jam yang diramalkan, dalam waktu setempat.",
+          "satuan": "YYYY-MM-DD HH:MM:SS, WIB",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "suhu_c",
+          "arti": "Suhu udara yang diprakirakan BMKG pada waktu tersebut.",
+          "satuan": "Derajat Celsius",
+          "peran": "Indikator yang diamati"
+        },
+        {
+          "kolom": "kelembapan_persen",
+          "arti": "Kelembapan udara relatif yang diprakirakan.",
+          "satuan": "Persen",
+          "peran": "Indikator yang diamati"
+        },
+        {
+          "kolom": "angin_km_jam",
+          "arti": "Kecepatan angin yang diprakirakan.",
+          "satuan": "Kilometer per jam",
+          "peran": "Indikator yang diamati"
+        },
+        {
+          "kolom": "kondisi",
+          "arti": "Deskripsi cuaca dari BMKG, misalnya berawan atau hujan ringan.",
+          "satuan": "Kategori teks",
+          "peran": "Indikator yang diamati"
+        },
+        {
+          "kolom": "kelurahan",
+          "arti": "Nama lokasi prakiraan; semua baris pada contoh ini berada di Simpang IV Sipin.",
+          "satuan": "Nama kelurahan",
+          "peran": "Penanda wilayah"
+        },
+        {
+          "kolom": "waktu_produksi_utc",
+          "arti": "Waktu BMKG memproduksi paket prakiraan, bukan waktu kejadian cuaca.",
+          "satuan": "UTC",
+          "peran": "Metadata produksi"
+        }
+      ],
+      "lokasi": "data/contoh_format/prakiraan_cuaca_jambi.json",
+      "status": "contoh format",
+      "baris": 17,
+      "kolom": [
+        "waktu_lokal",
+        "suhu_c",
+        "kelembapan_persen",
+        "angin_km_jam",
+        "kondisi",
+        "kelurahan",
+        "waktu_produksi_utc"
+      ],
+      "sha256": "0c3aaebf1771d76c669a3e0bfa90de4f09905bc07923c4a26e657b9b74e01717"
+    },
+    "penduduk_indonesia.parquet": {
+      "nama": "penduduk_indonesia.parquet",
+      "judul": "Jumlah penduduk Indonesia",
+      "satu_baris": "satu tahun estimasi jumlah penduduk Indonesia",
+      "sumber": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ID",
+      "sumber_unduhan": "https://api.worldbank.org/v2/country/IDN/indicator/SP.POP.TOTL?format=json&per_page=1000",
+      "tanggal_akses": "2026-10-25",
+      "catatan": "Parquet ini dikonversi dari seri World Bank SP.POP.TOTL mulai 1960. Jumlah penduduk adalah estimasi menurut seri sumber; satuannya orang, bukan ribu atau juta orang.",
+      "variabel": [
+        {
+          "kolom": "tahun",
+          "arti": "Tahun estimasi penduduk.",
+          "satuan": "Tahun kalender",
+          "peran": "Penanda waktu"
+        },
+        {
+          "kolom": "jumlah_penduduk",
+          "arti": "Total estimasi penduduk Indonesia pada tahun tersebut menurut seri World Bank.",
+          "satuan": "Orang",
+          "peran": "Indikator yang diamati"
+        }
+      ],
+      "lokasi": "data/contoh_format/penduduk_indonesia.parquet",
+      "status": "contoh format",
+      "baris": 66,
+      "kolom": [
+        "tahun",
+        "jumlah_penduduk"
+      ],
+      "sha256": "48249b00acf7ad8a6d0c72256f076144af33f1ece69804a40385be1f5b30b1a6"
     }
-  }
+  },
+  "contoh_format": [
+    "produksi_padi_jawa_barat.xlsx",
+    "kemiskinan_indonesia.sav",
+    "pengguna_internet_indonesia.dta",
+    "ekspor_indonesia.tsv",
+    "prakiraan_cuaca_jambi.json",
+    "penduduk_indonesia.parquet"
+  ],
+  "panduan_perintah": [
+    {
+      "pola": "pd.read_csv",
+      "nama": "pd.read_csv",
+      "tujuan": "Membaca CSV atau TSV menjadi tabel.",
+      "argumen": "Alamat berkas; sep=\"\\t\" memilih pemisah tab pada TSV.",
+      "hasil": "DataFrame; periksa nama kolom dan ukuran sebelum analisis."
+    },
+    {
+      "pola": "pd.read_excel",
+      "nama": "pd.read_excel",
+      "tujuan": "Membaca lembar Excel yang dipilih.",
+      "argumen": "Alamat .xlsx; sheet_name=\"data\" memilih lembar data.",
+      "hasil": "DataFrame dari satu lembar, bukan seluruh buku Excel."
+    },
+    {
+      "pola": "urlretrieve",
+      "nama": "urlretrieve",
+      "tujuan": "Mengunduh SPSS ke runtime Colab.",
+      "argumen": "Alamat sumber, lalu nama berkas lokal tujuan.",
+      "hasil": "Berkas .sav lokal yang dapat dibuka pembaca SPSS."
+    },
+    {
+      "pola": "pd.read_spss",
+      "nama": "pd.read_spss",
+      "tujuan": "Membuka tabel SPSS.",
+      "argumen": "Nama .sav lokal; convert_categoricals=False mempertahankan kode angka.",
+      "hasil": "DataFrame; nama dan arti kolom tetap perlu dibaca pada kamus data."
+    },
+    {
+      "pola": "pd.read_stata",
+      "nama": "pd.read_stata",
+      "tujuan": "Membuka tabel Stata.",
+      "argumen": "Alamat .dta; convert_categoricals=False mempertahankan kode angka.",
+      "hasil": "DataFrame; tahun dan satuan diperiksa kembali."
+    },
+    {
+      "pola": "pd.read_json",
+      "nama": "pd.read_json",
+      "tujuan": "Membaca rekaman JSON yang sudah diratakan.",
+      "argumen": "Alamat .json; orient=\"records\" berarti satu objek mewakili satu baris.",
+      "hasil": "Tabel prakiraan cuaca, bukan pengamatan cuaca yang sudah terjadi."
+    },
+    {
+      "pola": "pd.read_parquet",
+      "nama": "pd.read_parquet",
+      "tujuan": "Membuka tabel Parquet bertipe kolom.",
+      "argumen": "Alamat .parquet; mesin pyarrow dipasang pada sel persiapan.",
+      "hasil": "DataFrame dengan tipe angka tersimpan di dalam berkas."
+    },
+    {
+      "pola": "\\.head\\(",
+      "nama": "head",
+      "tujuan": "Melihat contoh isi tabel.",
+      "argumen": "Tanpa angka menampilkan lima baris; head(10) menampilkan sepuluh.",
+      "hasil": "Cuplikan awal, bukan ringkasan seluruh data."
+    },
+    {
+      "pola": "\\.shape\\b",
+      "nama": "shape",
+      "tujuan": "Memeriksa ukuran tabel.",
+      "argumen": "Atribut tanpa tanda kurung; shape[0] untuk baris, shape[1] untuk kolom.",
+      "hasil": "Pasangan (jumlah baris, jumlah kolom)."
+    },
+    {
+      "pola": "\\.info\\(",
+      "nama": "info",
+      "tujuan": "Memeriksa tipe data dan jumlah nilai terisi.",
+      "argumen": "Tabel yang sedang dipelajari.",
+      "hasil": "Tampilan tipe tiap kolom; angka yang terbaca sebagai teks perlu diperiksa."
+    },
+    {
+      "pola": "\\.describe\\(",
+      "nama": "describe",
+      "tujuan": "Meringkas sebaran kolom angka.",
+      "argumen": "Kolom yang dipilih; round(2) membulatkan tampilan.",
+      "hasil": "count, mean, std, min, kuartil, dan max; 50% adalah median."
+    },
+    {
+      "pola": "\\.isna\\(",
+      "nama": "isna dan sum",
+      "tujuan": "Menghitung nilai kosong per kolom.",
+      "argumen": "isna() menandai nilai kosong; sum() menghitung tanda True.",
+      "hasil": "Jumlah kosong; nilai nol dan teks kosong belum tentu dikenali sebagai NA."
+    },
+    {
+      "pola": "\\.duplicated\\(",
+      "nama": "duplicated",
+      "tujuan": "Memeriksa baris yang isinya berulang.",
+      "argumen": "Tanpa subset, seluruh kolom dibandingkan; sum() menghitung duplikasi.",
+      "hasil": "Pengulangan belum tentu salah; cocokkan dengan unit pengamatan."
+    },
+    {
+      "pola": "\\.dropna\\(",
+      "nama": "dropna",
+      "tujuan": "Membentuk sampel dengan kolom yang dibutuhkan terisi.",
+      "argumen": "Pilih kolom model dahulu, lalu dropna(); subset membatasi kolom pemeriksaan.",
+      "hasil": "Tabel baru; baris terbuang dapat mengubah komposisi sampel."
+    },
+    {
+      "pola": "\\.astype\\(",
+      "nama": "astype",
+      "tujuan": "Mengubah tipe kolom atau tanda kondisi menjadi angka.",
+      "argumen": "int untuk bilangan bulat, float untuk desimal; True menjadi 1 dan False menjadi 0.",
+      "hasil": "Kolom bertipe baru; periksa arti kode sebelum membuat dummy."
+    },
+    {
+      "pola": "\\.rename\\(",
+      "nama": "rename",
+      "tujuan": "Memperjelas nama kolom tanpa mengganti angka.",
+      "argumen": "columns berisi pasangan nama lama dan nama baru.",
+      "hasil": "Tabel dengan nama kolom baru; simpan kembali bila ingin dipakai sel berikutnya."
+    },
+    {
+      "pola": "pd.DataFrame",
+      "nama": "pd.DataFrame",
+      "tujuan": "Menyusun beberapa kolom menjadi tabel.",
+      "argumen": "Dictionary: nama kolom di kiri, daftar nilai di kanan; panjang daftar harus sama.",
+      "hasil": "DataFrame; satu baris mempunyai arti sesuai unit pengamatan kasus."
+    },
+    {
+      "pola": "pd.Series",
+      "nama": "pd.Series",
+      "tujuan": "Menyusun satu kolom bernama atau koefisien berlabel.",
+      "argumen": "Nilai dan index sebagai label; name memberi nama kolom.",
+      "hasil": "Series; label membantu mencocokkan koefisien, prediksi, dan baris asal."
+    },
+    {
+      "pola": "\\.loc\\[",
+      "nama": "loc dan iloc",
+      "tujuan": "Memilih baris atau kolom secara jelas.",
+      "argumen": "loc memakai label atau kondisi; iloc memakai posisi mulai 0; dua titik berarti seluruh rentang.",
+      "hasil": "Bagian tabel; pertahankan indeks agar y dan prediksi sejajar."
+    },
+    {
+      "pola": "\\.mean\\(",
+      "nama": "mean dan median",
+      "tujuan": "Meringkas pusat data.",
+      "argumen": "mean() rata-rata; median() nilai tengah; kolom dan satuan dipilih terlebih dahulu.",
+      "hasil": "Satu nilai per kolom/kelompok; rata-rata tahunan bukan perubahan kumulatif."
+    },
+    {
+      "pola": "\\.sort_values\\(",
+      "nama": "sort_values dan nlargest",
+      "tujuan": "Mengurutkan tabel atau memilih nilai terbesar.",
+      "argumen": "Nama kolom; ascending=False berarti menurun; nlargest(5, kolom) memilih lima terbesar.",
+      "hasil": "Peringkat menurut variabel tersebut, bukan peringkat kesejahteraan secara umum."
+    },
+    {
+      "pola": "\\.groupby\\(",
+      "nama": "groupby",
+      "tujuan": "Meringkas baris berdasarkan kelompok.",
+      "argumen": "Nama kolom kelompok, lalu kolom angka dan mean()/sum().",
+      "hasil": "Ringkasan per kelompok; jumlah produksi berbeda makna dari rata-rata produktivitas."
+    },
+    {
+      "pola": "\\.unstack\\(",
+      "nama": "unstack",
+      "tujuan": "Memindahkan satu tingkat indeks kelompok menjadi kolom.",
+      "argumen": "Hasil ringkasan dengan dua indeks; level memilih indeks yang dipindah.",
+      "hasil": "Tabel kelompok × waktu untuk membandingkan empat rata-rata DiD."
+    },
+    {
+      "pola": "\\.pivot\\(",
+      "nama": "pivot",
+      "tujuan": "Menyusun tabel lebar untuk perbandingan.",
+      "argumen": "index menentukan baris; columns menentukan kolom; values menentukan angka.",
+      "hasil": "Satu nilai tiap pasangan; pasangan yang berulang perlu diringkas dahulu."
+    },
+    {
+      "pola": "\\.value_counts\\(",
+      "nama": "value_counts dan crosstab",
+      "tujuan": "Menghitung anggota kategori atau kombinasi kategori.",
+      "argumen": "Kolom kategori; crosstab menerima kategori baris dan kolom.",
+      "hasil": "Frekuensi; kelas yang jarang dapat memengaruhi evaluasi klasifikasi."
+    },
+    {
+      "pola": "\\.corr\\(",
+      "nama": "corr",
+      "tujuan": "Mengukur hubungan linear berpasangan.",
+      "argumen": "Tabel kolom angka dengan sampel yang sesuai.",
+      "hasil": "Koefisien -1 sampai 1; korelasi tidak membuktikan sebab akibat."
+    },
+    {
+      "pola": "\\.shift\\(",
+      "nama": "shift",
+      "tujuan": "Membuat nilai masa lalu atau lag.",
+      "argumen": "shift(1) mengambil satu baris sebelumnya; shift(12) dua belas baris sebelumnya.",
+      "hasil": "Nilai awal kosong; urutkan dan pastikan frekuensi waktunya teratur dahulu."
+    },
+    {
+      "pola": "\\.diff\\(",
+      "nama": "diff dan pct_change",
+      "tujuan": "Membuat perubahan antarperiode.",
+      "argumen": "diff() selisih level; pct_change() perubahan relatif, dikali 100 untuk persen.",
+      "hasil": "Baris pertama kosong; selisih inflasi persen bersatuan poin persentase."
+    },
+    {
+      "pola": "\\.set_index\\(",
+      "nama": "set_index dan sort_index",
+      "tujuan": "Menetapkan identitas atau waktu tiap baris.",
+      "argumen": "Nama kolom indeks; panel memakai [unit, waktu]; sort_index() mengurutkan.",
+      "hasil": "Tabel berindeks; identitas unit-waktu harus unik."
+    },
+    {
+      "pola": "\\.merge\\(",
+      "nama": "merge",
+      "tujuan": "Menggabungkan tabel berdasarkan kunci yang sama.",
+      "argumen": "on memilih kunci; how memilih cara mempertahankan baris.",
+      "hasil": "Tabel gabungan; kunci berulang dapat melipatgandakan baris."
+    },
+    {
+      "pola": "\\.log\\(",
+      "nama": "np.log dan np.exp",
+      "tujuan": "Mengubah skala log alami dan mengembalikannya.",
+      "argumen": "log hanya untuk nilai positif; exp mengembalikan skala dari log.",
+      "hasil": "Interpretasi koefisien mengikuti bentuk model; exp(prediksi log) belum mengoreksi bias rata-rata."
+    },
+    {
+      "pola": "LinearRegression\\(",
+      "nama": "LinearRegression",
+      "tujuan": "Menyiapkan regresi linear dengan scikit-learn.",
+      "argumen": "fit_intercept=True adalah bawaan; X tabel dua dimensi, y satu target.",
+      "hasil": "Estimator yang belum dilatih; koefisien baru tersedia setelah fit."
+    },
+    {
+      "pola": "\\.fit\\(",
+      "nama": "fit",
+      "tujuan": "Mengestimasi parameter model.",
+      "argumen": "scikit-learn: fit(X_train, y_train); paket statistik: fit() sesudah model menerima data.",
+      "hasil": "Parameter dipelajari dari sampel yang diberikan; data uji tidak dipakai untuk melatih."
+    },
+    {
+      "pola": "\\.predict\\(",
+      "nama": "predict",
+      "tujuan": "Menghitung prediksi dari model yang sudah dilatih.",
+      "argumen": "Tabel X baru dengan nama dan urutan fitur seperti saat fit.",
+      "hasil": "Satu prediksi tiap baris; ketepatan pada data uji tetap harus diukur."
+    },
+    {
+      "pola": "\\.coef_",
+      "nama": "coef_ dan intercept_",
+      "tujuan": "Membaca kemiringan dan intersep model scikit-learn.",
+      "argumen": "Atribut tanpa tanda kurung; urutan coef_ mengikuti kolom X.",
+      "hasil": "Linear: perubahan prediksi y per satu unit X, dengan fitur lain tetap; logit memakai skala log-odds."
+    },
+    {
+      "pola": "\\.score\\(",
+      "nama": "score",
+      "tujuan": "Meringkas kecocokan model pada data yang diberikan.",
+      "argumen": "X dan y evaluasi; LinearRegression mengembalikan R².",
+      "hasil": "R² dapat negatif pada data uji; score klasifikasi umumnya akurasi, jadi baca jenis modelnya."
+    },
+    {
+      "pola": "sm.add_constant",
+      "nama": "sm.add_constant",
+      "tujuan": "Menambahkan kolom intersep untuk pelengkap statistik.",
+      "argumen": "X yang sama; has_constant=\"add\" meminta kolom konstan.",
+      "hasil": "Matriks X uji; scikit-learn sudah menghitung intersep sendiri sehingga tidak perlu kolom ini."
+    },
+    {
+      "pola": "sm.OLS\\(",
+      "nama": "sm.OLS",
+      "tujuan": "Menghitung standard error dan pengujian regresi linear.",
+      "argumen": "Urutan OLS(y, X_uji), lalu fit(); X_uji mencakup intersep.",
+      "hasil": "Hasil inferensi pada sampel yang sama; model prediksi utama tetap scikit-learn."
+    },
+    {
+      "pola": "\\.summary\\(",
+      "nama": "summary, pvalues, dan bse",
+      "tujuan": "Membaca ringkasan hasil statistik.",
+      "argumen": "Objek hasil fit; bse adalah standard error dan pvalues adalah p-value.",
+      "hasil": "Nilai p menguji hipotesis sesuai asumsi, bukan ukuran besarnya dampak atau bukti kausalitas."
+    },
+    {
+      "pola": "cov_type\\s*=",
+      "nama": "cov_type pada fit",
+      "tujuan": "Mengganti cara menghitung standard error.",
+      "argumen": "HC3 untuk heteroskedastisitas; HAC dengan maxlags untuk ketergantungan waktu.",
+      "hasil": "Pada OLS dengan X/y sama, koefisien tetap; standard error dan p-value dapat berubah."
+    },
+    {
+      "pola": "\\.f_test\\(",
+      "nama": "f_test",
+      "tujuan": "Menguji beberapa pembatasan koefisien sekaligus.",
+      "argumen": "Teks hipotesis, misalnya dua koefisien sama dengan nol.",
+      "hasil": "Statistik F dan p-value untuk hipotesis gabungan, berbeda dari uji satu koefisien."
+    },
+    {
+      "pola": "variance_inflation_factor",
+      "nama": "variance_inflation_factor",
+      "tujuan": "Mengukur hubungan suatu X dengan X lain.",
+      "argumen": "Matriks X yang memuat konstan dan posisi kolom yang diuji.",
+      "hasil": "VIF besar menunjukkan ketergantungan linear; bukan alasan otomatis menghapus variabel."
+    },
+    {
+      "pola": "het_breuschpagan",
+      "nama": "het_breuschpagan dan het_white",
+      "tujuan": "Memeriksa perubahan ragam residual menurut X.",
+      "argumen": "Residual dan X dengan intersep; [1] mengambil p-value LM.",
+      "hasil": "p kecil memberi bukti terhadap ragam konstan; koreksi SE tidak otomatis memperbaiki spesifikasi model."
+    },
+    {
+      "pola": "jarque_bera",
+      "nama": "jarque_bera dan qqplot",
+      "tujuan": "Memeriksa bentuk sebaran residual.",
+      "argumen": "Residual; QQ plot membandingkan kuantil residual dengan distribusi normal.",
+      "hasil": "Statistik, p-value, dan pola grafik; normalitas tidak membuktikan semua asumsi terpenuhi."
+    },
+    {
+      "pola": "durbin_watson",
+      "nama": "durbin_watson dan acorr_breusch_godfrey",
+      "tujuan": "Memeriksa ketergantungan residual menurut urutan waktu.",
+      "argumen": "DW memakai residual; BG memakai hasil OLS dan nlags.",
+      "hasil": "DW sekitar 2 tidak cukup untuk semua kasus; baca juga BG dan urutan data."
+    },
+    {
+      "pola": "LogisticRegression\\(",
+      "nama": "LogisticRegression",
+      "tujuan": "Menyiapkan logit untuk target kategori.",
+      "argumen": "X dan y berlabel kelas; C mengatur kebalikan kekuatan regularisasi; max_iter membatasi iterasi.",
+      "hasil": "Setelah fit, model dapat memberi kelas dan probabilitas; pastikan label kelas yang menjadi kejadian."
+    },
+    {
+      "pola": "\\.predict_proba\\(",
+      "nama": "predict_proba",
+      "tujuan": "Menghitung probabilitas tiap kelas.",
+      "argumen": "X evaluasi; kolom probabilitas mengikuti classes_; [:, 1] mengambil kolom kedua.",
+      "hasil": "Probabilitas bukan keputusan akhir; ambang dipilih menggunakan validasi dan tujuan keputusan."
+    },
+    {
+      "pola": "train_test_split\\(",
+      "nama": "train_test_split",
+      "tujuan": "Memisahkan latihan dan evaluasi.",
+      "argumen": "test_size proporsi uji; random_state mengulang pembagian; stratify=y menjaga proporsi kelas.",
+      "hasil": "X_train, X_test, y_train, y_test; jangan gunakan acak untuk ramalan waktu."
+    },
+    {
+      "pola": "StandardScaler\\(",
+      "nama": "StandardScaler",
+      "tujuan": "Menyetarakan skala fitur.",
+      "argumen": "fit pada X_train, kemudian transform untuk latihan/validasi/uji dengan patokan yang sama.",
+      "hasil": "Fitur berpusat pada rata-rata latihan; tidak mempelajari patokan dari data uji."
+    },
+    {
+      "pola": "\\.fit_transform\\(",
+      "nama": "fit_transform dan transform",
+      "tujuan": "Mempelajari lalu menerapkan pengolahan data.",
+      "argumen": "fit_transform hanya pada latihan; transform menerapkan patokan yang sudah dipelajari.",
+      "hasil": "Data terolah tanpa kebocoran informasi evaluasi."
+    },
+    {
+      "pola": "confusion_matrix\\(",
+      "nama": "confusion_matrix dan ConfusionMatrixDisplay",
+      "tujuan": "Membandingkan kelas aktual dengan keputusan model.",
+      "argumen": "y aktual dan prediksi; labels menetapkan urutan kelas pada matriks.",
+      "hasil": "Baris aktual, kolom prediksi; pisahkan false positive dan false negative."
+    },
+    {
+      "pola": "accuracy_score\\(",
+      "nama": "accuracy_score",
+      "tujuan": "Menghitung proporsi prediksi kelas yang benar.",
+      "argumen": "y aktual dan kelas prediksi.",
+      "hasil": "Nilai 0 sampai 1; akurasi tinggi dapat menutupi kegagalan pada kelas yang jarang."
+    },
+    {
+      "pola": "recall_score\\(",
+      "nama": "recall_score dan precision_score",
+      "tujuan": "Mengevaluasi deteksi kelas kejadian.",
+      "argumen": "y aktual, kelas prediksi, dan label positif yang konsisten.",
+      "hasil": "Recall: kejadian yang ditemukan; precision: tanda positif yang benar; biaya keputusan tetap dipertimbangkan."
+    },
+    {
+      "pola": "roc_auc_score\\(",
+      "nama": "roc_auc_score",
+      "tujuan": "Mengukur kemampuan mengurutkan risiko kelas positif.",
+      "argumen": "y aktual dan probabilitas kelas positif, bukan kelas hasil ambang.",
+      "hasil": "AUC 0,5 setara pengurutan acak; tidak menilai biaya pada satu ambang tertentu."
+    },
+    {
+      "pola": "\\.idxmin\\(",
+      "nama": "idxmin dan idxmax",
+      "tujuan": "Menemukan label baris dengan nilai minimum/maksimum.",
+      "argumen": "Kolom metrik atau nilai yang sedang dibandingkan.",
+      "hasil": "Label baris, bukan nilainya; pemilihan model/ambang dilakukan pada validasi."
+    },
+    {
+      "pola": "sm.Logit\\(",
+      "nama": "sm.Logit dan probit",
+      "tujuan": "Mempelajari model probabilitas serta inferensinya.",
+      "argumen": "Target biner, X dengan intersep; probit memakai fungsi distribusi normal.",
+      "hasil": "Koefisien dan p-value pada skala link; bukan perubahan probabilitas langsung."
+    },
+    {
+      "pola": "coba_logit\\(",
+      "nama": "coba_logit",
+      "tujuan": "Mendemonstrasikan pemeriksaan masalah separation.",
+      "argumen": "y biner dan X; fungsi pembantu diunduh dari modul pengajar.",
+      "hasil": "Pesan diagnosis atau hasil logit; prediksi sempurna dapat membuat koefisien tidak terhingga."
+    },
+    {
+      "pola": "\\.get_margeff\\(",
+      "nama": "get_margeff",
+      "tujuan": "Menerjemahkan hasil model probabilitas menjadi efek marginal.",
+      "argumen": "Objek hasil logit/probit; at=\"overall\" merata-ratakan efek pada sampel.",
+      "hasil": "Perubahan probabilitas per unit X sesuai model, bukan otomatis efek sebab akibat."
+    },
+    {
+      "pola": "OrderedModel\\(",
+      "nama": "OrderedModel",
+      "tujuan": "Memodelkan kategori yang memiliki urutan.",
+      "argumen": "y terurut, X tanpa kolom konstan; distr memilih link logit/probit.",
+      "hasil": "Koefisien dan batas kategori; jarak antarkategori tidak dianggap sama."
+    },
+    {
+      "pola": "estimasi_tobit\\(",
+      "nama": "estimasi_tobit",
+      "tujuan": "Mengestimasi model dengan target tersensor.",
+      "argumen": "Tabel, nama y, daftar X, serta batas sensor pada contoh.",
+      "hasil": "Hasil dari modul khusus; nol tersensor berbeda dari nilai nol yang benar-benar diamati tanpa sensor."
+    },
+    {
+      "pola": "PoissonRegressor\\(",
+      "nama": "PoissonRegressor",
+      "tujuan": "Memodelkan target berupa hitungan.",
+      "argumen": "alpha=0 menonaktifkan penalti; y tidak negatif; fitur X sesuai kasus.",
+      "hasil": "Prediksi rata-rata hitungan positif; exp(koefisien) adalah faktor pengali rata-rata."
+    },
+    {
+      "pola": "negativebinomial",
+      "nama": "Poisson statistik dan negativebinomial",
+      "tujuan": "Membandingkan model hitungan serta overdispersi.",
+      "argumen": "Formula atau y/X; periksa varians relatif terhadap rata-rata.",
+      "hasil": "Model binomial negatif mengizinkan ragam lebih besar; perbandingan mengikuti asumsi masing-masing."
+    },
+    {
+      "pola": "adfuller\\(",
+      "nama": "adfuller",
+      "tujuan": "Menguji hipotesis akar unit.",
+      "argumen": "Seri yang diurutkan; regression menentukan komponen konstan/tren; autolag memilih lag.",
+      "hasil": "[0] statistik dan [1] p-value; p kecil mendukung penolakan akar unit untuk spesifikasi uji ini."
+    },
+    {
+      "pola": "plot_acf\\(",
+      "nama": "plot_acf dan plot_pacf",
+      "tujuan": "Melihat hubungan seri dengan lag-nya.",
+      "argumen": "Seri dan lags; ACF total, PACF setelah pengaruh lag lain diperhitungkan.",
+      "hasil": "Petunjuk ketergantungan waktu untuk memilih kandidat, bukan pemilihan model otomatis."
+    },
+    {
+      "pola": "ARIMA\\(",
+      "nama": "ARIMA",
+      "tujuan": "Memodelkan pola deret waktu.",
+      "argumen": "Seri latihan, order=(p,d,q): lag AR, differencing, dan lag MA.",
+      "hasil": "Model deret waktu; pemilihan orde dan pengujian ramalan perlu mengikuti waktu."
+    },
+    {
+      "pola": "\\.get_forecast\\(",
+      "nama": "get_forecast dan conf_int",
+      "tujuan": "Membuat ramalan beserta intervalnya.",
+      "argumen": "steps jumlah periode setelah akhir latihan; alpha mengatur tingkat interval.",
+      "hasil": "predicted_mean dan interval; ketidakpastian bergantung pada model serta asumsi."
+    },
+    {
+      "pola": "TimeSeriesSplit\\(",
+      "nama": "TimeSeriesSplit dan cross_val_score",
+      "tujuan": "Menguji model dengan latihan yang mendahului validasi.",
+      "argumen": "n_splits jumlah lipatan, test_size panjang validasi; scoring menetapkan metrik.",
+      "hasil": "Skor tiap lipatan; neg_mean_absolute_error perlu dibalik tandanya agar menjadi MAE positif."
+    },
+    {
+      "pola": "mean_absolute_error\\(",
+      "nama": "mean_absolute_error",
+      "tujuan": "Mengukur rata-rata besar kesalahan.",
+      "argumen": "y aktual dan prediksi pada baris yang sama.",
+      "hasil": "MAE dalam satuan target; pada inflasi persen satuannya poin persentase."
+    },
+    {
+      "pola": "root_mean_squared_error\\(",
+      "nama": "root_mean_squared_error",
+      "tujuan": "Mengukur error dengan bobot lebih besar untuk kesalahan besar.",
+      "argumen": "y aktual dan prediksi; gunakan satu pemanggilan langsung dari scikit-learn.",
+      "hasil": "RMSE dalam satuan target; lebih kecil lebih baik pada sampel uji yang sama."
+    },
+    {
+      "pola": "r2_score\\(",
+      "nama": "r2_score",
+      "tujuan": "Membandingkan kuadrat error dengan rata-rata aktual evaluasi.",
+      "argumen": "y aktual dan prediksi dengan urutan baris sama.",
+      "hasil": "R²: 1 sempurna, 0 setara rata-rata aktual; bisa negatif dan tidak menjamin kausalitas."
+    },
+    {
+      "pola": "coint\\(",
+      "nama": "coint",
+      "tujuan": "Menguji hubungan jangka panjang antarseri.",
+      "argumen": "Dua seri level yang sesuai syarat integrasi; trend menetapkan komponen deterministik.",
+      "hasil": "[1] p-value; hasil mendukung analisis kointegrasi dengan spesifikasi yang dipilih."
+    },
+    {
+      "pola": "PanelOLS\\(",
+      "nama": "PanelOLS dan RandomEffects",
+      "tujuan": "Memodelkan banyak unit yang diamati berulang.",
+      "argumen": "Indeks [unit, waktu]; entity_effects=True untuk efek tetap unit; cov_type mengatur SE.",
+      "hasil": "Koefisien panel; FE mengendalikan perbedaan unit yang tetap sepanjang waktu."
+    },
+    {
+      "pola": "\\.hausman\\(",
+      "nama": "hausman",
+      "tujuan": "Membandingkan hasil efek tetap dan efek acak.",
+      "argumen": "Objek hasil FE dan RE dengan koefisien pembanding yang sama.",
+      "hasil": "Statistik dan p-value sesuai asumsi; hasil tidak menggantikan pertimbangan desain penelitian."
+    },
+    {
+      "pola": "arch_model\\(",
+      "nama": "arch_model",
+      "tujuan": "Memodelkan ragam return yang berubah menurut waktu.",
+      "argumen": "Return, mean, vol=\"GARCH\", p dan q untuk lag kuadrat error dan ragam.",
+      "hasil": "Ragam/volatilitas bersyarat; ini model risiko, bukan langsung ramalan harga aset."
+    },
+    {
+      "pola": "het_arch\\(",
+      "nama": "het_arch",
+      "tujuan": "Menguji ketergantungan kuadrat residual.",
+      "argumen": "Residual dan nlags sesuai pengujian.",
+      "hasil": "p-value kecil memberi bukti efek ARCH; bandingkan sebelum dan sesudah pemodelan ragam."
+    },
+    {
+      "pola": "SimpleImputer\\(",
+      "nama": "SimpleImputer",
+      "tujuan": "Mengisi nilai fitur yang hilang memakai patokan latihan.",
+      "argumen": "strategy=\"median\"; fit pada latihan, transform pada uji.",
+      "hasil": "Tabel lengkap; median uji tidak boleh dipakai untuk mengisi latihan."
+    },
+    {
+      "pola": "make_pipeline\\(",
+      "nama": "make_pipeline",
+      "tujuan": "Menggabungkan pengolahan dan model dalam satu alur.",
+      "argumen": "Urutan imputer/scaler/polinomial lalu estimator.",
+      "hasil": "fit hanya pada latihan; predict mengulangi transformasi yang sama pada data baru."
+    },
+    {
+      "pola": "DummyRegressor\\(",
+      "nama": "DummyRegressor",
+      "tujuan": "Menyediakan pembanding prediksi sederhana.",
+      "argumen": "strategy=\"mean\" memprediksi rata-rata target latihan.",
+      "hasil": "Patokan minimum; model kompleks perlu dibandingkan pada data uji yang sama."
+    },
+    {
+      "pola": "PolynomialFeatures\\(",
+      "nama": "PolynomialFeatures",
+      "tujuan": "Menambah pangkat dan interaksi fitur.",
+      "argumen": "degree derajat tertinggi; include_bias=False menghindari kolom konstan ganda.",
+      "hasil": "Lebih banyak fitur; derajat tinggi dapat memperkecil error latihan tetapi memperburuk validasi."
+    },
+    {
+      "pola": "np.linalg.lstsq",
+      "nama": "np.linalg.lstsq",
+      "tujuan": "Menunjukkan perhitungan kuadrat terkecil sebagai pembanding.",
+      "argumen": "Matriks X yang sudah mencakup konstan dan vektor y; rcond=None memakai ambang bawaan.",
+      "hasil": "Koefisien pada keluaran pertama; materi tambahan setelah alur scikit-learn dipahami."
+    },
+    {
+      "pola": "plt.subplots",
+      "nama": "subplots, scatter, dan plot",
+      "tujuan": "Membuat ruang grafik lalu menampilkan hubungan atau pola waktu.",
+      "argumen": "figsize ukuran; scatter untuk titik, plot untuk garis; sumbu dan satuan diberi label.",
+      "hasil": "Titik menunjukkan pengamatan; garis mengikuti urutan X sehingga data perlu diurutkan bila perlu."
+    },
+    {
+      "pola": "\\.histplot\\(",
+      "nama": "histplot dan histogram",
+      "tujuan": "Melihat sebaran satu variabel.",
+      "argumen": "Kolom angka, bins jumlah kelompok; kde menambah kurva kepadatan.",
+      "hasil": "Tinggi batang adalah frekuensi/kepadatan sesuai opsi, bukan urutan waktu."
+    },
+    {
+      "pola": "\\.barh\\(",
+      "nama": "barh dan bar",
+      "tujuan": "Membandingkan nilai antarkelompok.",
+      "argumen": "Nama kelompok dan nilainya; barh memberi batang horizontal.",
+      "hasil": "Panjang batang menunjukkan nilai; periksa satuan dan apakah sumbu dimulai dari nol."
+    },
+    {
+      "pola": "\\.axhline\\(",
+      "nama": "axhline dan axvline",
+      "tujuan": "Memberi patokan pada grafik.",
+      "argumen": "y untuk garis horizontal, x untuk garis vertikal; linestyle mengatur pola garis.",
+      "hasil": "Contoh: residual nol, periode program, atau batas latihan/uji; bukan hasil estimasi tambahan."
+    },
+    {
+      "pola": "\\.heatmap\\(",
+      "nama": "heatmap",
+      "tujuan": "Membaca hubungan pada matriks melalui warna.",
+      "argumen": "Tabel korelasi; annot=True menampilkan angka, vmin/vmax menjaga rentang warna.",
+      "hasil": "Baca angka dan skala warna; dua variabel berkorelasi belum tentu mempunyai hubungan kausal."
+    },
+    {
+      "pola": "\\.fill_between\\(",
+      "nama": "fill_between",
+      "tujuan": "Menampilkan pita interval atau rentang nilai.",
+      "argumen": "X, batas bawah, batas atas; alpha mengatur transparansi.",
+      "hasil": "Pita menunjukkan ketidakpastian sesuai sumber interval, bukan semua kemungkinan hasil."
+    },
+    {
+      "pola": "\\.set_theme\\(",
+      "nama": "set_theme, rcParams, dan label grafik",
+      "tujuan": "Membuat grafik terbaca konsisten.",
+      "argumen": "Tema, ukuran huruf, DPI, judul, xlabel/ylabel, legend, dan tight_layout.",
+      "hasil": "Mengubah tampilan, bukan nilai model; plt.show() menampilkan grafik di notebook."
+    },
+    {
+      "pola": "st.selectbox",
+      "nama": "selectbox, multiselect, dan checkbox",
+      "tujuan": "Menerima pilihan peserta dalam dashboard.",
+      "argumen": "Judul, options, default/index; key membedakan widget.",
+      "hasil": "Nilai pilihan dipakai untuk menyaring data atau menentukan fitur; kode dijalankan ulang saat pilihan berubah."
+    },
+    {
+      "pola": "st.slider",
+      "nama": "slider",
+      "tujuan": "Menerima angka skenario dalam rentang latihan.",
+      "argumen": "Batas minimum, maksimum, nilai awal, dan key.",
+      "hasil": "Nilai masukan model; skenario mengikuti hubungan pada data, bukan hasil intervensi kebijakan."
+    },
+    {
+      "pola": "st.dataframe",
+      "nama": "dataframe, metric, dan caption",
+      "tujuan": "Menampilkan tabel, angka ringkas, dan penjelasan dashboard.",
+      "argumen": "Tabel atau nilai; label dan satuan ditulis bersama angka.",
+      "hasil": "Hasil terlihat pada aplikasi; caption menjelaskan batas interpretasi."
+    },
+    {
+      "pola": "st.tabs",
+      "nama": "tabs, columns, dan expander",
+      "tujuan": "Mengatur tempat informasi pada aplikasi.",
+      "argumen": "Nama tab, jumlah kolom, atau judul panel; with mengisi wadah yang dipilih.",
+      "hasil": "Tata letak dashboard; tidak mengubah perhitungan."
+    },
+    {
+      "pola": "st.plotly_chart",
+      "nama": "plotly_chart dan px.scatter/bar",
+      "tujuan": "Membuat grafik interaktif dengan informasi saat ditunjuk.",
+      "argumen": "Tabel, x/y, warna, label satuan, dan hover_data.",
+      "hasil": "Grafik dapat diperbesar dan disaring; perhatikan data yang sedang dipilih."
+    },
+    {
+      "pola": "st.download_button",
+      "nama": "download_button dan to_csv",
+      "tujuan": "Menyediakan unduhan tabel yang dipilih.",
+      "argumen": "Isi CSV, nama berkas, mime; index=False menghindari indeks tambahan.",
+      "hasil": "Salinan data pilihan pengguna; sumber dan tahun tetap disertakan pada aplikasi."
+    },
+    {
+      "pola": "%%writefile",
+      "nama": "%%writefile",
+      "tujuan": "Menyimpan isi satu sel sebagai bagian aplikasi.",
+      "argumen": "Nama berkas setelah magic; jalankan sel utuh di Colab.",
+      "hasil": "Berkas Python dibuat otomatis; peserta tetap bekerja dari notebook."
+    },
+    {
+      "pola": "tempfile.mkdtemp",
+      "nama": "mkdtemp dan chdir",
+      "tujuan": "Menyiapkan folder kerja sementara aplikasi.",
+      "argumen": "Prefix memberi nama yang mudah dikenali; chdir memilih folder kerja.",
+      "hasil": "Bagian aplikasi tersimpan pada runtime; bahan data tetap dibaca dari alamat yang sudah ditentukan."
+    },
+    {
+      "pola": "with open\\(",
+      "nama": "open, read, dan write",
+      "tujuan": "Menyatukan empat bagian aplikasi.",
+      "argumen": "Nama berkas, mode r/w, encoding UTF-8; with menutup berkas setelah selesai.",
+      "hasil": "Satu dashboard_ekonomi.py; peserta menjalankan sel, bukan mengetik perintah terminal."
+    },
+    {
+      "pola": "socket.socket",
+      "nama": "socket dan bind",
+      "tujuan": "Memilih port lokal yang sedang tersedia.",
+      "argumen": "Alamat 127.0.0.1 dan port 0 meminta port kosong dari sistem.",
+      "hasil": "Nomor port untuk layanan dashboard; tidak berkaitan dengan nilai data ekonomi."
+    },
+    {
+      "pola": "subprocess.Popen",
+      "nama": "subprocess.Popen",
+      "tujuan": "Menjalankan Streamlit dari dalam notebook.",
+      "argumen": "Daftar argumen program, port lokal, dan berkas log.",
+      "hasil": "Proses aplikasi aktif di runtime; terminate()/wait() menghentikannya pada sel penutup."
+    },
+    {
+      "pola": "requests.Session",
+      "nama": "requests dan pemeriksaan health",
+      "tujuan": "Memastikan layanan aplikasi sudah siap.",
+      "argumen": "Alamat lokal /_stcore/health; timeout batas tunggu; Retry mencoba ulang saat layanan mulai.",
+      "hasil": "Status HTTP sukses sebelum pratinjau; kegagalan ditampilkan agar tidak membuka panel kosong."
+    },
+    {
+      "pola": "serve_kernel_port_as_iframe",
+      "nama": "serve_kernel_port_as_iframe dan IFrame",
+      "tujuan": "Menampilkan aplikasi di keluaran notebook.",
+      "argumen": "Port layanan yang sudah aktif; width/height ukuran panel.",
+      "hasil": "Pratinjau interaktif selama runtime hidup; Colab memakai proxy tampilan bawaannya."
+    },
+    {
+      "pola": "set_auth_token",
+      "nama": "ngrok.set_auth_token dan connect",
+      "tujuan": "Membuka alamat HTTPS untuk mengakses dashboard.",
+      "argumen": "Token pengajar sudah diisi; connect menerima port layanan dan konfigurasi ngrok.",
+      "hasil": "Tautan publik sementara; kill/disconnect pada sel penutup menghentikan akses."
+    }
+  ]
 }

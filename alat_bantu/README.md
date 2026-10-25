@@ -10,12 +10,12 @@ Jalankan dari folder utama dengan lingkungan Python yang memiliki paket dari
 
 | Perintah | Kegunaan |
 |---|---|
-| `python alat_bantu/sinkron_kamus_variabel.py` | Menyisipkan definisi variabel dan memperbarui katalog data; kode serta output dipertahankan. |
+| `python alat_bantu/sinkron_kamus_variabel.py` | Menyisipkan definisi variabel, tabel fungsi, kaitan materi, dan katalog data; kode serta output dipertahankan. |
 | `python alat_bantu/sinkron_kamus_variabel.py --periksa` | Memeriksa definisi tanpa mengubah notebook. |
 | `python alat_bantu/uji_semua_notebook.py` | Menjalankan seluruh notebook pada kernel baru dan menyimpan hasil serta grafik. |
 | `python alat_bantu/uji_notebook.py --dari-zip` | Uji cepat dengan salinan data lokal; tidak mengubah keluaran notebook. |
-| `python alat_bantu/uji_format_data.py` | Membandingkan semua nilai pada CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet. |
-| `python alat_bantu/uji_regresi_housing.py` | Memeriksa prediksi, pembagian data, imputasi, metrik, dan Pipeline secara independen. |
+| `python alat_bantu/uji_format_data.py` | Memeriksa tujuh format dengan kasus berbeda: skema, ukuran, nilai, label, dan hash berkas. |
+| `python alat_bantu/uji_regresi_rumah.py` | Memeriksa prediksi, pembagian data, imputasi, metrik, dan Pipeline secara independen. |
 | `python alat_bantu/uji_dashboard.py --ngrok` | Memeriksa interaksi aplikasi dan akses HTTPS memakai token yang sudah diisi pada notebook. |
 | `python alat_bantu/periksa_paket.py` | Memeriksa integritas data, PNG slide, format notebook, dan tautan. |
 | `python alat_bantu/audit_visual.py` | Memeriksa keluaran gambar dan membuat lembar tinjauan lokal. |
@@ -33,7 +33,7 @@ Sesudah benar-benar memeriksa tampilan lembar grafik, jalankan
 
 ## Paket opsional
 
-`paket/data_tutorial.zip` berisi 45 CSV aktif, enam salinan format lain untuk Sesi 0, dan modul model khusus.
+`paket/data_tutorial.zip` berisi 45 CSV aktif, enam contoh format dengan kasus berbeda untuk Sesi 00, dan modul model khusus.
 `paket/png_regresi_tajam.zip` berisi 31 PNG slide tajam.
 Keduanya salinan untuk pengajar; peserta membuka notebook dan membaca CSV dari GitHub.
 Buat ulang dengan `kemas_data.py` atau `kemas_png.py` jika sumber paket berubah.

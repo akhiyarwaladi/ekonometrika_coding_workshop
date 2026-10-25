@@ -1,12 +1,12 @@
 {
   "status": "PASS",
   "jumlah_notebook": 23,
-  "jumlah_gambar": 111,
+  "jumlah_gambar": 114,
   "tinjauan_tampilan": "PASS",
   "notebook": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
-      "gambar": 4
+      "gambar": 5
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
@@ -34,7 +34,7 @@
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
-      "gambar": 3
+      "gambar": 4
     },
     {
       "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
@@ -61,7 +61,7 @@
       "gambar": 7
     },
     {
-      "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
+      "notebook": "materi/03_regresi_rumah/01_regresi_rumah.ipynb",
       "gambar": 8
     },
     {
@@ -70,7 +70,7 @@
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
-      "gambar": 4
+      "gambar": 5
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",

@@ -1,217 +1,237 @@
 {
   "status": "PASS",
   "jumlah_csv": 59,
-  "jumlah_definisi_kolom": 269,
+  "jumlah_definisi_kolom": 288,
   "jumlah_notebook": 23,
-  "jumlah_tabel_di_tutorial": 93,
+  "jumlah_tabel_di_tutorial": 111,
+  "jumlah_tabel_fungsi": 113,
+  "jumlah_tabel_alur": 23,
   "kode_dan_output_notebook_tetap": true,
   "tutorial": [
     {
       "notebook": "materi/01_ekonometrika/00_persiapan_colab.ipynb",
       "dataset": [
-        "idn_makro_tahunan.csv",
-        "provinsi_2021.csv"
+        "makro_indonesia_tahunan.csv",
+        "produksi_padi_jawa_barat.xlsx",
+        "kemiskinan_indonesia.sav",
+        "pengguna_internet_indonesia.dta",
+        "ekspor_indonesia.tsv",
+        "prakiraan_cuaca_jambi.json",
+        "penduduk_indonesia.parquet",
+        "indikator_provinsi_2021.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/01_regresi_dasar.ipynb",
       "dataset": [
-        "uts_2.csv",
-        "regresi_polinom.csv"
+        "harga_saham_perusahaan.csv",
+        "iklan_penjualan.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/02_bentuk_fungsional.ipynb",
       "dataset": [
-        "regresi_log.csv",
-        "regresi_reciprocal.csv",
-        "regresi_polinom.csv",
-        "usia_unit.csv"
+        "produksi_tenaga_kerja_modal.csv",
+        "pengalaman_waktu_produksi.csv",
+        "iklan_penjualan.csv",
+        "usia_penjualan.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/03_dummy_asumsi_klasik.ipynb",
       "dataset": [
-        "latihan_dummy_1.csv",
-        "latihan_dummy_2.csv",
+        "gaji_pekerja.csv",
+        "pdb_investasi_krisis.csv",
         "contoh_did",
-        "latihan_multikolinieritas_1.csv",
-        "hetero_3.csv",
-        "latihan_normalitas_1.csv"
+        "rumah_multikolinearitas.csv",
+        "rumah_heteroskedastisitas.csv",
+        "harga_saham_makro.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/04_model_kategorikal.ipynb",
       "dataset": [
         "spector",
-        "logit_probit_2.csv",
-        "kredit_default.csv",
-        "multi_ordinal_2.csv",
-        "multi_ordinal_1.csv",
-        "tobit_data_1_rnd.csv",
-        "poisson_data_2_restoran.csv"
+        "kelulusan_mahasiswa.csv",
+        "gagal_bayar_kredit_taiwan.csv",
+        "pilihan_transportasi.csv",
+        "kepuasan_layanan_bank.csv",
+        "belanja_penelitian.csv",
+        "kunjungan_restoran.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/05_deret_waktu_kointegrasi.ipynb",
       "dataset": [
-        "ts_inflasi.csv",
-        "ts_saham.csv",
-        "ts_gdp_growth.csv",
-        "ts_kurs.csv",
-        "idn_inflasi_bulanan.csv",
-        "konsumsi_pendapatan.csv"
+        "indeks_harga_simulasi.csv",
+        "harga_saham_simulasi.csv",
+        "pertumbuhan_pdb_simulasi.csv",
+        "kurs_simulasi.csv",
+        "inflasi_indonesia_bulanan.csv",
+        "konsumsi_pendapatan_tahunan.csv"
       ]
     },
     {
       "notebook": "materi/01_ekonometrika/06_panel_garch.ipynb",
       "dataset": [
-        "panel_gdp.csv",
-        "volatilitas.csv"
+        "panel_pdb_simulasi.csv",
+        "return_volatilitas_simulasi.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/00_persiapan_colab.ipynb",
       "dataset": [
-        "idn_makro_tahunan.csv",
-        "provinsi_2021.csv"
+        "makro_indonesia_tahunan.csv",
+        "produksi_padi_jawa_barat.xlsx",
+        "kemiskinan_indonesia.sav",
+        "pengguna_internet_indonesia.dta",
+        "ekspor_indonesia.tsv",
+        "prakiraan_cuaca_jambi.json",
+        "penduduk_indonesia.parquet",
+        "indikator_provinsi_2021.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/01_regresi_dasar.ipynb",
       "dataset": [
-        "uts_6.csv",
-        "uts_3.csv",
-        "uts_4.csv"
+        "penjualan_produk.csv",
+        "produktivitas_padi.csv",
+        "harapan_hidup.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/02_bentuk_fungsional.ipynb",
       "dataset": [
-        "regresi_log.csv",
+        "produksi_tenaga_kerja_modal.csv",
         "pendidikan_pendapatan.csv",
-        "usia_unit.csv",
-        "jam_skor.csv",
-        "uts_1.csv"
+        "usia_penjualan.csv",
+        "jam_belajar_nilai_ujian.csv",
+        "pertumbuhan_ekonomi_negara.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/03_dummy_asumsi_klasik.ipynb",
       "dataset": [
-        "latihan_dummy_1.csv",
-        "latihan_multikolinieritas_1.csv",
+        "gaji_pekerja.csv",
+        "rumah_multikolinearitas.csv",
         "contoh_did",
-        "hetero_2.csv",
-        "latihan_normalitas_3.csv",
-        "hetero_1.csv"
+        "pendapatan_pekerja.csv",
+        "rumah_normalitas.csv",
+        "penjualan_iklan_diskon.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/04_model_kategorikal.ipynb",
       "dataset": [
         "spector",
-        "kredit_default.csv",
-        "logit_probit_2.csv",
-        "multi_ordinal_1.csv",
-        "poisson_data_1_klaim.csv"
+        "gagal_bayar_kredit_taiwan.csv",
+        "kelulusan_mahasiswa.csv",
+        "kepuasan_layanan_bank.csv",
+        "klaim_asuransi_mobil.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/05_deret_waktu_panel.ipynb",
       "dataset": [
-        "ts_inflasi.csv",
-        "konsumsi_pendapatan.csv",
+        "indeks_harga_simulasi.csv",
+        "konsumsi_pendapatan_tahunan.csv",
         "panel_padi.csv",
-        "idn_inflasi_bulanan.csv",
-        "ts_saham.csv",
-        "ihsg_emas.csv",
-        "panel_retail.csv"
+        "inflasi_indonesia_bulanan.csv",
+        "harga_saham_simulasi.csv",
+        "ihsg_emas_simulasi.csv",
+        "panel_toko_ritel.csv"
       ]
     },
     {
       "notebook": "materi/02_latihan/06_data_indonesia.ipynb",
       "dataset": [
         "ihsg_harian.csv",
-        "asean_panel.csv",
-        "idn_makro_tahunan.csv",
-        "kurs_harian.csv",
-        "idn_inflasi_bulanan.csv",
-        "idn_kurs_tahunan.csv",
-        "ihsg_panjang.csv",
-        "provinsi_2021.csv"
+        "panel_asean.csv",
+        "makro_indonesia_tahunan.csv",
+        "kurs_rupiah_harian.csv",
+        "inflasi_indonesia_bulanan.csv",
+        "kurs_rupiah_tahunan.csv",
+        "ihsg_riwayat_panjang.csv",
+        "indikator_provinsi_2021.csv"
       ]
     },
     {
-      "notebook": "materi/03_regresi_housing/01_regresi_housing.ipynb",
+      "notebook": "materi/03_regresi_rumah/01_regresi_rumah.ipynb",
       "dataset": [
         "contoh_taksi",
-        "housing.csv"
+        "harga_rumah_boston.csv"
       ]
     },
     {
       "notebook": "materi/04_dashboard_indonesia/01_dashboard_ekonomi.ipynb",
       "dataset": [
-        "provinsi_2021.csv"
+        "indikator_provinsi_2021.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/00_persiapan_colab.ipynb",
       "dataset": [
-        "idn_makro_tahunan.csv",
-        "provinsi_2021.csv"
+        "makro_indonesia_tahunan.csv",
+        "produksi_padi_jawa_barat.xlsx",
+        "kemiskinan_indonesia.sav",
+        "pengguna_internet_indonesia.dta",
+        "ekspor_indonesia.tsv",
+        "prakiraan_cuaca_jambi.json",
+        "penduduk_indonesia.parquet",
+        "indikator_provinsi_2021.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/01_regresi_dasar.ipynb",
       "dataset": [
-        "uts_3.csv",
-        "uts_4.csv",
-        "uts_6.csv"
+        "produktivitas_padi.csv",
+        "harapan_hidup.csv",
+        "penjualan_produk.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/02_bentuk_fungsional.ipynb",
       "dataset": [
         "pendidikan_pendapatan.csv",
-        "usia_unit.csv",
-        "jam_skor.csv",
-        "uts_1.csv"
+        "usia_penjualan.csv",
+        "jam_belajar_nilai_ujian.csv",
+        "pertumbuhan_ekonomi_negara.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/03_dummy_asumsi_klasik.ipynb",
       "dataset": [
-        "hetero_2.csv",
-        "latihan_normalitas_3.csv",
-        "hetero_1.csv",
+        "pendapatan_pekerja.csv",
+        "rumah_normalitas.csv",
+        "penjualan_iklan_diskon.csv",
         "contoh_did"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/04_model_kategorikal.ipynb",
       "dataset": [
-        "logit_probit_2.csv",
-        "multi_ordinal_1.csv",
-        "poisson_data_1_klaim.csv",
-        "kredit_default.csv"
+        "kelulusan_mahasiswa.csv",
+        "kepuasan_layanan_bank.csv",
+        "klaim_asuransi_mobil.csv",
+        "gagal_bayar_kredit_taiwan.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/05_deret_waktu_panel.ipynb",
       "dataset": [
-        "ts_saham.csv",
-        "ihsg_emas.csv",
-        "panel_retail.csv",
-        "idn_inflasi_bulanan.csv"
+        "harga_saham_simulasi.csv",
+        "ihsg_emas_simulasi.csv",
+        "panel_toko_ritel.csv",
+        "inflasi_indonesia_bulanan.csv"
       ]
     },
     {
       "notebook": "pengajar/kunci_jawaban/06_data_indonesia.ipynb",
       "dataset": [
-        "kurs_harian.csv",
-        "ihsg_panjang.csv",
-        "provinsi_2021.csv",
-        "asean_panel.csv"
+        "kurs_rupiah_harian.csv",
+        "ihsg_riwayat_panjang.csv",
+        "indikator_provinsi_2021.csv",
+        "panel_asean.csv"
       ]
     }
   ]

@@ -375,7 +375,7 @@ teks(
     [
         "import pandas as pd",
         "from sklearn.linear_model import LinearRegression",
-        'saham = pd.read_csv("data/uts_2.csv")',
+        'saham = pd.read_csv("data/harga_saham_perusahaan.csv")',
         'X = saham[["X1_Pendapatan_per_Saham"]]',
         'y = saham["Y_Harga_Saham"]',
         "model = LinearRegression()",
@@ -431,7 +431,7 @@ teks(
     [
         "import pandas as pd",
         "from sklearn.linear_model import LogisticRegression",
-        'data = pd.read_csv("data/logit_probit_2.csv")',
+        'data = pd.read_csv("data/kelulusan_mahasiswa.csv")',
         'X = data[["IPK_SEM2", "BEASISWA"]]',
         'y = data["LULUS_TEPAT"]',
         "logit = LogisticRegression(max_iter=5000)",

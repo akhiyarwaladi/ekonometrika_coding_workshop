@@ -14,7 +14,7 @@ def baca(name):
 def simpan_ringkasan():
     kernel = baca("uji_kernel_semua_notebook.json")
     struktur = baca("struktur.json")
-    housing = baca("hasil_uji_regresi_housing.json")
+    housing = baca("hasil_uji_regresi_rumah.json")
     dashboard = baca("uji_dashboard.json")
     visual = baca("audit_visual.json")
     kamus = baca("kamus_variabel.json")
@@ -32,7 +32,7 @@ def simpan_ringkasan():
             lines.append(f"| [{path}](../../{path}) | {item['status']} | {item.get('sel_kode', '—')} | {item.get('grafik', '—')} |")
     lines += ["", "## Struktur dan integritas", ""]
     if struktur:
-        lines += [f"Status **{struktur['status']}**: {struktur['notebook']} notebook, {struktur['csv_aktif']} CSV aktif, {struktur['csv_cadangan']} CSV cadangan.",
+        lines += [f"Status **{struktur['status']}**: {struktur['notebook']} notebook, {struktur['csv_aktif']} CSV utama, {struktur['csv_cadangan']} CSV latihan tambahan.",
                   f"{struktur['hash_diperiksa']} hash berkas terlindungi dan {struktur['tautan_lokal']} tautan materi diperiksa, termasuk tujuan bagian dan tautan Colab.",
                   "31 PNG slide tetap berukuran 6000 × 3375 piksel, 600 dpi, dan sesuai dengan ZIP PNG."]
         if "bagian_notebook" in struktur:
@@ -40,10 +40,15 @@ def simpan_ringkasan():
                       "Seluruh notebook mempunyai bagian Selanjutnya. Tidak ada impor identik yang berulang dalam ruang kerja yang sama."]
     if kamus:
         lines += [f"Definisi {kamus['jumlah_definisi_kolom']} kolom tersedia pada {kamus['jumlah_tabel_di_tutorial']} tabel Kenali data; [katalog data](../../data/README.md) memuat seluruh CSV."]
+        if "jumlah_tabel_fungsi" in kamus:
+            lines += [f"{kamus['jumlah_tabel_fungsi']} tabel fungsi menjelaskan kegunaan, masukan/argumen, dan hasil perintah. {kamus['jumlah_tabel_alur']} tabel alur menghubungkan bekal sebelumnya dengan materi berikutnya."]
     if format_data:
         lines += ["", "## Pembaca berbagai format data", "",
-                  f"Status **{format_data['status']}**: CSV, Excel, SPSS, Stata, TSV, JSON, dan Parquet menghasilkan {format_data['baris']} baris dan {format_data['kolom']} kolom dengan nilai yang sama.",
-                  "Semua salinan berasal dari tabel makro Indonesia yang sama; berkas CSV asli dipertahankan. Label variabel SPSS/Stata dan kedua lembar Excel juga diperiksa."]
+                  f"Status **{format_data['status']}**: tujuh format memakai {format_data['kasus_berbeda']} kasus Indonesia yang berbeda.",
+                  "Sumber: World Bank, BPS Jawa Barat, dan BMKG. Bentuk tabel, satuan, label SPSS/Stata, kedua lembar Excel, dan hash salinan diperiksa.", "",
+                  "| Format | Kasus | Baris | Kolom |", "|---|---|---:|---:|"]
+        for item in format_data["hasil"]:
+            lines.append(f"| {item['format']} | {item['kasus']} | {item['baris']} | {item['kolom']} |")
     lines += ["", "## Visualisasi dan keterbacaan", ""]
     if visual:
         lines += [f"Status **{visual['status']}**: {visual['jumlah_notebook']} notebook diperiksa; total {visual['jumlah_gambar']} gambar keluaran.",

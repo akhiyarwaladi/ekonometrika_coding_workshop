@@ -185,15 +185,21 @@ def main():
     cadangan_path = ROOT / "alat_bantu/arsip/cadangan_sebelum_penataan.zip"
     if cadangan_path.exists():
         with ZipFile(cadangan_path) as cadangan:
+            # Beberapa CSV dibuat setelah peta nama awal. Cocokkan isi untuk
+            # nama deskriptif baru tanpa mengubah catatan nama sumber lama.
+            csv_arsip = {hashlib.sha256(cadangan.read(n)).hexdigest()
+                         for n in cadangan.namelist() if n.lower().endswith(".csv")}
             for path in csv_files:
                 lokasi = path.relative_to(ROOT).as_posix()
-                sebelum_pemisahan = lokasi.replace("data/cadangan/", "data/", 1)
-                assert (
-                    cadangan.read(nama_lama.get(lokasi, sebelum_pemisahan)) == path.read_bytes()
-                ), path
+                sebelum_pemisahan = lokasi.replace("data/latihan_tambahan/", "data/", 1)
+                nama_sumber = nama_lama.get(lokasi, sebelum_pemisahan)
+                if nama_sumber in cadangan.namelist():
+                    assert cadangan.read(nama_sumber) == path.read_bytes(), path
+                else:
+                    assert hash_file(path) in csv_arsip, path
     aktif = sorted((ROOT / "data").glob("*.csv"))
     assert len(aktif) == 45
-    assert len(list((ROOT / "data/cadangan").glob("*.csv"))) == 14
+    assert len(list((ROOT / "data/latihan_tambahan").glob("*.csv"))) == 14
     data_lepas = [p for p in files if p.is_file() and p.suffix in {".csv", ".xlsx", ".xls"}
                   and not p.is_relative_to(ROOT / "data")
                   and p != ROOT / "alat_bantu/laporan/peta_perubahan_nama.csv"]

@@ -17,7 +17,7 @@
   "batas_uji": "Interaksi Streamlit diuji dengan AppTest lokal; antarmuka Google Colab tidak dikendalikan dalam pengujian ini.",
   "kernel_notebook": {
     "status": "PASS",
-    "sel_kode": 13,
+    "sel_kode": 15,
     "grafik_dalam_notebook": 1,
     "server_dan_healthcheck": "PASS",
     "proses_uji_dihentikan": true,

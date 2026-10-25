@@ -19,7 +19,7 @@ Ekspor lama 300 dpi disimpan lokal di `alat_bantu/arsip/slide/png_regresi_300_dp
 Folder PNG aktif di sini hanya memuat versi tajam. Versi tajam juga mengoreksi
 target pelatihan pada contoh kode dan menyamakan R²/RMSE dengan notebook Housing.
 Praktik yang mengikuti materi ini ada di
-[notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb).
+[notebook Housing](../materi/03_regresi_rumah/01_regresi_rumah.ipynb).
 
 
 ## Pilih halaman praktik
@@ -64,7 +64,7 @@ tanpa RAD. R² test **0,6390347738951445** dan RMSE test **5,144992285668699**.
 Kode dan angka ini diperiksa kembali saat pembuatan slide. Nilai tabel VIF dan
 tabel Temperature tetap merupakan contoh historis dari slide sumber, bukan hasil
 baru dari data Housing. Materi lengkap yang bisa dijalankan ada di
-[notebook Housing](../materi/03_regresi_housing/01_regresi_housing.ipynb).
+[notebook Housing](../materi/03_regresi_rumah/01_regresi_rumah.ipynb).
 
 ### Pemeriksaan
 

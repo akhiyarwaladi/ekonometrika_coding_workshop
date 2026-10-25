@@ -38,9 +38,16 @@ def tanpa_error(app):
     assert not app.exception, str(app.exception)
 
 
-def uji_kernel(ngrok_aktif=False):
+def uji_kernel(ngrok_aktif=False, data_lokal=False):
     os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
     notebook = nbformat.read(NOTEBOOK, as_version=4)
+    sumber_asli = {c.id: c.source for c in notebook.cells}
+    if data_lokal:
+        for cell in notebook.cells:
+            cell.source = cell.source.replace(
+                "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/",
+                (ROOT / "data").as_uri() + "/",
+            )
     pemeriksaan_ngrok = ""
     if ngrok_aktif:
         sel_ngrok = next(c for c in notebook.cells if c.cell_type == "code" and "gunakan_ngrok = False" in c.source)
@@ -83,6 +90,8 @@ def uji_kernel(ngrok_aktif=False):
         if client.kc is not None:
             client.kc.stop_channels()
     notebook.cells.pop()
+    for cell in notebook.cells:
+        cell.source = sumber_asli[cell.id]
     code_cells = [c for c in notebook.cells if c.cell_type == "code"]
     assert all(c.execution_count is not None for c in code_cells)
     assert not [o for c in code_cells for o in c.outputs if o.output_type == "error"]
@@ -102,6 +111,7 @@ def uji_kernel(ngrok_aktif=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--notebook", action="store_true")
+    parser.add_argument("--data-lokal", action="store_true", help="Uji salinan lokal sebelum perubahan nama tersedia di GitHub.")
     parser.add_argument("--ngrok", action="store_true", help="Uji tautan HTTPS memakai token pada notebook, lalu tutup koneksi.")
     args = parser.parse_args()
     periksa_notebook(NOTEBOOK)
@@ -122,8 +132,8 @@ def main():
         alamat_data = "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/"
         aplikasi_lokal = aplikasi.replace(alamat_data, folder.as_posix() + "/")
         file_app.write_text(aplikasi_lokal, encoding="utf-8")
-        shutil.copyfile(ROOT / "data/provinsi_2021.csv", folder / "provinsi_2021.csv")
-        data = pd.read_csv(folder / "provinsi_2021.csv")
+        shutil.copyfile(ROOT / "data/indikator_provinsi_2021.csv", folder / "indikator_provinsi_2021.csv")
+        data = pd.read_csv(folder / "indikator_provinsi_2021.csv")
         app = AppTest.from_file(file_app, default_timeout=30).run()
         tanpa_error(app)
         assert len(app.tabs) == 3
@@ -187,7 +197,7 @@ def main():
         checks.append("Model dan tabel mengikuti filter 10 provinsi yang dipilih.")
 
         data["IPM"] = 70.0
-        data.to_csv(folder / "provinsi_2021.csv", index=False)
+        data.to_csv(folder / "indikator_provinsi_2021.csv", index=False)
         app = AppTest.from_file(file_app, default_timeout=30).run()
         tanpa_error(app)
         assert any("lebih dari satu nilai" in item.value for item in app.info)
@@ -200,7 +210,7 @@ def main():
         "batas_uji": "Interaksi Streamlit diuji dengan AppTest lokal; antarmuka Google Colab tidak dikendalikan dalam pengujian ini.",
     }
     if args.notebook or args.ngrok:
-        report["kernel_notebook"] = uji_kernel(ngrok_aktif=args.ngrok)
+        report["kernel_notebook"] = uji_kernel(ngrok_aktif=args.ngrok, data_lokal=args.data_lokal)
     (ROOT / "alat_bantu/laporan/uji_dashboard.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     simpan_ringkasan()
     print(f"PASS: {len(checks)} kelompok pengujian dashboard; RMSE {rmse:.4f}, R² {r2:.4f}.")

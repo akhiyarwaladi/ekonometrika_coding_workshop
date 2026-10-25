@@ -62,9 +62,9 @@ def main():
         bagian = world_bank("IDN", kode, nama)
         makro = bagian if makro is None else makro.merge(bagian, on=["negara", "tahun"])
     makro = makro.sort_values("tahun").reset_index(drop=True)
-    makro.to_csv(DATA / "idn_makro_tahunan.csv", index=False)
+    makro.to_csv(DATA / "makro_indonesia_tahunan.csv", index=False)
     print(
-        f"  OK idn_makro_tahunan.csv: {len(makro)} baris, {makro['tahun'].min()}-{makro['tahun'].max()}"
+        f"  OK makro_indonesia_tahunan.csv: {len(makro)} baris, {makro['tahun'].min()}-{makro['tahun'].max()}"
     )
 
     # 2. Panel ASEAN
@@ -75,9 +75,9 @@ def main():
         panel = bagian if panel is None else panel.merge(bagian, on=["negara", "tahun"])
     panel = panel.rename(columns={"negara": "Negara", "tahun": "Tahun"})
     panel = panel.sort_values(["Negara", "Tahun"]).reset_index(drop=True)
-    panel.to_csv(DATA / "asean_panel.csv", index=False)
+    panel.to_csv(DATA / "panel_asean.csv", index=False)
     print(
-        f"  OK asean_panel.csv: {len(panel)} baris, {panel['Negara'].nunique()} negara"
+        f"  OK panel_asean.csv: {len(panel)} baris, {panel['Negara'].nunique()} negara"
     )
 
     # 3. IHSG harian
@@ -115,8 +115,8 @@ def main():
         kurs = pd.DataFrame(
             [{"Tanggal": t, "Kurs_USD_IDR": v["IDR"]} for t, v in sorted(rates.items())]
         )
-        kurs.to_csv(DATA / "kurs_harian.csv", index=False)
-        print(f"  OK kurs_harian.csv: {len(kurs)} baris")
+        kurs.to_csv(DATA / "kurs_rupiah_harian.csv", index=False)
+        print(f"  OK kurs_rupiah_harian.csv: {len(kurs)} baris")
     except Exception as e:
         print(f"  GAGAL kurs: {type(e).__name__}: {e}")
 
@@ -134,9 +134,9 @@ def main():
         cpi["inflasi_mom"] = 100 * (cpi["indeks"] / cpi["indeks"].shift(1) - 1)
         cpi["inflasi_yoy"] = 100 * (cpi["indeks"] / cpi["indeks"].shift(12) - 1)
         cpi = cpi.dropna(subset=["inflasi_yoy"]).reset_index(drop=True)
-        cpi.to_csv(DATA / "idn_inflasi_bulanan.csv", index=False)
+        cpi.to_csv(DATA / "inflasi_indonesia_bulanan.csv", index=False)
         print(
-            f"  OK idn_inflasi_bulanan.csv: {len(cpi)} baris, "
+            f"  OK inflasi_indonesia_bulanan.csv: {len(cpi)} baris, "
             f"{cpi['tanggal'].min().date()}-{cpi['tanggal'].max().date()}"
         )
     except Exception as e:
@@ -157,9 +157,9 @@ def main():
         if isinstance(panjang.columns, pd.MultiIndex):
             panjang.columns = panjang.columns.get_level_values(0)
         panjang = panjang.reset_index()
-        panjang.to_csv(DATA / "ihsg_panjang.csv", index=False)
+        panjang.to_csv(DATA / "ihsg_riwayat_panjang.csv", index=False)
         print(
-            f"  OK ihsg_panjang.csv: {len(panjang)} baris, "
+            f"  OK ihsg_riwayat_panjang.csv: {len(panjang)} baris, "
             f"{panjang['Date'].min().date()}-{panjang['Date'].max().date()}"
         )
     except Exception as e:
@@ -170,9 +170,9 @@ def main():
     try:
         kurs_panjang = world_bank("IDN", "PA.NUS.FCRF", "kurs", "1967:2025")
         kurs_panjang = kurs_panjang[["tahun", "kurs"]].sort_values("tahun")
-        kurs_panjang.to_csv(DATA / "idn_kurs_tahunan.csv", index=False)
+        kurs_panjang.to_csv(DATA / "kurs_rupiah_tahunan.csv", index=False)
         print(
-            f"  OK idn_kurs_tahunan.csv: {len(kurs_panjang)} baris, "
+            f"  OK kurs_rupiah_tahunan.csv: {len(kurs_panjang)} baris, "
             f"{kurs_panjang['tahun'].min()}-{kurs_panjang['tahun'].max()}"
         )
     except Exception as e:
@@ -204,8 +204,8 @@ def main():
                 "APS_19_23": "APS_19_23",
             }
         )
-        prov.to_csv(DATA / "provinsi_2021.csv", index=False)
-        print(f"  OK provinsi_2021.csv: {len(prov)} baris, {len(prov.columns)} kolom")
+        prov.to_csv(DATA / "indikator_provinsi_2021.csv", index=False)
+        print(f"  OK indikator_provinsi_2021.csv: {len(prov)} baris, {len(prov.columns)} kolom")
     except Exception as e:
         print(f"  GAGAL provinsi: {type(e).__name__}: {e}")
 
@@ -250,9 +250,8 @@ def main():
             .sample(frac=1, random_state=42)
             .reset_index(drop=True)
         )
-        (DATA / "cadangan").mkdir(parents=True, exist_ok=True)
-        contoh.to_csv(DATA / "kredit_default.csv", index=False)
-        print(f"  OK kredit_default.csv: {len(contoh)} baris")
+        contoh.to_csv(DATA / "gagal_bayar_kredit_taiwan.csv", index=False)
+        print(f"  OK gagal_bayar_kredit_taiwan.csv: {len(contoh)} baris")
     except ImportError:
         print("  GAGAL kredit default: butuh paket xlrd (pip install xlrd)")
     except Exception as e:

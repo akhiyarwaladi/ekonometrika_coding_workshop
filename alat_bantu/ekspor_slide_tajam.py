@@ -265,7 +265,7 @@ def repair_arrows(page):
 
 
 def sample_metrics():
-    data = pd.read_csv(ROOT / "data/housing.csv")
+    data = pd.read_csv(ROOT / "data/harga_rumah_boston.csv")
     X = data.drop(columns=["MEDV", "RAD"])
     X_train, X_test_ringkas, y_train, y_test = train_test_split(
         X, data["MEDV"], test_size=0.20, random_state=42

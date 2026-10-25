@@ -1031,23 +1031,23 @@ def tulis(nama, header, baris):
 
 def main():
     tulis(
-        "ts_inflasi.csv", "obs,inflasi", [f"{i},{v}" for i, v in enumerate(INFLASI, 1)]
+        "indeks_harga_simulasi.csv", "obs,inflasi", [f"{i},{v}" for i, v in enumerate(INFLASI, 1)]
     )
-    tulis("ts_saham.csv", "obs,saham", [f"{i},{v}" for i, v in enumerate(SAHAM, 1)])
+    tulis("harga_saham_simulasi.csv", "obs,saham", [f"{i},{v}" for i, v in enumerate(SAHAM, 1)])
     tulis(
-        "ts_gdp_growth.csv",
+        "pertumbuhan_pdb_simulasi.csv",
         "obs,gdp_growth",
         [f"{i},{v}" for i, v in enumerate(GDP_GROWTH, 1)],
     )
-    tulis("ts_kurs.csv", "obs,kurs", [f"{i},{v}" for i, v in enumerate(KURS, 1)])
+    tulis("kurs_simulasi.csv", "obs,kurs", [f"{i},{v}" for i, v in enumerate(KURS, 1)])
 
     tulis(
-        "konsumsi_pendapatan.csv",
+        "konsumsi_pendapatan_tahunan.csv",
         "Tahun,Konsumsi_Y,Pendapatan_X",
         [f"{i},{y},{x}" for i, (y, x) in enumerate(zip(KONSUMSI, PENDAPATAN), 1)],
     )
     tulis(
-        "ihsg_emas.csv",
+        "ihsg_emas_simulasi.csv",
         "Bulan,IHSG_Y,Emas_X",
         [f"{i},{y},{x}" for i, (y, x) in enumerate(zip(IHSG, EMAS), 1)],
     )
@@ -1057,13 +1057,13 @@ def main():
         [f"{i},{y},{x}" for i, (y, x) in enumerate(zip(EKSPOR, KURS_KUARTAL), 1)],
     )
     tulis(
-        "ritel_iklan.csv",
+        "iklan_penjualan_mingguan.csv",
         "Minggu,Penjualan_Y,Iklan_X",
         [f"{i},{y},{x}" for i, (y, x) in enumerate(zip(RITEL, IKLAN_RITEL), 1)],
     )
 
     tulis(
-        "volatilitas.csv",
+        "return_volatilitas_simulasi.csv",
         "Observation,Kasus_1_Saham_Return,Kasus_2_Forex_Return,"
         "Kasus_3_Kripto_Return,Kasus_4_Inflasi_MoM,Kasus_5_Minyak_Shock",
         [
@@ -1073,11 +1073,11 @@ def main():
     )
 
     tulis(
-        "panel_gdp.csv",
+        "panel_pdb_simulasi.csv",
         "CountryID,Year,GDP_Y,FDI_X1,Labor_X2",
         PANEL_GDP_DATA.splitlines()[1:],
     )
-    tulis("panel_retail.csv", "StoreID,Month,Sales_Y,Ads_X1,Discount_X2", PANEL_RETAIL)
+    tulis("panel_toko_ritel.csv", "StoreID,Month,Sales_Y,Ads_X1,Discount_X2", PANEL_RETAIL)
     tulis(
         "panel_kesehatan.csv", "PatientID,Month,BP_Y,Sport_X1,Cal_X2", PANEL_KESEHATAN
     )
@@ -1095,8 +1095,8 @@ def main():
         "Tahun_Pendidikan,Pendapatan_Tahunan",
         [f"{a},{b}" for a, b in PENDIDIKAN_PENDAPATAN],
     )
-    tulis("usia_unit.csv", "Usia,Unit_Terjual", [f"{a},{b}" for a, b in USIA_UNIT])
-    tulis("jam_skor.csv", "Jam_Belajar,Skor_Ujian", [f"{a},{b}" for a, b in JAM_SKOR])
+    tulis("usia_penjualan.csv", "Usia,Unit_Terjual", [f"{a},{b}" for a, b in USIA_UNIT])
+    tulis("jam_belajar_nilai_ujian.csv", "Jam_Belajar,Skor_Ujian", [f"{a},{b}" for a, b in JAM_SKOR])
 
 
 if __name__ == "__main__":

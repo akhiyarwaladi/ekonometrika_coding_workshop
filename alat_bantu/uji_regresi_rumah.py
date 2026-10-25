@@ -1,6 +1,6 @@
 """Jalankan notebook Housing di kernel baru dan simpan hasil serta laporan.
 
-Jalankan dari folder proyek: python alat_bantu/uji_regresi_housing.py
+Jalankan dari folder proyek: python alat_bantu/uji_regresi_rumah.py
 Paket tambahan untuk pemeriksaan: nbclient, nbformat, dan ipykernel.
 """
 
@@ -18,8 +18,8 @@ from nbclient import NotebookClient
 from jupyter_client import KernelManager
 
 ROOT = Path(__file__).resolve().parent.parent
-NOTEBOOK = ROOT / "materi/03_regresi_housing/01_regresi_housing.ipynb"
-DATA = ROOT / "data/housing.csv"
+NOTEBOOK = ROOT / "materi/03_regresi_rumah/01_regresi_rumah.ipynb"
+DATA = ROOT / "data/harga_rumah_boston.csv"
 
 CHECK = r"""
 import json
@@ -87,6 +87,13 @@ print(json.dumps({
 def main():
     original_hash = hashlib.sha256(DATA.read_bytes()).hexdigest()
     nb = nbformat.read(NOTEBOOK, as_version=4)
+    sumber_asli = {c.id: c.source for c in nb.cells}
+    if "--data-lokal" in sys.argv:
+        for cell in nb.cells:
+            cell.source = cell.source.replace(
+                "https://raw.githubusercontent.com/akhiyarwaladi/ekonometrika_coding_workshop/main/data/",
+                (ROOT / "data").as_uri() + "/",
+            )
     code_cells = [c for c in nb.cells if c.cell_type == "code"]
     difficult = (
         ast.For,
@@ -129,6 +136,8 @@ def main():
         if client.kc is not None:
             client.kc.stop_channels()
     check_cell = nb.cells.pop()
+    for cell in nb.cells:
+        cell.source = sumber_asli[cell.id]
     check_text = "".join(
         o.get("text", "") for o in check_cell.outputs if o.output_type == "stream"
     )
@@ -154,7 +163,7 @@ def main():
     nbformat.write(nb, NOTEBOOK)
 
     results["grafik_dalam_notebook"] = len(pictures)
-    (ROOT / "alat_bantu/laporan/hasil_uji_regresi_housing.json").write_text(
+    (ROOT / "alat_bantu/laporan/hasil_uji_regresi_rumah.json").write_text(
         json.dumps(results, indent=2), encoding="utf-8"
     )
     simpan_ringkasan()

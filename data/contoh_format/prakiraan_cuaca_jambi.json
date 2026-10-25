@@ -1,0 +1,155 @@
+[
+  {
+    "waktu_lokal":"2026-10-25 23:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":97,
+    "angin_km_jam":4.3,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 02:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":96,
+    "angin_km_jam":4.9,
+    "kondisi":"Hujan Ringan",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 05:00:00",
+    "suhu_c":24,
+    "kelembapan_persen":97,
+    "angin_km_jam":4.6,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 08:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":92,
+    "angin_km_jam":5.2,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 11:00:00",
+    "suhu_c":29,
+    "kelembapan_persen":80,
+    "angin_km_jam":5.5,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 14:00:00",
+    "suhu_c":28,
+    "kelembapan_persen":87,
+    "angin_km_jam":7.1,
+    "kondisi":"Hujan Ringan",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 17:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":95,
+    "angin_km_jam":5.6,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 20:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":98,
+    "angin_km_jam":4.5,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-26 23:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":98,
+    "angin_km_jam":2.8,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 02:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":97,
+    "angin_km_jam":0.2,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 05:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":97,
+    "angin_km_jam":1.7,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 08:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":94,
+    "angin_km_jam":4.2,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 11:00:00",
+    "suhu_c":29,
+    "kelembapan_persen":77,
+    "angin_km_jam":2.5,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 14:00:00",
+    "suhu_c":29,
+    "kelembapan_persen":77,
+    "angin_km_jam":4.5,
+    "kondisi":"Hujan Ringan",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 17:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":91,
+    "angin_km_jam":9.0,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 20:00:00",
+    "suhu_c":26,
+    "kelembapan_persen":95,
+    "angin_km_jam":2.2,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  },
+  {
+    "waktu_lokal":"2026-10-27 23:00:00",
+    "suhu_c":25,
+    "kelembapan_persen":98,
+    "angin_km_jam":1.7,
+    "kondisi":"Udara Kabur",
+    "kelurahan":"Simpang IV Sipin",
+    "waktu_produksi_utc":"2026-10-25T12:00:00"
+  }
+]
